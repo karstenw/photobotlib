@@ -18,12 +18,16 @@ Since 2013 it has been updated to the current Python 2 and Pillow libraries.
 This version is usable as a standalone library.
 
 
+##### Fundamental changes #####
+The top layer can be addressed as `canvas.top`. See examples.
+
+
 ##### Installation #####
 `python setup.py install`
 
 ##### Usage #####
 
-T.B.D. see examples
+T.B.D. see examples folder.
 
 ##### Hints #####
 
