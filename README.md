@@ -16,3 +16,17 @@ PhotoBot was initially a part of the NodeBox Library.
 Since 2013 it has been updated to the current Python 2 and Pillow libraries.
 
 This version is usable as a standalone library.
+
+
+##### Installation #####
+`python setup.py install`
+
+##### Usage #####
+
+T.B.D. see examples
+
+##### Hints #####
+
+`python Kontaktabzug-1.py PATH-TO_IMAGE-FOLDER`
+
+After the first usage there should be a file `imagewell.txt` which can be edited for your image libraries.
