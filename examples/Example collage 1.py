@@ -3,7 +3,7 @@ import sys, os
 
 import pprint
 pp = pprint.pprint
-kwdbg = 1
+kwdbg = 0
 
 # need a different name for nodebox
 import random as rnd
