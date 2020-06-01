@@ -505,7 +505,7 @@ class Canvas:
         
             # Merging the first layer to the transparent canvas
             # works slightly different than the other layers.
-            # pdb.set_trace()
+
             alpha = buffer.split()[3]
             if i == 1:
                 buffer = Image.composite(base, buffer, base.split()[3])
@@ -570,12 +570,10 @@ class Canvas:
             path = os.path.abspath( path )
         except:
             pass
-        # folder, fname = os.path.split( filename )
 
-        
+        # if debugging is on export each layer separately
         if kwdbg:
             basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
-
 
             background = self.layers._get_bg()
             background.name = "Background"
@@ -609,13 +607,12 @@ class Canvas:
                 n = basename % (i, layer.name)
                 path = os.path.join( folder, n )
                 buffer.save( path, format=format, optimize=False)
-                print "SAVE DBG:", path.encode("utf-8")
-
+                print "exort() DBG:", path.encode("utf-8")
 
         self.flatten()
         self.layers[1].img.save(path, format=format, optimize=False)
-        if 0 and kwdbg:
-            print "SAVE:", path.encode("utf-8")
+        if kwdbg:
+            print "export()", path.encode("utf-8")
         return path
 
     def draw(self, x=0, y=0, name="", ext=".png", format='PNG'):
@@ -989,11 +986,14 @@ class Layer:
         for example 1.2 means contrast at 120%.
 
         """
-
-        if value > 5:
-            value = value * 0.01
-        c = ImageEnhance.Contrast(self.img) 
-        self.img = c.enhance(value) 
+        # this crashes sometimes
+        try:
+            if value > 5:
+                value = value * 0.01
+            c = ImageEnhance.Contrast(self.img) 
+            self.img = c.enhance(value)
+        except:
+            pass
 
     def desaturate(self):
 
@@ -1947,6 +1947,6 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
             result['landscape'].append( record )
         else:
             result['portrait'].append( record )
-    # pdb.set_trace()
+
     return result
 
