@@ -16,6 +16,8 @@ if kwdbg:
 
 # width and height of destination image
 W, H = 1024,768
+# W, H = 1280,800
+# W, H = 800,600
 
 
 # import photobot
@@ -68,7 +70,7 @@ c.fill( (85,85,85) )
 columns = 3
 rows = 2
 
-enoughTiles = len(tiles) > (columns*2*rows)
+enoughTiles = len(tiles) > (columns * 2 * rows)
 
 randomblur = 1
 randomflip = 1
@@ -158,3 +160,4 @@ if paintoverlay:
         c.top.overlay()
 
 c.draw(0,0)
+
