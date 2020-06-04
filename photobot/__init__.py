@@ -546,7 +546,7 @@ class Canvas:
         else:
             self.layers.insert(layers[-1], background)
 
-    def export(self, name, ext, format):
+    def export(self, name, ext=".png", format="PNG"):
 
         """Exports the flattened canvas.
 
@@ -556,17 +556,29 @@ class Canvas:
 
         """
 
+        # pdb.set_trace()
+        
         if not name:
             name = "photobot_" + datestring()
-        folder = os.path.abspath( os.curdir )
-        folder = os.path.join( folder, "exports" )
+
+        folder, name = os.path.split( name )
+
+        if not folder:
+            folder = os.path.abspath( os.curdir )
+            folder = os.path.join( folder, "exports" )
+        folder = os.path.abspath( folder )
+
+        filename = name + ext
+        if name.endswith( ext ):
+            filename = name
+
         if not os.path.exists( folder ):
             try:
                 os.makedirs( folder )
             except:
                 pass
         try:
-            path = os.path.join( folder, name + ext )
+            path = os.path.join( folder, filename )
             path = os.path.abspath( path )
         except:
             pass
@@ -1009,7 +1021,9 @@ class Layer:
         self.img = self.img.convert("RGBA")
         self.img.putalpha(alpha)
 
-    def colorize(self, black, white, mid=None):
+
+    def colorize(self, black, white, mid=None,
+                       blackpoint=0, whitepoint=255, midpoint=127):
 
         """Use the ImageOps.colorize() on desaturated layer.
         
@@ -1017,10 +1031,47 @@ class Layer:
         # 
         alpha = self.img.split()[3]
         img = self.img.convert("L")
-        img = ImageOps.colorize(img, black, white, mid)
+        img = ImageOps.colorize(img, black, white, mid,
+                                     blackpoint=0, whitepoint=255, midpoint=127)
         img = img.convert("RGBA")
         img.putalpha(alpha)
         self.img = img
+
+    def posterize(self, bits=8):
+        if 0: #not (1 <= bits <= 8):
+            return
+        alpha = self.img.split()[3]
+        img = self.img.convert("RGB")
+        img = ImageOps.posterize(img, bits)
+        img = img.convert("RGBA")
+        img.putalpha(alpha)
+        self.img = img
+
+    def solarize(self, threshhold):
+        if 0: #not (1 <= bits <= 8):
+            return
+        alpha = self.img.split()[3]
+        img = self.img.convert("RGB")
+        img = ImageOps.solarize(img, threshhold)
+        img = img.convert("RGBA")
+        img.putalpha(alpha)
+        self.img = img
+
+    def autocontrast(self, image, cutoff=0, ignore=None):
+        if 0: #not (1 <= bits <= 8):
+            return
+        alpha = self.img.split()[3]
+        img = self.img.convert("RGB")
+        img = ImageOps.autocontrast(img, cutoff, ignore)
+        img = img.convert("RGBA")
+        img.putalpha(alpha)
+        self.img = img
+
+    def deform( self, deformer, resample=2 ):
+        self.img = ImageOps.autocontrast(self.img, deformer, resample)
+
+    def equalize(self, mask=None):
+        self.img = ImageOps.autocontrast(self.img, mask)
 
     def invert(self):
 
