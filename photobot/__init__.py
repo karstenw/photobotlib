@@ -1057,7 +1057,7 @@ class Layer:
         img.putalpha(alpha)
         self.img = img
 
-    def autocontrast(self, image, cutoff=0, ignore=None):
+    def autocontrast(self, cutoff=0, ignore=None):
         if 0: #not (1 <= bits <= 8):
             return
         alpha = self.img.split()[3]
@@ -1068,10 +1068,10 @@ class Layer:
         self.img = img
 
     def deform( self, deformer, resample=2 ):
-        self.img = ImageOps.autocontrast(self.img, deformer, resample)
+        self.img = ImageOps.deform(self.img, deformer, resample)
 
     def equalize(self, mask=None):
-        self.img = ImageOps.autocontrast(self.img, mask)
+        self.img = ImageOps.equalize(self.img, mask)
 
     def invert(self):
 
