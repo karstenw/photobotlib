@@ -12,8 +12,8 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
+<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
+<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -112,7 +112,7 @@
 <v t="karstenw.20170709210125.64"><vh>convolute</vh></v>
 </v>
 </v>
-<v t="karstenw.20200419183424.1" a="E"><vh>nodebox &amp; stand alone tools</vh>
+<v t="karstenw.20200419183424.1"><vh>nodebox &amp; stand alone tools</vh>
 <v t="karstenw.20200419185608.1"><vh>makeunicode</vh></v>
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
@@ -126,7 +126,7 @@
 <v t="karstenw.20200419185049.1"><vh>placeImage</vh></v>
 <v t="karstenw.20200419185056.1"><vh>resizeImage</vh></v>
 </v>
-<v t="karstenw.20200419184649.1" a="E"><vh>standalone tools</vh>
+<v t="karstenw.20200419184649.1"><vh>standalone tools</vh>
 <v t="karstenw.20200419184336.1"><vh>label</vh></v>
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
@@ -465,7 +465,7 @@ import traceback
     
         # Merging the first layer to the transparent canvas
         # works slightly different than the other layers.
-        # pdb.set_trace()
+
         alpha = buffer.split()[3]
         if i == 1:
             buffer = Image.composite(base, buffer, base.split()[3])
@@ -507,7 +507,7 @@ import traceback
         self.layers.insert(layers[-1], background)
 
 </t>
-<t tx="karstenw.20170709210125.13">def export(self, name, ext, format):
+<t tx="karstenw.20170709210125.13">def export(self, name, ext=".png", format="PNG"):
 
     """Exports the flattened canvas.
 
@@ -517,15 +517,16 @@ import traceback
 
     """
 
-    &lt;&lt;init&gt;&gt;
+    # pdb.set_trace()
     
+    &lt;&lt;init&gt;&gt;
     if kwdbg:
         &lt;&lt;debug&gt;&gt;
 
     self.flatten()
     self.layers[1].img.save(path, format=format, optimize=False)
-    if 0 and kwdbg:
-        print "SAVE:", path.encode("utf-8")
+    if kwdbg:
+        print "export()", path.encode("utf-8")
     return path
 
 </t>
@@ -884,11 +885,14 @@ import traceback
     for example 1.2 means contrast at 120%.
 
     """
-
-    if value &gt; 5:
-        value = value * 0.01
-    c = ImageEnhance.Contrast(self.img) 
-    self.img = c.enhance(value) 
+    # this crashes sometimes
+    try:
+        if value &gt; 5:
+            value = value * 0.01
+        c = ImageEnhance.Contrast(self.img) 
+        self.img = c.enhance(value)
+    except:
+        pass
 
 </t>
 <t tx="karstenw.20170709210125.41">def desaturate(self):
@@ -906,7 +910,9 @@ import traceback
     self.img.putalpha(alpha)
 
 </t>
-<t tx="karstenw.20170709210125.42">def colorize(self, black, white, mid=None):
+<t tx="karstenw.20170709210125.42">
+def colorize(self, black, white, mid=None,
+                   blackpoint=0, whitepoint=255, midpoint=127):
 
     """Use the ImageOps.colorize() on desaturated layer.
     
@@ -914,10 +920,47 @@ import traceback
     # 
     alpha = self.img.split()[3]
     img = self.img.convert("L")
-    img = ImageOps.colorize(img, black, white, mid)
+    img = ImageOps.colorize(img, black, white, mid,
+                                 blackpoint=0, whitepoint=255, midpoint=127)
     img = img.convert("RGBA")
     img.putalpha(alpha)
     self.img = img
+
+def posterize(self, bits=8):
+    if 0: #not (1 &lt;= bits &lt;= 8):
+        return
+    alpha = self.img.split()[3]
+    img = self.img.convert("RGB")
+    img = ImageOps.posterize(img, bits)
+    img = img.convert("RGBA")
+    img.putalpha(alpha)
+    self.img = img
+
+def solarize(self, threshhold):
+    if 0: #not (1 &lt;= bits &lt;= 8):
+        return
+    alpha = self.img.split()[3]
+    img = self.img.convert("RGB")
+    img = ImageOps.solarize(img, threshhold)
+    img = img.convert("RGBA")
+    img.putalpha(alpha)
+    self.img = img
+
+def autocontrast(self, cutoff=0, ignore=None):
+    if 0: #not (1 &lt;= bits &lt;= 8):
+        return
+    alpha = self.img.split()[3]
+    img = self.img.convert("RGB")
+    img = ImageOps.autocontrast(img, cutoff, ignore)
+    img = img.convert("RGBA")
+    img.putalpha(alpha)
+    self.img = img
+
+def deform( self, deformer, resample=2 ):
+    self.img = ImageOps.deform(self.img, deformer, resample)
+
+def equalize(self, mask=None):
+    self.img = ImageOps.equalize(self.img, mask)
 
 </t>
 <t tx="karstenw.20170709210125.43">def invert(self):
@@ -1436,7 +1479,7 @@ import traceback
 
 </t>
 <t tx="karstenw.20170709210125.67">#
-# additional tools
+# image well
 #
 
 def imagewells():
@@ -1886,7 +1929,11 @@ def smooth_more(self):
                     info = os.stat( filepath )
                     lastmodf = datetime.datetime.fromtimestamp( info.st_mtime )
                     islink = os.path.islink( filepath )
-                    record = (filepath, info.st_size, lastmodf, oct(info.st_mode), islink )
+                    record = (filepath,
+                              info.st_size,
+                              lastmodf,
+                              oct(info.st_mode),
+                              islink )
                 yield record
 
 
@@ -1917,14 +1964,13 @@ def smooth_more(self):
         else:
             path, filesize, lastmodf, mode, islink = filetuple
             s = (-1,-1)
-            img = None
             try:
                 img = Image.open(path)
                 s = img.size
+                del img
             except:
                 pass #continue
             filetuple = (path, filesize, lastmodf, mode, islink, s[0], s[1])
-            del img
             yield filetuple
 
 
@@ -2040,7 +2086,7 @@ def smooth_more(self):
             result['landscape'].append( record )
         else:
             result['portrait'].append( record )
-    # pdb.set_trace()
+
     return result
 
 </t>
@@ -2144,23 +2190,32 @@ QUAD = "quad"
 <t tx="karstenw.20200430120752.1"></t>
 <t tx="karstenw.20200430120922.1">if not name:
     name = "photobot_" + datestring()
-folder = os.path.abspath( os.curdir )
-folder = os.path.join( folder, "exports" )
+
+folder, name = os.path.split( name )
+
+if not folder:
+    folder = os.path.abspath( os.curdir )
+    folder = os.path.join( folder, "exports" )
+folder = os.path.abspath( folder )
+
+filename = name + ext
+if name.endswith( ext ):
+    filename = name
+
 if not os.path.exists( folder ):
     try:
         os.makedirs( folder )
     except:
         pass
 try:
-    path = os.path.join( folder, name + ext )
+    path = os.path.join( folder, filename )
     path = os.path.abspath( path )
 except:
     pass
-# folder, fname = os.path.split( filename )
 
+# if debugging is on export each layer separately
 </t>
 <t tx="karstenw.20200430120955.1">basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
-
 
 background = self.layers._get_bg()
 background.name = "Background"
@@ -2194,8 +2249,7 @@ for i in layers:
     n = basename % (i, layer.name)
     path = os.path.join( folder, n )
     buffer.save( path, format=format, optimize=False)
-    print "SAVE DBG:", path.encode("utf-8")
-
+    print "exort() DBG:", path.encode("utf-8")
 </t>
 <t tx="karstenw.20200430124808.1">@property
 def dup(self):
