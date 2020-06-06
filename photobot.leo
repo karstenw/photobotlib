@@ -112,7 +112,7 @@
 <v t="karstenw.20170709210125.64"><vh>convolute</vh></v>
 </v>
 </v>
-<v t="karstenw.20200419183424.1"><vh>nodebox &amp; stand alone tools</vh>
+<v t="karstenw.20200419183424.1" a="E"><vh>Tools</vh>
 <v t="karstenw.20200419185608.1"><vh>makeunicode</vh></v>
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
@@ -125,8 +125,6 @@
 <v t="karstenw.20200419185042.1"><vh>scaleLayerToHeight</vh></v>
 <v t="karstenw.20200419185049.1"><vh>placeImage</vh></v>
 <v t="karstenw.20200419185056.1"><vh>resizeImage</vh></v>
-</v>
-<v t="karstenw.20200419184649.1"><vh>standalone tools</vh>
 <v t="karstenw.20200419184336.1"><vh>label</vh></v>
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
@@ -1834,7 +1832,6 @@ def smooth_more(self):
     return img.crop( bounds )
 
 </t>
-<t tx="karstenw.20200419184649.1"></t>
 <t tx="karstenw.20200419185026.1">def insetRect( rectangle, horInset, vertInset):
     x, y, w, h = rectangle
     dh = horInset / 2.0
