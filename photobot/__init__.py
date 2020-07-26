@@ -143,10 +143,20 @@ class Canvas:
             return len(self.layers) - 1
 
         if type(img) in (str, unicode):
-            img = Image.open(img)
-            img = img.convert("RGBA")
-            self.layers.append(Layer(self, img, x, y, name))
-            return len(self.layers) - 1
+            try:
+                img = Image.open(img)
+                img = img.convert("RGBA")
+                self.layers.append(Layer(self, img, x, y, name))
+                return len(self.layers) - 1
+            except Exception, err:
+                print "Canvas.layer( %s ) FAILED." %repr( img )
+                print err
+                print
+                exc_type, exc_value, exc_tb = sys.exc_info()
+                traceback.print_exception(exc_type, exc_value, exc_tb)
+                print
+                return None
+
 
     def fill(self, rgb, x=0, y=0, w=None, h=None, name=""):
 
@@ -1048,8 +1058,6 @@ class Layer:
         self.img = img
 
     def solarize(self, threshhold):
-        if 0: #not (1 <= bits <= 8):
-            return
         alpha = self.img.split()[3]
         img = self.img.convert("RGB")
         img = ImageOps.solarize(img, threshhold)
@@ -1762,12 +1770,14 @@ def resizeImage( filepath, maxsize, orientation=True, width=True, height=True):
 
     """Get a downsampled image for use in layers.
     """
+    f = False
     try:
         img = Image.open(filepath)
     except Exception, err:
-        print "\nresizeImage() FAILED", repr(filepath,)
+        print "\nresizeImage() Image.open() FAILED", repr(filepath,)
         print err
         return ""
+
     # downsample the image
     if maxsize:
         w,h = aspectRatio( (img.size), maxsize,
@@ -1776,7 +1786,10 @@ def resizeImage( filepath, maxsize, orientation=True, width=True, height=True):
     # respect exif orientation
     if orientation:
         img = normalizeOrientationImage( img )
+    if f:
+        f.close()
     return img.convert("RGBA")
+
 
 def label( canvas, string, x, y, fontsize=18, fontpath="" ):
     """Needs to be written...
@@ -1870,9 +1883,10 @@ def imagefiles( folderpathorlist, pathonly=True ):
     
     """
     filetuples = filelist( folderpathorlist, pathonly=pathonly )
-    extensions = tuple(".eps .tif .tiff .gif .jpg .jpeg .png".split())
+    exts = ".tif .tiff .gif .jpg .jpeg .png" # + " .eps"
+    extensions = tuple( exts.split() )
     for filetuple in filetuples:
-        path = filetuple
+        path = makeunicode( filetuple )
         if not pathonly:
             path = filetuple[0]
 
@@ -1962,10 +1976,13 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
     bgw, bgh = bgsize
     for t in filetuples:
         path, filesize, lastmodified, mode, islink, w0, h0 = t
+        folder, filename = os.path.split( path )
+        basename, ext = os.path.splitext( filename )
 
         # filter minimal size
-        if (w0 < minw) and (h0 < minh):
-            continue
+        if ext.lower() != ".eps":
+            if (w0 < minw) and (h0 < minh):
+                continue
         
         # filter max filesize ~ 200mb
         if filesize > 200000000:
@@ -1975,7 +1992,12 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         if h0 > w0:
             proportion = "portrait"
 
-        frac = Fraction(w0, h0)
+        try:
+            frac = Fraction(w0, h0)
+        except TypeError, err:
+            print err
+            print w0
+            print h0
 
         if pathonly:
             record = path
@@ -1998,6 +2020,6 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
             result['landscape'].append( record )
         else:
             result['portrait'].append( record )
-
     return result
+
 

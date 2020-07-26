@@ -129,7 +129,7 @@
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
 </v>
-<v t="karstenw.20200419205343.1"><vh>ImageWell</vh>
+<v t="karstenw.20200419205343.1" a="E"><vh>ImageWell</vh>
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
 <v t="karstenw.20200419185716.1"><vh>loadImageWell</vh></v>
 </v>
@@ -935,8 +935,6 @@ def posterize(self, bits=8):
     self.img = img
 
 def solarize(self, threshhold):
-    if 0: #not (1 &lt;= bits &lt;= 8):
-        return
     alpha = self.img.split()[3]
     img = self.img.convert("RGB")
     img = ImageOps.solarize(img, threshhold)
@@ -1476,11 +1474,7 @@ def equalize(self, mask=None):
 
 
 </t>
-<t tx="karstenw.20170709210125.67">#
-# image well
-#
-
-def imagewells():
+<t tx="karstenw.20170709210125.67">def imagewells():
     """Find a file named "imagewell.txt" and interpret it as image folder paths.
     If no file is found create one with the desktop image folders for
     mac &amp; win10.
@@ -1538,10 +1532,20 @@ def imagewells():
         return len(self.layers) - 1
 
     if type(img) in (str, unicode):
-        img = Image.open(img)
-        img = img.convert("RGBA")
-        self.layers.append(Layer(self, img, x, y, name))
-        return len(self.layers) - 1
+        try:
+            img = Image.open(img)
+            img = img.convert("RGBA")
+            self.layers.append(Layer(self, img, x, y, name))
+            return len(self.layers) - 1
+        except Exception, err:
+            print "Canvas.layer( %s ) FAILED." %repr( img )
+            print err
+            print
+            exc_type, exc_value, exc_tb = sys.exc_info()
+            traceback.print_exception(exc_type, exc_value, exc_tb)
+            print
+            return None
+
 
 </t>
 <t tx="karstenw.20170709210125.8">def fill(self, rgb, x=0, y=0, w=None, h=None, name=""):
@@ -1876,12 +1880,14 @@ def smooth_more(self):
 
     """Get a downsampled image for use in layers.
     """
+    f = False
     try:
         img = Image.open(filepath)
     except Exception, err:
-        print "\nresizeImage() FAILED", repr(filepath,)
+        print "\nresizeImage() Image.open() FAILED", repr(filepath,)
         print err
         return ""
+
     # downsample the image
     if maxsize:
         w,h = aspectRatio( (img.size), maxsize,
@@ -1890,7 +1896,10 @@ def smooth_more(self):
     # respect exif orientation
     if orientation:
         img = normalizeOrientationImage( img )
+    if f:
+        f.close()
     return img.convert("RGBA")
+
 
 </t>
 <t tx="karstenw.20200419185227.1">def filelist( folderpathorlist, pathonly=True ):
@@ -1947,9 +1956,10 @@ def smooth_more(self):
     
     """
     filetuples = filelist( folderpathorlist, pathonly=pathonly )
-    extensions = tuple(".eps .tif .tiff .gif .jpg .jpeg .png".split())
+    exts = ".tif .tiff .gif .jpg .jpeg .png" # + " .eps"
+    extensions = tuple( exts.split() )
     for filetuple in filetuples:
-        path = filetuple
+        path = makeunicode( filetuple )
         if not pathonly:
             path = filetuple[0]
 
@@ -2047,10 +2057,13 @@ def smooth_more(self):
     bgw, bgh = bgsize
     for t in filetuples:
         path, filesize, lastmodified, mode, islink, w0, h0 = t
+        folder, filename = os.path.split( path )
+        basename, ext = os.path.splitext( filename )
 
         # filter minimal size
-        if (w0 &lt; minw) and (h0 &lt; minh):
-            continue
+        if ext.lower() != ".eps":
+            if (w0 &lt; minw) and (h0 &lt; minh):
+                continue
         
         # filter max filesize ~ 200mb
         if filesize &gt; 200000000:
@@ -2060,7 +2073,12 @@ def smooth_more(self):
         if h0 &gt; w0:
             proportion = "portrait"
 
-        frac = Fraction(w0, h0)
+        try:
+            frac = Fraction(w0, h0)
+        except TypeError, err:
+            print err
+            print w0
+            print h0
 
         if pathonly:
             record = path
@@ -2083,11 +2101,15 @@ def smooth_more(self):
             result['landscape'].append( record )
         else:
             result['portrait'].append( record )
-
     return result
 
+
 </t>
-<t tx="karstenw.20200419205343.1"></t>
+<t tx="karstenw.20200419205343.1">#
+# image well
+#
+
+</t>
 <t tx="karstenw.20200419210659.1"></t>
 <t tx="karstenw.20200421130950.1"># PIL interpolation modes
 NEAREST = Image.NEAREST
