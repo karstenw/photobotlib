@@ -15,9 +15,12 @@ if kwdbg:
     rnd.seed(0)
 
 # width and height of destination image
-W, H = 1024,768
-# W, H = 1280,800
-# W, H = 800,600
+W, H =  800,  600
+W, H = 1024,  768
+W, H = 1280,  800
+W, H = 1440,  900
+W, H = 1920, 1080
+
 
 
 # import photobot
@@ -33,6 +36,7 @@ except ImportError:
 except NameError:
     import photobot as pb
     WIDTH, HEIGHT = W, H
+
 RATIO = WIDTH / HEIGHT
 
 
@@ -68,7 +72,7 @@ c.fill( (85,85,85) )
 # CONFIGURATION
 
 columns = 3
-rows = 2
+rows = 3
 
 enoughTiles = len(tiles) > (columns * 2 * rows)
 
