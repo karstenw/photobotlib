@@ -187,6 +187,17 @@ class Canvas:
         if type(h) == FloatType:
             h *= h0
         
+        # prevent some div by 0 errors
+        if w < 0:
+            w = -w
+        if h < 0:
+            h = -h
+        w = max(1,w)
+        h = max(1,h)
+
+        if kwdbg:
+            print( (style, w0,h0,w,h) )
+
         if style not in (RADIALCOSINE,):
             img = Image.new("L", (int(w),int(h)), 255)
         else:
@@ -232,8 +243,8 @@ class Canvas:
         if style == DIAMOND:
             r = max(w,h)
             for i in range(int(r)):
-                x = int(i*w/r*0.5)
-                y = int(i*h/r*0.5)
+                x = int( i*w / r*0.5 )
+                y = int( i*h / r*0.5 )
                 k = 255.0 * i/r
                 draw.rectangle((x, y, w-x, h-y), outline=int(k))
         
@@ -1673,7 +1684,6 @@ def cropimage( img, bounds):
     return img.crop( bounds )
 
 def aspectRatio(size, maxsize, height=False, width=False, assize=False):
-
     """Resize size=(w,h) to maxsize.
     use height == maxsize if height==True
     use width == maxsize if width==True
@@ -1707,8 +1717,13 @@ def aspectRatio(size, maxsize, height=False, width=False, assize=False):
     return scale
 
 
-def normalizeOrientationImage( img ):
+def innerRect( w0, h0, w1, h1):
+    """Create an inner size crop rect (0,0,w1,h1) + translation
+    """
+    pass
 
+
+def normalizeOrientationImage( img ):
     """Rotate an image according to exif info.
     
     """
@@ -1908,6 +1923,84 @@ def imagefiles( folderpathorlist, pathonly=True ):
             yield filetuple
 
 
+class Rectangle(object):
+    
+    def __init__(self, origin, corner):
+        # left, top, right, bottom
+        self.origin = origin
+        self.corner = corner
+
+    @property
+    def top(self):
+        return self.origin[1]
+
+
+    @property
+    def left(self):
+        return self.origin[0]
+
+
+    @property
+    def bottom(self):
+        return self.corner[1]
+
+
+    @property
+    def right(self):
+        return self.corner[0]
+
+
+    @property
+    def width(self):
+        return self.right - self.left
+
+
+    @property
+    def height(self):
+        return self.bottom - self.top
+
+    @property
+    def slope(self):
+        if self.width > 0:
+            return float(self.height) / self.width
+        return float(self.height)
+
+
+    @property
+    def center(self):
+        return (self.left + self.width / 2.0,
+                self.top + self.height / 2.0)
+
+
+    @property
+    def topCenter(self):
+        return (self.center[0], self.top)
+
+    @property
+    def leftCenter(self):
+        return (self.left, self.center[1])
+
+    @property
+    def rightCenter(self):
+        return (self.right, self.center[1])
+
+    @property
+    def bottomCenter(self):
+        return (self.center[0], self.bottom)
+
+    @property
+    def area(self):
+        w = abs( self.height ) * abs( self.width )
+
+
+    def inRect(self, otherRect):
+        pass
+
+
+    def outRect(self, otherRect):
+        pass
+
+
 #
 # image well
 #
@@ -1947,7 +2040,27 @@ def imagewells():
     return folders
 
 def loadImageWell( bgsize=(1024,768), minsize=(256,256),
+                   maxfilesize=100000000, maxpixellength=16000,
                    pathonly=True, additionals=None, ignorelibs=False):
+    """Find images imagewells or additional folders. 
+       
+        Params:
+            bgsize - tuple with width and height for images to be classified background
+            minsize - tuple with minimal width and height for images not to be ignored
+            maxfilesize - in bytes. Images above this file size will be ignored
+            maxpixellength - in pixels. Images above in either dimension will be ignored
+            pathonly - return path or record
+            additionals - list of folders to me considered for this run
+            ignorelibs - if imagewells file should be ignored
+    
+        Returns:
+            A dict of dicts with several image classifications.
+
+            list of file paths if pathonly is True
+            list of file records else.
+
+    """
+
 
     # get all images from user image wells
     folders = []
@@ -1969,11 +2082,19 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         'backgrounds': [],
         'landscape': [],
         'portrait': [],
-        'fractions': {}
+        'fractions': {},
+        'WxH largest': "",
+        'WxH smalles': "",
+        'WxH median': "",
     }
 
     minw, minh = minsize
     bgw, bgh = bgsize
+    smallestw, smallesth = 99999,99999
+    largestw, largesth = 0,0
+    medianw, medianh = 0,0
+    slope = 1.0
+    imagecount = 0
     for t in filetuples:
         path, filesize, lastmodified, mode, islink, w0, h0 = t
         folder, filename = os.path.split( path )
@@ -1983,11 +2104,33 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         if ext.lower() != ".eps":
             if (w0 < minw) and (h0 < minh):
                 continue
-        
-        # filter max filesize ~ 200mb
-        if filesize > 200000000:
+            if (w0 > maxpixellength) or (h0 > maxpixellength):
+                continue
+
+        if (w0 > maxpixellength) or (h0 > maxpixellength):
             continue
-        
+
+        # filter max filesize
+        if filesize > maxfilesize:
+            continue
+
+        if w0 in (0, 0.0):
+            continue
+        if h0 in (0, 0.0):
+            continue
+
+        imagecount += 1
+
+        # set stats
+        if w0 < smallestw:
+            smallestw = w0
+        if  h0 < smallesth:
+            smallesth = h0
+        if w0 > largestw:
+            largestw = w0
+        if  h0 > largesth:
+            largesth = h0
+
         proportion = "landscape"
         if h0 > w0:
             proportion = "portrait"
@@ -2007,19 +2150,58 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
         # candidate has at least canvas size and can be used as background
         result['allimages'].append( record )
-        if w0 >= bgw and h0 >= bgh:
+
+        if (w0 >= bgw) and (h0 >= bgh):
             result['backgrounds'].append( record )
         else:
             result['tiles'].append( record )
         
         if frac not in result['fractions']:
             result['fractions'][frac] = []
-
         result['fractions'][frac].append( record )
+
         if proportion == "landscape":
             result['landscape'].append( record )
         else:
             result['portrait'].append( record )
+
     return result
+
+
+#
+# Image Sectors
+#
+
+class TiledImage(object):
+    ""
+    def __init__(self, tilesize, wtiles, htiles):
+        self.tilesize = int( self.tilesize )
+        self.wtiles = int( self.wtiles )
+        self.htiles = int( self.htiles )
+        tiles = self.wtiles * self.htiles 
+        self.tilebam = [ 0 ] * tiles
+
+        self.w = tilesize * wtiles
+        self.h = tilesize = htiles
+
+        self.img = None
+        self.layout = []
+        
+
+    def makeimage( self ):
+        pass
+
+
+    def makelayout( self ):
+        pass
+
+
+
+class Layout( object ):
+    ""
+    def __init__(self):
+        pass
+
+
 
 
