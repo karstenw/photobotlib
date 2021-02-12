@@ -21,8 +21,6 @@ W, H = 1280,  800
 W, H = 1440,  900
 W, H = 1920, 1080
 
-
-
 # import photobot
 try:
     pb = ximport("photobot")
@@ -36,17 +34,14 @@ except ImportError:
 except NameError:
     import photobot as pb
     WIDTH, HEIGHT = W, H
-
 RATIO = WIDTH / HEIGHT
 
-
 # load the image library
-
 # check for command line folders
 additionals = sys.argv[1:]
 
 # get all images from user image wells
-imagewell = pb.loadImageWell(   bgsize=(1024,768),
+imagewell = pb.loadImageWell(   bgsize=(W,H),
                                 minsize=(256,256),
                                 pathonly=True,
                                 additionals=additionals)
@@ -54,7 +49,7 @@ imagewell = pb.loadImageWell(   bgsize=(1024,768),
 # tiles are images >256x256 and <=1024x768
 tiles = imagewell['tiles']
 
-# backgrounds are images >1024x768
+# backgrounds are images >W,H
 backgrounds = imagewell['backgrounds']
 
 rnd.shuffle(tiles)
