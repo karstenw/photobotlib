@@ -4,6 +4,7 @@
 # Copyright (c) 2006 by Tom De Smedt.
 # Refer to the "Use" section on http://nodebox.net/code/index.php/Use
 
+from __future__ import print_function
 
 ALL = ['canvas', 'Layers', 'Layer', 'label', 'invertimage', 'cropimage',
     'aspectRatio', 'normalizeOrientationImage', 'insetRect',
@@ -49,7 +50,7 @@ import PIL.ImageFont as ImageFont
 # disable large image warning
 old = Image.MAX_IMAGE_PIXELS
 Image.MAX_IMAGE_PIXELS = None # 200000000
-# print "MAX_IMAGE_PIXELS:", old
+# print( "MAX_IMAGE_PIXELS: %i" % old)
 
 
 import pdb
@@ -149,12 +150,12 @@ class Canvas:
                 self.layers.append(Layer(self, img, x, y, name))
                 return len(self.layers) - 1
             except Exception, err:
-                print "Canvas.layer( %s ) FAILED." %repr( img )
-                print err
-                print
+                print( "Canvas.layer( %s ) FAILED." %repr( img ) )
+                print(err)
+                print()
                 exc_type, exc_value, exc_tb = sys.exc_info()
                 traceback.print_exception(exc_type, exc_value, exc_tb)
-                print
+                print()
                 return None
 
 
@@ -640,12 +641,12 @@ class Canvas:
                 n = basename % (i, layer.name)
                 path = os.path.join( folder, n )
                 buffer.save( path, format=format, optimize=False)
-                print "exort() DBG:", path.encode("utf-8")
+                print( "exort() DBG: '%s'" % path.encode("utf-8") )
 
         self.flatten()
         self.layers[1].img.save(path, format=format, optimize=False)
         if kwdbg:
-            print "export()", path.encode("utf-8")
+            print( "export() %s" % path.encode("utf-8") )
         return path
 
     def draw(self, x=0, y=0, name="", ext=".png", format='PNG'):
@@ -683,11 +684,11 @@ class Canvas:
                 os.unlink( path )
             return path
         except Exception, err:
-            print err
-            print
+            print(err)
+            print()
             exc_type, exc_value, exc_tb = sys.exc_info()
             traceback.print_exception(exc_type, exc_value, exc_tb)
-            print
+            print()
 
     def preferences(interpolation=INTERPOLATION):
 
@@ -789,13 +790,13 @@ class Layer:
         
     def prnt(self):
         # for debugging
-        print "-" * 20
-        print "name:", self.name
-        print "xy:", self.x, self.y
-        print "wh:", self.w, self.h
-        print "alpha:", self.alpha
-        print "blend:", self.blend
-        print "-" * 20
+        print("-" * 20)
+        print( "name: '%s' " % self.name.encode("utf-8") )
+        print("xy: %i  %i" % (self.x, self.y) )
+        print("wh: %i  %i" % (self.w, self.h) )
+        print("alpha: %.2f" % self.alpha)
+        print("blend: %.2f" % self.blend)
+        print("-" * 20)
 
     def index(self):
         
@@ -1636,8 +1637,8 @@ def makeunicode(s, srcencoding="utf-8", normalizer="NFC"):
         try:
             s = unicode(s, srcencoding)
         except TypeError, err:
-            print "makeunicode():", err
-            print type(s), repr(s)
+            print( "makeunicode(): %s" % repr(err) )
+            print( "%s - %s" % (type(s), repr(s)) )
     if typ in (unicode,):
         s = unicodedata.normalize(normalizer, s)
     return s
@@ -1789,8 +1790,8 @@ def resizeImage( filepath, maxsize, orientation=True, width=True, height=True):
     try:
         img = Image.open(filepath)
     except Exception, err:
-        print "\nresizeImage() Image.open() FAILED", repr(filepath,)
-        print err
+        print("\nresizeImage() Image.open() FAILED '%s'" % filepath.encode("utf-8"))
+        print(err)
         return ""
 
     # downsample the image
@@ -1921,84 +1922,6 @@ def imagefiles( folderpathorlist, pathonly=True ):
                 pass #continue
             filetuple = (path, filesize, lastmodf, mode, islink, s[0], s[1])
             yield filetuple
-
-
-class Rectangle(object):
-    
-    def __init__(self, origin, corner):
-        # left, top, right, bottom
-        self.origin = origin
-        self.corner = corner
-
-    @property
-    def top(self):
-        return self.origin[1]
-
-
-    @property
-    def left(self):
-        return self.origin[0]
-
-
-    @property
-    def bottom(self):
-        return self.corner[1]
-
-
-    @property
-    def right(self):
-        return self.corner[0]
-
-
-    @property
-    def width(self):
-        return self.right - self.left
-
-
-    @property
-    def height(self):
-        return self.bottom - self.top
-
-    @property
-    def slope(self):
-        if self.width > 0:
-            return float(self.height) / self.width
-        return float(self.height)
-
-
-    @property
-    def center(self):
-        return (self.left + self.width / 2.0,
-                self.top + self.height / 2.0)
-
-
-    @property
-    def topCenter(self):
-        return (self.center[0], self.top)
-
-    @property
-    def leftCenter(self):
-        return (self.left, self.center[1])
-
-    @property
-    def rightCenter(self):
-        return (self.right, self.center[1])
-
-    @property
-    def bottomCenter(self):
-        return (self.center[0], self.bottom)
-
-    @property
-    def area(self):
-        w = abs( self.height ) * abs( self.width )
-
-
-    def inRect(self, otherRect):
-        pass
-
-
-    def outRect(self, otherRect):
-        pass
 
 
 #
@@ -2138,9 +2061,9 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         try:
             frac = Fraction(w0, h0)
         except TypeError, err:
-            print err
-            print w0
-            print h0
+            print(err)
+            print(w0)
+            print(h0)
 
         if pathonly:
             record = path
