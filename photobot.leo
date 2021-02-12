@@ -12,8 +12,8 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
+<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
+<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -39,7 +39,7 @@
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -116,9 +116,12 @@
 <v t="karstenw.20200419185608.1"><vh>makeunicode</vh></v>
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
+</v>
+<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
+<v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
 <v t="karstenw.20170709210125.66"><vh>normalizeOrientationImage</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
 <v t="karstenw.20200419185034.1"><vh>cropImageToRatioHorizontal</vh></v>
@@ -133,6 +136,62 @@
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
 <v t="karstenw.20200419185716.1"><vh>loadImageWell</vh></v>
 </v>
+<v t="karstenw.20201009153259.1"><vh>Image Sectors</vh>
+<v t="karstenw.20201010122613.1"><vh>TiledImage</vh>
+<v t="karstenw.20201010122902.1"><vh>__init__</vh></v>
+<v t="karstenw.20201010123021.1"><vh>makeimage</vh></v>
+</v>
+</v>
+<v t="karstenw.20201009153305.1"><vh>Canvas layout</vh>
+<v t="karstenw.20201010124204.1" a="E"><vh>Layout</vh>
+<v t="karstenw.20201010124230.1"><vh>__init__</vh></v>
+</v>
+</v>
+</v>
+<v t="karstenw.20210211171614.1" a="E"><vh>@clean photobot/squeaklib.py</vh>
+<v t="karstenw.20210211171734.1"><vh>declarations</vh></v>
+<v t="karstenw.20210211171653.1" a="E"><vh>Squeaklib</vh>
+<v t="karstenw.20210211171653.2"><vh>Point</vh>
+<v t="karstenw.20210211171653.3"><vh>__init__</vh></v>
+<v t="karstenw.20210211171653.4"><vh>properties</vh></v>
+</v>
+<v t="karstenw.20210211171653.5"><vh>Rectangle</vh>
+<v t="karstenw.20210211171653.6"><vh>__init__</vh></v>
+<v t="karstenw.20210211171653.7"><vh>properties</vh></v>
+<v t="karstenw.20210211171653.8"><vh>class methods</vh>
+<v t="karstenw.20210211171653.9"><vh>centerExtent</vh></v>
+<v t="karstenw.20210211171653.10"><vh>leftRightTopBottom</vh></v>
+</v>
+<v t="karstenw.20210211171653.11"><vh>instance methods</vh>
+<v t="karstenw.20210211171653.12"><vh>newHeadline</vh></v>
+<v t="karstenw.20210211171653.13"><vh>inRect</vh></v>
+</v>
+<v t="karstenw.20210211171653.14"><vh>aggregated attributes</vh>
+<v t="karstenw.20210211171653.15"><vh>top</vh></v>
+<v t="karstenw.20210211171653.16"><vh>left</vh></v>
+<v t="karstenw.20210211171653.17"><vh>bottom</vh></v>
+<v t="karstenw.20210211171653.18"><vh>right</vh></v>
+<v t="karstenw.20210211171653.19"><vh>width</vh></v>
+<v t="karstenw.20210211171653.20"><vh>height</vh></v>
+<v t="karstenw.20210211171653.21"><vh>slope</vh></v>
+<v t="karstenw.20210211171653.22"><vh>center</vh></v>
+<v t="karstenw.20210211171653.23"><vh>topCenter</vh></v>
+<v t="karstenw.20210211171653.24"><vh>leftCenter</vh></v>
+<v t="karstenw.20210211171653.25"><vh>rightCenter</vh></v>
+<v t="karstenw.20210211171653.26"><vh>bottomCenter</vh></v>
+<v t="karstenw.20210211171653.27"><vh>area</vh></v>
+</v>
+</v>
+</v>
+</v>
+<v t="karstenw.20201006211515.1"><vh>examples</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
+<v t="karstenw.20201006211627.1"><vh>init</vh></v>
+</v>
+<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a-1920x1080.py</vh>
+<v t="karstenw.20201006211616.1"><vh>Declarations</vh></v>
+</v>
 </v>
 </vnodes>
 <tnodes>
@@ -146,6 +205,7 @@
 # Copyright (c) 2006 by Tom De Smedt.
 # Refer to the "Use" section on http://nodebox.net/code/index.php/Use
 
+from __future__ import print_function
 
 ALL = ['canvas', 'Layers', 'Layer', 'label', 'invertimage', 'cropimage',
     'aspectRatio', 'normalizeOrientationImage', 'insetRect',
@@ -191,7 +251,7 @@ import PIL.ImageFont as ImageFont
 # disable large image warning
 old = Image.MAX_IMAGE_PIXELS
 Image.MAX_IMAGE_PIXELS = None # 200000000
-# print "MAX_IMAGE_PIXELS:", old
+# print( "MAX_IMAGE_PIXELS: %i" % old)
 
 
 import pdb
@@ -524,7 +584,7 @@ import traceback
     self.flatten()
     self.layers[1].img.save(path, format=format, optimize=False)
     if kwdbg:
-        print "export()", path.encode("utf-8")
+        print( "export() %s" % path.encode("utf-8") )
     return path
 
 </t>
@@ -563,11 +623,11 @@ import traceback
             os.unlink( path )
         return path
     except Exception, err:
-        print err
-        print
+        print(err)
+        print()
         exc_type, exc_value, exc_tb = sys.exc_info()
         traceback.print_exception(exc_type, exc_value, exc_tb)
-        print
+        print()
 
 </t>
 <t tx="karstenw.20170709210125.15">def preferences(interpolation=INTERPOLATION):
@@ -651,13 +711,13 @@ import traceback
 </t>
 <t tx="karstenw.20170709210125.23">def prnt(self):
     # for debugging
-    print "-" * 20
-    print "name:", self.name
-    print "xy:", self.x, self.y
-    print "wh:", self.w, self.h
-    print "alpha:", self.alpha
-    print "blend:", self.blend
-    print "-" * 20
+    print("-" * 20)
+    print( "name: '%s' " % self.name.encode("utf-8") )
+    print("xy: %i  %i" % (self.x, self.y) )
+    print("wh: %i  %i" % (self.w, self.h) )
+    print("alpha: %.2f" % self.alpha)
+    print("blend: %.2f" % self.blend)
+    print("-" * 20)
 
 </t>
 <t tx="karstenw.20170709210125.24">def index(self):
@@ -1415,7 +1475,6 @@ def equalize(self, mask=None):
 
 </t>
 <t tx="karstenw.20170709210125.65">def aspectRatio(size, maxsize, height=False, width=False, assize=False):
-
     """Resize size=(w,h) to maxsize.
     use height == maxsize if height==True
     use width == maxsize if width==True
@@ -1451,7 +1510,6 @@ def equalize(self, mask=None):
 
 </t>
 <t tx="karstenw.20170709210125.66">def normalizeOrientationImage( img ):
-
     """Rotate an image according to exif info.
     
     """
@@ -1538,12 +1596,12 @@ def equalize(self, mask=None):
             self.layers.append(Layer(self, img, x, y, name))
             return len(self.layers) - 1
         except Exception, err:
-            print "Canvas.layer( %s ) FAILED." %repr( img )
-            print err
-            print
+            print( "Canvas.layer( %s ) FAILED." %repr( img ) )
+            print(err)
+            print()
             exc_type, exc_value, exc_tb = sys.exc_info()
             traceback.print_exception(exc_type, exc_value, exc_tb)
-            print
+            print()
             return None
 
 
@@ -1578,6 +1636,17 @@ def equalize(self, mask=None):
     if type(h) == FloatType:
         h *= h0
     
+    # prevent some div by 0 errors
+    if w &lt; 0:
+        w = -w
+    if h &lt; 0:
+        h = -h
+    w = max(1,w)
+    h = max(1,h)
+
+    if kwdbg:
+        print( (style, w0,h0,w,h) )
+
     if style not in (RADIALCOSINE,):
         img = Image.new("L", (int(w),int(h)), 255)
     else:
@@ -1623,8 +1692,8 @@ def equalize(self, mask=None):
     if style == DIAMOND:
         r = max(w,h)
         for i in range(int(r)):
-            x = int(i*w/r*0.5)
-            y = int(i*h/r*0.5)
+            x = int( i*w / r*0.5 )
+            y = int( i*h / r*0.5 )
             k = 255.0 * i/r
             draw.rectangle((x, y, w-x, h-y), outline=int(k))
     
@@ -1884,8 +1953,8 @@ def smooth_more(self):
     try:
         img = Image.open(filepath)
     except Exception, err:
-        print "\nresizeImage() Image.open() FAILED", repr(filepath,)
-        print err
+        print("\nresizeImage() Image.open() FAILED '%s'" % filepath.encode("utf-8"))
+        print(err)
         return ""
 
     # downsample the image
@@ -1999,8 +2068,8 @@ def smooth_more(self):
         try:
             s = unicode(s, srcencoding)
         except TypeError, err:
-            print "makeunicode():", err
-            print type(s), repr(s)
+            print( "makeunicode(): %s" % repr(err) )
+            print( "%s - %s" % (type(s), repr(s)) )
     if typ in (unicode,):
         s = unicodedata.normalize(normalizer, s)
     return s
@@ -2028,7 +2097,27 @@ def smooth_more(self):
 
 </t>
 <t tx="karstenw.20200419185716.1">def loadImageWell( bgsize=(1024,768), minsize=(256,256),
+                   maxfilesize=100000000, maxpixellength=16000,
                    pathonly=True, additionals=None, ignorelibs=False):
+    """Find images imagewells or additional folders. 
+       
+        Params:
+            bgsize - tuple with width and height for images to be classified background
+            minsize - tuple with minimal width and height for images not to be ignored
+            maxfilesize - in bytes. Images above this file size will be ignored
+            maxpixellength - in pixels. Images above in either dimension will be ignored
+            pathonly - return path or record
+            additionals - list of folders to me considered for this run
+            ignorelibs - if imagewells file should be ignored
+    
+        Returns:
+            A dict of dicts with several image classifications.
+
+            list of file paths if pathonly is True
+            list of file records else.
+
+    """
+
 
     # get all images from user image wells
     folders = []
@@ -2050,11 +2139,19 @@ def smooth_more(self):
         'backgrounds': [],
         'landscape': [],
         'portrait': [],
-        'fractions': {}
+        'fractions': {},
+        'WxH largest': "",
+        'WxH smalles': "",
+        'WxH median': "",
     }
 
     minw, minh = minsize
     bgw, bgh = bgsize
+    smallestw, smallesth = 99999,99999
+    largestw, largesth = 0,0
+    medianw, medianh = 0,0
+    slope = 1.0
+    imagecount = 0
     for t in filetuples:
         path, filesize, lastmodified, mode, islink, w0, h0 = t
         folder, filename = os.path.split( path )
@@ -2064,11 +2161,33 @@ def smooth_more(self):
         if ext.lower() != ".eps":
             if (w0 &lt; minw) and (h0 &lt; minh):
                 continue
-        
-        # filter max filesize ~ 200mb
-        if filesize &gt; 200000000:
+            if (w0 &gt; maxpixellength) or (h0 &gt; maxpixellength):
+                continue
+
+        if (w0 &gt; maxpixellength) or (h0 &gt; maxpixellength):
             continue
-        
+
+        # filter max filesize
+        if filesize &gt; maxfilesize:
+            continue
+
+        if w0 in (0, 0.0):
+            continue
+        if h0 in (0, 0.0):
+            continue
+
+        imagecount += 1
+
+        # set stats
+        if w0 &lt; smallestw:
+            smallestw = w0
+        if  h0 &lt; smallesth:
+            smallesth = h0
+        if w0 &gt; largestw:
+            largestw = w0
+        if  h0 &gt; largesth:
+            largesth = h0
+
         proportion = "landscape"
         if h0 &gt; w0:
             proportion = "portrait"
@@ -2076,9 +2195,9 @@ def smooth_more(self):
         try:
             frac = Fraction(w0, h0)
         except TypeError, err:
-            print err
-            print w0
-            print h0
+            print(err)
+            print(w0)
+            print(h0)
 
         if pathonly:
             record = path
@@ -2088,19 +2207,21 @@ def smooth_more(self):
 
         # candidate has at least canvas size and can be used as background
         result['allimages'].append( record )
-        if w0 &gt;= bgw and h0 &gt;= bgh:
+
+        if (w0 &gt;= bgw) and (h0 &gt;= bgh):
             result['backgrounds'].append( record )
         else:
             result['tiles'].append( record )
         
         if frac not in result['fractions']:
             result['fractions'][frac] = []
-
         result['fractions'][frac].append( record )
+
         if proportion == "landscape":
             result['landscape'].append( record )
         else:
             result['portrait'].append( record )
+
     return result
 
 
@@ -2268,7 +2389,7 @@ for i in layers:
     n = basename % (i, layer.name)
     path = os.path.join( folder, n )
     buffer.save( path, format=format, optimize=False)
-    print "exort() DBG:", path.encode("utf-8")
+    print( "exort() DBG: '%s'" % path.encode("utf-8") )
 </t>
 <t tx="karstenw.20200430124808.1">@property
 def dup(self):
@@ -2279,6 +2400,710 @@ def dup(self):
     layer.canvas = self
     self.layers.append( layer )
     return self.top
+
+</t>
+<t tx="karstenw.20201006211515.1"></t>
+<t tx="karstenw.20201006211521.1"># heavily inspired by https://www.nodebox.net/code/index.php/Landslide
+@others
+@language python
+@tabwidth -4
+</t>
+<t tx="karstenw.20201006211549.1"># heavily inspired by https://www.nodebox.net/code/index.php/Landslide
+@others
+@language python
+@tabwidth -4
+</t>
+<t tx="karstenw.20201006211613.1">import sys, os
+
+import pprint
+pp = pprint.pprint
+kwdbg = 0
+
+# need a different name for nodebox
+import random as rnd
+
+import libgradient
+
+if kwdbg:
+    # make random choices repeatable for debugging
+    rnd.seed(0)
+
+# width and height of destination image
+W, H =  800,  600
+W, H = 1024,  768
+W, H = 1280,  800
+W, H = 1440,  900
+W, H = 1920, 1080
+
+# import photobot
+try:
+    pb = ximport("photobot")
+    size(W, H)
+    background( 0.333 )
+except ImportError:
+    pb = ximport("__init__")
+    reload(pb)
+    size(W, H)
+    background( 0.333 )
+except NameError:
+    import photobot as pb
+    WIDTH, HEIGHT = W, H
+</t>
+<t tx="karstenw.20201006211616.1">import sys, os
+
+import pprint
+pp = pprint.pprint
+kwdbg = False
+
+# need a different name
+import random as rnd
+
+if kwdbg:
+    # make random choices repeatable for debugging
+    rnd.seed(0)
+
+try:
+    size(0,0)
+    # W, H = 1024,768
+    W, H = int(WIDTH),int(HEIGHT)
+except:
+    W = 1920
+    H = 1050
+
+# import photobot
+try:
+    pb = ximport("photobot")
+    size(W, H)
+    background( 0.333 )
+except ImportError:
+    pb = ximport("__init__")
+    reload(pb)
+    size(W, H)
+    background( 0.333 )
+except NameError:
+    import photobot as pb
+    WIDTH, HEIGHT = W, H
+RATIO = WIDTH / HEIGHT
+
+# load the image library
+# check for command line folders
+additionals = sys.argv[1:]
+
+# get all images from user image wells
+imagewell = pb.loadImageWell(   bgsize=(W,H),
+                                minsize=(256,256),
+                                pathonly=True,
+                                additionals=additionals)
+
+# tiles are images &gt;256x256 and &lt;=1024x768
+tiles = imagewell['tiles']
+
+# backgrounds are images &gt;1024x768
+backgrounds = imagewell['backgrounds']
+rnd.shuffle(tiles)
+rnd.shuffle(backgrounds)
+
+print "tiles:", len(tiles)
+print "backgrounds:", len(backgrounds)
+
+
+# CONFIGURATION
+
+# create the canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (85,85,85) )
+
+
+# CONFIGURATION
+
+columns = 5
+rows = 3
+
+randomblur = 0
+randomflip = 0
+paintoverlay = 0
+gilb =0
+
+
+# 
+y_offset = HEIGHT / float(rows)
+y_offset = int(round(y_offset))
+
+
+# 
+if 0:
+    bgimage = backgrounds.pop()
+    top = c.layer(bgimage)
+    w, h = c.top.bounds()
+    w1,h1 = pb.aspectRatio( (w,h), WIDTH, height=False, assize=True )
+    c.top.scale(w1,h1)
+else:
+    bgimage = backgrounds.pop()
+    pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
+print "Background:", bgimage.encode("utf-8")
+
+
+for j in range(rows):
+    colw = 0
+    for i in range(columns):
+
+        # new layer with a random image
+        top = c.layer( tiles.pop() )
+
+        # get current image bounds
+        w, h = c.top.bounds()
+
+        # calculate scale &amp; apply
+        s = pb.aspectRatio( (w,h), y_offset, height=True)
+        c.top.scale(s, s)
+
+        # uniform
+        layer = pb.cropImageToRatioHorizontal( c.top, RATIO )
+
+        # add contrast
+        c.top.contrast(1.1)
+
+        # get the new image bounds
+        w, h = c.top.bounds()
+
+        r = 0.4 
+        r = rnd.random()
+        # 10%
+        if r &lt; 0.25:
+            # create a dual ramp gradient
+            _ = c.gradient(pb.LINEAR, w/2, h)
+            c.top.flip( pb.HORIZONTAL )
+
+            # layer translate half a pict right
+            c.top.translate(w/2, j*y_offset)
+
+            # create another gradient layer and merge with first gradient
+            top = c.gradient(pb.LINEAR, w/2, h)
+            # merge both gradients; destroys top layer
+            c.merge([ top-1 , top ])
+        elif 0.25 &lt;= r &lt; 0.5:
+            #print "SINE"
+            top = c.gradient(pb.SINE, w, h)
+            
+        elif 0.6 &lt;= r &lt; 0.75:
+            #print "RADIALCOSINE"
+            top = c.gradient(pb.RADIALCOSINE, w, h)
+            c.top.invert()
+        else:
+            #print "ROUNDRECT"
+            # 25%
+            top = c.gradient(pb.ROUNDRECT, w, h, radius=int(w/5.0))
+
+        c.top.brightness(1.4)
+
+        # mask destroys top layer
+        c.top.mask()
+        
+        c.top.translate(colw+i*w, j*y_offset)
+        c.top.opacity( 66 + rnd.random() * 29 )
+
+        if randomblur:
+            if rnd.random() &gt; 0.5:
+                c.top.flip()
+
+            if rnd.random() &gt; 0.5:
+                c.top.blur()
+
+if 1:
+    # orange hue mask finish
+    top = c.fill((200,100,0))
+    c.top.opacity(30)
+    c.top.hue()
+
+if paintoverlay:
+    # paint overlay
+    top = c.layer( os.path.abspath("./paint.jpg") )
+    w, h = c.top.bounds()
+    xs = WIDTH / float(w)
+    ys = HEIGHT / float(h)
+    s = max(xs,ys)
+    c.top.scale(s, s)
+    c.top.opacity(10)
+    c.top.overlay()
+
+c.draw(0, 0)
+</t>
+<t tx="karstenw.20201006211627.1">RATIO = WIDTH / HEIGHT
+
+# load the image library
+# check for command line folders
+additionals = sys.argv[1:]
+
+# get all images from user image wells
+imagewell = pb.loadImageWell(   bgsize=(W,H),
+                                minsize=(256,256),
+                                pathonly=True,
+                                additionals=additionals)
+
+# tiles are images &gt;256x256 and &lt;=1024x768
+tiles = imagewell['tiles']
+
+# backgrounds are images &gt;W,H
+backgrounds = imagewell['backgrounds']
+
+rnd.shuffle(tiles)
+rnd.shuffle(backgrounds)
+
+print "tiles:", len(tiles)
+print "backgrounds:", len(backgrounds)
+
+
+# create the canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (85,85,85) )
+
+
+# CONFIGURATION
+
+columns = 3
+rows = 3
+
+enoughTiles = len(tiles) &gt; (columns * 2 * rows)
+
+randomblur = 1
+randomflip = 1
+paintoverlay = 1
+gilb = 1
+
+
+# 
+y_offset = HEIGHT / float(rows)
+y_offset = int(round(y_offset))
+
+
+
+
+# background image
+bgimage = backgrounds.pop()
+pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
+# print "Background:", bgimage.encode("utf-8")
+
+
+cols = -1
+for j in range(rows):
+    colw = 0
+    cols += 1
+    while colw &lt; WIDTH:
+        if 0: # kwdbg:
+            print '-' * 20
+            print "Col:" , cols
+
+        # create image in canvas at 0,0
+        nextpictpath = tiles.pop()
+
+        # new layer with a random image
+        # c.layer returns the index of the top layer
+        topidx = c.layer( nextpictpath )
+
+        # get current image bounds
+        w, h = c.top.bounds()
+
+        
+        # calculate scale &amp; apply
+        s = pb.aspectRatio( (w,h), y_offset, height=True)
+        c.top.scale(s, s)
+
+        # get current image bounds
+        w, h = c.top.bounds()
+
+        # create a random mask gradient for this tile
+        libgradient.makerandomgradient( c, w, h, j*y_offset )
+        c.top.mask()
+
+
+        # P: 0.5 # flip the tile
+        if randomblur:
+            if rnd.random() &gt; 0.5:
+                c.top.flip()
+
+        # P: 0.5 # add blur
+        if randomflip:
+            if rnd.random() &gt; 0.5:
+                c.top.blur()
+
+        w, h = c.top.bounds()
+        c.top.translate(colw, j*y_offset)
+        colw += w
+
+
+if 1:
+    # orange hue mask finish
+    topidx = c.fill((200,100,0))
+    c.top.opacity(30)
+    c.top.hue()
+
+paintfile = os.path.abspath("./paint.jpg")
+if paintoverlay:
+    # paint overlay
+    if os.path.exists( paintfile ):
+        if kwdbg:
+            print "paint overlay:", paintfile
+        topidx = c.layer( paintfile )
+        w, h = c.top.bounds()
+        xs = WIDTH / float(w)
+        ys = HEIGHT / float(h)
+        s = max(xs,ys)
+        c.top.scale(s, s)
+        # c.top.opacity( 90 )
+        c.top.overlay()
+
+c.draw(0,0)
+
+</t>
+<t tx="karstenw.20201009153259.1">#
+# Image Sectors
+#
+
+</t>
+<t tx="karstenw.20201009153305.1"></t>
+<t tx="karstenw.20201010122613.1">class TiledImage(object):
+    ""
+    @others
+
+
+</t>
+<t tx="karstenw.20201010122902.1">def __init__(self, tilesize, wtiles, htiles):
+    self.tilesize = int( self.tilesize )
+    self.wtiles = int( self.wtiles )
+    self.htiles = int( self.htiles )
+    tiles = self.wtiles * self.htiles 
+    self.tilebam = [ 0 ] * tiles
+
+    self.w = tilesize * wtiles
+    self.h = tilesize = htiles
+
+    self.img = None
+    self.layout = []
+    
+
+</t>
+<t tx="karstenw.20201010123021.1">def makeimage( self ):
+    pass
+
+
+def makelayout( self ):
+    pass
+
+</t>
+<t tx="karstenw.20201010124204.1">class Layout( object ):
+    ""
+    @others
+
+
+</t>
+<t tx="karstenw.20201010124230.1">def __init__(self):
+    pass
+
+
+</t>
+<t tx="karstenw.20201022144341.1"></t>
+<t tx="karstenw.20201022144702.1">def innerRect( w0, h0, w1, h1):
+    """Create an inner size crop rect (0,0,w1,h1) + translation
+    """
+    pass
+
+
+</t>
+<t tx="karstenw.20210211171614.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20210211171653.1"></t>
+<t tx="karstenw.20210211171653.10"># left right top bottom
+@staticmethod
+def leftRightTopBottom(cls, left, right, top, bottom):
+    return Rectangle( Point(left,top), Point(right,bottom) )
+
+</t>
+<t tx="karstenw.20210211171653.11"></t>
+<t tx="karstenw.20210211171653.12">def adjusttoAlong(self, otherRect, side):
+    if side == "left":
+        pass
+    elif side == "right":
+        pass
+    elif side == "top":
+        pass
+    elif side == "bottom":
+        pass
+"""
+adjustTo: newRect along: side 
+	"Return a copy adjusted to fit a neighbor that has changed size."
+	side = #left ifTrue: [^ self withRight: newRect left].
+	side = #right ifTrue: [^ self withLeft: newRect right].
+	side = #top ifTrue: [^ self withBottom: newRect top].
+	side = #bottom ifTrue: [^ self withTop: newRect bottom].
+
+allAreasOutsideList: aCollection do: aBlock
+	"Enumerate aBlock with all areas of the receiver not overlapping 
+	any rectangle in the given collection"
+	^self allAreasOutsideList: aCollection startingAt: 1 do: aBlock
+
+allAreasOutsideList: aCollection startingAt: startIndex do: aBlock
+	"Enumerate aBlock with all areas of the receiver not overlapping 
+	any rectangle in the given collection"
+	| yOrigin yCorner aRectangle index rr |
+	index _ startIndex.
+
+	"Find the next intersecting rectangle from aCollection"
+	[index &lt;= aCollection size ifFalse:[^aBlock value: self].
+	aRectangle _ aCollection at: index.
+	origin &lt;= aRectangle corner and: [aRectangle origin &lt;= corner]] 
+		whileFalse:[index _ index + 1].
+
+	"aRectangle is intersecting; process it"
+	aRectangle origin y &gt; origin y 
+		ifTrue: [rr _ origin corner: corner x @ (yOrigin _ aRectangle origin y).
+				rr allAreasOutsideList: aCollection startingAt: index+1 do: aBlock]
+		ifFalse: [yOrigin _ origin y].
+	aRectangle corner y &lt; corner y
+		ifTrue: [rr _ origin x @ (yCorner _ aRectangle corner y) corner: corner.
+				rr allAreasOutsideList: aCollection startingAt: index+1 do: aBlock]
+		ifFalse: [yCorner _ corner y].
+	aRectangle origin x &gt; origin x 
+		ifTrue: [rr _ origin x @ yOrigin corner: aRectangle origin x @ yCorner.
+				rr allAreasOutsideList: aCollection startingAt: index+1 do: aBlock].
+	aRectangle corner x &lt; corner x 
+		ifTrue: [rr _ aRectangle corner x @ yOrigin corner: corner x @ yCorner.
+				rr allAreasOutsideList: aCollection startingAt: index+1 do: aBlock].
+
+amountToTranslateWithin: aRectangle
+	"Answer a Point, delta, such that self + delta is forced within aRectangle."
+	"Altered so as to prefer to keep self topLeft inside when all of self
+	cannot be made to fit 7/27/96 di"
+	| dx dy |
+	dx _ 0.  dy _ 0.
+	self right &gt; aRectangle right ifTrue: [dx _ aRectangle right - self right].
+	self bottom &gt; aRectangle bottom ifTrue: [dy _ aRectangle bottom - self bottom].
+	(self left + dx) &lt; aRectangle left ifTrue: [dx _ aRectangle left - self left].
+	(self top + dy) &lt; aRectangle top ifTrue: [dy _ aRectangle top - self top].
+	^ dx@dy
+
+areasOutside: aRectangle
+	"Answer an Array of Rectangles comprising the parts of the receiver not 
+	intersecting aRectangle."
+
+	| areas yOrigin yCorner |
+	"Make sure the intersection is non-empty"
+	(origin &lt;= aRectangle corner and: [aRectangle origin &lt;= corner])
+		ifFalse: [^Array with: self].
+	areas _ OrderedCollection new.
+	aRectangle origin y &gt; origin y
+		ifTrue: [areas addLast: (origin corner: corner x @ (yOrigin _ aRectangle origin y))]
+		ifFalse: [yOrigin _ origin y].
+	aRectangle corner y &lt; corner y
+		ifTrue: [areas addLast: (origin x @ (yCorner _ aRectangle corner y) corner: corner)]
+		ifFalse: [yCorner _ corner y].
+	aRectangle origin x &gt; origin x 
+		ifTrue: [areas addLast: (origin x @ yOrigin corner: aRectangle origin x @ yCorner)].
+	aRectangle corner x &lt; corner x 
+		ifTrue: [areas addLast: (aRectangle corner x @ yOrigin corner: corner x @ yCorner)].
+	^areas
+
+bordersOn: her along: herSide 
+	(herSide = #right and: [self left = her right])
+	| (herSide = #left and: [self right = her left])
+		ifTrue:
+		[^ (self top max: her top) &lt; (self bottom min: her bottom)].
+	(herSide = #bottom and: [self top = her bottom])
+	| (herSide = #top and: [self bottom = her top])
+		ifTrue:
+		[^ (self left max: her left) &lt; (self right min: her right)].
+	^ false
+
+encompass: aPoint 
+	"Answer a Rectangle that contains both the receiver and aPoint.  5/30/96 sw"
+
+	^ Rectangle 
+		origin: (origin min: aPoint)
+		corner: (corner max:  aPoint)
+
+
+
+
+
+
+
+
+
+
+
+"""
+
+</t>
+<t tx="karstenw.20210211171653.13">def innerSquare(self):
+    pass
+
+
+def outerSquareRect(self):
+    pass
+
+
+</t>
+<t tx="karstenw.20210211171653.14"></t>
+<t tx="karstenw.20210211171653.15">@property
+def top(self):
+    return self.origin[1]
+
+
+</t>
+<t tx="karstenw.20210211171653.16">@property
+def left(self):
+    return self.origin[0]
+
+
+</t>
+<t tx="karstenw.20210211171653.17">@property
+def bottom(self):
+    return self.corner[1]
+
+
+</t>
+<t tx="karstenw.20210211171653.18">@property
+def right(self):
+    return self.corner[0]
+
+
+</t>
+<t tx="karstenw.20210211171653.19">@property
+def width(self):
+    return self.right - self.left
+
+
+</t>
+<t tx="karstenw.20210211171653.2">class Point(object):
+
+    @others
+
+
+</t>
+<t tx="karstenw.20210211171653.20">@property
+def height(self):
+    return self.bottom - self.top
+
+</t>
+<t tx="karstenw.20210211171653.21">@property
+def slope(self):
+    if self.width &gt; 0:
+        return float(self.height) / self.width
+    return float(self.height)
+
+
+</t>
+<t tx="karstenw.20210211171653.22">@property
+def center(self):
+    return (self.left + self.width / 2.0,
+            self.top + self.height / 2.0)
+
+
+</t>
+<t tx="karstenw.20210211171653.23">@property
+def topCenter(self):
+    return (self.center[0], self.top)
+
+</t>
+<t tx="karstenw.20210211171653.24">@property
+def leftCenter(self):
+    return (self.left, self.center[1])
+
+</t>
+<t tx="karstenw.20210211171653.25">@property
+def rightCenter(self):
+    return (self.right, self.center[1])
+
+</t>
+<t tx="karstenw.20210211171653.26">@property
+def bottomCenter(self):
+    return (self.center[0], self.bottom)
+
+</t>
+<t tx="karstenw.20210211171653.27">@property
+def area(self):
+    w = abs( self.height ) * abs( self.width )
+
+
+</t>
+<t tx="karstenw.20210211171653.3">def __init__(self, x, y):
+    self.x = x
+    self.y = y
+
+
+</t>
+<t tx="karstenw.20210211171653.4"></t>
+<t tx="karstenw.20210211171653.5">class Rectangle(object):
+    
+    @others
+
+
+</t>
+<t tx="karstenw.20210211171653.6">def __init__(self, origin, corner):
+    if isinstance(origin, Point):
+        self.origin = origin
+    else:
+        self.origin = Point( *origin )
+    if isinstance(corner, Point):
+        self.corner = corner
+    else:
+        self.corner = Point( *corner )
+
+
+</t>
+<t tx="karstenw.20210211171653.7">def getorigin(self):
+    return self.origin
+
+def setorigin(self, origin):
+    self.origin = origin
+
+origin = property(getorigin, setorigin)
+
+def getcorner(self):
+    return self.corner
+
+def setcorner(self, corner):
+    self.corner = corner
+
+corner = property(getcorner, setcorner)
+
+def getheight(self):
+    return self.corner.y - self.origin.y
+
+def setheight( self, height):
+    self.corner.y = self.origin.y + height
+
+height = property(getheight, setheight)
+
+def getwidth(self):
+    return self.corner.x - self.origin.x
+
+def setwidth( self, width):
+    self.corner.x = self.origin.x + width
+
+width = property(getwidth, setwidth)
+
+
+</t>
+<t tx="karstenw.20210211171653.8"></t>
+<t tx="karstenw.20210211171653.9"># center: extent:
+@staticmethod
+def centerExtent(cls, center, extent):
+    origin = Point( center.x - extent.x, center.y - extent.y)
+    corner = Point( center.y - extent.y, center.y + extent.y)
+    return Rectangle( origin, corner )
+
+
+
+</t>
+<t tx="karstenw.20210211171734.1">
+
+from __future__ import print_function
+
+import sys
+import os
+import types
 
 </t>
 </tnodes>
