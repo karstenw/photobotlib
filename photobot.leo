@@ -12,8 +12,8 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
+<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
+<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -39,7 +39,7 @@
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -112,12 +112,12 @@
 <v t="karstenw.20170709210125.64"><vh>convolute</vh></v>
 </v>
 </v>
-<v t="karstenw.20200419183424.1" a="E"><vh>Tools</vh>
+<v t="karstenw.20200419183424.1"><vh>Tools</vh>
 <v t="karstenw.20200419185608.1"><vh>makeunicode</vh></v>
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 </v>
-<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
@@ -132,7 +132,7 @@
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
 </v>
-<v t="karstenw.20200419205343.1" a="E"><vh>ImageWell</vh>
+<v t="karstenw.20200419205343.1"><vh>ImageWell</vh>
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
 <v t="karstenw.20200419185716.1"><vh>loadImageWell</vh></v>
 </v>
@@ -151,35 +151,36 @@
 <v t="karstenw.20210211171614.1" a="E"><vh>@clean photobot/squeaklib.py</vh>
 <v t="karstenw.20210211171734.1"><vh>declarations</vh></v>
 <v t="karstenw.20210211171653.1" a="E"><vh>Squeaklib</vh>
-<v t="karstenw.20210211171653.2"><vh>Point</vh>
-<v t="karstenw.20210211171653.3"><vh>__init__</vh></v>
-<v t="karstenw.20210211171653.4"><vh>properties</vh></v>
+<v t="karstenw.20210216164600.1" a="E"><vh>tools</vh>
+<v t="karstenw.20210216164604.1"><vh>makePoint</vh></v>
 </v>
-<v t="karstenw.20210211171653.5"><vh>Rectangle</vh>
+<v t="karstenw.20210211171653.2" a="E"><vh>Point</vh>
+<v t="karstenw.20210211171653.3"><vh>__init__</vh></v>
+<v t="karstenw.20210213125927.1"><vh>__lt|le|gt|ge|eq|ne|add|sub|mul__</vh></v>
+</v>
+<v t="karstenw.20210211171653.5" a="E"><vh>Rectangle</vh>
 <v t="karstenw.20210211171653.6"><vh>__init__</vh></v>
-<v t="karstenw.20210211171653.7"><vh>properties</vh></v>
-<v t="karstenw.20210211171653.8"><vh>class methods</vh>
+<v t="karstenw.20210216174810.1"><vh>__eq|ne__</vh></v>
+<v t="karstenw.20210211171653.7" a="E"><vh>properties</vh>
+<v t="karstenw.20210216165734.1"><vh>origin corner</vh></v>
+<v t="karstenw.20210216165815.1"><vh>height width area</vh></v>
+<v t="karstenw.20210216165832.1"><vh>top left bottom right</vh></v>
+<v t="karstenw.20210216170708.1"><vh>topleft topright bottomleft bottomright</vh></v>
+<v t="karstenw.20210216170803.1"><vh>center </vh></v>
+<v t="karstenw.20210216171723.1"><vh>bottomcenter topcenter leftcenter rightcenter</vh></v>
+<v t="karstenw.20210216171724.1"><vh>corners extent</vh></v>
+<v t="karstenw.20210216171724.2"><vh>newHeadline</vh></v>
+<v t="karstenw.20210216171724.3"><vh>newHeadline</vh></v>
+<v t="karstenw.20210216171724.4"><vh>newHeadline</vh></v>
+<v t="karstenw.20210216171724.5"><vh>newHeadline</vh></v>
+</v>
+<v t="karstenw.20210211171653.8" a="E"><vh>class methods</vh>
 <v t="karstenw.20210211171653.9"><vh>centerExtent</vh></v>
 <v t="karstenw.20210211171653.10"><vh>leftRightTopBottom</vh></v>
 </v>
-<v t="karstenw.20210211171653.11"><vh>instance methods</vh>
-<v t="karstenw.20210211171653.12"><vh>newHeadline</vh></v>
+<v t="karstenw.20210211171653.11" a="E"><vh>instance methods</vh>
+<v t="karstenw.20210211171653.12"><vh>rectangle methods</vh></v>
 <v t="karstenw.20210211171653.13"><vh>inRect</vh></v>
-</v>
-<v t="karstenw.20210211171653.14"><vh>aggregated attributes</vh>
-<v t="karstenw.20210211171653.15"><vh>top</vh></v>
-<v t="karstenw.20210211171653.16"><vh>left</vh></v>
-<v t="karstenw.20210211171653.17"><vh>bottom</vh></v>
-<v t="karstenw.20210211171653.18"><vh>right</vh></v>
-<v t="karstenw.20210211171653.19"><vh>width</vh></v>
-<v t="karstenw.20210211171653.20"><vh>height</vh></v>
-<v t="karstenw.20210211171653.21"><vh>slope</vh></v>
-<v t="karstenw.20210211171653.22"><vh>center</vh></v>
-<v t="karstenw.20210211171653.23"><vh>topCenter</vh></v>
-<v t="karstenw.20210211171653.24"><vh>leftCenter</vh></v>
-<v t="karstenw.20210211171653.25"><vh>rightCenter</vh></v>
-<v t="karstenw.20210211171653.26"><vh>bottomCenter</vh></v>
-<v t="karstenw.20210211171653.27"><vh>area</vh></v>
 </v>
 </v>
 </v>
@@ -2821,118 +2822,24 @@ def leftRightTopBottom(cls, left, right, top, bottom):
 
 </t>
 <t tx="karstenw.20210211171653.11"></t>
-<t tx="karstenw.20210211171653.12">def adjusttoAlong(self, otherRect, side):
+<t tx="karstenw.20210211171653.12">def withRight( self, x ):
+    return Rectangle( self.origin, Point( x, self.corner.y))
+def withLeft( self, x ):
+    return Rectangle( Point(x, self.origin.y), self.corner)
+def withBottom( self, y ):
+    return Rectangle( self.origin, Point( self.corner.x, y) )
+def withTop( self, y ):
+    return Rectangle( Point(self.origin.x, y), self.corner )
+
+def withSideSetTo( self, side, val ):
     if side == "left":
-        pass
+        return Rectangle( Point(val, self.origin.y), self.corner )
     elif side == "right":
-        pass
+        return Rectangle( self.origin, Point(val, self.corner.y) )
     elif side == "top":
-        pass
+        return Rectangle( Point(self.origin.x, val), self.corner )
     elif side == "bottom":
-        pass
-"""
-adjustTo: newRect along: side 
-	"Return a copy adjusted to fit a neighbor that has changed size."
-	side = #left ifTrue: [^ self withRight: newRect left].
-	side = #right ifTrue: [^ self withLeft: newRect right].
-	side = #top ifTrue: [^ self withBottom: newRect top].
-	side = #bottom ifTrue: [^ self withTop: newRect bottom].
-
-allAreasOutsideList: aCollection do: aBlock
-	"Enumerate aBlock with all areas of the receiver not overlapping 
-	any rectangle in the given collection"
-	^self allAreasOutsideList: aCollection startingAt: 1 do: aBlock
-
-allAreasOutsideList: aCollection startingAt: startIndex do: aBlock
-	"Enumerate aBlock with all areas of the receiver not overlapping 
-	any rectangle in the given collection"
-	| yOrigin yCorner aRectangle index rr |
-	index _ startIndex.
-
-	"Find the next intersecting rectangle from aCollection"
-	[index &lt;= aCollection size ifFalse:[^aBlock value: self].
-	aRectangle _ aCollection at: index.
-	origin &lt;= aRectangle corner and: [aRectangle origin &lt;= corner]] 
-		whileFalse:[index _ index + 1].
-
-	"aRectangle is intersecting; process it"
-	aRectangle origin y &gt; origin y 
-		ifTrue: [rr _ origin corner: corner x @ (yOrigin _ aRectangle origin y).
-				rr allAreasOutsideList: aCollection startingAt: index+1 do: aBlock]
-		ifFalse: [yOrigin _ origin y].
-	aRectangle corner y &lt; corner y
-		ifTrue: [rr _ origin x @ (yCorner _ aRectangle corner y) corner: corner.
-				rr allAreasOutsideList: aCollection startingAt: index+1 do: aBlock]
-		ifFalse: [yCorner _ corner y].
-	aRectangle origin x &gt; origin x 
-		ifTrue: [rr _ origin x @ yOrigin corner: aRectangle origin x @ yCorner.
-				rr allAreasOutsideList: aCollection startingAt: index+1 do: aBlock].
-	aRectangle corner x &lt; corner x 
-		ifTrue: [rr _ aRectangle corner x @ yOrigin corner: corner x @ yCorner.
-				rr allAreasOutsideList: aCollection startingAt: index+1 do: aBlock].
-
-amountToTranslateWithin: aRectangle
-	"Answer a Point, delta, such that self + delta is forced within aRectangle."
-	"Altered so as to prefer to keep self topLeft inside when all of self
-	cannot be made to fit 7/27/96 di"
-	| dx dy |
-	dx _ 0.  dy _ 0.
-	self right &gt; aRectangle right ifTrue: [dx _ aRectangle right - self right].
-	self bottom &gt; aRectangle bottom ifTrue: [dy _ aRectangle bottom - self bottom].
-	(self left + dx) &lt; aRectangle left ifTrue: [dx _ aRectangle left - self left].
-	(self top + dy) &lt; aRectangle top ifTrue: [dy _ aRectangle top - self top].
-	^ dx@dy
-
-areasOutside: aRectangle
-	"Answer an Array of Rectangles comprising the parts of the receiver not 
-	intersecting aRectangle."
-
-	| areas yOrigin yCorner |
-	"Make sure the intersection is non-empty"
-	(origin &lt;= aRectangle corner and: [aRectangle origin &lt;= corner])
-		ifFalse: [^Array with: self].
-	areas _ OrderedCollection new.
-	aRectangle origin y &gt; origin y
-		ifTrue: [areas addLast: (origin corner: corner x @ (yOrigin _ aRectangle origin y))]
-		ifFalse: [yOrigin _ origin y].
-	aRectangle corner y &lt; corner y
-		ifTrue: [areas addLast: (origin x @ (yCorner _ aRectangle corner y) corner: corner)]
-		ifFalse: [yCorner _ corner y].
-	aRectangle origin x &gt; origin x 
-		ifTrue: [areas addLast: (origin x @ yOrigin corner: aRectangle origin x @ yCorner)].
-	aRectangle corner x &lt; corner x 
-		ifTrue: [areas addLast: (aRectangle corner x @ yOrigin corner: corner x @ yCorner)].
-	^areas
-
-bordersOn: her along: herSide 
-	(herSide = #right and: [self left = her right])
-	| (herSide = #left and: [self right = her left])
-		ifTrue:
-		[^ (self top max: her top) &lt; (self bottom min: her bottom)].
-	(herSide = #bottom and: [self top = her bottom])
-	| (herSide = #top and: [self bottom = her top])
-		ifTrue:
-		[^ (self left max: her left) &lt; (self right min: her right)].
-	^ false
-
-encompass: aPoint 
-	"Answer a Rectangle that contains both the receiver and aPoint.  5/30/96 sw"
-
-	^ Rectangle 
-		origin: (origin min: aPoint)
-		corner: (corner max:  aPoint)
-
-
-
-
-
-
-
-
-
-
-
-"""
+        return Rectangle( self.origin, Point(self.corner.x, val) )
 
 </t>
 <t tx="karstenw.20210211171653.13">def innerSquare(self):
@@ -2944,100 +2851,20 @@ def outerSquareRect(self):
 
 
 </t>
-<t tx="karstenw.20210211171653.14"></t>
-<t tx="karstenw.20210211171653.15">@property
-def top(self):
-    return self.origin[1]
-
-
-</t>
-<t tx="karstenw.20210211171653.16">@property
-def left(self):
-    return self.origin[0]
-
-
-</t>
-<t tx="karstenw.20210211171653.17">@property
-def bottom(self):
-    return self.corner[1]
-
-
-</t>
-<t tx="karstenw.20210211171653.18">@property
-def right(self):
-    return self.corner[0]
-
-
-</t>
-<t tx="karstenw.20210211171653.19">@property
-def width(self):
-    return self.right - self.left
-
-
-</t>
 <t tx="karstenw.20210211171653.2">class Point(object):
 
     @others
 
 
 </t>
-<t tx="karstenw.20210211171653.20">@property
-def height(self):
-    return self.bottom - self.top
-
-</t>
-<t tx="karstenw.20210211171653.21">@property
-def slope(self):
-    if self.width &gt; 0:
-        return float(self.height) / self.width
-    return float(self.height)
-
-
-</t>
-<t tx="karstenw.20210211171653.22">@property
-def center(self):
-    return (self.left + self.width / 2.0,
-            self.top + self.height / 2.0)
-
-
-</t>
-<t tx="karstenw.20210211171653.23">@property
-def topCenter(self):
-    return (self.center[0], self.top)
-
-</t>
-<t tx="karstenw.20210211171653.24">@property
-def leftCenter(self):
-    return (self.left, self.center[1])
-
-</t>
-<t tx="karstenw.20210211171653.25">@property
-def rightCenter(self):
-    return (self.right, self.center[1])
-
-</t>
-<t tx="karstenw.20210211171653.26">@property
-def bottomCenter(self):
-    return (self.center[0], self.bottom)
-
-</t>
-<t tx="karstenw.20210211171653.27">@property
-def area(self):
-    w = abs( self.height ) * abs( self.width )
-
-
-</t>
 <t tx="karstenw.20210211171653.3">def __init__(self, x, y):
-    self.x = x
-    self.y = y
-
+    self.x = float(x)
+    self.y = float(y)
 
 </t>
-<t tx="karstenw.20210211171653.4"></t>
 <t tx="karstenw.20210211171653.5">class Rectangle(object):
     
     @others
-
 
 </t>
 <t tx="karstenw.20210211171653.6">def __init__(self, origin, corner):
@@ -3052,49 +2879,14 @@ def area(self):
 
 
 </t>
-<t tx="karstenw.20210211171653.7">def getorigin(self):
-    return self.origin
-
-def setorigin(self, origin):
-    self.origin = origin
-
-origin = property(getorigin, setorigin)
-
-def getcorner(self):
-    return self.corner
-
-def setcorner(self, corner):
-    self.corner = corner
-
-corner = property(getcorner, setcorner)
-
-def getheight(self):
-    return self.corner.y - self.origin.y
-
-def setheight( self, height):
-    self.corner.y = self.origin.y + height
-
-height = property(getheight, setheight)
-
-def getwidth(self):
-    return self.corner.x - self.origin.x
-
-def setwidth( self, width):
-    self.corner.x = self.origin.x + width
-
-width = property(getwidth, setwidth)
-
-
-</t>
+<t tx="karstenw.20210211171653.7"></t>
 <t tx="karstenw.20210211171653.8"></t>
 <t tx="karstenw.20210211171653.9"># center: extent:
 @staticmethod
 def centerExtent(cls, center, extent):
     origin = Point( center.x - extent.x, center.y - extent.y)
-    corner = Point( center.y - extent.y, center.y + extent.y)
+    corner = Point( center.x + extent.x, center.y + extent.y)
     return Rectangle( origin, corner )
-
-
 
 </t>
 <t tx="karstenw.20210211171734.1">
@@ -3104,6 +2896,198 @@ from __future__ import print_function
 import sys
 import os
 import types
+
+</t>
+<t tx="karstenw.20210213125927.1">def __lt__(self, other):
+    return (self.x &lt; other.x) and (self.y &lt; other.y)
+def __le__(self, other):
+    return (self.x &lt;= other.x) and (self.y &lt;= other.y)
+
+def __gt__(self, other):
+    return (self.x &gt; other.x) and (self.y &gt; other.y)
+def __ge__(self, other):
+    return (self.x &gt;= other.x) and (self.y &gt;= other.y)
+
+def __eq__(self, other):
+    return (self.x == other.x) and (self.y == other.y)
+def __ne__(self, other):
+    return (self.x != other.x) or (self.y != other.y)
+
+def __add__( self, other):
+    return Point( self.x + other.x, self.y + other.y )
+def __sub__( self, other):
+    return Point( self.x - other.x, self.y - other.y )
+def __mul__( self, other):
+    return Point( self.x * other.x, self.y * other.y )
+
+
+</t>
+<t tx="karstenw.20210216164600.1"></t>
+<t tx="karstenw.20210216164604.1">def makePoint( *args  ):
+    n = len(args)
+    if n == 1:
+        if isinstance(args, Point):
+            return args
+        else:
+            return Point( args[0][0], args[0][1] )
+    elif n == 2:
+        return Point( args[0], args[1] )
+    return None
+
+
+</t>
+<t tx="karstenw.20210216165734.1"># origin
+def getorigin(self):
+    return self.origin
+def setorigin(self, origin):
+    self.origin = origin
+origin = property(getorigin, setorigin)
+
+# corner
+def getcorner(self):
+    return self.corner
+def setcorner(self, corner):
+    self.corner = corner
+corner = property(getcorner, setcorner)
+
+</t>
+<t tx="karstenw.20210216165815.1"># height
+def getheight(self):
+    return self.corner.y - self.origin.y
+def setheight( self, height):
+    self.corner.y = self.origin.y + height
+height = property(getheight, setheight)
+
+#  width
+def getwidth(self):
+    return self.corner.x - self.origin.x
+def setwidth( self, width):
+    self.corner.x = self.origin.x + width
+width = property(getwidth, setwidth)
+
+# area
+def getarea( self ):
+    return self.width * self.height
+area = property(getarea)
+
+</t>
+<t tx="karstenw.20210216165832.1"># top
+def gettop( self ):
+    return self.origin.y
+def settop( self, val ):
+    self.origin.y = val
+top = property( gettop, settop )
+
+# bottom
+def getbottom( self ):
+    return self.corner.y
+def setbottom( self, val ):
+    self.corner.y = val
+bottom = property( getbottom, setbottom )
+
+# left
+def getleft( self ):
+    return self.origin.x
+def setleft( self, val ):
+    self.origin.x = val
+left = property( getleft, setleft )
+
+# right
+def getright( self ):
+    return self.corner.x
+def setright( self, val ):
+    self.corner.x = val
+right = property( getright, setright )
+
+
+</t>
+<t tx="karstenw.20210216170708.1"># topleft
+def gettopleft( self ):
+    return self.origin
+def settopleft( self, *args):
+    self.origin = makepoint( args )
+topleft = property( gettopleft, settopleft )
+
+# topright
+def gettopright( self ):
+    return Point( self.corner.x, self.origin.y )
+def settopright( self, *args):
+    p = makepoint( args )
+    self.corner.x = p.x
+    self.origin.y = p.y
+topright = property( gettopright, settopright )
+
+# bottomleft
+def getbottomleft( self ):
+    return Point( self.origin.x, self.corner.y )
+def setbottomleft( self, *args):
+    p = makepoint( args )
+    self.origin.x = p.x
+    self.corner.y = p.y
+bottomleft = property( getbottomleft, setbottomleft )
+
+# bottomright
+def getbottomright( self ):
+    return self.corner
+def setbottomright( self, *args):
+    self.corner = makepoint( args )
+bottomright = property( getbottomright, setbottomright )
+
+</t>
+<t tx="karstenw.20210216170803.1"># center
+def getcenter( self ):
+    return Point( self.left + self.width / 2.0,
+                  self.top + self.height / 2.0 )
+def setcenter( self, *args):
+    self.origin = makepoint( args )
+center = property( getcenter, setcenter )
+
+</t>
+<t tx="karstenw.20210216171723.1"># bottomcenter
+def bottomcenter( self ):
+    return Point( self.center.x, self.bottom )
+bottomcenter = property( bottomcenter )
+
+# topcenter
+def topcenter( self ):
+    return Point( self.center.x, self.top )
+topcenter = property( topcenter )
+
+# leftcenter
+def leftcenter( self ):
+    return Point( self.left, self.center.y )
+leftcenter = property( leftcenter )
+
+# rightcenter
+def rightcenter( self ):
+    return Point( self.right, self.center.y )
+rightcenter = property( rightcenter )
+
+</t>
+<t tx="karstenw.20210216171724.1">def corners( self ):
+    return [
+        self.topleft,
+        self.bottomleft,
+        self.bottomright,
+        self.topright
+    ]
+corners = property( corners )
+
+def extent( self ):
+    return self.corner - self.origin
+extent = property( extent )
+
+
+</t>
+<t tx="karstenw.20210216171724.2"></t>
+<t tx="karstenw.20210216171724.3"></t>
+<t tx="karstenw.20210216171724.4"></t>
+<t tx="karstenw.20210216171724.5"></t>
+<t tx="karstenw.20210216174810.1">def __eq__( self, other ):
+    return (self.origin == other.origin) and (self.corner == other.corner)
+
+def __ne__( self, other ):
+    return (self.origin != other.origin) or (self.corner != other.corner)
 
 </t>
 </tnodes>
