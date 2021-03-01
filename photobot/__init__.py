@@ -530,7 +530,7 @@ class Canvas:
 
             # alpha = buffer.split()[3]
             alpha = buffer.getchannel("A")
-            basealpha = bage.getchannel("A")
+            basealpha = base.getchannel("A")
             if i == 1:
                 buffer = Image.composite(base, buffer, basealpha) #base.split()[3])
             else:

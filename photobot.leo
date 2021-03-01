@@ -9,11 +9,11 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
+<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
+<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -559,7 +559,7 @@ import traceback
 
         # alpha = buffer.split()[3]
         alpha = buffer.getchannel("A")
-        basealpha = bage.getchannel("A")
+        basealpha = base.getchannel("A")
         if i == 1:
             buffer = Image.composite(base, buffer, basealpha) #base.split()[3])
         else:
