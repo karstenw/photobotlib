@@ -732,6 +732,7 @@ class Canvas:
         self.layers.append( layer )
         return self.top
 
+
 def canvas(w, h):
     return Canvas(w, h)
 
@@ -1738,29 +1739,10 @@ def innerRect( w0, h0, w1, h1):
     pass
 
 
-def normalizeOrientationImage( img ):
-    """Rotate an image according to exif info.
-    
-    """
-    rotation = 0
-    try:
-        info = img._getexif()
-        if 274 in info:
-            r = info[274]
-            if r == 3:
-                rotation = 180
-            elif r == 6:
-                rotation = -90
-            elif r == 8:    
-                rotation = 90
-    except (Exception, IndexError), err:
-        pass
-    if rotation != 0:
-        return img.rotate( rotation )
-    return img
-
-
 def insetRect( rectangle, horInset, vertInset):
+
+    """
+    """
     x, y, w, h = rectangle
     dh = horInset / 2.0
     dv = vertInset / 2.0
@@ -1768,9 +1750,12 @@ def insetRect( rectangle, horInset, vertInset):
 
 
 def cropImageToRatioHorizontal( layer, ratio ):
+    
+    """
+    """
     w, h = layer.bounds()
-    neww = int( round( h*ratio) )
-    d = int( neww / 2.0 )
+    newwidth = int( round( h*ratio) )
+    d = int( newwidth / 2.0 )
     x,y,w,h = insetRect( (0,0,w,h), d, 0 )
     layer.img = layer.img.crop(box=(x,y,x+w,y+h))
     return layer
@@ -1819,6 +1804,28 @@ def resizeImage( filepath, maxsize, orientation=True, width=True, height=True):
     if f:
         f.close()
     return img.convert("RGBA")
+
+
+def normalizeOrientationImage( img ):
+    """Rotate an image according to exif info.
+    
+    """
+    rotation = 0
+    try:
+        info = img._getexif()
+        if 274 in info:
+            r = info[274]
+            if r == 3:
+                rotation = 180
+            elif r == 6:
+                rotation = -90
+            elif r == 8:    
+                rotation = 90
+    except (Exception, IndexError), err:
+        pass
+    if rotation != 0:
+        return img.rotate( rotation )
+    return img
 
 
 def label( canvas, string, x, y, fontsize=18, fontpath="" ):
