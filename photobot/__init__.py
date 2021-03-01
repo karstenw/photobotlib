@@ -528,9 +528,11 @@ class Canvas:
             # Merging the first layer to the transparent canvas
             # works slightly different than the other layers.
 
-            alpha = buffer.split()[3]
+            # alpha = buffer.split()[3]
+            alpha = buffer.getchannel("A")
+            basealpha = bage.getchannel("A")
             if i == 1:
-                buffer = Image.composite(base, buffer, base.split()[3])
+                buffer = Image.composite(base, buffer, basealpha) #base.split()[3])
             else:
                 buffer = Image.composite(buffer, base, alpha)
         
@@ -539,7 +541,7 @@ class Canvas:
             # is retained in arrays where the blend layer
             # is transparent as well.
         
-            alpha = ImageChops.lighter(alpha, base.split()[3])
+            alpha = ImageChops.lighter(alpha, basealpha) #base.split()[3])
             buffer.putalpha(alpha)
         
             # Apply the layer's opacity,
@@ -635,7 +637,8 @@ class Canvas:
 
                 blend = layer.img.crop((x, y, w, h))
 
-                alpha = blend.split()[3]
+                # alpha = blend.split()[3]
+                alpha = blend.getchannel("A")
                 buffer = Image.composite(blend, base, alpha)
 
                 n = basename % (i, layer.name)
@@ -905,8 +908,9 @@ class Layer:
         if feather:
             mask = mask.filter(ImageFilter.SMOOTH_MORE)
             mask = mask.filter(ImageFilter.SMOOTH_MORE)
-            
-        mask = ImageChops.darker(mask, self.img.split()[3])
+        
+        
+        mask = ImageChops.darker(mask, self.img.getchannel("A")) #self.img.split()[3])
         self.img.putalpha(mask)
 
     def mask(self):
@@ -944,9 +948,9 @@ class Layer:
         #and its own alpha channel.
 
         mask = self.canvas.layers[i]        
-        flat = ImageChops.darker(mask.img.convert("L"), mask.img.split()[3])
+        flat = ImageChops.darker(mask.img.convert("L"), mask.img.getchannel("A")) #mask.img.split()[3])
         alpha.paste(flat, (mask.x,mask.y))
-        alpha = ImageChops.darker(alpha, layer.img.split()[3])
+        alpha = ImageChops.darker(alpha, layer.img.getchannel("A")) #layer.img.split()[3])
         layer.img.putalpha(alpha)
 
         self.delete()
@@ -1038,7 +1042,8 @@ class Layer:
 
         """
 
-        alpha = self.img.split()[3]
+        # alpha = self.img.split()[3]
+        alpha = self.img.getchannel("A")
         self.img = self.img.convert("L")
         self.img = self.img.convert("RGBA")
         self.img.putalpha(alpha)
@@ -1051,7 +1056,8 @@ class Layer:
         
         """
         # 
-        alpha = self.img.split()[3]
+        # alpha = self.img.split()[3]
+        alpha = self.img.getchannel("A")
         img = self.img.convert("L")
         img = ImageOps.colorize(img, black, white, mid,
                                      blackpoint=0, whitepoint=255, midpoint=127)
@@ -1062,7 +1068,8 @@ class Layer:
     def posterize(self, bits=8):
         if 0: #not (1 <= bits <= 8):
             return
-        alpha = self.img.split()[3]
+        # alpha = self.img.split()[3]
+        alpha = self.img.getchannel("A")
         img = self.img.convert("RGB")
         img = ImageOps.posterize(img, bits)
         img = img.convert("RGBA")
@@ -1070,7 +1077,8 @@ class Layer:
         self.img = img
 
     def solarize(self, threshhold):
-        alpha = self.img.split()[3]
+        # alpha = self.img.split()[3]
+        alpha = self.img.getchannel("A")
         img = self.img.convert("RGB")
         img = ImageOps.solarize(img, threshhold)
         img = img.convert("RGBA")
@@ -1080,7 +1088,8 @@ class Layer:
     def autocontrast(self, cutoff=0, ignore=None):
         if 0: #not (1 <= bits <= 8):
             return
-        alpha = self.img.split()[3]
+        # alpha = self.img.split()[3]
+        alpha = self.img.getchannel("A")
         img = self.img.convert("RGB")
         img = ImageOps.autocontrast(img, cutoff, ignore)
         img = img.convert("RGBA")
@@ -1361,7 +1370,8 @@ class Layer:
         
         f = ImageFilter.Kernel(size, kernel, scale=scale, offset=offset)
         
-        alpha = self.img.split()[3]
+        # alpha = self.img.split()[3]
+        alpha = self.img.getchannel("A")
         img = self.img.convert("RGB")
         # f = ImageFilter.BuiltinFilter()
         # f.filterargs = size, scale, offset, kernel
@@ -1373,7 +1383,8 @@ class Layer:
 
     def statistics(self):
         
-        return ImageStat.Stat(self.img, self.img.split()[3])
+        alpha = self.img.getchannel("A")
+        return ImageStat.Stat(self.img, alpha) #self.img.split()[3])
         
     def levels(self):
         
@@ -1670,12 +1681,14 @@ def datestring(dt = None, dateonly=False, nospaces=True, nocolons=True):
 
 
 def invertimage( img ):
-    alpha = img.split()[3]
+    # alpha = img.split()[3]
+    alpha = img.getchannel("A")
     img = img.convert("RGB")
     img = ImageOps.invert(img)
     img = img.convert("RGBA")
     img.putalpha(alpha)
     return img
+
 
 def cropimage( img, bounds):
 
@@ -1683,6 +1696,7 @@ def cropimage( img, bounds):
     
     """
     return img.crop( bounds )
+
 
 def aspectRatio(size, maxsize, height=False, width=False, assize=False):
     """Resize size=(w,h) to maxsize.
