@@ -16,7 +16,7 @@ PhotoBot was initially a part of the NodeBox Library.
 
 Since 2013 it has been updated to the current Python 2 and Pillow libraries.
 
-This version works with Python2, Python3 and NodeBox.
+This version works with Python2.7, Python3.8 and NodeBox.
 
 
 
@@ -38,3 +38,4 @@ T.B.D. see examples folder.
 creates a contact print of a folder. All other examples demonstrate a single function.
 
 After the first usage there should be a file `imagewell.txt` which can be edited for your image folders.
+
