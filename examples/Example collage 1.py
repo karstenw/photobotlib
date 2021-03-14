@@ -1,4 +1,9 @@
+
+
 # heavily inspired by https://www.nodebox.net/code/index.php/Landslide
+
+from __future__ import print_function
+
 import sys, os
 
 import pprint
@@ -55,8 +60,8 @@ backgrounds = imagewell['backgrounds']
 rnd.shuffle(tiles)
 rnd.shuffle(backgrounds)
 
-print "tiles:", len(tiles)
-print "backgrounds:", len(backgrounds)
+print( "tiles: %i" % len(tiles) )
+print( "backgrounds: %i" % len(backgrounds) )
 
 
 # create the canvas
@@ -87,7 +92,7 @@ y_offset = int(round(y_offset))
 # background image
 bgimage = backgrounds.pop()
 pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
-# print "Background:", bgimage.encode("utf-8")
+# print( "Background: %s" % bgimage.encode("utf-8") )
 
 
 cols = -1
@@ -95,9 +100,6 @@ for j in range(rows):
     colw = 0
     cols += 1
     while colw < WIDTH:
-        if 0: # kwdbg:
-            print '-' * 20
-            print "Col:" , cols
 
         # create image in canvas at 0,0
         nextpictpath = tiles.pop()
@@ -148,7 +150,7 @@ if paintoverlay:
     # paint overlay
     if os.path.exists( paintfile ):
         if kwdbg:
-            print "paint overlay:", paintfile
+            print( "paint overlay:  %s" % paintfile )
         topidx = c.layer( paintfile )
         w, h = c.top.bounds()
         xs = WIDTH / float(w)

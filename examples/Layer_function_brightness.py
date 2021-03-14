@@ -1,11 +1,7 @@
-# heavily inspired by https://www.nodebox.net/code/index.php/Landslide
 import sys, os
 
 # need a different name
 import random as rnd
-
-import photobot as pb
-
 
 import pprint
 pp = pprint.pprint
@@ -13,30 +9,40 @@ pp = pprint.pprint
 import pdb
 kwdbg = 0
 
+W, H = 550, 1050
+
+
+# check for Nodebox
+NB = True
+try:
+    _ctx
+except(NameError):
+    NB = False
+
+if NB:
+    size(W, H)
+    pb = ximport("photobot")
+else:
+    WIDTH, HEIGHT = W, H
+    import photobot as pb
+
+
 if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(0)
 
-
-WIDTH, HEIGHT = 550, 1050
-
-
-# get all images from user image wells
-filetuples = pb.imagefiles( pb.imagewells(), False )
 imagewell = pb.loadImageWell()
-tiles = imagewell['landscape']
+tiles = imagewell['backgrounds']
 rnd.shuffle(tiles)
 
 
-# CONFIGURATION
-
-# create the canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (255, 255, 255) )
-
+# pick 2 images
 img1path = tiles.pop()
 img2path = tiles.pop()
 
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
 
 #
 # Image 1

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-
+from __future__ import print_function
 import random as rnd
 
 # import photobot
@@ -19,7 +19,7 @@ def makerandomgradient( c, w, h, y_offset ):
     r = rnd.random()
     # r = 0.01
     if kwdbg:
-        print "mask random: %.2f" % r
+        print( "mask random: %.2f" % r )
     # create gradient layer
     grad = "BILINEAR"
 
@@ -58,5 +58,6 @@ def makerandomgradient( c, w, h, y_offset ):
         c.gradient(pb.ROUNDRECT, w, h, radius=int(w/5.0))
 
     if kwdbg:
-        print "Gradient:", grad
+        print( "Gradient:  %s" % grad )
+
 

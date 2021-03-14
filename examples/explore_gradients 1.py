@@ -4,8 +4,6 @@ import sys, os
 # need a different name
 import random as rnd
 
-import photobot as pb
-
 
 import pprint
 pp = pprint.pprint
@@ -17,7 +15,23 @@ if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(0)
 
-WIDTH, HEIGHT = 960, 1200
+W, H = 960, 1200
+
+
+# check for Nodebox
+NB = True
+try:
+    _ctx
+except(NameError):
+    NB = False
+
+if NB:
+    size(W, H)
+    pb = ximport("photobot")
+else:
+    WIDTH, HEIGHT = W, H
+    import photobot as pb
+
 
 # create the canvas
 c = pb.canvas( WIDTH, HEIGHT)

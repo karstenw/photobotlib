@@ -17,8 +17,21 @@
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
-<v t="karstenw.20170709210125.9"><vh>makegradientimage</vh></v>
-<v t="karstenw.20170709210125.10"><vh>gradient</vh></v>
+<v t="karstenw.20170709210125.9"><vh>makegradientimage</vh>
+<v t="karstenw.20210301171902.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
+<v t="karstenw.20210301172848.1"><vh>&lt;&lt; solid &gt;&gt;</vh></v>
+<v t="karstenw.20210301172906.1"><vh>&lt;&lt; linear &gt;&gt;</vh></v>
+<v t="karstenw.20210301172912.1"><vh>&lt;&lt; radial &gt;&gt;</vh></v>
+<v t="karstenw.20210301172925.1"><vh>&lt;&lt; radialcosine &gt;&gt;</vh></v>
+<v t="karstenw.20210301172931.1"><vh>&lt;&lt; diamond &gt;&gt;</vh></v>
+<v t="karstenw.20210301172939.1"><vh>&lt;&lt; sine cosine &gt;&gt;</vh></v>
+</v>
+<v t="karstenw.20170709210125.10"><vh>gradient</vh>
+<v t="karstenw.20210301172109.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
+<v t="karstenw.20210301172149.1"><vh>&lt;&lt; one Image gradients &gt;&gt;</vh></v>
+<v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
+<v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
+</v>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
 <v t="karstenw.20170709210125.13"><vh>export</vh>
@@ -30,10 +43,8 @@
 <v t="karstenw.20200430120743.1"><vh>STACK OPS</vh>
 <v t="karstenw.20170710142919.1"><vh>top</vh></v>
 <v t="karstenw.20200430124808.1"><vh>dup</vh></v>
-<v t="karstenw.20200430120752.1"><vh>ops</vh></v>
 </v>
 </v>
-<v t="karstenw.20170709210125.16"><vh>canvas</vh></v>
 <v t="karstenw.20170709210125.17"><vh>class Layers</vh>
 <v t="karstenw.20170709210125.18"><vh>__getitem__</vh></v>
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
@@ -51,7 +62,7 @@
 <v t="karstenw.20170709210125.30"><vh>select</vh></v>
 <v t="karstenw.20170709210125.31"><vh>mask</vh></v>
 <v t="karstenw.20170709210125.32"><vh>duplicate</vh></v>
-<v t="karstenw.20170727231803.1"><vh>BLENDS</vh>
+<v t="karstenw.20170727231803.1" a="E"><vh>BLENDS</vh>
 <v t="karstenw.20170709210125.33"><vh>opacity</vh></v>
 <v t="karstenw.20170709210125.34"><vh>multiply</vh></v>
 <v t="karstenw.20200419182817.1"><vh>add</vh></v>
@@ -64,14 +75,14 @@
 <v t="karstenw.20170709210125.37"><vh>hue</vh></v>
 <v t="karstenw.20170709210125.38"><vh>color</vh></v>
 </v>
-<v t="karstenw.20170727231827.1"><vh>INTENSITIES</vh>
+<v t="karstenw.20170727231827.1" a="E"><vh>INTENSITIES</vh>
 <v t="karstenw.20170709210125.39"><vh>brightness</vh></v>
 <v t="karstenw.20170709210125.40"><vh>contrast</vh></v>
 <v t="karstenw.20170709210125.41"><vh>desaturate</vh></v>
 <v t="karstenw.20170709210125.42"><vh>colorize</vh></v>
 </v>
 <v t="karstenw.20170709210125.43"><vh>invert</vh></v>
-<v t="karstenw.20170727232236.1"><vh>GEOMETRY</vh>
+<v t="karstenw.20170727232236.1" a="E"><vh>GEOMETRY</vh>
 <v t="karstenw.20170709210125.44"><vh>translate</vh></v>
 <v t="karstenw.20170709210125.45"><vh>scale</vh></v>
 <v t="karstenw.20170709210125.47"><vh>rotate</vh></v>
@@ -79,7 +90,7 @@
 <v t="karstenw.20170709210125.48"><vh>flip</vh></v>
 <v t="karstenw.20170727233343.1"><vh>crop</vh></v>
 </v>
-<v t="karstenw.20200421172034.1"><vh>FILTERS</vh>
+<v t="karstenw.20200421172034.1" a="E"><vh>FILTERS</vh>
 <v t="karstenw.20170727232434.1"><vh>autocontrast</vh></v>
 <v t="karstenw.20170709210125.49"><vh>blur</vh></v>
 <v t="karstenw.20200421172500.1"><vh>new boxblur</vh></v>
@@ -98,6 +109,8 @@
 <v t="karstenw.20170709210125.52"><vh>levels</vh></v>
 </v>
 <v t="karstenw.20170709210125.53"><vh>class Blend</vh>
+<v t="karstenw.20210301161622.1"><vh>subtract</vh></v>
+<v t="karstenw.20210301161642.1"><vh>subtract_modulo</vh></v>
 <v t="karstenw.20170709210125.54"><vh>overlay</vh></v>
 <v t="karstenw.20170709210125.55"><vh>hue</vh></v>
 <v t="karstenw.20170709210125.56"><vh>color</vh></v>
@@ -120,19 +133,25 @@
 <v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
+<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
-<v t="karstenw.20170709210125.66"><vh>normalizeOrientationImage</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
 <v t="karstenw.20200419185034.1"><vh>cropImageToRatioHorizontal</vh></v>
 <v t="karstenw.20200419185042.1"><vh>scaleLayerToHeight</vh></v>
 <v t="karstenw.20200419185049.1"><vh>placeImage</vh></v>
 <v t="karstenw.20200419185056.1"><vh>resizeImage</vh></v>
+</v>
+<v t="karstenw.20170709210125.66"><vh>normalizeOrientationImage</vh></v>
+</v>
+<v t="karstenw.20210301171559.1"><vh>Text</vh>
 <v t="karstenw.20200419184336.1"><vh>label</vh></v>
+</v>
+<v t="karstenw.20210301171611.1"><vh>Folderscanner</vh>
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
 </v>
-<v t="karstenw.20200419205343.1"><vh>ImageWell</vh>
+<v t="karstenw.20200419205343.1" a="E"><vh>ImageWell</vh>
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
 <v t="karstenw.20200419185716.1"><vh>loadImageWell</vh></v>
 </v>
@@ -153,8 +172,11 @@
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 </v>
-<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a-1920x1080.py</vh>
+<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a-1920x1080.py</vh>
 <v t="karstenw.20201006211616.1"><vh>Declarations</vh></v>
+<v t="karstenw.20210314151658.1"><vh>init</vh></v>
+<v t="karstenw.20210314151702.1"><vh>loop</vh></v>
+<v t="karstenw.20210314151706.1"><vh>finish</vh></v>
 </v>
 </v>
 </vnodes>
@@ -179,9 +201,6 @@ ALL = ['canvas', 'Layers', 'Layer', 'label', 'invertimage', 'cropimage',
 
 import sys
 import os
-import types
-FloatType = types.FloatType
-StringType = types.StringType
 
 import math
 sqrt = math.sqrt
@@ -224,6 +243,23 @@ pp = pprint.pprint
 kwdbg = 0
 import traceback
 
+# py3 stuff
+
+py3 = False
+try:
+    unicode('')
+    punicode = unicode
+    pstr = str
+    punichr = unichr
+except NameError:
+    punicode = str
+    pstr = bytes
+    py3 = True
+    punichr = chr
+    long = int
+
+
+
 </t>
 <t tx="karstenw.20170709210125.10">def gradient(self, style=LINEAR, w=1.0, h=1.0, name="",
                    radius=0, radius2=0):
@@ -241,136 +277,15 @@ import traceback
     COSINE and ROUNDRECT
     """
 
-    w0 = self.w
-    h0 = self.h
-    if type(w) == FloatType:
-        w = int(w*w0)
-    if type(h) == FloatType:
-        h = int(h*h0)
+    &lt;&lt; init &gt;&gt;
 
     img = None
-    if style in (SOLID, LINEAR, RADIAL, DIAMOND,
-                 SINE, COSINE, RADIALCOSINE):
-        img = self.makegradientimage(style, w, h)
-        img = img.convert("RGBA")
-        return self.layer(img, 0, 0, name=name)
 
-    if style == QUAD:
-        # make a rectangle with softened edges
-        result = Image.new("L", (int(w),int(h)), 255)
-        
-        mask = Image.new("L", (w,h), 255)
-        draw = ImageDraw.Draw(mask)
+    &lt;&lt; one Image gradients &gt;&gt;
 
-        if radius == 0 and radius2 == 0:
-            radius = w / 4.0
-            radius2 = w / 10.0
+    &lt;&lt; quad gradient &gt;&gt;
 
-        r1 = int(round(radius,0))
-        r2 = int(round(radius2,0))
-        
-        if r1 == 0:
-            r1 = 1
-        if r2 == 0:
-            r2 = 1
-        d1 = 2 * r1
-        d2 = 2 * r2
-
-        # create the base rect
-        baserect = self.makegradientimage(SOLID, w-d1, h-d2)
-        
-        # create the vertical gradients
-        verleft = self.makegradientimage(COSINE, r1, h)
-        verleft = verleft.transpose(Image.FLIP_LEFT_RIGHT)
-        vertright = verleft.rotate( 180 )
-
-        # create the horizontal gradients
-        # since LINEAR goes from left to right, 
-        horup = self.makegradientimage(COSINE, r2, w)
-        horup = horup.transpose(Image.FLIP_LEFT_RIGHT)
-        hordown = horup.rotate( -90, expand=1 )
-        horup = hordown.rotate( 180 )
-
-        # assemble
-        result.paste( baserect, box=( r1,   0) )
-        result.paste( verleft,  box=( 0,    0) )
-        result.paste( vertright,box=( w-r1, 0) )
-
-        mask.paste( hordown,    box=( 0,    0) )
-        mask.paste( horup,      box=( 0,    h-r2) )
-
-        result = ImageChops.darker(result, mask)
-        result = result.convert("RGBA")
-        del mask, horup, hordown
-        del baserect, verleft, vertright
-        return self.layer(result, 0, 0, name=name)
-
-    if style == ROUNDRECT:
-        result = Image.new("L", (int(w),int(h)), 255)
-        r1 = int(round(radius))
-        r2 = int(round(radius2))
-        if r1 == 0:
-            r1 = 1
-        if r2 == 0:
-            r2 = 1
-        d1 = 2 * r1
-        d2 = 2 * r2
-
-        # take 1 radial grad for the 4 corners
-        corners = self.makegradientimage(RADIALCOSINE, d1, d2)
-
-        # top left
-        b = corners.copy()
-        tl = b.crop( box=(0,0,r1,r2) )
-
-        # top right
-        b = corners.copy()
-        tr = b.crop( box=(r1,0,d1,r2) )
-
-        # bottom left
-        b = corners.copy()
-        bl = b.crop( box=(0,r2,r1,d2) )
-
-        # bottom right
-        b = corners.copy()
-        br = b.crop( box=(r1,r2,d1,d2) )
-
-        # create the base rect
-        brw = w - d1
-        brh = h - d2
-        baserect = self.makegradientimage(SOLID, brw, brh)
-        
-        # create the vertical gradients
-        verleft = self.makegradientimage(COSINE, r1, brh)
-        verleft = verleft.transpose(Image.FLIP_LEFT_RIGHT)
-        vertright = verleft.rotate( 180 )
-
-        # create the horizontal gradients
-        # since LINEAR goes from left to right, 
-        horup = self.makegradientimage(COSINE, r2, brw)
-        horup = horup.transpose(Image.FLIP_LEFT_RIGHT)
-        hordown = horup.rotate( -90, expand=1 )
-        horup = hordown.rotate( 180 )
-
-        # assemble
-        result.paste( baserect, box=( r1,     r2) )
-
-        result.paste( hordown,  box=( r1,     0) )
-        result.paste( horup,    box=( r1,     brh+r2) )
-
-        result.paste( verleft,  box=( 0,     r2) )
-        result.paste( vertright,box=( brw+r1, r2) )
-
-        result.paste( tl,       box=( 0,     0) )
-        result.paste( tr,       box=( brw+r1, 0) )
-        result.paste( bl,       box=( 0,     brh+r2) )
-        result.paste( br,       box=( brw+r1, brh+r2) )
-        img = result.convert("RGBA")
-        del corners, tl, tr, bl, br, b
-        del horup, hordown
-        del baserect
-        del verleft, vertright
-        return self.layer(img, 0, 0, name=name)
+    &lt;&lt; roundrect gradient &gt;&gt;
 
 </t>
 <t tx="karstenw.20170709210125.11">def merge(self, layers):
@@ -517,13 +432,14 @@ import traceback
         background.img.paste(base, (x,y))
         del base, buffer, alpha, blend
 
+    layers = list(layers)
     layers.reverse()
     for i in layers:
         del self.layers[i].img
         del self.layers[i]
 
     img = Image.new("RGBA", (self.w,self.h), (255,255,255,0))
-    self.layers._set_bg(Layer(self, img, 0, 0, name="_bg"))
+    self.layers._set_bg( Layer(self, img, 0, 0, name="_bg") )
     
     if len(self.layers) == 1:
         self.layers.append(background)
@@ -541,8 +457,6 @@ import traceback
 
     """
 
-    # pdb.set_trace()
-    
     &lt;&lt;init&gt;&gt;
     if kwdbg:
         &lt;&lt;debug&gt;&gt;
@@ -583,12 +497,12 @@ import traceback
         try:
             #if nodeboxlib:
             _ctx.image(path, x, y)
-        except NameError,err:
+        except NameError as err:
             pass
         if 0:
             os.unlink( path )
         return path
-    except Exception, err:
+    except Exception as err:
         print(err)
         print()
         exc_type, exc_value, exc_tb = sys.exc_info()
@@ -596,7 +510,7 @@ import traceback
         print()
 
 </t>
-<t tx="karstenw.20170709210125.15">def preferences(interpolation=INTERPOLATION):
+<t tx="karstenw.20170709210125.15">def preferences(self, interpolation=INTERPOLATION):
 
     """Settings that influence image manipulation.
 
@@ -605,11 +519,6 @@ import traceback
 
     """
     self.interpolation = interpolation
-
-</t>
-<t tx="karstenw.20170709210125.16">def canvas(w, h):
-    return Canvas(w, h)
-
 
 </t>
 <t tx="karstenw.20170709210125.17">class Layers(list):
@@ -631,7 +540,7 @@ import traceback
     if type(index) in (int, long):
         return list.__getitem__(self, index)
 
-    elif type(index) in (str, unicode):
+    elif type(index) in (pstr, punicode):
         for layer in self:
             if layer.name == index:
                 return layer
@@ -791,8 +700,7 @@ import traceback
 
     w, h = self.img.size
     mask = Image.new("L", (w,h), 0)
-    draw = ImageDraw.Draw(mask)
-    
+
     draw = ImageDraw.Draw(mask)
     draw.polygon(path, fill=255)
 
@@ -836,8 +744,8 @@ import traceback
 
     alpha = Image.new("L", layer.img.size, 0)
 
-    #Make a composite of the mask layer in grayscale
-    #and its own alpha channel.
+    # Make a composite of the mask layer in grayscale
+    # and its own alpha channel.
 
     mask = self.canvas.layers[i]        
     flat = ImageChops.darker(mask.img.convert("L"), mask.img.getchannel("A")) #mask.img.split()[3])
@@ -1023,9 +931,9 @@ def equalize(self, mask=None):
 
     """
     w0, h0 = self.img.size
-    if type(w) == FloatType:
+    if type(w) == float:
         w = int(w*w0)
-    if type(h) == FloatType:
+    if type(h) == float:
         h = int(h*h0)
     self.img = self.img.resize((w,h), resample=LANCZOS)
     self.w = w
@@ -1145,6 +1053,11 @@ def equalize(self, mask=None):
     """
 
     @others
+
+def canvas(w, h):
+    return Canvas(w, h)
+
+
 </t>
 <t tx="karstenw.20170709210125.50">def sharpen(self, value=1.0):
 
@@ -1198,20 +1111,6 @@ def equalize(self, mask=None):
     
     """
     
-    def subtract(self, img1, img2, scale=1.0, offset=0):
-        base = img1.convert("RGB")
-        blend = img2.convert("RGB")
-        result = ImageChops.subtract(base, blend, scale=scale, offset=offset)
-        result = result.convert("RGBA")
-        return result
-
-    def subtract_modulo(self, img1, img2):
-        base = img1.convert("RGB")
-        blend = img2.convert("RGB")
-        result = ImageChops.subtract_modulo(base, blend)
-        result = result.convert("RGBA")
-        return result
-
     @others
 </t>
 <t tx="karstenw.20170709210125.54">def overlay(self, img1, img2):
@@ -1497,7 +1396,7 @@ def equalize(self, mask=None):
                 rotation = -90
             elif r == 8:    
                 rotation = 90
-    except (Exception, IndexError), err:
+    except (Exception, IndexError) as err:
         pass
     if rotation != 0:
         return img.rotate( rotation )
@@ -1511,7 +1410,17 @@ def equalize(self, mask=None):
     mac &amp; win10.
     
     """
-    folders = ["/Library/Desktop Pictures", "C:\Windows\Web" ]
+    folders = [
+        # macos system wallpapers
+        "/Library/Desktop Pictures",
+        
+        # windows
+        "C:\Windows\Web",
+        
+        # linux wallpapers
+        "/usr/share/backgrounds",
+        "/usr/share/wallpapers" ]
+
     images = os.path.abspath( "images" )
     if os.path.exists( images ):
         folders.append( images )
@@ -1554,7 +1463,7 @@ def equalize(self, mask=None):
 
     if isinstance(img, Image.Image):
         img = img.convert("RGBA")
-        self.layers.append(Layer(self, img, x, y, name))
+        self.layers.append( Layer(self, img, x, y, name) )
         return len(self.layers) - 1
 
     if isinstance(img, Layer):
@@ -1562,13 +1471,13 @@ def equalize(self, mask=None):
         self.layers.append(img)
         return len(self.layers) - 1
 
-    if type(img) in (str, unicode):
+    if type(img) in (pstr, punicode):
         try:
             img = Image.open(img)
             img = img.convert("RGBA")
-            self.layers.append(Layer(self, img, x, y, name))
+            self.layers.append( Layer(self, img, x, y, name) )
             return len(self.layers) - 1
-        except Exception, err:
+        except Exception as err:
             print( "Canvas.layer( %s ) FAILED." %repr( img ) )
             print(err)
             print()
@@ -1602,87 +1511,14 @@ def equalize(self, mask=None):
     This has been factored out of gradient() so complex gradients like
     ROUNDRECT which consist of multiple images can be composed.
     """
-    w0 = self.w 
-    h0 = self.h
-    if type(w) == FloatType:
-        w *= w0
-    if type(h) == FloatType:
-        h *= h0
+    &lt;&lt; init &gt;&gt;
+    &lt;&lt; solid &gt;&gt;
+    &lt;&lt; linear &gt;&gt;
+    &lt;&lt; radial &gt;&gt;
+    &lt;&lt; radialcosine &gt;&gt;
+    &lt;&lt; diamond &gt;&gt;
+    &lt;&lt; sine cosine &gt;&gt;
     
-    # prevent some div by 0 errors
-    if w &lt; 0:
-        w = -w
-    if h &lt; 0:
-        h = -h
-    w = max(1,w)
-    h = max(1,h)
-
-    if kwdbg:
-        print( (style, w0,h0,w,h) )
-
-    if style not in (RADIALCOSINE,):
-        img = Image.new("L", (int(w),int(h)), 255)
-    else:
-        img = Image.new("L", (int(w),int(h)), 0)
-
-    draw = ImageDraw.Draw(img)
-
-    if style == SOLID:
-        draw.rectangle((0, 0, w, h), fill=255)
-
-    if style == LINEAR:
-        for i in range(int(w)):
-            k = 255.0 * i/w
-            draw.rectangle((i, 0, i, h), fill=int(k))
-        
-    if style == RADIAL:
-        r = min(w,h)/2
-        for i in range(int(r)):
-            k = 255 - 255.0 * i/r
-            draw.ellipse((w/2-r+i, h/2-r+i,
-                          w/2+r-i, h/2+r-i), fill=int(k))
-        
-    if style == RADIALCOSINE:
-        r = max(w,h) / 2.0
-        rx = w / 2.0
-        ry = h / 2.0
-        
-        deg = 90
-        base = 90 - deg
-        deltaxdeg = deg / rx
-        deltaydeg = deg / ry
-        deltadeg = deg / r
-
-        step = min(deltaxdeg, deltaydeg)
-        for i in range(int(r)):
-            # k = 255.0 * i/r
-            k = 256 * sin( radians( base + i * deltadeg ) )
-            ix = i * (rx / r)
-            iy = i * (ry / r)
-            draw.ellipse((0 + ix, 0 + iy,
-                          w - ix, h - iy), fill=int(k))
-
-    if style == DIAMOND:
-        r = max(w,h)
-        for i in range(int(r)):
-            x = int( i*w / r*0.5 )
-            y = int( i*h / r*0.5 )
-            k = 255.0 * i/r
-            draw.rectangle((x, y, w-x, h-y), outline=int(k))
-    
-    if style in (SINE, COSINE):
-        # sin/cos 0...180 left to right
-        action = sin
-        deg = 180.0
-        base = 0
-        if style == COSINE:
-            action = cos
-            deg = 90.0
-            base = 90.0 - deg
-        deltadeg = deg / w
-        for i in range( int(w) ):
-            k = 256 * action( radians( base + i * deltadeg ) )
-            draw.line( (i,0,i, h), fill=int(k), width=1)
     result = img.convert("RGBA")
     del img
     del draw
@@ -1794,7 +1630,10 @@ def find_edges(self):
     
     """
 
+    alpha = self.img.getchannel("A")
     self.img = self.img.filter(ImageFilter.FIND_EDGES)
+    self.img = self.img.convert("RGBA")
+    self.img.putalpha(alpha)
 
 </t>
 <t tx="karstenw.20200419183225.1"># new
@@ -1882,6 +1721,9 @@ def smooth_more(self):
 
 </t>
 <t tx="karstenw.20200419185026.1">def insetRect( rectangle, horInset, vertInset):
+
+    """
+    """
     x, y, w, h = rectangle
     dh = horInset / 2.0
     dv = vertInset / 2.0
@@ -1890,9 +1732,12 @@ def smooth_more(self):
 
 </t>
 <t tx="karstenw.20200419185034.1">def cropImageToRatioHorizontal( layer, ratio ):
+    
+    """
+    """
     w, h = layer.bounds()
-    neww = int( round( h*ratio) )
-    d = int( neww / 2.0 )
+    newwidth = int( round( h*ratio) )
+    d = int( newwidth / 2.0 )
     x,y,w,h = insetRect( (0,0,w,h), d, 0 )
     layer.img = layer.img.crop(box=(x,y,x+w,y+h))
     return layer
@@ -1928,7 +1773,7 @@ def smooth_more(self):
     f = False
     try:
         img = Image.open(filepath)
-    except Exception, err:
+    except Exception as err:
         print("\nresizeImage() Image.open() FAILED '%s'" % filepath.encode("utf-8"))
         print(err)
         return ""
@@ -1953,7 +1798,7 @@ def smooth_more(self):
     """
 
     folders = folderpathorlist
-    if type(folderpathorlist) in (str, unicode):
+    if type(folderpathorlist) in (pstr, punicode):
         folders = [folderpathorlist]
     result = []
     for folder in folders:
@@ -2004,9 +1849,10 @@ def smooth_more(self):
     exts = ".tif .tiff .gif .jpg .jpeg .png" # + " .eps"
     extensions = tuple( exts.split() )
     for filetuple in filetuples:
-        path = makeunicode( filetuple )
+        path = filetuple
         if not pathonly:
             path = filetuple[0]
+        path = makeunicode( path )
 
         _, ext = os.path.splitext( path )
         if ext.lower() not in extensions:
@@ -2038,15 +1884,16 @@ def smooth_more(self):
     typ = type(s)
     
     # convert to str first; for number types etc.
-    if typ not in (str, unicode):
-        s = str(s)
-    if typ not in (unicode, ):
+    if typ not in (punicode,):
+        if typ not in (pstr,):
+            s = str(s)
         try:
-            s = unicode(s, srcencoding)
-        except TypeError, err:
+            s = punicode( s, srcencoding )
+        except TypeError as err:
+            pdb.set_trace()
             print( "makeunicode(): %s" % repr(err) )
             print( "%s - %s" % (type(s), repr(s)) )
-    if typ in (unicode,):
+    if typ in (punicode,):
         s = unicodedata.normalize(normalizer, s)
     return s
 
@@ -2093,7 +1940,6 @@ def smooth_more(self):
             list of file records else.
 
     """
-
 
     # get all images from user image wells
     folders = []
@@ -2170,7 +2016,7 @@ def smooth_more(self):
 
         try:
             frac = Fraction(w0, h0)
-        except TypeError, err:
+        except TypeError as err:
             print(err)
             print(w0)
             print(h0)
@@ -2304,7 +2150,6 @@ QUAD = "quad"
 # tuck  ( a b -- b a b ) swap over ;
 
 </t>
-<t tx="karstenw.20200430120752.1"></t>
 <t tx="karstenw.20200430120922.1">if not name:
     name = "photobot_" + datestring()
 
@@ -2314,6 +2159,8 @@ if not folder:
     folder = os.path.abspath( os.curdir )
     folder = os.path.join( folder, "exports" )
 folder = os.path.abspath( folder )
+if kwdbg:
+    print("Folder: %s" % folder.encode("utf-8") )
 
 filename = name + ext
 if name.endswith( ext ):
@@ -2330,9 +2177,9 @@ try:
 except:
     pass
 
-# if debugging is on export each layer separately
 </t>
-<t tx="karstenw.20200430120955.1">basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
+<t tx="karstenw.20200430120955.1"># if debugging is on export each layer separately
+basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
 
 background = self.layers._get_bg()
 background.name = "Background"
@@ -2371,7 +2218,7 @@ for i in layers:
 </t>
 <t tx="karstenw.20200430124808.1">@property
 def dup(self):
-    """Interface to top layer.
+    """Duplicate top layer/stackelement.
     
     """
     layer = self.top.copy()
@@ -2381,15 +2228,19 @@ def dup(self):
 
 </t>
 <t tx="karstenw.20201006211515.1"></t>
-<t tx="karstenw.20201006211521.1"># heavily inspired by https://www.nodebox.net/code/index.php/Landslide
+<t tx="karstenw.20201006211521.1">
+
+# heavily inspired by https://www.nodebox.net/code/index.php/Landslide
+
+from __future__ import print_function
+
 @others
 @language python
 @tabwidth -4
 </t>
-<t tx="karstenw.20201006211549.1"># heavily inspired by https://www.nodebox.net/code/index.php/Landslide
-@others
-@language python
+<t tx="karstenw.20201006211549.1">@language python
 @tabwidth -4
+@others
 </t>
 <t tx="karstenw.20201006211613.1">import sys, os
 
@@ -2427,7 +2278,13 @@ except NameError:
     import photobot as pb
     WIDTH, HEIGHT = W, H
 </t>
-<t tx="karstenw.20201006211616.1">import sys, os
+<t tx="karstenw.20201006211616.1">
+
+# heavily inspired by https://www.nodebox.net/code/index.php/Landslide
+
+from __future__ import print_function
+
+import sys, os
 
 import pprint
 pp = pprint.pprint
@@ -2440,171 +2297,28 @@ if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(0)
 
-try:
-    size(0,0)
-    # W, H = 1024,768
-    W, H = int(WIDTH),int(HEIGHT)
-except:
-    W = 1920
-    H = 1050
 
-# import photobot
+# size for canvas
+W, H = 1920,1050
+
+
+# check for Nodebox
+NB = True
 try:
+    _ctx
+except(NameError):
+    NB = False
+
+if NB:
+    size(W, H)
     pb = ximport("photobot")
-    size(W, H)
     background( 0.333 )
-except ImportError:
-    pb = ximport("__init__")
-    reload(pb)
-    size(W, H)
-    background( 0.333 )
-except NameError:
-    import photobot as pb
+else:
     WIDTH, HEIGHT = W, H
+    import photobot as pb
+
 RATIO = WIDTH / HEIGHT
 
-# load the image library
-# check for command line folders
-additionals = sys.argv[1:]
-
-# get all images from user image wells
-imagewell = pb.loadImageWell(   bgsize=(W,H),
-                                minsize=(256,256),
-                                pathonly=True,
-                                additionals=additionals)
-
-# tiles are images &gt;256x256 and &lt;=1024x768
-tiles = imagewell['tiles']
-
-# backgrounds are images &gt;1024x768
-backgrounds = imagewell['backgrounds']
-rnd.shuffle(tiles)
-rnd.shuffle(backgrounds)
-
-print "tiles:", len(tiles)
-print "backgrounds:", len(backgrounds)
-
-
-# CONFIGURATION
-
-# create the canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (85,85,85) )
-
-
-# CONFIGURATION
-
-columns = 5
-rows = 3
-
-randomblur = 0
-randomflip = 0
-paintoverlay = 0
-gilb =0
-
-
-# 
-y_offset = HEIGHT / float(rows)
-y_offset = int(round(y_offset))
-
-
-# 
-if 0:
-    bgimage = backgrounds.pop()
-    top = c.layer(bgimage)
-    w, h = c.top.bounds()
-    w1,h1 = pb.aspectRatio( (w,h), WIDTH, height=False, assize=True )
-    c.top.scale(w1,h1)
-else:
-    bgimage = backgrounds.pop()
-    pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
-print "Background:", bgimage.encode("utf-8")
-
-
-for j in range(rows):
-    colw = 0
-    for i in range(columns):
-
-        # new layer with a random image
-        top = c.layer( tiles.pop() )
-
-        # get current image bounds
-        w, h = c.top.bounds()
-
-        # calculate scale &amp; apply
-        s = pb.aspectRatio( (w,h), y_offset, height=True)
-        c.top.scale(s, s)
-
-        # uniform
-        layer = pb.cropImageToRatioHorizontal( c.top, RATIO )
-
-        # add contrast
-        c.top.contrast(1.1)
-
-        # get the new image bounds
-        w, h = c.top.bounds()
-
-        r = 0.4 
-        r = rnd.random()
-        # 10%
-        if r &lt; 0.25:
-            # create a dual ramp gradient
-            _ = c.gradient(pb.LINEAR, w/2, h)
-            c.top.flip( pb.HORIZONTAL )
-
-            # layer translate half a pict right
-            c.top.translate(w/2, j*y_offset)
-
-            # create another gradient layer and merge with first gradient
-            top = c.gradient(pb.LINEAR, w/2, h)
-            # merge both gradients; destroys top layer
-            c.merge([ top-1 , top ])
-        elif 0.25 &lt;= r &lt; 0.5:
-            #print "SINE"
-            top = c.gradient(pb.SINE, w, h)
-            
-        elif 0.6 &lt;= r &lt; 0.75:
-            #print "RADIALCOSINE"
-            top = c.gradient(pb.RADIALCOSINE, w, h)
-            c.top.invert()
-        else:
-            #print "ROUNDRECT"
-            # 25%
-            top = c.gradient(pb.ROUNDRECT, w, h, radius=int(w/5.0))
-
-        c.top.brightness(1.4)
-
-        # mask destroys top layer
-        c.top.mask()
-        
-        c.top.translate(colw+i*w, j*y_offset)
-        c.top.opacity( 66 + rnd.random() * 29 )
-
-        if randomblur:
-            if rnd.random() &gt; 0.5:
-                c.top.flip()
-
-            if rnd.random() &gt; 0.5:
-                c.top.blur()
-
-if 1:
-    # orange hue mask finish
-    top = c.fill((200,100,0))
-    c.top.opacity(30)
-    c.top.hue()
-
-if paintoverlay:
-    # paint overlay
-    top = c.layer( os.path.abspath("./paint.jpg") )
-    w, h = c.top.bounds()
-    xs = WIDTH / float(w)
-    ys = HEIGHT / float(h)
-    s = max(xs,ys)
-    c.top.scale(s, s)
-    c.top.opacity(10)
-    c.top.overlay()
-
-c.draw(0, 0)
 </t>
 <t tx="karstenw.20201006211627.1">RATIO = WIDTH / HEIGHT
 
@@ -2627,8 +2341,8 @@ backgrounds = imagewell['backgrounds']
 rnd.shuffle(tiles)
 rnd.shuffle(backgrounds)
 
-print "tiles:", len(tiles)
-print "backgrounds:", len(backgrounds)
+print( "tiles: %i" % len(tiles) )
+print( "backgrounds: %i" % len(backgrounds) )
 
 
 # create the canvas
@@ -2659,7 +2373,7 @@ y_offset = int(round(y_offset))
 # background image
 bgimage = backgrounds.pop()
 pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
-# print "Background:", bgimage.encode("utf-8")
+# print( "Background: %s" % bgimage.encode("utf-8") )
 
 
 cols = -1
@@ -2667,9 +2381,6 @@ for j in range(rows):
     colw = 0
     cols += 1
     while colw &lt; WIDTH:
-        if 0: # kwdbg:
-            print '-' * 20
-            print "Col:" , cols
 
         # create image in canvas at 0,0
         nextpictpath = tiles.pop()
@@ -2720,7 +2431,7 @@ if paintoverlay:
     # paint overlay
     if os.path.exists( paintfile ):
         if kwdbg:
-            print "paint overlay:", paintfile
+            print( "paint overlay:  %s" % paintfile )
         topidx = c.layer( paintfile )
         w, h = c.top.bounds()
         xs = WIDTH / float(w)
@@ -2785,6 +2496,390 @@ def makelayout( self ):
     """
     pass
 
+
+</t>
+<t tx="karstenw.20210301161622.1">def subtract(self, img1, img2, scale=1.0, offset=0):
+    base = img1.convert("RGB")
+    blend = img2.convert("RGB")
+    result = ImageChops.subtract(base, blend, scale=scale, offset=offset)
+    result = result.convert("RGBA")
+    return result
+
+</t>
+<t tx="karstenw.20210301161642.1">def subtract_modulo(self, img1, img2):
+    base = img1.convert("RGB")
+    blend = img2.convert("RGB")
+    result = ImageChops.subtract_modulo(base, blend)
+    result = result.convert("RGBA")
+    return result
+
+</t>
+<t tx="karstenw.20210301171313.1"></t>
+<t tx="karstenw.20210301171559.1"></t>
+<t tx="karstenw.20210301171611.1"></t>
+<t tx="karstenw.20210301171902.1">if type(w) == float:
+    w *= self.w
+if type(h) == float:
+    h *= self.h
+
+# prevent some div by 0 errors
+if w &lt; 0:
+    w = -w
+if h &lt; 0:
+    h = -h
+w = max(1,w)
+h = max(1,h)
+
+if kwdbg:
+    print( (style, self.w,self.h,w,h) )
+
+if style not in (RADIALCOSINE,):
+    img = Image.new("L", (int(w),int(h)), 255)
+else:
+    img = Image.new("L", (int(w),int(h)), 0)
+
+draw = ImageDraw.Draw(img)
+
+</t>
+<t tx="karstenw.20210301172109.1">w0 = self.w
+h0 = self.h
+if type(w) == float:
+    w = int(w*w0)
+if type(h) == float:
+    h = int(h*h0)
+
+</t>
+<t tx="karstenw.20210301172149.1">if style in (SOLID, LINEAR, RADIAL, DIAMOND,
+             SINE, COSINE, RADIALCOSINE):
+    img = self.makegradientimage(style, w, h)
+    img = img.convert("RGBA")
+    return self.layer(img, 0, 0, name=name)
+
+</t>
+<t tx="karstenw.20210301172433.1">if style == QUAD:
+    # make a rectangle with softened edges
+    result = Image.new("L", (int(w),int(h)), 255)
+    
+    mask = Image.new("L", (w,h), 255)
+    draw = ImageDraw.Draw(mask)
+
+    if radius == 0 and radius2 == 0:
+        radius = w / 4.0
+        radius2 = w / 10.0
+
+    r1 = int(round(radius,0))
+    r2 = int(round(radius2,0))
+    
+    if r1 == 0:
+        r1 = 1
+    if r2 == 0:
+        r2 = 1
+    d1 = 2 * r1
+    d2 = 2 * r2
+
+    # create the base rect
+    baserect = self.makegradientimage(SOLID, w-d1, h-d2)
+    
+    # create the vertical gradients
+    verleft = self.makegradientimage(COSINE, r1, h)
+    verleft = verleft.transpose(Image.FLIP_LEFT_RIGHT)
+    vertright = verleft.rotate( 180 )
+
+    # create the horizontal gradients
+    # since LINEAR goes from left to right, 
+    horup = self.makegradientimage(COSINE, r2, w)
+    horup = horup.transpose(Image.FLIP_LEFT_RIGHT)
+    hordown = horup.rotate( -90, expand=1 )
+    horup = hordown.rotate( 180 )
+
+    # assemble
+    result.paste( baserect, box=( r1,   0) )
+    result.paste( verleft,  box=( 0,    0) )
+    result.paste( vertright,box=( w-r1, 0) )
+
+    mask.paste( hordown,    box=( 0,    0) )
+    mask.paste( horup,      box=( 0,    h-r2) )
+
+    result = ImageChops.darker(result, mask)
+    result = result.convert("RGBA")
+    del mask, horup, hordown
+    del baserect, verleft, vertright
+    return self.layer(result, 0, 0, name=name)
+</t>
+<t tx="karstenw.20210301172509.1">if style == ROUNDRECT:
+    result = Image.new("L", (int(w),int(h)), 255)
+    r1 = int(round(radius))
+    r2 = int(round(radius2))
+    if r1 == 0:
+        r1 = 1
+    if r2 == 0:
+        r2 = 1
+    d1 = 2 * r1
+    d2 = 2 * r2
+
+    # take 1 radial grad for the 4 corners
+    corners = self.makegradientimage(RADIALCOSINE, d1, d2)
+
+    # top left
+    b = corners.copy()
+    tl = b.crop( box=(0,0,r1,r2) )
+
+    # top right
+    b = corners.copy()
+    tr = b.crop( box=(r1,0,d1,r2) )
+
+    # bottom left
+    b = corners.copy()
+    bl = b.crop( box=(0,r2,r1,d2) )
+
+    # bottom right
+    b = corners.copy()
+    br = b.crop( box=(r1,r2,d1,d2) )
+
+    # create the base rect
+    brw = w - d1
+    brh = h - d2
+    baserect = self.makegradientimage(SOLID, brw, brh)
+    
+    # create the vertical gradients
+    verleft = self.makegradientimage(COSINE, r1, brh)
+    verleft = verleft.transpose(Image.FLIP_LEFT_RIGHT)
+    vertright = verleft.rotate( 180 )
+
+    # create the horizontal gradients
+    # since LINEAR goes from left to right, 
+    horup = self.makegradientimage(COSINE, r2, brw)
+    horup = horup.transpose(Image.FLIP_LEFT_RIGHT)
+    hordown = horup.rotate( -90, expand=1 )
+    horup = hordown.rotate( 180 )
+
+    # assemble
+    result.paste( baserect, box=( r1,     r2) )
+
+    result.paste( hordown,  box=( r1,     0) )
+    result.paste( horup,    box=( r1,     brh+r2) )
+
+    result.paste( verleft,  box=( 0,     r2) )
+    result.paste( vertright,box=( brw+r1, r2) )
+
+    result.paste( tl,       box=( 0,     0) )
+    result.paste( tr,       box=( brw+r1, 0) )
+    result.paste( bl,       box=( 0,     brh+r2) )
+    result.paste( br,       box=( brw+r1, brh+r2) )
+    img = result.convert("RGBA")
+    del corners, tl, tr, bl, br, b
+    del horup, hordown
+    del baserect
+    del verleft, vertright
+    return self.layer(img, 0, 0, name=name)
+</t>
+<t tx="karstenw.20210301172848.1">if style == SOLID:
+    draw.rectangle((0, 0, w, h), fill=255)
+
+</t>
+<t tx="karstenw.20210301172906.1">if style == LINEAR:
+    for i in range(int(w)):
+        k = 255.0 * i/w
+        draw.rectangle((i, 0, i, h), fill=int(k))
+    
+</t>
+<t tx="karstenw.20210301172912.1">if style == RADIAL:
+    r = min(w,h)/2
+    for i in range(int(r)):
+        k = 255 - 255.0 * i/r
+        draw.ellipse((w/2-r+i, h/2-r+i,
+                      w/2+r-i, h/2+r-i), fill=int(k))
+    
+</t>
+<t tx="karstenw.20210301172925.1">if style == RADIALCOSINE:
+    r = max(w,h) / 2.0
+    rx = w / 2.0
+    ry = h / 2.0
+    
+    deg = 90
+    base = 90 - deg
+    deltaxdeg = deg / rx
+    deltaydeg = deg / ry
+    deltadeg = deg / r
+
+    step = min(deltaxdeg, deltaydeg)
+    for i in range(int(r)):
+        # k = 255.0 * i/r
+        k = 256 * sin( radians( base + i * deltadeg ) )
+        ix = i * (rx / r)
+        iy = i * (ry / r)
+        draw.ellipse((0 + ix, 0 + iy,
+                      w - ix, h - iy), fill=int(k))
+
+</t>
+<t tx="karstenw.20210301172931.1">if style == DIAMOND:
+    r = max(w,h)
+    for i in range(int(r)):
+        x = int( i*w / r*0.5 )
+        y = int( i*h / r*0.5 )
+        k = 255.0 * i/r
+        draw.rectangle((x, y, w-x, h-y), outline=int(k))
+
+</t>
+<t tx="karstenw.20210301172939.1">if style in (SINE, COSINE):
+    # sin/cos 0...180 left to right
+    action = sin
+    deg = 180.0
+    base = 0
+    if style == COSINE:
+        action = cos
+        deg = 90.0
+        base = 90.0 - deg
+    deltadeg = deg / w
+    for i in range( int(w) ):
+        k = 256 * action( radians( base + i * deltadeg ) )
+        draw.line( (i,0,i, h), fill=int(k), width=1)
+
+</t>
+<t tx="karstenw.20210314151658.1"># load the image library
+# check for command line folders
+additionals = sys.argv[1:]
+
+# get all images from user image wells
+imagewell = pb.loadImageWell(   bgsize=(WIDTH, HEIGHT),
+                                minsize=(256,256),
+                                pathonly=True,
+                                additionals=additionals)
+
+# tiles are images &gt;256x256 and &lt;=1024x768
+tiles = imagewell['tiles']
+
+# backgrounds are images &gt;1024x768
+backgrounds = imagewell['backgrounds']
+rnd.shuffle(tiles)
+rnd.shuffle(backgrounds)
+
+print( "tiles: %i " % len(tiles) )
+print( "backgrounds: %i" % len(backgrounds) )
+
+
+# CONFIGURATION
+
+# create the canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (85,85,85) )
+
+
+# CONFIGURATION
+
+columns = 5
+rows = 3
+
+randomblur = 0
+randomflip = 0
+paintoverlay = 0
+gilb =0
+
+
+# 
+y_offset = HEIGHT / float(rows)
+y_offset = int(round(y_offset))
+
+
+# 
+if 0:
+    bgimage = backgrounds.pop()
+    top = c.layer(bgimage)
+    w, h = c.top.bounds()
+    w1,h1 = pb.aspectRatio( (w,h), WIDTH, height=False, assize=True )
+    c.top.scale(w1,h1)
+else:
+    bgimage = backgrounds.pop()
+    pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
+print( "Background:  %s" % bgimage.encode("utf-8") )
+
+
+</t>
+<t tx="karstenw.20210314151702.1">for j in range(rows):
+    colw = 0
+    for i in range(columns):
+
+        # new layer with a random image
+        top = c.layer( tiles.pop() )
+
+        # get current image bounds
+        w, h = c.top.bounds()
+
+        # calculate scale &amp; apply
+        s = pb.aspectRatio( (w,h), y_offset, height=True)
+        c.top.scale(s, s)
+
+        # uniform
+        layer = pb.cropImageToRatioHorizontal( c.top, RATIO )
+
+        # add contrast
+        c.top.contrast(1.1)
+
+        # get the new image bounds
+        w, h = c.top.bounds()
+
+        r = 0.4 
+        r = rnd.random()
+        # 10%
+        if r &lt; 0.25:
+            # create a dual ramp gradient
+            _ = c.gradient(pb.LINEAR, w/2, h)
+            c.top.flip( pb.HORIZONTAL )
+
+            # layer translate half a pict right
+            c.top.translate(w/2, j*y_offset)
+
+            # create another gradient layer and merge with first gradient
+            top = c.gradient(pb.LINEAR, w/2, h)
+            # merge both gradients; destroys top layer
+            c.merge([ top-1 , top ])
+        elif 0.25 &lt;= r &lt; 0.5:
+            # SINE
+            top = c.gradient(pb.SINE, w, h)
+            
+        elif 0.6 &lt;= r &lt; 0.75:
+            # RADIALCOSINE
+            top = c.gradient(pb.RADIALCOSINE, w, h)
+            c.top.invert()
+        else:
+            # ROUNDRECT
+            # 25%
+            top = c.gradient(pb.ROUNDRECT, w, h, radius=int(w/5.0))
+
+        c.top.brightness(1.4)
+
+        # mask destroys top layer
+        c.top.mask()
+        
+        c.top.translate(colw+i*w, j*y_offset)
+        c.top.opacity( 66 + rnd.random() * 29 )
+
+        if randomblur:
+            if rnd.random() &gt; 0.5:
+                c.top.flip()
+
+            if rnd.random() &gt; 0.5:
+                c.top.blur()
+
+</t>
+<t tx="karstenw.20210314151706.1">if 1:
+    # orange hue mask finish
+    top = c.fill((200,100,0))
+    c.top.opacity(30)
+    c.top.hue()
+
+if paintoverlay:
+    # paint overlay
+    top = c.layer( os.path.abspath("./paint.jpg") )
+    w, h = c.top.bounds()
+    xs = WIDTH / float(w)
+    ys = HEIGHT / float(h)
+    s = max(xs,ys)
+    c.top.scale(s, s)
+    c.top.opacity(10)
+    c.top.overlay()
+
+c.draw(0, 0)
 
 </t>
 </tnodes>
