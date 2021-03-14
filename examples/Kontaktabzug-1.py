@@ -1,12 +1,16 @@
+
+
+# ATTENTION this script uses sys.argv and can therefore not be used with NodeBox
+
+from __future__ import print_function
+
 import sys, os
 
 import pprint
 pp = pprint.pprint
-kwdbg = False
+kwdbg = 0
 
-import pdb
-
-# need a different name
+# need a different name for nodebox
 import random as rnd
 
 if kwdbg:
@@ -14,7 +18,27 @@ if kwdbg:
     rnd.seed(0)
 
 
-import photobot as pb
+# width and height of destination image
+W, H =  800,  600
+W, H = 1024,  768
+W, H = 1280,  800
+W, H = 1440,  900
+W, H = 1920, 1080
+
+# import photobot
+try:
+    pb = ximport("photobot")
+    size(W, H)
+    background( 0.333 )
+except ImportError:
+    pb = ximport("__init__")
+    reload(pb)
+    size(W, H)
+    background( 0.333 )
+except NameError:
+    import photobot as pb
+    WIDTH, HEIGHT = W, H
+RATIO = WIDTH / HEIGHT
 
 # load the image library
 # check for command line folders
@@ -31,7 +55,7 @@ imagewell = pb.loadImageWell(   bgsize=(1024,768),
 # pp(imagewell['fractions'])
 tiles = imagewell['allimages']
 
-print "tiles:", len(tiles)
+print( "tiles: %i" % len(tiles) )
 
 
 # CONFIGURATION
@@ -90,9 +114,8 @@ def grid(cols, rows, colSize=1, rowSize=1, gutter=0, shuffled=False):
         for x, y in grid(10,10,12,12):
             rect(x,y, 10,10)
     """
-    # Prefer using generators.
-    rowRange = xrange(int(rows))
-    colRange = xrange(int(cols))
+    rowRange = range(int(rows))
+    colRange = range(int(cols))
     # Shuffled needs a real list, though.
     if (shuffled):
         rowRange = list(rowRange)
@@ -125,8 +148,8 @@ done = False
 while not done:
 
     pagename = "%s-%s" % (pagebasename, str(pagenr).rjust(3, "0"))
-    print
-    print pagename
+    print()
+    print( pagename )
 
     x0 = insettop
     y0 = insetleft
@@ -147,7 +170,7 @@ while not done:
         y = int( round(y) )
         try:
             img = tiles.pop(0)
-            print x,y,img.encode("utf-8")
+            print( (x,y,img.encode("utf-8")) )
         except:
             done = True
             break
