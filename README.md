@@ -12,7 +12,12 @@ A Photobot demo by Tom de Smedt.
 [https://www.nodebox.net/code/index.php/Landslide](https://www.nodebox.net/code/index.php/Landslide)
 
 
-This version is usable as a standalone library.
+PhotoBot was initially a part of the NodeBox Library.
+
+Since 2013 it has been updated to the current Python 2 and Pillow libraries.
+
+This version works with Python2, Python3 and NodeBox.
+
 
 
 ##### Fundamental changes #####
