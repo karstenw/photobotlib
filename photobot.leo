@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20200419210659.1"><vh>Photobot</vh>
@@ -153,7 +153,13 @@
 </v>
 <v t="karstenw.20200419205343.1" a="E"><vh>ImageWell</vh>
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
-<v t="karstenw.20200419185716.1"><vh>loadImageWell</vh></v>
+<v t="karstenw.20210315131908.1"><vh>Imagecollection</vh></v>
+<v t="karstenw.20200419185716.1" a="E"><vh>loadImageWell</vh>
+<v t="karstenw.20210315130744.1"><vh>&lt;&lt; method comment &gt;&gt;</vh></v>
+<v t="karstenw.20210315130855.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
+<v t="karstenw.20210315131220.1"><vh>&lt;&lt; read image folders &gt;&gt;</vh></v>
+<v t="karstenw.20210315131302.1"><vh>&lt;&lt; setup optional json file &gt;&gt;</vh></v>
+</v>
 </v>
 <v t="karstenw.20201009153259.1"><vh>Image Sectors</vh>
 <v t="karstenw.20201010122613.1"><vh>TiledImage</vh>
@@ -168,11 +174,11 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 </v>
-<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a-1920x1080.py</vh>
+<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a-1920x1080.py</vh>
 <v t="karstenw.20201006211616.1"><vh>Declarations</vh></v>
 <v t="karstenw.20210314151658.1"><vh>init</vh></v>
 <v t="karstenw.20210314151702.1"><vh>loop</vh></v>
@@ -1922,70 +1928,28 @@ def smooth_more(self):
 <t tx="karstenw.20200419185716.1">def loadImageWell( bgsize=(1024,768), minsize=(256,256),
                    maxfilesize=100000000, maxpixellength=16000,
                    pathonly=True, additionals=None, ignorelibs=False):
-    """Find images imagewells or additional folders. 
-       
-        Params:
-            bgsize - tuple with width and height for images to be classified background
-            minsize - tuple with minimal width and height for images not to be ignored
-            maxfilesize - in bytes. Images above this file size will be ignored
-            maxpixellength - in pixels. Images above in either dimension will be ignored
-            pathonly - return path or record
-            additionals - list of folders to me considered for this run
-            ignorelibs - if imagewells file should be ignored
+
+    &lt;&lt; method comment &gt;&gt;
+
+    &lt;&lt; init &gt;&gt;
     
-        Returns:
-            A dict of dicts with several image classifications.
-
-            list of file paths if pathonly is True
-            list of file records else.
-
-    """
-
-    # get all images from user image wells
-    folders = []
-    if not ignorelibs:
-        folders = imagewells()
+    &lt;&lt; read image folders &gt;&gt;
     
-    if additionals:
-        folders.extend( additionals )
-    filetuples = imagefiles( folders, pathonly=False )
+    &lt;&lt; setup optional json file &gt;&gt;
 
-    tiles = []
-    backgrounds = []
-    proportions = {}
-    fractions = {}
-
-    result = {
-        'allimages': [],
-        'tiles': [],
-        'backgrounds': [],
-        'landscape': [],
-        'portrait': [],
-        'fractions': {},
-        'WxH largest': "",
-        'WxH smalles': "",
-        'WxH median': "",
-    }
-
-    minw, minh = minsize
-    bgw, bgh = bgsize
-    smallestw, smallesth = 99999,99999
-    largestw, largesth = 0,0
-    medianw, medianh = 0,0
-    slope = 1.0
-    imagecount = 0
     for t in filetuples:
         path, filesize, lastmodified, mode, islink, w0, h0 = t
         folder, filename = os.path.split( path )
         basename, ext = os.path.splitext( filename )
 
-        # filter minimal size
+        # filter minimal pixel lengths
         if ext.lower() != ".eps":
             if (w0 &lt; minw) and (h0 &lt; minh):
                 continue
             if (w0 &gt; maxpixellength) or (h0 &gt; maxpixellength):
                 continue
 
+        # filter maximal pixel lengths
         if (w0 &gt; maxpixellength) or (h0 &gt; maxpixellength):
             continue
 
@@ -1993,14 +1957,17 @@ def smooth_more(self):
         if filesize &gt; maxfilesize:
             continue
 
+        # filter images with anormal width or height
         if w0 in (0, 0.0):
+            print( "Anormal width: %s %s %s" % (repr(path), repr(w0), repr(h0)))
             continue
         if h0 in (0, 0.0):
+            print( "Anormal height: %s %s %s" % (repr(path), repr(w0), repr(h0)))
             continue
 
         imagecount += 1
 
-        # set stats
+        # collect some stats
         if w0 &lt; smallestw:
             smallestw = w0
         if  h0 &lt; smallesth:
@@ -2027,9 +1994,10 @@ def smooth_more(self):
             record = (path, filesize, lastmodified, mode, islink,
                       w0, h0, proportion, frac)
 
-        # candidate has at least canvas size and can be used as background
         result['allimages'].append( record )
 
+        # candidate has at least canvas size and can be used as background
+        # otherwise it is a tile
         if (w0 &gt;= bgw) and (h0 &gt;= bgh):
             result['backgrounds'].append( record )
         else:
@@ -2228,21 +2196,19 @@ def dup(self):
 
 </t>
 <t tx="karstenw.20201006211515.1"></t>
-<t tx="karstenw.20201006211521.1">
-
-# heavily inspired by https://www.nodebox.net/code/index.php/Landslide
-
-from __future__ import print_function
-
-@others
-@language python
+<t tx="karstenw.20201006211521.1">@language python
 @tabwidth -4
+@others
 </t>
 <t tx="karstenw.20201006211549.1">@language python
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20201006211613.1">import sys, os
+<t tx="karstenw.20201006211613.1"># heavily inspired by https://www.nodebox.net/code/index.php/Landslide
+
+from __future__ import print_function
+
+import sys, os
 
 import pprint
 pp = pprint.pprint
@@ -2253,18 +2219,18 @@ import random as rnd
 
 import libgradient
 
-if kwdbg:
+if kwdbg and 0:
     # make random choices repeatable for debugging
     rnd.seed(0)
 
 # width and height of destination image
-W, H =  800,  600
-W, H = 1024,  768
-W, H = 1280,  800
-W, H = 1440,  900
+# W, H =  800,  600
+# W, H = 1024,  768
+# W, H = 1280,  800
+# W, H = 1440,  900
 W, H = 1920, 1080
 
-# import photobot
+# import photobot lib
 try:
     pb = ximport("photobot")
     size(W, H)
@@ -2882,5 +2848,67 @@ if paintoverlay:
 c.draw(0, 0)
 
 </t>
+<t tx="karstenw.20210315130744.1">"""
+Find images imagewells or additional folders. 
+   
+Params:
+    bgsize - tuple with width and height for images to be classified background
+    minsize - tuple with minimal width and height for images not to be ignored
+    maxfilesize - in bytes. Images above this file size will be ignored
+    maxpixellength - in pixels. Images above in either dimension will be ignored
+    pathonly - return path or record
+    additionals - list of folders to me considered for this run
+    ignorelibs - if imagewells file should be ignored
+
+Returns:
+    A dict of dicts with several image classifications.
+
+    list of file paths if pathonly is True
+    list of file records else.
+"""
+
+</t>
+<t tx="karstenw.20210315130855.1">tiles = []
+backgrounds = []
+proportions = {}
+fractions = {}
+
+result = {
+    'allimages': [],
+    'tiles': [],
+    'backgrounds': [],
+    'landscape': [],
+    'portrait': [],
+    'fractions': {},
+    'WxH largest': "",
+    'WxH smalles': "",
+    'WxH median': "",
+}
+
+minw, minh = minsize
+bgw, bgh = bgsize
+smallestw, smallesth = 99999,99999
+largestw, largesth = 0,0
+medianw, medianh = 0,0
+slope = 1.0
+imagecount = 0
+
+</t>
+<t tx="karstenw.20210315131220.1"># get all images from user image wells
+folders = []
+if not ignorelibs:
+    folders = imagewells()
+
+if additionals:
+    folders.extend( additionals )
+filetuples = imagefiles( folders, pathonly=False )
+
+</t>
+<t tx="karstenw.20210315131302.1"></t>
+<t tx="karstenw.20210315131908.1">class Imagecollection(object):
+    def __init__(self):
+        self.data = {}
+    
+    </t>
 </tnodes>
 </leo_file>

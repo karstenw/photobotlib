@@ -2015,36 +2015,35 @@ def imagewells():
     folders = [x for x in folders if os.path.exists(x)]
     return folders
 
+class Imagecollection(object):
+    def __init__(self):
+        self.data = {}
+    
+    
+
 def loadImageWell( bgsize=(1024,768), minsize=(256,256),
                    maxfilesize=100000000, maxpixellength=16000,
                    pathonly=True, additionals=None, ignorelibs=False):
-    """Find images imagewells or additional folders. 
-       
-        Params:
-            bgsize - tuple with width and height for images to be classified background
-            minsize - tuple with minimal width and height for images not to be ignored
-            maxfilesize - in bytes. Images above this file size will be ignored
-            maxpixellength - in pixels. Images above in either dimension will be ignored
-            pathonly - return path or record
-            additionals - list of folders to me considered for this run
-            ignorelibs - if imagewells file should be ignored
-    
-        Returns:
-            A dict of dicts with several image classifications.
-
-            list of file paths if pathonly is True
-            list of file records else.
 
     """
+    Find images imagewells or additional folders. 
+       
+    Params:
+        bgsize - tuple with width and height for images to be classified background
+        minsize - tuple with minimal width and height for images not to be ignored
+        maxfilesize - in bytes. Images above this file size will be ignored
+        maxpixellength - in pixels. Images above in either dimension will be ignored
+        pathonly - return path or record
+        additionals - list of folders to me considered for this run
+        ignorelibs - if imagewells file should be ignored
 
-    # get all images from user image wells
-    folders = []
-    if not ignorelibs:
-        folders = imagewells()
-    
-    if additionals:
-        folders.extend( additionals )
-    filetuples = imagefiles( folders, pathonly=False )
+    Returns:
+        A dict of dicts with several image classifications.
+
+        list of file paths if pathonly is True
+        list of file records else.
+    """
+
 
     tiles = []
     backgrounds = []
@@ -2070,18 +2069,32 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
     medianw, medianh = 0,0
     slope = 1.0
     imagecount = 0
+
+    
+    # get all images from user image wells
+    folders = []
+    if not ignorelibs:
+        folders = imagewells()
+
+    if additionals:
+        folders.extend( additionals )
+    filetuples = imagefiles( folders, pathonly=False )
+
+    
+
     for t in filetuples:
         path, filesize, lastmodified, mode, islink, w0, h0 = t
         folder, filename = os.path.split( path )
         basename, ext = os.path.splitext( filename )
 
-        # filter minimal size
+        # filter minimal pixel lengths
         if ext.lower() != ".eps":
             if (w0 < minw) and (h0 < minh):
                 continue
             if (w0 > maxpixellength) or (h0 > maxpixellength):
                 continue
 
+        # filter maximal pixel lengths
         if (w0 > maxpixellength) or (h0 > maxpixellength):
             continue
 
@@ -2089,14 +2102,17 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         if filesize > maxfilesize:
             continue
 
+        # filter images with anormal width or height
         if w0 in (0, 0.0):
+            print( "Anormal width: %s %s %s" % (repr(path), repr(w0), repr(h0)))
             continue
         if h0 in (0, 0.0):
+            print( "Anormal height: %s %s %s" % (repr(path), repr(w0), repr(h0)))
             continue
 
         imagecount += 1
 
-        # set stats
+        # collect some stats
         if w0 < smallestw:
             smallestw = w0
         if  h0 < smallesth:
@@ -2123,9 +2139,10 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
             record = (path, filesize, lastmodified, mode, islink,
                       w0, h0, proportion, frac)
 
-        # candidate has at least canvas size and can be used as background
         result['allimages'].append( record )
 
+        # candidate has at least canvas size and can be used as background
+        # otherwise it is a tile
         if (w0 >= bgw) and (h0 >= bgh):
             result['backgrounds'].append( record )
         else:
