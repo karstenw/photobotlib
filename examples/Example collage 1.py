@@ -1,5 +1,3 @@
-
-
 # heavily inspired by https://www.nodebox.net/code/index.php/Landslide
 
 from __future__ import print_function
@@ -15,18 +13,18 @@ import random as rnd
 
 import libgradient
 
-if kwdbg:
+if kwdbg and 0:
     # make random choices repeatable for debugging
     rnd.seed(0)
 
 # width and height of destination image
-W, H =  800,  600
-W, H = 1024,  768
-W, H = 1280,  800
-W, H = 1440,  900
+# W, H =  800,  600
+# W, H = 1024,  768
+# W, H = 1280,  800
+# W, H = 1440,  900
 W, H = 1920, 1080
 
-# import photobot
+# import photobot lib
 try:
     pb = ximport("photobot")
     size(W, H)
