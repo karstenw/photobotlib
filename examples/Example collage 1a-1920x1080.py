@@ -125,14 +125,14 @@ for j in range(rows):
         # 10%
         if r < 0.25:
             # create a dual ramp gradient
-            _ = c.gradient(pb.LINEAR, w/2, h)
+            _ = c.gradient(pb.LINEAR, int(w/2), h)
             c.top.flip( pb.HORIZONTAL )
 
             # layer translate half a pict right
             c.top.translate(w/2, j*y_offset)
 
             # create another gradient layer and merge with first gradient
-            top = c.gradient(pb.LINEAR, w/2, h)
+            top = c.gradient(pb.LINEAR, int(w/2), h)
             # merge both gradients; destroys top layer
             c.merge([ top-1 , top ])
         elif 0.25 <= r < 0.5:
