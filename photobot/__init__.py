@@ -74,6 +74,8 @@ except NameError:
     punichr = chr
     long = int
 
+from memory_profiler import profile
+
 
 
 # PIL interpolation modes
@@ -137,6 +139,8 @@ class Canvas:
         self.h = h
         img = Image.new("RGBA", (w,h), (255,255,255,0))
         self.layer(img, name="_bg")
+        del img
+
 
     def layer(self, img, x=0, y=0, name=""):
 
@@ -165,6 +169,7 @@ class Canvas:
                 img = Image.open(img)
                 img = img.convert("RGBA")
                 self.layers.append( Layer(self, img, x, y, name) )
+                del img
                 return len(self.layers) - 1
             except Exception as err:
                 print( "Canvas.layer( %s ) FAILED." %repr( img ) )
@@ -190,7 +195,9 @@ class Canvas:
         if h == None:
             h = self.h - y
         img = Image.new("RGBA", (w,h), rgb)
-        return self.layer(img, x, y, name)
+        result = self.layer(img, x, y, name)
+        del img
+        return result
 
     def makegradientimage(self, style, w, h):
         """Creates the actual gradient image.
@@ -226,7 +233,7 @@ class Canvas:
 
         if style == LINEAR:
             for i in range(int(w)):
-                k = 255.0 * i/w
+                k = 255.0 * i / w
                 draw.rectangle((i, 0, i, h), fill=int(k))
             
         if style == RADIAL:
@@ -283,6 +290,7 @@ class Canvas:
         del img
         del draw
         return result
+
 
     def gradient(self, style=LINEAR, w=1.0, h=1.0, name="",
                        radius=0, radius2=0):
@@ -434,6 +442,7 @@ class Canvas:
             del verleft, vertright
             return self.layer(img, 0, 0, name=name)
 
+
     def merge(self, layers):
         
         """Flattens the given layers on the canvas.
@@ -449,6 +458,8 @@ class Canvas:
             del layers[0]
         self.flatten(layers)
 
+
+    #  profile
     def flatten(self, layers=[]):
 
         """Flattens all layers according to their blend modes.
@@ -485,7 +496,7 @@ class Canvas:
             w = min(background.w, layer.x+layer.w)
             h = min(background.h, layer.y+layer.h)
         
-            base = background.img.crop((x, y, w, h))
+            base = background.img.crop( (x, y, w, h) )
 
             # Determine which piece of the layer
             # falls within the canvas.
@@ -495,9 +506,10 @@ class Canvas:
             w -= layer.x
             h -= layer.y
 
-            blend = layer.img.crop((x, y, w, h))
+            blend = layer.img.crop( (x, y, w, h) )
             lblend = blend.convert("L")
             bwblend = lblend.convert("1")
+
             # Buffer layer blend modes:
             # the base below is a flattened version
             # of all the layers below this one,
@@ -521,17 +533,17 @@ class Canvas:
             elif layer.blend == SUBTRACT:
                 img1 = base.convert("RGB")
                 img2 = blend.convert("RGB")
-                buffer = ImageChops.subtract_modulo(img1, img2)
+                buffer = ImageChops.subtract(img1, img2)
                 buffer = buffer.convert("RGBA")
                 del img1, img2
                 # buffer = ImageChops.subtract(base, blend)
                 # buffer = Blend().subtract(base, blend)
+
             elif layer.blend == ADD_MODULO:
                 buffer = ImageChops.add_modulo(base, blend)
+
             elif layer.blend == SUBTRACT_MODULO:
                 buffer = Blend().subtract_modulo(base, blend)
-
-
 
             elif layer.blend == DIFFERENCE:
                 # buffer = ImageChops.difference(base, blend)
@@ -552,7 +564,7 @@ class Canvas:
             alpha = buffer.getchannel("A")
             basealpha = base.getchannel("A")
             if i == 1:
-                buffer = Image.composite(base, buffer, basealpha) #base.split()[3])
+                buffer = Image.composite(base, buffer, basealpha)
             else:
                 buffer = Image.composite(buffer, base, alpha)
         
@@ -575,7 +587,7 @@ class Canvas:
             x = max(0, int(layer.x))
             y = max(0, int(layer.y))
             background.img.paste(base, (x,y))
-            del base, buffer, alpha, blend
+            del base, buffer, alpha, basealpha, blend
 
         layers = list(layers)
         layers.reverse()
@@ -590,6 +602,8 @@ class Canvas:
             self.layers.append(background)
         else:
             self.layers.insert(layers[-1], background)
+        del img
+
 
     def export(self, name, ext=".png", format="PNG"):
 
@@ -610,8 +624,6 @@ class Canvas:
             folder = os.path.abspath( os.curdir )
             folder = os.path.join( folder, "exports" )
         folder = os.path.abspath( folder )
-        if kwdbg:
-            print("Folder: %s" % folder.encode("utf-8") )
 
         filename = name + ext
         if name.endswith( ext ):
@@ -628,7 +640,7 @@ class Canvas:
         except:
             pass
 
-        if kwdbg:
+        if 0:
             # if debugging is on export each layer separately
             basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
 
@@ -665,7 +677,7 @@ class Canvas:
                 n = basename % (i, layer.name)
                 path = os.path.join( folder, n )
                 buffer.save( path, format=format, optimize=False)
-                print( "exort() DBG: '%s'" % path.encode("utf-8") )
+                print( "export() DBG: '%s'" % path.encode("utf-8") )
 
         self.flatten()
         self.layers[1].img.save(path, format=format, optimize=False)
@@ -742,6 +754,14 @@ class Canvas:
         
         """
         return self.layers[-1]
+
+    @property
+    def topindex(self):
+        """get index of top layer.
+        
+        """
+        return len(self.layers)-1
+
 
     @property
     def dup(self):
@@ -1672,9 +1692,10 @@ def makeunicode(s, srcencoding="utf-8", normalizer="NFC"):
         try:
             s = punicode( s, srcencoding )
         except TypeError as err:
-            pdb.set_trace()
+            # pdb.set_trace()
             print( "makeunicode(): %s" % repr(err) )
             print( "%s - %s" % (type(s), repr(s)) )
+            return s
     if typ in (punicode,):
         s = unicodedata.normalize(normalizer, s)
     return s
@@ -2081,11 +2102,11 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         
         pickfile = os.path.join( folder, filename + ".pick" )
         if os.path.exists( pickfile ):
-            print("Reading pickle...")
+            #print("Reading pickle...")
             f = open(pickfile, "rb")
             result = pickle.load( f )
             f.close()
-            print("Reading pickle... Done.")
+            #print("Reading pickle... Done.")
             return result
 
 
@@ -2098,8 +2119,8 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         folders.extend( additionals )
     filetuples = imagefiles( folders, pathonly=False )
 
-    
-    print("Reading folders...")
+    if kwdbg:
+        print("Reading folders...")
 
     for t in filetuples:
         path, filesize, lastmodified, mode, islink, w0, h0 = t
@@ -2141,10 +2162,8 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         if  h0 > largesth:
             largesth = h0
 
-
         medianw += w0
         medianh += h0
-
 
         proportion = "landscape"
         if h0 > w0:
@@ -2183,14 +2202,12 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         else:
             result['portrait'].append( record )
 
-
-    print("Reading folders... Done.")
-
+    if kwdbg:
+        print("Reading folders... Done.")
 
     result[ 'WxH largest' ] = (largestw,largesth)
     result[ 'WxH smallest' ] = (smallestw,smallesth)
     result[ 'WxH median' ] = (medianw / float(imagecount), medianh / float(imagecount))
-
 
     if resultfile:
         print("Writing pickle...")
@@ -2214,8 +2231,6 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
                 f.close()
             print("Writing json... Done.")
 
-
-    
     return result
 
 
