@@ -29,14 +29,14 @@ def makerandomgradient( c, w, h, y_offset ):
         # c.makemask(   SOLID | LINEAR | RADIAL | DIAMOND
         #             | DUALRAMP | SINE | COSINE | RADIALCOSINE
         #             | ROUNDRECT, w, h)
-        _ = c.gradient(pb.LINEAR, w/2, h)
+        _ = c.gradient(pb.LINEAR, int(w/2), h)
         c.top.flip( pb.HORIZONTAL )
 
         # layer translate half a pict right
         c.top.translate(w/2, y_offset)
 
         # create another gradient layer and merge with first gradient
-        topidx = c.gradient(pb.LINEAR, w/2, h)
+        topidx = c.gradient(pb.LINEAR, int(w/2), h)
         # merge both gradients; destroys top layer
         c.merge([ topidx-1 , topidx ])
         c.top.brightness(1.8)
