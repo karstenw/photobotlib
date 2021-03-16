@@ -6,7 +6,7 @@ import sys, os
 
 import pprint
 pp = pprint.pprint
-kwdbg = 0
+kwdbg = 1
 
 # need a different name for nodebox
 import random as rnd
@@ -47,7 +47,8 @@ additionals = sys.argv[1:]
 imagewell = pb.loadImageWell(   bgsize=(W,H),
                                 minsize=(256,256),
                                 pathonly=True,
-                                additionals=additionals)
+                                additionals=additionals,
+                                resultfile="imagewell-files")
 
 # tiles are images >256x256 and <=1024x768
 tiles = imagewell['tiles']
@@ -55,8 +56,9 @@ tiles = imagewell['tiles']
 # backgrounds are images >W,H
 backgrounds = imagewell['backgrounds']
 
-rnd.shuffle(tiles)
-rnd.shuffle(backgrounds)
+if not kwdbg:
+    rnd.shuffle(tiles)
+    rnd.shuffle(backgrounds)
 
 print( "tiles: %i" % len(tiles) )
 print( "backgrounds: %i" % len(backgrounds) )

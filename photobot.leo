@@ -12,12 +12,12 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
+<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
+<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
-<v t="karstenw.20170709210125.9"><vh>makegradientimage</vh>
+<v t="karstenw.20170709210125.9" a="E"><vh>makegradientimage</vh>
 <v t="karstenw.20210301171902.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172848.1"><vh>&lt;&lt; solid &gt;&gt;</vh></v>
 <v t="karstenw.20210301172906.1"><vh>&lt;&lt; linear &gt;&gt;</vh></v>
@@ -26,7 +26,7 @@
 <v t="karstenw.20210301172931.1"><vh>&lt;&lt; diamond &gt;&gt;</vh></v>
 <v t="karstenw.20210301172939.1"><vh>&lt;&lt; sine cosine &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20170709210125.10"><vh>gradient</vh>
+<v t="karstenw.20170709210125.10" a="E"><vh>gradient</vh>
 <v t="karstenw.20210301172109.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172149.1"><vh>&lt;&lt; one Image gradients &gt;&gt;</vh></v>
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
@@ -45,12 +45,12 @@
 <v t="karstenw.20200430124808.1"><vh>dup</vh></v>
 </v>
 </v>
-<v t="karstenw.20170709210125.17"><vh>class Layers</vh>
+<v t="karstenw.20170709210125.17" a="E"><vh>class Layers</vh>
 <v t="karstenw.20170709210125.18"><vh>__getitem__</vh></v>
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -108,14 +108,14 @@
 <v t="karstenw.20170709210125.51"><vh>statistics</vh></v>
 <v t="karstenw.20170709210125.52"><vh>levels</vh></v>
 </v>
-<v t="karstenw.20170709210125.53"><vh>class Blend</vh>
+<v t="karstenw.20170709210125.53" a="E"><vh>class Blend</vh>
 <v t="karstenw.20210301161622.1"><vh>subtract</vh></v>
 <v t="karstenw.20210301161642.1"><vh>subtract_modulo</vh></v>
 <v t="karstenw.20170709210125.54"><vh>overlay</vh></v>
 <v t="karstenw.20170709210125.55"><vh>hue</vh></v>
 <v t="karstenw.20170709210125.56"><vh>color</vh></v>
 </v>
-<v t="karstenw.20170709210125.57"><vh>class Pixels</vh>
+<v t="karstenw.20170709210125.57" a="E"><vh>class Pixels</vh>
 <v t="karstenw.20170709210125.58"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.59"><vh>__getitem__</vh></v>
 <v t="karstenw.20170709210125.60"><vh>__setitem__</vh></v>
@@ -130,10 +130,10 @@
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 </v>
-<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
-<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
+<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
@@ -157,8 +157,15 @@
 <v t="karstenw.20200419185716.1" a="E"><vh>loadImageWell</vh>
 <v t="karstenw.20210315130744.1"><vh>&lt;&lt; method comment &gt;&gt;</vh></v>
 <v t="karstenw.20210315130855.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
+<v t="karstenw.20210315232316.1"><vh>&lt;&lt; load result pickle &gt;&gt;</vh></v>
 <v t="karstenw.20210315131220.1"><vh>&lt;&lt; read image folders &gt;&gt;</vh></v>
-<v t="karstenw.20210315131302.1"><vh>&lt;&lt; setup optional json file &gt;&gt;</vh></v>
+<v t="karstenw.20210315143241.1" a="E"><vh>&lt;&lt; file loop &gt;&gt;</vh>
+<v t="karstenw.20210315143319.1"><vh>&lt;&lt; filters &gt;&gt;</vh></v>
+<v t="karstenw.20210315143430.1"><vh>&lt;&lt; stats &gt;&gt;</vh></v>
+<v t="karstenw.20210315143623.1"><vh>&lt;&lt; categories &gt;&gt;</vh></v>
+</v>
+<v t="karstenw.20210315225632.1"><vh>&lt;&lt; accumulate stats &gt;&gt;</vh></v>
+<v t="karstenw.20210315131302.1"><vh>&lt;&lt; setup optional result file &gt;&gt;</vh></v>
 </v>
 </v>
 <v t="karstenw.20201009153259.1"><vh>Image Sectors</vh>
@@ -224,6 +231,9 @@ import datetime
 import time
 import hashlib
 import unicodedata
+
+import pickle
+import json
 
 import colorsys
 
@@ -1927,91 +1937,23 @@ def smooth_more(self):
 </t>
 <t tx="karstenw.20200419185716.1">def loadImageWell( bgsize=(1024,768), minsize=(256,256),
                    maxfilesize=100000000, maxpixellength=16000,
-                   pathonly=True, additionals=None, ignorelibs=False):
+                   pathonly=True, additionals=None, ignorelibs=False,
+                   resultfile=False):
 
     &lt;&lt; method comment &gt;&gt;
 
     &lt;&lt; init &gt;&gt;
-    
+
+    &lt;&lt; load result pickle &gt;&gt;
+
     &lt;&lt; read image folders &gt;&gt;
     
-    &lt;&lt; setup optional json file &gt;&gt;
+    &lt;&lt; file loop &gt;&gt;
 
-    for t in filetuples:
-        path, filesize, lastmodified, mode, islink, w0, h0 = t
-        folder, filename = os.path.split( path )
-        basename, ext = os.path.splitext( filename )
+    &lt;&lt; accumulate stats &gt;&gt;
 
-        # filter minimal pixel lengths
-        if ext.lower() != ".eps":
-            if (w0 &lt; minw) and (h0 &lt; minh):
-                continue
-            if (w0 &gt; maxpixellength) or (h0 &gt; maxpixellength):
-                continue
-
-        # filter maximal pixel lengths
-        if (w0 &gt; maxpixellength) or (h0 &gt; maxpixellength):
-            continue
-
-        # filter max filesize
-        if filesize &gt; maxfilesize:
-            continue
-
-        # filter images with anormal width or height
-        if w0 in (0, 0.0):
-            print( "Anormal width: %s %s %s" % (repr(path), repr(w0), repr(h0)))
-            continue
-        if h0 in (0, 0.0):
-            print( "Anormal height: %s %s %s" % (repr(path), repr(w0), repr(h0)))
-            continue
-
-        imagecount += 1
-
-        # collect some stats
-        if w0 &lt; smallestw:
-            smallestw = w0
-        if  h0 &lt; smallesth:
-            smallesth = h0
-        if w0 &gt; largestw:
-            largestw = w0
-        if  h0 &gt; largesth:
-            largesth = h0
-
-        proportion = "landscape"
-        if h0 &gt; w0:
-            proportion = "portrait"
-
-        try:
-            frac = Fraction(w0, h0)
-        except TypeError as err:
-            print(err)
-            print(w0)
-            print(h0)
-
-        if pathonly:
-            record = path
-        else:
-            record = (path, filesize, lastmodified, mode, islink,
-                      w0, h0, proportion, frac)
-
-        result['allimages'].append( record )
-
-        # candidate has at least canvas size and can be used as background
-        # otherwise it is a tile
-        if (w0 &gt;= bgw) and (h0 &gt;= bgh):
-            result['backgrounds'].append( record )
-        else:
-            result['tiles'].append( record )
-        
-        if frac not in result['fractions']:
-            result['fractions'][frac] = []
-        result['fractions'][frac].append( record )
-
-        if proportion == "landscape":
-            result['landscape'].append( record )
-        else:
-            result['portrait'].append( record )
-
+    &lt;&lt; setup optional result file &gt;&gt;
+    
     return result
 
 
@@ -2212,7 +2154,7 @@ import sys, os
 
 import pprint
 pp = pprint.pprint
-kwdbg = 0
+kwdbg = 1
 
 # need a different name for nodebox
 import random as rnd
@@ -2296,7 +2238,8 @@ additionals = sys.argv[1:]
 imagewell = pb.loadImageWell(   bgsize=(W,H),
                                 minsize=(256,256),
                                 pathonly=True,
-                                additionals=additionals)
+                                additionals=additionals,
+                                resultfile="imagewell-files")
 
 # tiles are images &gt;256x256 and &lt;=1024x768
 tiles = imagewell['tiles']
@@ -2304,8 +2247,9 @@ tiles = imagewell['tiles']
 # backgrounds are images &gt;W,H
 backgrounds = imagewell['backgrounds']
 
-rnd.shuffle(tiles)
-rnd.shuffle(backgrounds)
+if not kwdbg:
+    rnd.shuffle(tiles)
+    rnd.shuffle(backgrounds)
 
 print( "tiles: %i" % len(tiles) )
 print( "backgrounds: %i" % len(backgrounds) )
@@ -2881,7 +2825,7 @@ result = {
     'portrait': [],
     'fractions': {},
     'WxH largest': "",
-    'WxH smalles': "",
+    'WxH smallest': "",
     'WxH median': "",
 }
 
@@ -2904,11 +2848,149 @@ if additionals:
 filetuples = imagefiles( folders, pathonly=False )
 
 </t>
-<t tx="karstenw.20210315131302.1"></t>
+<t tx="karstenw.20210315131302.1">if resultfile:
+    print("Writing pickle...")
+
+    path = os.path.abspath( resultfile )
+    folder, filename = os.path.split( path )
+    
+    pickfile = os.path.join( folder, filename + ".pick" )
+    if os.path.exists( folder ):
+        f = open(pickfile, "wb")
+        pickle.dump( result, f, 0 )
+        f.close()
+    print("Writing pickle... Done.")
+    
+    if 0:
+        print("Writing json...")
+        jsonfile = os.path.join( folder, filename + ".json" )
+        if os.path.exists( folder ):
+            f = open(jsonfile, "w")
+            json.dump( result, f, indent=4, sort_keys=True )
+            f.close()
+        print("Writing json... Done.")
+
+
+</t>
 <t tx="karstenw.20210315131908.1">class Imagecollection(object):
     def __init__(self):
         self.data = {}
     
-    </t>
+    
+
+</t>
+<t tx="karstenw.20210315143241.1">print("Reading folders...")
+
+for t in filetuples:
+    path, filesize, lastmodified, mode, islink, w0, h0 = t
+    folder, filename = os.path.split( path )
+    basename, ext = os.path.splitext( filename )
+
+    &lt;&lt; filters &gt;&gt;
+
+    &lt;&lt; stats &gt;&gt;
+
+
+    &lt;&lt; categories &gt;&gt;
+
+print("Reading folders... Done.")
+
+</t>
+<t tx="karstenw.20210315143319.1"># filter minimal pixel lengths
+if ext.lower() != ".eps":
+    if (w0 &lt; minw) and (h0 &lt; minh):
+        continue
+    if (w0 &gt; maxpixellength) or (h0 &gt; maxpixellength):
+        continue
+
+# filter maximal pixel lengths
+if (w0 &gt; maxpixellength) or (h0 &gt; maxpixellength):
+    continue
+
+# filter max filesize
+if filesize &gt; maxfilesize:
+    continue
+
+# filter images with anormal width or height
+if w0 in (0, 0.0):
+    print( "Anormal width: %s %s %s" % (repr(path), repr(w0), repr(h0)))
+    continue
+if h0 in (0, 0.0):
+    print( "Anormal height: %s %s %s" % (repr(path), repr(w0), repr(h0)))
+    continue
+</t>
+<t tx="karstenw.20210315143430.1">imagecount += 1
+
+# collect some stats
+if w0 &lt; smallestw:
+    smallestw = w0
+if  h0 &lt; smallesth:
+    smallesth = h0
+if w0 &gt; largestw:
+    largestw = w0
+if  h0 &gt; largesth:
+    largesth = h0
+
+
+medianw += w0
+medianh += h0
+</t>
+<t tx="karstenw.20210315143623.1">proportion = "landscape"
+if h0 &gt; w0:
+    proportion = "portrait"
+
+fracs = "x:y"
+try:
+    frac = Fraction(w0, h0)
+    fracs = "%i:%i" % (frac.numerator, frac.denominator )
+except TypeError as err:
+    print(err)
+    print(w0)
+    print(h0)
+
+if pathonly:
+    record = path
+else:
+    record = (path, filesize, lastmodified, mode, islink,
+              w0, h0, proportion, frac)
+
+result['allimages'].append( record )
+
+# candidate has at least canvas size and can be used as background
+# otherwise it is a tile
+if (w0 &gt;= bgw) and (h0 &gt;= bgh):
+    result['backgrounds'].append( record )
+else:
+    result['tiles'].append( record )
+
+if fracs not in result['fractions']:
+    result['fractions'][fracs] = []
+result['fractions'][fracs].append( record )
+
+if proportion == "landscape":
+    result['landscape'].append( record )
+else:
+    result['portrait'].append( record )
+
+</t>
+<t tx="karstenw.20210315225632.1">result[ 'WxH largest' ] = (largestw,largesth)
+result[ 'WxH smallest' ] = (smallestw,smallesth)
+result[ 'WxH median' ] = (medianw / float(imagecount), medianh / float(imagecount))
+
+</t>
+<t tx="karstenw.20210315232316.1">if resultfile:
+    path = os.path.abspath( resultfile )
+    folder, filename = os.path.split( path )
+    
+    pickfile = os.path.join( folder, filename + ".pick" )
+    if os.path.exists( pickfile ):
+        print("Reading pickle...")
+        f = open(pickfile, "rb")
+        result = pickle.load( f )
+        f.close()
+        print("Reading pickle... Done.")
+        return result
+
+</t>
 </tnodes>
 </leo_file>

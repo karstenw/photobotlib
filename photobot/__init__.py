@@ -32,6 +32,9 @@ import time
 import hashlib
 import unicodedata
 
+import pickle
+import json
+
 import colorsys
 
 import PIL
@@ -2023,7 +2026,8 @@ class Imagecollection(object):
 
 def loadImageWell( bgsize=(1024,768), minsize=(256,256),
                    maxfilesize=100000000, maxpixellength=16000,
-                   pathonly=True, additionals=None, ignorelibs=False):
+                   pathonly=True, additionals=None, ignorelibs=False,
+                   resultfile=False):
 
     """
     Find images imagewells or additional folders. 
@@ -2058,7 +2062,7 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         'portrait': [],
         'fractions': {},
         'WxH largest': "",
-        'WxH smalles': "",
+        'WxH smallest': "",
         'WxH median': "",
     }
 
@@ -2070,7 +2074,21 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
     slope = 1.0
     imagecount = 0
 
-    
+
+    if resultfile:
+        path = os.path.abspath( resultfile )
+        folder, filename = os.path.split( path )
+        
+        pickfile = os.path.join( folder, filename + ".pick" )
+        if os.path.exists( pickfile ):
+            print("Reading pickle...")
+            f = open(pickfile, "rb")
+            result = pickle.load( f )
+            f.close()
+            print("Reading pickle... Done.")
+            return result
+
+
     # get all images from user image wells
     folders = []
     if not ignorelibs:
@@ -2081,6 +2099,7 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
     filetuples = imagefiles( folders, pathonly=False )
 
     
+    print("Reading folders...")
 
     for t in filetuples:
         path, filesize, lastmodified, mode, islink, w0, h0 = t
@@ -2122,12 +2141,19 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         if  h0 > largesth:
             largesth = h0
 
+
+        medianw += w0
+        medianh += h0
+
+
         proportion = "landscape"
         if h0 > w0:
             proportion = "portrait"
 
+        fracs = "x:y"
         try:
             frac = Fraction(w0, h0)
+            fracs = "%i:%i" % (frac.numerator, frac.denominator )
         except TypeError as err:
             print(err)
             print(w0)
@@ -2147,16 +2173,49 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
             result['backgrounds'].append( record )
         else:
             result['tiles'].append( record )
-        
-        if frac not in result['fractions']:
-            result['fractions'][frac] = []
-        result['fractions'][frac].append( record )
+
+        if fracs not in result['fractions']:
+            result['fractions'][fracs] = []
+        result['fractions'][fracs].append( record )
 
         if proportion == "landscape":
             result['landscape'].append( record )
         else:
             result['portrait'].append( record )
 
+
+    print("Reading folders... Done.")
+
+
+    result[ 'WxH largest' ] = (largestw,largesth)
+    result[ 'WxH smallest' ] = (smallestw,smallesth)
+    result[ 'WxH median' ] = (medianw / float(imagecount), medianh / float(imagecount))
+
+
+    if resultfile:
+        print("Writing pickle...")
+
+        path = os.path.abspath( resultfile )
+        folder, filename = os.path.split( path )
+        
+        pickfile = os.path.join( folder, filename + ".pick" )
+        if os.path.exists( folder ):
+            f = open(pickfile, "wb")
+            pickle.dump( result, f, 0 )
+            f.close()
+        print("Writing pickle... Done.")
+        
+        if 0:
+            print("Writing json...")
+            jsonfile = os.path.join( folder, filename + ".json" )
+            if os.path.exists( folder ):
+                f = open(jsonfile, "w")
+                json.dump( result, f, indent=4, sort_keys=True )
+                f.close()
+            print("Writing json... Done.")
+
+
+    
     return result
 
 
