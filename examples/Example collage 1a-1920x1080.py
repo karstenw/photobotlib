@@ -1,5 +1,3 @@
-
-
 # heavily inspired by https://www.nodebox.net/code/index.php/Landslide
 
 from __future__ import print_function
@@ -8,35 +6,37 @@ import sys, os
 
 import pprint
 pp = pprint.pprint
-kwdbg = False
+kwdbg = 1
 
-# need a different name
+# need a different name for nodebox
 import random as rnd
 
-if kwdbg:
+import libgradient
+
+if kwdbg and 0:
     # make random choices repeatable for debugging
     rnd.seed(0)
 
+# width and height of destination image
+# W, H =  800,  600
+# W, H = 1024,  768
+# W, H = 1280,  800
+# W, H = 1440,  900
+W, H = 1920, 1080
 
-# size for canvas
-W, H = 1920,1050
-
-
-# check for Nodebox
-NB = True
+# import photobot lib
 try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
     pb = ximport("photobot")
+    size(W, H)
     background( 0.333 )
-else:
-    WIDTH, HEIGHT = W, H
+except ImportError:
+    pb = ximport("__init__")
+    reload(pb)
+    size(W, H)
+    background( 0.333 )
+except NameError:
     import photobot as pb
-
+    WIDTH, HEIGHT = W, H
 RATIO = WIDTH / HEIGHT
 
 # load the image library
@@ -47,21 +47,22 @@ additionals = sys.argv[1:]
 imagewell = pb.loadImageWell(   bgsize=(WIDTH, HEIGHT),
                                 minsize=(256,256),
                                 pathonly=True,
-                                additionals=additionals)
+                                additionals=additionals,
+                                resultfile="imagewell-files")
 
-# tiles are images >256x256 and <=1024x768
+# tiles are images >256x256 and <=WIDTH, HEIGHT
 tiles = imagewell['tiles']
 
-# backgrounds are images >1024x768
+# backgrounds are images >W,H
 backgrounds = imagewell['backgrounds']
-rnd.shuffle(tiles)
-rnd.shuffle(backgrounds)
 
-print( "tiles: %i " % len(tiles) )
+if not kwdbg:
+    rnd.shuffle(tiles)
+    rnd.shuffle(backgrounds)
+
+print( "tiles: %i" % len(tiles) )
 print( "backgrounds: %i" % len(backgrounds) )
 
-
-# CONFIGURATION
 
 # create the canvas
 c = pb.canvas( WIDTH, HEIGHT)
@@ -73,29 +74,21 @@ c.fill( (85,85,85) )
 columns = 5
 rows = 3
 
+enoughTiles = len(tiles) > (columns * 2 * rows)
+
 randomblur = 0
 randomflip = 0
 paintoverlay = 0
 gilb =0
 
-
 # 
 y_offset = HEIGHT / float(rows)
 y_offset = int(round(y_offset))
 
-
-# 
-if 0:
-    bgimage = backgrounds.pop()
-    top = c.layer(bgimage)
-    w, h = c.top.bounds()
-    w1,h1 = pb.aspectRatio( (w,h), WIDTH, height=False, assize=True )
-    c.top.scale(w1,h1)
-else:
-    bgimage = backgrounds.pop()
-    pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
-print( "Background:  %s" % bgimage.encode("utf-8") )
-
+# background image
+bgimage = backgrounds.pop()
+pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
+# print( "Background: %s" % bgimage.encode("utf-8") )
 
 for j in range(rows):
     colw = 0
@@ -163,22 +156,30 @@ for j in range(rows):
             if rnd.random() > 0.5:
                 c.top.blur()
 
-if 1:
-    # orange hue mask finish
-    top = c.fill((200,100,0))
+if gilb:
+    # orange hue overlay finish
+    # create new color layer
+    c.fill((200,100,0))
     c.top.opacity(30)
     c.top.hue()
 
+
+paintfile = os.path.abspath("./paint.jpg")
 if paintoverlay:
     # paint overlay
-    top = c.layer( os.path.abspath("./paint.jpg") )
-    w, h = c.top.bounds()
-    xs = WIDTH / float(w)
-    ys = HEIGHT / float(h)
-    s = max(xs,ys)
-    c.top.scale(s, s)
-    c.top.opacity(10)
-    c.top.overlay()
+    if os.path.exists( paintfile ):
+        if kwdbg:
+            print( "paint overlay:  %s" % paintfile )
+        topidx = c.layer( paintfile )
+        w, h = c.top.bounds()
+        xs = WIDTH / float(w)
+        ys = HEIGHT / float(h)
+        s = max(xs,ys)
+        c.top.scale(s, s)
+        c.top.opacity( 10 )
+        c.top.overlay()
 
-c.draw(0, 0)
+
+c.draw(0,0)
+
 

@@ -44,13 +44,13 @@ RATIO = WIDTH / HEIGHT
 additionals = sys.argv[1:]
 
 # get all images from user image wells
-imagewell = pb.loadImageWell(   bgsize=(W,H),
+imagewell = pb.loadImageWell(   bgsize=(WIDTH, HEIGHT),
                                 minsize=(256,256),
                                 pathonly=True,
                                 additionals=additionals,
                                 resultfile="imagewell-files")
 
-# tiles are images >256x256 and <=1024x768
+# tiles are images >256x256 and <=WIDTH, HEIGHT
 tiles = imagewell['tiles']
 
 # backgrounds are images >W,H
@@ -86,15 +86,12 @@ gilb = 1
 y_offset = HEIGHT / float(rows)
 y_offset = int(round(y_offset))
 
-
-
-
 # background image
 bgimage = backgrounds.pop()
 pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
 # print( "Background: %s" % bgimage.encode("utf-8") )
 
-
+tilecounter = 0
 cols = -1
 for j in range(rows):
     colw = 0
@@ -107,43 +104,64 @@ for j in range(rows):
         # new layer with a random image
         # c.layer returns the index of the top layer
         topidx = c.layer( nextpictpath )
+        tilecounter += 1
+        if kwdbg:
+            print( "%i  -- %s" % (tilecounter,repr(nextpictpath)) )
 
         # get current image bounds
         w, h = c.top.bounds()
 
-        
         # calculate scale & apply
         s = pb.aspectRatio( (w,h), y_offset, height=True)
         c.top.scale(s, s)
+        if kwdbg:
+            print( "Scale" )
 
         # get current image bounds
         w, h = c.top.bounds()
 
         # create a random mask gradient for this tile
+        if kwdbg:
+            print( "Gradient" )
         libgradient.makerandomgradient( c, w, h, j*y_offset )
+        if kwdbg:
+            print( "Mask" )
         c.top.mask()
 
 
         # P: 0.5 # flip the tile
         if randomblur:
             if rnd.random() > 0.5:
+                if kwdbg:
+                    print( "Flip" )
                 c.top.flip()
 
         # P: 0.5 # add blur
         if randomflip:
             if rnd.random() > 0.5:
+                if kwdbg:
+                    print( "Blur" )
                 c.top.blur()
 
         w, h = c.top.bounds()
+        if kwdbg:
+            print( "Translate" )
         c.top.translate(colw, j*y_offset)
         colw += w
+        
+        # merge with previous layer fro memory reasons
+        top = c.topindex
+        if top > 2:
+            c.merge([top-1, top])
 
 
-if 1:
-    # orange hue mask finish
-    topidx = c.fill((200,100,0))
+if gilb:
+    # orange hue overlay finish
+    # create new color layer
+    c.fill((200,100,0))
     c.top.opacity(30)
     c.top.hue()
+
 
 paintfile = os.path.abspath("./paint.jpg")
 if paintoverlay:
@@ -157,8 +175,10 @@ if paintoverlay:
         ys = HEIGHT / float(h)
         s = max(xs,ys)
         c.top.scale(s, s)
-        # c.top.opacity( 90 )
+        c.top.opacity( 10 )
         c.top.overlay()
 
+
 c.draw(0,0)
+
 

@@ -98,7 +98,6 @@ else:
 print( "Background:  %s" % bgimage.encode("utf-8") )
 
 idx = 0
-
 for j in range(rows):
     colw = 0
     for i in range(columns):
@@ -166,6 +165,7 @@ for j in range(rows):
 
             if rnd.random() > 0.5:
                 c.top.blur()
+
 
 if 1:
     # orange hue mask finish
