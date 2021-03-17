@@ -203,12 +203,36 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210316195906.1" a="E"><vh>@clean examples/Example collage 1nb.py</vh>
-<v t="karstenw.20210316195930.1"><vh>Declarations</vh></v>
-<v t="karstenw.20210316201114.1"><vh>init</vh></v>
+<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1nb.py</vh>
+<v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210316201117.1"><vh>config</vh></v>
 <v t="karstenw.20210316201120.1"><vh>loop</vh></v>
-<v t="karstenw.20210316201125.1"><vh>finish</vh></v>
+<v t="karstenw.20210316201125.1"><vh>finish</vh>
+<v t="karstenw.20210317123345.1"><vh>&lt;&lt; orange gilb &gt;&gt;</vh></v>
+<v t="karstenw.20210316200115.1"></v>
+</v>
+</v>
+<v t="karstenw.20210317152421.1" a="E"><vh>@clean examples/Example collage 2.py</vh>
+<v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20201006211627.1"></v>
+<v t="karstenw.20210317152601.1"><vh>config</vh></v>
+<v t="karstenw.20210317152606.1"><vh>loop</vh>
+<v t="karstenw.20210317154410.1"><vh>&lt;&lt; place image &gt;&gt;</vh></v>
+<v t="karstenw.20210317154416.1"><vh>&lt;&lt; create gradients &gt;&gt;</vh></v>
+<v t="karstenw.20210317154440.1"><vh>&lt;&lt; flip and blur &gt;&gt;</vh></v>
+<v t="karstenw.20210317154705.1"><vh>&lt;&lt; layer post processing &gt;&gt;</vh></v>
+</v>
+<v t="karstenw.20210317152611.1" a="E"><vh>finish</vh>
+<v t="karstenw.20210316200041.1"></v>
+<v t="karstenw.20210316200115.1"></v>
+</v>
+</v>
+<v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
+<v t="karstenw.20210317152440.1"><vh>Declarations</vh></v>
+</v>
+<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152448.1"><vh>Declarations</vh></v>
 </v>
 </v>
 </vnodes>
@@ -2193,7 +2217,7 @@ import sys, os
 
 import pprint
 pp = pprint.pprint
-kwdbg = 1
+kwdbg = 0
 
 # need a different name for nodebox
 import random as rnd
@@ -2924,110 +2948,12 @@ transparently handle the imagewell.txt pickling.
 The folders in imagewell.txt should be parsed, if one of the folders
 is newer or imagewell.txt is newer than imagewell-files.pick.
 
-"""</t>
+"""
+
+</t>
 <t tx="karstenw.20210316195906.1">@language python
 @tabwidth -4
 @others
-</t>
-<t tx="karstenw.20210316195930.1">
-
-# heavily inspired by https://www.nodebox.net/code/index.php/Landslide
-
-from __future__ import print_function
-
-import sys, os
-
-import pprint
-pp = pprint.pprint
-kwdbg = False
-
-# need a different name
-import random as rnd
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(0)
-
-
-W, H = 1024,768
-W, H = 1920, 1050
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-    background( 0.333 )
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-RATIO = WIDTH / HEIGHT
-
-# load the image library
-# check for command line folders
-additionals = sys.argv[1:]
-
-# get all images from user image wells
-imagewell = pb.loadImageWell(   bgsize=(WIDTH, HEIGHT),
-                                minsize=(256,256),
-                                pathonly=True,
-                                additionals=additionals)
-
-# tiles are images &gt;256x256 and &lt;=1024x768
-tiles = imagewell['tiles']
-
-# backgrounds are images &gt;1024x768
-backgrounds = imagewell['backgrounds']
-rnd.shuffle(tiles)
-rnd.shuffle(backgrounds)
-
-print( "tiles: %i " % len(tiles) )
-print( "backgrounds: %i" % len(backgrounds) )
-
-
-# CONFIGURATION
-
-# create the canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (85,85,85) )
-
-
-# CONFIGURATION
-
-columns = 5
-rows = 3
-
-randomblur = 0
-randomflip = 0
-paintoverlay = 0
-gilb =0
-
-
-# 
-y_offset = HEIGHT / float(rows)
-y_offset = int(round(y_offset))
-
-x_offset = WIDTH / float(columns)
-
-# 
-if 0:
-    bgimage = backgrounds.pop()
-    top = c.layer(bgimage)
-    w, h = c.top.bounds()
-    w1,h1 = pb.aspectRatio( (w,h), WIDTH, height=False, assize=True )
-    c.top.scale(w1,h1)
-else:
-    bgimage = backgrounds.pop()
-    pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
-print( "Background:  %s" % bgimage.encode("utf-8") )
-
 </t>
 <t tx="karstenw.20210316200041.1">if gilb:
     # orange hue overlay finish
@@ -3075,15 +3001,33 @@ pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
 # print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
-<t tx="karstenw.20210316201114.1"></t>
-<t tx="karstenw.20210316201117.1"></t>
-<t tx="karstenw.20210316201120.1">idx = 0
-for j in range(rows):
+<t tx="karstenw.20210316201117.1"># CONFIGURATION
+
+columns = 5
+rows = 3
+
+randomblur = 0
+randomflip = 0
+paintoverlay = 0
+gilb = 0
+
+
+# 
+y_offset = HEIGHT / float(rows)
+y_offset = int(round(y_offset))
+x_offset = WIDTH / float(columns)
+
+# background image
+bgimage = backgrounds.pop()
+pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
+print( "Background: %s" % bgimage.encode("utf-8") )
+
+</t>
+<t tx="karstenw.20210316201120.1">for j in range(rows):
     colw = 0
     for i in range(columns):
-        idx += 1
         # new layer with a random image
-        top = c.layer( tiles.pop() )
+        c.layer( tiles.pop() )
 
         # get current image bounds
         w, h = c.top.bounds()
@@ -3100,20 +3044,21 @@ for j in range(rows):
 
         # get the new image bounds
         w, h = c.top.bounds()
+        halfwidth = int( w / 2.0 )
 
-        r = 0.4 
         r = rnd.random()
+        # r = 0.65
         # 10%
         if r &lt; 0.1:
             # create a dual ramp gradient
-            _ = c.gradient(pb.LINEAR, int(w/2), h)
+            _ = c.gradient(pb.LINEAR, halfwidth, h)
             c.top.flip( pb.HORIZONTAL )
 
             # layer translate half a pict right
-            c.top.translate(w/2, j*y_offset)
+            c.top.translate(halfwidth, j*y_offset)
 
             # create another gradient layer and merge with first gradient
-            top = c.gradient(pb.LINEAR, int(w/2), h)
+            top = c.gradient(pb.LINEAR, halfwidth, h)
             # merge both gradients; destroys top layer
             c.merge([ top-1 , top ])
         elif 0.1 &lt;= r &lt; 0.5:
@@ -3122,7 +3067,8 @@ for j in range(rows):
             
         elif 0.6 &lt;= r &lt; 0.75:
             # RADIALCOSINE
-            top = c.gradient(pb.RADIALCOSINE, w, h)
+            # top = c.gradient(pb.RADIALCOSINE, w, h)
+            top = c.gradient(pb.RADIAL, w, h)
             c.top.invert()
         else:
             # ROUNDRECT
@@ -3139,15 +3085,23 @@ for j in range(rows):
         
         c.top.opacity( 66 + rnd.random() * 29 )
 
-        if randomblur:
+        if randomflip:
             if rnd.random() &gt; 0.5:
                 c.top.flip()
 
+        if randomblur:
             if rnd.random() &gt; 0.5:
                 c.top.blur()
 
 </t>
-<t tx="karstenw.20210316201125.1">
+<t tx="karstenw.20210316201125.1">&lt;&lt; orange gilb &gt;&gt;
+
+&lt;&lt; paint texture &gt;&gt;
+
+c.draw(0,0)
+
+
+
 if 1:
     # orange hue mask finish
     top = c.fill((200,100,0))
@@ -3162,10 +3116,556 @@ if paintoverlay:
     ys = HEIGHT / float(h)
     s = max(xs,ys)
     c.top.scale(s, s)
-    c.top.opacity(10)
+    # c.top.opacity(60)
+    c.top.overlay()
+</t>
+<t tx="karstenw.20210317123345.1">if gilb:
+    # orange hue overlay finish
+    # create new color layer
+    c.fill((200,100,0))
+    c.top.opacity(30)
+    c.top.hue()
+
+</t>
+<t tx="karstenw.20210317152421.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20210317152433.1"># heavily inspired by https://www.nodebox.net/code/index.php/Landslide
+
+@others
+@language python
+@tabwidth -4
+</t>
+<t tx="karstenw.20210317152440.1">import sys
+import os
+
+W,H = 1920, 1080
+RATIO = W / H
+
+kwdbg = False
+
+size(W, H)
+
+background( 0.333 )
+
+# need a different name; random is taken
+import random as rnd
+
+if kwdbg:
+    # make random choices repeatable for debugging
+    rnd.seed(0)
+
+# import photobot
+try:
+    pb = ximport("photobot")
+    pbh = ximport("pbhelpers")
+except ImportError:
+    pb = ximport("__init__")
+    reload(pb)
+
+# from pbhelpers import *
+
+
+# create the canvas
+c = pb.canvas(int(WIDTH), int(HEIGHT))
+
+# load the image library
+# check for command line folders
+additionals = sys.argv[1:]
+
+# get all images from user image wells
+imagewell = pb.loadImageWell(   bgsize=(W,H),
+                                minsize=(256,256),
+                                pathonly=True,
+                                additionals=additionals)
+
+# tiles are images &gt;256x256 and &lt;=1024x768
+tiles = imagewell['tiles']
+
+# backgrounds are images &gt;1024x768
+backgrounds = imagewell['backgrounds']
+rnd.shuffle(tiles)
+rnd.shuffle(backgrounds)
+
+print "tiles:", len(tiles)
+print "backgrounds:", len(backgrounds)
+
+
+bgimage = backgrounds.pop()
+
+
+# CONFIGURATION
+columns = 5
+rows = 3
+
+colwidth = int(WIDTH / columns)
+rowheight = int(HEIGHT / rows)
+maxsize = int(max(colwidth,rowheight)*1.2)
+
+# print "colwidth/rowheight:", colwidth, rowheight
+
+xgutter = colwidth * 0.0667
+ygutter = rowheight * 0.0667
+# print "xgutter/ygutter:", xgutter, ygutter
+
+realwidth = colwidth - 1*xgutter
+realheight = rowheight - 1*ygutter 
+
+positions = list(grid(columns, rows, colwidth, rowheight))
+
+randomblur = not kwdbg
+paintoverlay = not kwdbg
+
+
+#
+# Base Image
+#
+
+#  create, scale and place the image
+x, y = 0, 0
+top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1")
+
+
+for position in positions:
+    x, y = position
+
+
+    # create image in canvas at 0,0
+    p = tiles.pop()
+    print p
+    top, w, h = pb.placeImage(c, p, 0, 0, maxsize, "Image %i,%i" % (x,y))
+
+    # scale the layer to row height
+    pb.scaleLayerToHeight( c.top, rowheight )
+
+    # uniform width
+    #cropImageToRatioHorizontal( c.top, RATIO )
+
+    # get the new image bounds - layer still valid
+    w, h = c.top.bounds()
+
+    # add contrast - layer still valid
+    c.top.contrast(1.1)
+
+
+    r = rnd.random()
+    # 10%
+    if 0 &lt; r &lt; 0.2:
+        #print "20% LINEAR"
+        # create gradient layer
+        # top is now gradient index
+        c.gradient(pb.LINEAR, int(w/2), h)
+        c.top.flip( pb.HORIZONTAL )
+
+        # translate half a pict right
+        c.top.translate(w/2, 0)
+
+        # create gradient layer
+        # top is now second gradient image
+        topidx = c.gradient(pb.LINEAR, int(w/2), h)
+
+        # merge both gradients; destroys top layer
+        c.merge([ topidx-1 , topidx ])
+
+    elif 0.2 &lt;= r &lt; 0.4:
+        #print "20% SINE"
+        top = c.gradient(pb.SINE, w, h)
+        
+    elif 0.4 &lt;= r &lt; 0.6:
+        #print "20% RADIALCOSINE"
+        top = c.gradient(pb.RADIALCOSINE, w, h)
+        # c.top.invert()
+    elif 0.6 &lt;= r &lt; 0.8:
+        #print "20% ROUNDRECT"
+        # 25%
+        top = c.gradient(pb.ROUNDRECT, w, h, "", radius=w/5.0, radius2=w/5.0)
+    elif r &gt;= 0.8:
+        #print "20% QUAD"
+        top = c.gradient(pb.QUAD, w, h, "", 0, 0)
+            
+    # enhance mask
+    c.top.brightness(1.4)
+    c.top.mask()
+
+    # top layer is now image with mask
+
+    destx = x - xgutter
+    desty = y - ygutter
+    # print "Image@", x, y
+    # c.top.translate(destx, desty)
+    c.top.translate(x, y)
+
+    if randomblur:
+        if rnd.random() &gt; 0.75:
+            #print "FLIP"
+            c.top.flip()
+
+        if rnd.random() &gt; 0.75:
+            #print "BLUR"
+            c.top.blur()
+
+if 0:
+    # orange hue mask finish
+    #print "Mr. Orange"
+    top = c.fill((200,100,0))
+    c.top.opacity(30)
+    c.top.hue()
+
+if paintoverlay:
+    # paint overlay
+    #print "VINCENT"
+    top = c.layer( os.path.abspath("./paint.jpg") )
+    w, h = c.top.bounds()
+    xs = WIDTH / float(w)
+    ys = HEIGHT / float(h)
+    s = max(xs,ys)
+    c.top.scale(s, s)
+    c.top.opacity(50)
     c.top.overlay()
 
 c.draw(0, 0)
+</t>
+<t tx="karstenw.20210317152441.1"># heavily inspired by https://www.nodebox.net/code/index.php/Landslide
+@others
+@language python
+@tabwidth -4
+</t>
+<t tx="karstenw.20210317152448.1">W,H = 1920, 1080
+RATIO = W / H
+import os
+kwdbg = 0
+
+size(W, H)
+
+background( 0.333 )
+
+# need a different name; random is taken
+import random as rnd
+
+if kwdbg:
+    # make random choices repeatable for debugging
+    rnd.seed(0)
+    # pass
+
+# import photobot
+try:
+    pb = ximport("photobot")
+    pbh = ximport("pbhelpers")
+except ImportError:
+    pb = ximport("__init__")
+    reload(pb)
+from pbhelpers import *
+
+# import extensions if nodebox version &lt; 1.9.18
+try:
+    imagefiles
+except NameError:
+    from nodeboxExtensions import *
+
+# create the canvas
+c = pb.canvas(int(WIDTH), int(HEIGHT))
+
+sources = [
+    #u"/Volumes/Vulcan/bilder/sci-fi/2001/+screenshots",
+    #u"/Volumes/Vulcan/bilder/sci-fi/2001/2017",
+]
+
+# get all images from system "Desktop Pictures" folder
+filetuples = imagefiles( "/Library/Desktop Pictures", False )
+# filetuples = imagefiles( "../images", False )
+# filetuples = imagefiles( sources, False )
+
+# filter out all 1 pix one color images by ignoring all files &lt; 100k
+tiles = []
+for t in filetuples:
+    path, filesize, lastmodified, mode, islink = t
+    if filesize &lt; 50000:
+        continue
+    tiles.append( path )
+
+# shuffle the images
+rnd.shuffle(tiles)
+rnd.shuffle(tiles)
+rnd.shuffle(tiles)
+
+
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+
+# CONFIGURATION
+
+columns = 3
+rows = 2
+
+colwidth = int(WIDTH / columns)
+rowheight = int(HEIGHT / rows)
+maxsize = int(max(colwidth,rowheight)*1.2)
+maxsize = int( rowheight * 1.2 )
+
+# print "colwidth/rowheight:", colwidth, rowheight
+
+xgutter = colwidth * 0.0667
+ygutter = rowheight * 0.0667
+# print "xgutter/ygutter:", xgutter, ygutter
+
+realwidth = colwidth - 1*xgutter
+realheight = rowheight - 1*ygutter 
+
+positions = list(grid(columns, rows, colwidth, rowheight))
+
+randomblur = not kwdbg
+paintoverlay = not kwdbg
+
+
+#
+# Base Image
+#
+
+#  create, scale and place the image
+x, y = 0, 0
+top, w, h = pb.placeImage(c, img1path, x, y, W, "Image 1")
+
+
+for position in positions:
+    x, y = position
+
+
+    # create image in canvas at 0,0
+    p = tiles.pop()
+    print p
+    top, w, h = pb.placeImage(c, p, 0, 0, maxsize, "Image %i,%i" % (x,y)) #, width=False, height=True)
+
+    # scale the layer to row height
+    scaleLayerToHeight( c.top, rowheight )
+
+    # uniform width
+    #layer = cropImageToRatioHorizontal( layer, RATIO )
+
+    # get the new image bounds - layer still valid
+    w, h = c.top.bounds()
+
+    # add contrast - layer still valid
+    c.top.contrast(1.1)
+
+    r = rnd.random()
+    # 10%
+    if 0 &lt; r &lt; 0.2:
+        #print "20% LINEAR"
+        # create gradient layer
+        # top is now gradient index
+        top = c.gradient(pb.LINEAR, int(w/2), h)
+        c.top.flip( pb.HORIZONTAL )
+
+        # layer + 4 flip
+        # c.top.flip( pb.HORIZONTAL )
+
+        # layer +4 translate half a pict right
+        c.top.translate(w/2, 0)
+
+        # create gradient layer
+        # top is now second gradient index
+        top = c.gradient(pb.LINEAR, int(w/2), h)
+
+        # merge both gradients; destroys top layer
+        c.merge([ top-1 , top ])
+    elif 0.2 &lt;= r &lt; 0.4:
+        #print "20% SINE"
+        top = c.gradient(pb.SINE, w, h)
+        
+    elif 0.4 &lt;= r &lt; 0.6:
+        #print "20% RADIALCOSINE"
+        top = c.gradient(pb.RADIALCOSINE, w, h)
+        # c.top.invert()
+    elif 0.6 &lt;= r &lt; 0.8:
+        #print "20% ROUNDRECT"
+        # 25%
+        top = c.gradient(pb.ROUNDRECT, w, h, "", radius=int(w/5.0), radius2=int(w/5.0))
+    elif r &gt;= 0.8:
+        #print "20% QUAD"
+        top = c.gradient(pb.QUAD, w, h, "", 0, 0)
+            
+    # print "After mask"
+    c.top.brightness(1.4)
+    # mask destroys top layer
+    c.top.mask()
+
+    destx = x - xgutter
+    desty = y - ygutter
+    # print "Image@", x, y
+    # c.top.translate(destx, desty)
+    c.top.translate(x, y)
+
+    if 0: #randomblur:
+        if rnd.random() &gt; 0.75:
+            #print "FLIP"
+            c.top.flip()
+
+        if rnd.random() &gt; 0.75:
+            #print "BLUR"
+            c.top.blur()
+
+if 1:
+    # orange hue mask finish
+    #print "Mr. Orange"
+    top = c.fill((220,110,0))
+    c.top.opacity(60)
+    # c.top.color()
+    c.top.hue()
+
+if 0: #paintoverlay:
+    # paint overlay
+    #print "VINCENT"
+    top = c.layer( os.path.abspath("./paint.jpg") )
+    w, h = c.top.bounds()
+    xs = WIDTH / float(w)
+    ys = HEIGHT / float(h)
+    s = max(xs,ys)
+    c.top.scale(s, s)
+    # c.top.opacity(50)
+    c.top.overlay()
+
+
+
+c.draw(0, 0)
+</t>
+<t tx="karstenw.20210317152601.1"># CONFIGURATION
+
+columns = 8
+rows = 4
+
+# 
+y_offset = HEIGHT / float(rows)
+y_offset = int(round(y_offset))
+
+enoughTiles = len(tiles) &gt; (columns * 2 * rows)
+
+randomblur = 0
+randomflip = 0
+paintoverlay = 0
+gilb = 0
+
+picts = []
+for t in range(columns*rows*2):
+    s = rnd.choice(tiles)
+    picts.append(s)
+    if enoughTiles:
+        tiles.remove(s)
+
+rnd.shuffle(picts)
+
+# background image
+bgimage = backgrounds.pop()
+pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
+
+
+</t>
+<t tx="karstenw.20210317152606.1">tilecounter = 0
+for j in range(rows):
+    for i in range(columns):
+
+        &lt;&lt; place image &gt;&gt;
+
+        &lt;&lt; create gradients &gt;&gt;
+
+        &lt;&lt; flip and blur &gt;&gt;
+
+        &lt;&lt; layer post processing &gt;&gt;
+
+</t>
+<t tx="karstenw.20210317152611.1">&lt;&lt; orange gilb &gt;&gt;
+
+&lt;&lt; paint texture &gt;&gt;
+
+c.draw(0,0)
+
+
+</t>
+<t tx="karstenw.20210317154410.1"># create image in canvas at 0,0
+nextpictpath = picts.pop()
+c.layer( nextpictpath )
+tilecounter += 1
+if kwdbg:
+    print( "%i  -- %s" % (tilecounter,repr(nextpictpath)) )
+
+# add contrast
+c.top.contrast(1.1)
+
+# get current image bounds
+w, h = c.top.bounds()
+halfwidth = int( w / 2.0 )
+
+</t>
+<t tx="karstenw.20210317154416.1">if kwdbg:
+    print( "Gradient 1" )
+
+# create gradient layer
+c.gradient(pb.LINEAR, int(w/2), h)
+
+if kwdbg:
+    print( "Gradient 1 flip" )
+
+# layer + 4 flip
+c.top.flip()
+
+if kwdbg:
+    print( "Gradient 1 translate" )
+
+# layer +4 translate half a pict right
+c.top.translate(w/2, j*y_offset)
+
+if kwdbg:
+    print( "Gradient 2" )
+
+# create gradient layer
+c.gradient(pb.LINEAR, int(w/2), h)
+
+if kwdbg:
+    print( "Gradient 2 merge with gradient 1" )
+
+# merge the 2 gradient ramps
+top = c.topindex
+c.merge([top-1, top])
+
+if kwdbg:
+    print( "Gradient brightness 1.4" )
+
+c.top.brightness(1.4)
+
+if kwdbg:
+    print( "Gradient mask" )
+
+c.top.mask()
+c.top.translate(i*w/3, j*y_offset)
+
+</t>
+<t tx="karstenw.20210317154440.1">if kwdbg:
+    print( "Layer flip" )
+
+if rnd.random() &gt; 0.5:
+    if kwdbg:
+        print( "flip" )
+    c.top.flip()
+
+if kwdbg:
+    print( "Layer blur" )
+
+if rnd.random() &gt; 0.5:
+    if kwdbg:
+        print( "blur" )
+    c.top.blur()
+
+if kwdbg:
+    print( "Layer merge with previous" )
+
+</t>
+<t tx="karstenw.20210317154705.1"># merge with previous layer fro memory reasons
+top = c.topindex
+if top &gt; 2:
+    c.merge([top-1, top])
+
+
 </t>
 </tnodes>
 </leo_file>
