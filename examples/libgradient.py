@@ -22,21 +22,22 @@ def makerandomgradient( c, w, h, y_offset ):
         print( "mask random: %.2f" % r )
     # create gradient layer
     grad = "BILINEAR"
-
+    
+    halfwidth = int( w / 2.0 )
     
     # P:0.3 - create a dual ramp gradient
     if r < 0.3:
         # c.makemask(   SOLID | LINEAR | RADIAL | DIAMOND
         #             | DUALRAMP | SINE | COSINE | RADIALCOSINE
         #             | ROUNDRECT, w, h)
-        _ = c.gradient(pb.LINEAR, int(w/2), h)
+        _ = c.gradient(pb.LINEAR, halfwidth, h)
         c.top.flip( pb.HORIZONTAL )
 
         # layer translate half a pict right
-        c.top.translate(w/2, y_offset)
+        c.top.translate( halfwidth, y_offset)
 
         # create another gradient layer and merge with first gradient
-        topidx = c.gradient(pb.LINEAR, int(w/2), h)
+        topidx = c.gradient(pb.LINEAR, halfwidth, h)
         # merge both gradients; destroys top layer
         c.merge([ topidx-1 , topidx ])
         c.top.brightness(1.8)
