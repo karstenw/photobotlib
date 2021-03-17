@@ -2040,6 +2040,15 @@ def imagewells():
     return folders
 
 class Imagecollection(object):
+    """
+    ImageCollection should be the return value of loadImageWell() and
+    transparently handle the imagewell.txt pickling.
+
+    The folders in imagewell.txt should be parsed, if one of the folders
+    is newer or imagewell.txt is newer than imagewell-files.pick.
+
+    """
+
     def __init__(self):
         self.data = {}
     
