@@ -97,6 +97,7 @@ rnd.shuffle(picts)
 # background image
 bgimage = backgrounds.pop()
 pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
+print( "Background: %s" % bgimage.encode("utf-8") )
 
 
 tilecounter = 0

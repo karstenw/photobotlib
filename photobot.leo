@@ -9,15 +9,15 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
+<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
 <v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
-<v t="karstenw.20170709210125.9" a="E"><vh>makegradientimage</vh>
+<v t="karstenw.20170709210125.9"><vh>makegradientimage</vh>
 <v t="karstenw.20210301171902.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172848.1"><vh>&lt;&lt; solid &gt;&gt;</vh></v>
 <v t="karstenw.20210301172906.1"><vh>&lt;&lt; linear &gt;&gt;</vh></v>
@@ -26,7 +26,7 @@
 <v t="karstenw.20210301172931.1"><vh>&lt;&lt; diamond &gt;&gt;</vh></v>
 <v t="karstenw.20210301172939.1"><vh>&lt;&lt; sine cosine &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20170709210125.10" a="E"><vh>gradient</vh>
+<v t="karstenw.20170709210125.10"><vh>gradient</vh>
 <v t="karstenw.20210301172109.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172149.1"><vh>&lt;&lt; one Image gradients &gt;&gt;</vh></v>
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
@@ -45,12 +45,12 @@
 <v t="karstenw.20200430124808.1"><vh>dup</vh></v>
 </v>
 </v>
-<v t="karstenw.20170709210125.17" a="E"><vh>class Layers</vh>
+<v t="karstenw.20170709210125.17"><vh>class Layers</vh>
 <v t="karstenw.20170709210125.18"><vh>__getitem__</vh></v>
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -62,7 +62,7 @@
 <v t="karstenw.20170709210125.30"><vh>select</vh></v>
 <v t="karstenw.20170709210125.31"><vh>mask</vh></v>
 <v t="karstenw.20170709210125.32"><vh>duplicate</vh></v>
-<v t="karstenw.20170727231803.1" a="E"><vh>BLENDS</vh>
+<v t="karstenw.20170727231803.1"><vh>BLENDS</vh>
 <v t="karstenw.20170709210125.33"><vh>opacity</vh></v>
 <v t="karstenw.20170709210125.34"><vh>multiply</vh></v>
 <v t="karstenw.20200419182817.1"><vh>add</vh></v>
@@ -75,14 +75,14 @@
 <v t="karstenw.20170709210125.37"><vh>hue</vh></v>
 <v t="karstenw.20170709210125.38"><vh>color</vh></v>
 </v>
-<v t="karstenw.20170727231827.1" a="E"><vh>INTENSITIES</vh>
+<v t="karstenw.20170727231827.1"><vh>INTENSITIES</vh>
 <v t="karstenw.20170709210125.39"><vh>brightness</vh></v>
 <v t="karstenw.20170709210125.40"><vh>contrast</vh></v>
 <v t="karstenw.20170709210125.41"><vh>desaturate</vh></v>
 <v t="karstenw.20170709210125.42"><vh>colorize</vh></v>
 </v>
 <v t="karstenw.20170709210125.43"><vh>invert</vh></v>
-<v t="karstenw.20170727232236.1" a="E"><vh>GEOMETRY</vh>
+<v t="karstenw.20170727232236.1"><vh>GEOMETRY</vh>
 <v t="karstenw.20170709210125.44"><vh>translate</vh></v>
 <v t="karstenw.20170709210125.45"><vh>scale</vh></v>
 <v t="karstenw.20170709210125.47"><vh>rotate</vh></v>
@@ -90,7 +90,7 @@
 <v t="karstenw.20170709210125.48"><vh>flip</vh></v>
 <v t="karstenw.20170727233343.1"><vh>crop</vh></v>
 </v>
-<v t="karstenw.20200421172034.1" a="E"><vh>FILTERS</vh>
+<v t="karstenw.20200421172034.1"><vh>FILTERS</vh>
 <v t="karstenw.20170727232434.1"><vh>autocontrast</vh></v>
 <v t="karstenw.20170709210125.49"><vh>blur</vh></v>
 <v t="karstenw.20200421172500.1"><vh>new boxblur</vh></v>
@@ -108,14 +108,14 @@
 <v t="karstenw.20170709210125.51"><vh>statistics</vh></v>
 <v t="karstenw.20170709210125.52"><vh>levels</vh></v>
 </v>
-<v t="karstenw.20170709210125.53" a="E"><vh>class Blend</vh>
+<v t="karstenw.20170709210125.53"><vh>class Blend</vh>
 <v t="karstenw.20210301161622.1"><vh>subtract</vh></v>
 <v t="karstenw.20210301161642.1"><vh>subtract_modulo</vh></v>
 <v t="karstenw.20170709210125.54"><vh>overlay</vh></v>
 <v t="karstenw.20170709210125.55"><vh>hue</vh></v>
 <v t="karstenw.20170709210125.56"><vh>color</vh></v>
 </v>
-<v t="karstenw.20170709210125.57" a="E"><vh>class Pixels</vh>
+<v t="karstenw.20170709210125.57"><vh>class Pixels</vh>
 <v t="karstenw.20170709210125.58"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.59"><vh>__getitem__</vh></v>
 <v t="karstenw.20170709210125.60"><vh>__setitem__</vh></v>
@@ -183,7 +183,8 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 <v t="karstenw.20210316183613.1"><vh>config</vh></v>
@@ -193,7 +194,7 @@
 <v t="karstenw.20210316200115.1"><vh>&lt;&lt; paint texture &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a-1920x1080.py</vh>
+<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210316200956.1"><vh>config</vh></v>
@@ -203,7 +204,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1nb.py</vh>
+<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210316201117.1"><vh>config</vh></v>
@@ -213,7 +214,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152421.1" a="E"><vh>@clean examples/Example collage 2.py</vh>
+<v t="karstenw.20210317152421.1"><vh>@clean examples/Example collage 2.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210317152601.1"><vh>config</vh></v>
@@ -223,17 +224,33 @@
 <v t="karstenw.20210317154440.1"><vh>&lt;&lt; flip and blur &gt;&gt;</vh></v>
 <v t="karstenw.20210317154705.1"><vh>&lt;&lt; layer post processing &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210317152611.1" a="E"><vh>finish</vh>
+<v t="karstenw.20210317152611.1"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
 <v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
-<v t="karstenw.20210317152440.1"><vh>Declarations</vh></v>
+<v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20201006211627.1"></v>
+<v t="karstenw.20210319130640.1"><vh>grid</vh></v>
+<v t="karstenw.20210319124939.2"><vh>config</vh></v>
+<v t="karstenw.20210319124939.3"><vh>loop</vh></v>
+<v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
 <v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
-<v t="karstenw.20210317152448.1"><vh>Declarations</vh></v>
+<v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20201006211627.1"></v>
+<v t="karstenw.20210319130640.1"></v>
+<v t="karstenw.20210319125114.1"><vh>config</vh></v>
+<v t="karstenw.20210319125121.1"><vh>loop</vh></v>
+<v t="karstenw.20210319141308.1" a="E"><vh>finish</vh>
+<v t="karstenw.20210316200041.1"></v>
+<v t="karstenw.20210316200115.1"></v>
 </v>
+</v>
+</v>
+<v t="karstenw.20210319153818.1"><vh>Filter</vh></v>
+<v t="karstenw.20210319153822.1"><vh>Functions</vh></v>
 </v>
 </vnodes>
 <tnodes>
@@ -317,9 +334,6 @@ except NameError:
     punichr = chr
     long = int
 
-from memory_profiler import profile
-
-
 
 </t>
 <t tx="karstenw.20170709210125.10">def gradient(self, style=LINEAR, w=1.0, h=1.0, name="",
@@ -366,7 +380,6 @@ from memory_profiler import profile
     self.flatten(layers)
 
 
-#  profile
 </t>
 <t tx="karstenw.20170709210125.12">def flatten(self, layers=[]):
 
@@ -1827,12 +1840,15 @@ def smooth_more(self):
 
 
 </t>
-<t tx="karstenw.20200419185049.1">def placeImage(canv, path, x, y, maxsize, name, width=True, height=False):
+<t tx="karstenw.20200419185049.1">def placeImage(canv, path, x, y, maxsize=None, name="", width=True, height=False):
     """Create an image layer.
     
     """
-    img1 = resizeImage(path, maxsize, width=width, height=height)
-    top = canv.layer(img1, name=name)
+    if maxsize:
+        img1 = resizeImage(path, maxsize, width=width, height=height)
+        top = canv.layer(img1, name=name)
+    else:
+        top = canv.layer(path, name=name)
     canv.top.translate(x, y)
     w, h, = canv.top.bounds()
     return top, w, h
@@ -2865,7 +2881,7 @@ y_offset = int(round(y_offset))
 # background image
 bgimage = backgrounds.pop()
 pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
-# print( "Background: %s" % bgimage.encode("utf-8") )
+print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
 <t tx="karstenw.20210316183643.1">tilecounter = 0
@@ -2998,7 +3014,7 @@ y_offset = int(round(y_offset))
 # background image
 bgimage = backgrounds.pop()
 pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
-# print( "Background: %s" % bgimage.encode("utf-8") )
+print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
 <t tx="karstenw.20210316201117.1"># CONFIGURATION
@@ -3137,398 +3153,10 @@ if paintoverlay:
 @language python
 @tabwidth -4
 </t>
-<t tx="karstenw.20210317152440.1">import sys
-import os
-
-W,H = 1920, 1080
-RATIO = W / H
-
-kwdbg = False
-
-size(W, H)
-
-background( 0.333 )
-
-# need a different name; random is taken
-import random as rnd
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(0)
-
-# import photobot
-try:
-    pb = ximport("photobot")
-    pbh = ximport("pbhelpers")
-except ImportError:
-    pb = ximport("__init__")
-    reload(pb)
-
-# from pbhelpers import *
-
-
-# create the canvas
-c = pb.canvas(int(WIDTH), int(HEIGHT))
-
-# load the image library
-# check for command line folders
-additionals = sys.argv[1:]
-
-# get all images from user image wells
-imagewell = pb.loadImageWell(   bgsize=(W,H),
-                                minsize=(256,256),
-                                pathonly=True,
-                                additionals=additionals)
-
-# tiles are images &gt;256x256 and &lt;=1024x768
-tiles = imagewell['tiles']
-
-# backgrounds are images &gt;1024x768
-backgrounds = imagewell['backgrounds']
-rnd.shuffle(tiles)
-rnd.shuffle(backgrounds)
-
-print "tiles:", len(tiles)
-print "backgrounds:", len(backgrounds)
-
-
-bgimage = backgrounds.pop()
-
-
-# CONFIGURATION
-columns = 5
-rows = 3
-
-colwidth = int(WIDTH / columns)
-rowheight = int(HEIGHT / rows)
-maxsize = int(max(colwidth,rowheight)*1.2)
-
-# print "colwidth/rowheight:", colwidth, rowheight
-
-xgutter = colwidth * 0.0667
-ygutter = rowheight * 0.0667
-# print "xgutter/ygutter:", xgutter, ygutter
-
-realwidth = colwidth - 1*xgutter
-realheight = rowheight - 1*ygutter 
-
-positions = list(grid(columns, rows, colwidth, rowheight))
-
-randomblur = not kwdbg
-paintoverlay = not kwdbg
-
-
-#
-# Base Image
-#
-
-#  create, scale and place the image
-x, y = 0, 0
-top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1")
-
-
-for position in positions:
-    x, y = position
-
-
-    # create image in canvas at 0,0
-    p = tiles.pop()
-    print p
-    top, w, h = pb.placeImage(c, p, 0, 0, maxsize, "Image %i,%i" % (x,y))
-
-    # scale the layer to row height
-    pb.scaleLayerToHeight( c.top, rowheight )
-
-    # uniform width
-    #cropImageToRatioHorizontal( c.top, RATIO )
-
-    # get the new image bounds - layer still valid
-    w, h = c.top.bounds()
-
-    # add contrast - layer still valid
-    c.top.contrast(1.1)
-
-
-    r = rnd.random()
-    # 10%
-    if 0 &lt; r &lt; 0.2:
-        #print "20% LINEAR"
-        # create gradient layer
-        # top is now gradient index
-        c.gradient(pb.LINEAR, int(w/2), h)
-        c.top.flip( pb.HORIZONTAL )
-
-        # translate half a pict right
-        c.top.translate(w/2, 0)
-
-        # create gradient layer
-        # top is now second gradient image
-        topidx = c.gradient(pb.LINEAR, int(w/2), h)
-
-        # merge both gradients; destroys top layer
-        c.merge([ topidx-1 , topidx ])
-
-    elif 0.2 &lt;= r &lt; 0.4:
-        #print "20% SINE"
-        top = c.gradient(pb.SINE, w, h)
-        
-    elif 0.4 &lt;= r &lt; 0.6:
-        #print "20% RADIALCOSINE"
-        top = c.gradient(pb.RADIALCOSINE, w, h)
-        # c.top.invert()
-    elif 0.6 &lt;= r &lt; 0.8:
-        #print "20% ROUNDRECT"
-        # 25%
-        top = c.gradient(pb.ROUNDRECT, w, h, "", radius=w/5.0, radius2=w/5.0)
-    elif r &gt;= 0.8:
-        #print "20% QUAD"
-        top = c.gradient(pb.QUAD, w, h, "", 0, 0)
-            
-    # enhance mask
-    c.top.brightness(1.4)
-    c.top.mask()
-
-    # top layer is now image with mask
-
-    destx = x - xgutter
-    desty = y - ygutter
-    # print "Image@", x, y
-    # c.top.translate(destx, desty)
-    c.top.translate(x, y)
-
-    if randomblur:
-        if rnd.random() &gt; 0.75:
-            #print "FLIP"
-            c.top.flip()
-
-        if rnd.random() &gt; 0.75:
-            #print "BLUR"
-            c.top.blur()
-
-if 0:
-    # orange hue mask finish
-    #print "Mr. Orange"
-    top = c.fill((200,100,0))
-    c.top.opacity(30)
-    c.top.hue()
-
-if paintoverlay:
-    # paint overlay
-    #print "VINCENT"
-    top = c.layer( os.path.abspath("./paint.jpg") )
-    w, h = c.top.bounds()
-    xs = WIDTH / float(w)
-    ys = HEIGHT / float(h)
-    s = max(xs,ys)
-    c.top.scale(s, s)
-    c.top.opacity(50)
-    c.top.overlay()
-
-c.draw(0, 0)
-</t>
 <t tx="karstenw.20210317152441.1"># heavily inspired by https://www.nodebox.net/code/index.php/Landslide
 @others
 @language python
 @tabwidth -4
-</t>
-<t tx="karstenw.20210317152448.1">W,H = 1920, 1080
-RATIO = W / H
-import os
-kwdbg = 0
-
-size(W, H)
-
-background( 0.333 )
-
-# need a different name; random is taken
-import random as rnd
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(0)
-    # pass
-
-# import photobot
-try:
-    pb = ximport("photobot")
-    pbh = ximport("pbhelpers")
-except ImportError:
-    pb = ximport("__init__")
-    reload(pb)
-from pbhelpers import *
-
-# import extensions if nodebox version &lt; 1.9.18
-try:
-    imagefiles
-except NameError:
-    from nodeboxExtensions import *
-
-# create the canvas
-c = pb.canvas(int(WIDTH), int(HEIGHT))
-
-sources = [
-    #u"/Volumes/Vulcan/bilder/sci-fi/2001/+screenshots",
-    #u"/Volumes/Vulcan/bilder/sci-fi/2001/2017",
-]
-
-# get all images from system "Desktop Pictures" folder
-filetuples = imagefiles( "/Library/Desktop Pictures", False )
-# filetuples = imagefiles( "../images", False )
-# filetuples = imagefiles( sources, False )
-
-# filter out all 1 pix one color images by ignoring all files &lt; 100k
-tiles = []
-for t in filetuples:
-    path, filesize, lastmodified, mode, islink = t
-    if filesize &lt; 50000:
-        continue
-    tiles.append( path )
-
-# shuffle the images
-rnd.shuffle(tiles)
-rnd.shuffle(tiles)
-rnd.shuffle(tiles)
-
-
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-
-# CONFIGURATION
-
-columns = 3
-rows = 2
-
-colwidth = int(WIDTH / columns)
-rowheight = int(HEIGHT / rows)
-maxsize = int(max(colwidth,rowheight)*1.2)
-maxsize = int( rowheight * 1.2 )
-
-# print "colwidth/rowheight:", colwidth, rowheight
-
-xgutter = colwidth * 0.0667
-ygutter = rowheight * 0.0667
-# print "xgutter/ygutter:", xgutter, ygutter
-
-realwidth = colwidth - 1*xgutter
-realheight = rowheight - 1*ygutter 
-
-positions = list(grid(columns, rows, colwidth, rowheight))
-
-randomblur = not kwdbg
-paintoverlay = not kwdbg
-
-
-#
-# Base Image
-#
-
-#  create, scale and place the image
-x, y = 0, 0
-top, w, h = pb.placeImage(c, img1path, x, y, W, "Image 1")
-
-
-for position in positions:
-    x, y = position
-
-
-    # create image in canvas at 0,0
-    p = tiles.pop()
-    print p
-    top, w, h = pb.placeImage(c, p, 0, 0, maxsize, "Image %i,%i" % (x,y)) #, width=False, height=True)
-
-    # scale the layer to row height
-    scaleLayerToHeight( c.top, rowheight )
-
-    # uniform width
-    #layer = cropImageToRatioHorizontal( layer, RATIO )
-
-    # get the new image bounds - layer still valid
-    w, h = c.top.bounds()
-
-    # add contrast - layer still valid
-    c.top.contrast(1.1)
-
-    r = rnd.random()
-    # 10%
-    if 0 &lt; r &lt; 0.2:
-        #print "20% LINEAR"
-        # create gradient layer
-        # top is now gradient index
-        top = c.gradient(pb.LINEAR, int(w/2), h)
-        c.top.flip( pb.HORIZONTAL )
-
-        # layer + 4 flip
-        # c.top.flip( pb.HORIZONTAL )
-
-        # layer +4 translate half a pict right
-        c.top.translate(w/2, 0)
-
-        # create gradient layer
-        # top is now second gradient index
-        top = c.gradient(pb.LINEAR, int(w/2), h)
-
-        # merge both gradients; destroys top layer
-        c.merge([ top-1 , top ])
-    elif 0.2 &lt;= r &lt; 0.4:
-        #print "20% SINE"
-        top = c.gradient(pb.SINE, w, h)
-        
-    elif 0.4 &lt;= r &lt; 0.6:
-        #print "20% RADIALCOSINE"
-        top = c.gradient(pb.RADIALCOSINE, w, h)
-        # c.top.invert()
-    elif 0.6 &lt;= r &lt; 0.8:
-        #print "20% ROUNDRECT"
-        # 25%
-        top = c.gradient(pb.ROUNDRECT, w, h, "", radius=int(w/5.0), radius2=int(w/5.0))
-    elif r &gt;= 0.8:
-        #print "20% QUAD"
-        top = c.gradient(pb.QUAD, w, h, "", 0, 0)
-            
-    # print "After mask"
-    c.top.brightness(1.4)
-    # mask destroys top layer
-    c.top.mask()
-
-    destx = x - xgutter
-    desty = y - ygutter
-    # print "Image@", x, y
-    # c.top.translate(destx, desty)
-    c.top.translate(x, y)
-
-    if 0: #randomblur:
-        if rnd.random() &gt; 0.75:
-            #print "FLIP"
-            c.top.flip()
-
-        if rnd.random() &gt; 0.75:
-            #print "BLUR"
-            c.top.blur()
-
-if 1:
-    # orange hue mask finish
-    #print "Mr. Orange"
-    top = c.fill((220,110,0))
-    c.top.opacity(60)
-    # c.top.color()
-    c.top.hue()
-
-if 0: #paintoverlay:
-    # paint overlay
-    #print "VINCENT"
-    top = c.layer( os.path.abspath("./paint.jpg") )
-    w, h = c.top.bounds()
-    xs = WIDTH / float(w)
-    ys = HEIGHT / float(h)
-    s = max(xs,ys)
-    c.top.scale(s, s)
-    # c.top.opacity(50)
-    c.top.overlay()
-
-
-
-c.draw(0, 0)
 </t>
 <t tx="karstenw.20210317152601.1"># CONFIGURATION
 
@@ -3558,6 +3186,7 @@ rnd.shuffle(picts)
 # background image
 bgimage = backgrounds.pop()
 pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
+print( "Background: %s" % bgimage.encode("utf-8") )
 
 
 </t>
@@ -3667,5 +3296,288 @@ if top &gt; 2:
 
 
 </t>
+<t tx="karstenw.20210319124939.2"># CONFIGURATION
+columns = 5
+rows = 3
+
+colwidth = int(WIDTH / columns)
+rowheight = int(HEIGHT / rows)
+maxsize = int(max(colwidth,rowheight)*1.2)
+
+# print "colwidth/rowheight:", colwidth, rowheight
+
+xgutter = colwidth * 0.0667
+ygutter = rowheight * 0.0667
+# print "xgutter/ygutter:", xgutter, ygutter
+
+realwidth = colwidth - 1*xgutter
+realheight = rowheight - 1*ygutter 
+
+positions = list(grid(columns, rows, colwidth, rowheight))
+
+randomblur = not kwdbg
+paintoverlay = not kwdbg
+
+
+#
+# Base Image
+#
+
+#  create, scale and place the image
+x, y = 0, 0
+bgimage = backgrounds.pop()
+top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1")
+print( "Background: %s" % bgimage.encode("utf-8") )
+
+</t>
+<t tx="karstenw.20210319124939.3">
+for position in positions:
+    x, y = position
+
+    # create image in canvas at 0,0
+    p = tiles.pop()
+    print(p)
+    top, w, h = pb.placeImage(c, p, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
+
+    # scale the layer to row height
+    pb.scaleLayerToHeight( c.top, rowheight )
+
+    # uniform width
+    #cropImageToRatioHorizontal( c.top, RATIO )
+
+    # get the new image bounds - layer still valid
+    w, h = c.top.bounds()
+
+    # add contrast - layer still valid
+    c.top.contrast(1.1)
+
+    r = rnd.random()
+    # 10%
+    if 0 &lt; r &lt; 0.2:
+        #print "20% LINEAR"
+        # create gradient layer
+        # top is now gradient index
+        c.gradient(pb.LINEAR, int(w/2), h)
+        c.top.flip( pb.HORIZONTAL )
+
+        # translate half a pict right
+        c.top.translate(w/2, 0)
+
+        # create gradient layer
+        # top is now second gradient image
+        topidx = c.gradient(pb.LINEAR, int(w/2), h)
+
+        # merge both gradients; destroys top layer
+        c.merge([ topidx-1 , topidx ])
+
+    elif 0.2 &lt;= r &lt; 0.4:
+        #print "20% SINE"
+        top = c.gradient(pb.SINE, w, h)
+        
+    elif 0.4 &lt;= r &lt; 0.6:
+        #print "20% RADIALCOSINE"
+        top = c.gradient(pb.RADIALCOSINE, w, h)
+        # c.top.invert()
+    elif 0.6 &lt;= r &lt; 0.8:
+        #print "20% ROUNDRECT"
+        # 25%
+        top = c.gradient(pb.ROUNDRECT, w, h, "", radius=w/5.0, radius2=w/5.0)
+    elif r &gt;= 0.8:
+        #print "20% QUAD"
+        top = c.gradient(pb.QUAD, w, h, "", 0, 0)
+            
+    # enhance mask
+    c.top.brightness(1.4)
+    c.top.mask()
+
+    # top layer is now image with mask
+
+    destx = x - xgutter
+    desty = y - ygutter
+    # print "Image@", x, y
+    # c.top.translate(destx, desty)
+    c.top.translate(x, y)
+
+    if randomblur:
+        if rnd.random() &gt; 0.75:
+            #print "FLIP"
+            c.top.flip()
+
+        if rnd.random() &gt; 0.75:
+            #print "BLUR"
+            c.top.blur()
+
+if 0:
+    # orange hue mask finish
+    #print "Mr. Orange"
+    top = c.fill((200,100,0))
+    c.top.opacity(30)
+    c.top.hue()
+
+if paintoverlay:
+    # paint overlay
+    #print "VINCENT"
+    top = c.layer( os.path.abspath("./paint.jpg") )
+    w, h = c.top.bounds()
+    xs = WIDTH / float(w)
+    ys = HEIGHT / float(h)
+    s = max(xs,ys)
+    c.top.scale(s, s)
+    c.top.opacity(50)
+    c.top.overlay()
+
+c.draw(0, 0)
+</t>
+<t tx="karstenw.20210319124940.1"></t>
+<t tx="karstenw.20210319125114.1">
+# CONFIGURATION
+
+columns = 9
+rows = 4
+
+colwidth = int(WIDTH / columns)
+rowheight = int(HEIGHT / rows)
+maxsize = int(max(colwidth,rowheight)*1.2)
+maxsize = int( rowheight * 1.2 )
+
+# print "colwidth/rowheight:", colwidth, rowheight
+
+xgutter = colwidth * 0.0667
+ygutter = rowheight * 0.0667
+# print "xgutter/ygutter:", xgutter, ygutter
+
+realwidth = colwidth - 1*xgutter
+realheight = rowheight - 1*ygutter 
+
+positions = list(grid(columns, rows, colwidth, rowheight, shuffled=True))
+
+randomblur = not kwdbg
+paintoverlay = 0 # not kwdbg
+gilb = 0
+
+#
+# Base Image
+#
+
+#  create, scale and place the image
+x, y = 0, 0
+bgimage = backgrounds.pop()
+top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1")
+print( "Background: %s" % bgimage.encode("utf-8") )
+
+</t>
+<t tx="karstenw.20210319125121.1">for position in positions:
+    x, y = position
+
+    # create image in canvas at 0,0
+    p = tiles.pop()
+    print(p)
+    top, w, h = pb.placeImage(c, p, 0, 0, maxsize=None, name="Image %i,%i" % (x,y)) #, width=False, height=True)
+
+    # scale the layer to row height
+    if rnd.random() &gt; 0.5:
+        # random row height 0.5 &lt;= x &lt;= 4.5
+        tileheight = rowheight * (0.5 + rnd.random() * 3.0)
+    else:
+        # random row height is integer multiple
+        tileheight = rowheight * rnd.choice( (1,2,3,4,5) )
+    pb.scaleLayerToHeight( c.top, tileheight )
+
+    # uniform width
+    #layer = cropImageToRatioHorizontal( layer, RATIO )
+
+    # get the new image bounds
+    w, h = c.top.bounds()
+    halfwidth = int(w/2.0)
+
+    # add contrast
+    c.top.contrast(1.1)
+
+    r = rnd.random()
+    # 10%
+    if 0 &lt; r &lt; 0.2:
+        #print "20% LINEAR"
+        # create gradient layer
+        # top is now gradient index
+        top = c.gradient(pb.LINEAR, halfwidth, h)
+        c.top.flip( pb.HORIZONTAL )
+
+        # layer + 4 flip
+        # c.top.flip( pb.HORIZONTAL )
+
+        # layer +4 translate half a pict right
+        c.top.translate(halfwidth, 0)
+
+        # create gradient layer
+        # top is now second gradient index
+        top = c.gradient(pb.LINEAR, halfwidth, h)
+
+        # merge both gradients; destroys top layer
+        c.merge([ top-1 , top ])
+    elif 0.2 &lt;= r &lt; 0.4:
+        #print "20% SINE"
+        top = c.gradient(pb.SINE, w, h)
+        
+    elif 0.4 &lt;= r &lt; 0.6:
+        #print "20% RADIALCOSINE"
+        top = c.gradient(pb.RADIALCOSINE, w, h)
+        # c.top.invert()
+    elif 0.6 &lt;= r &lt; 0.8:
+        #print "20% ROUNDRECT"
+        # 25%
+        radius = int( w / 5.0 )
+        top = c.gradient(pb.ROUNDRECT, w, h, "", radius=radius, radius2=radius)
+    elif r &gt;= 0.8:
+        #print "20% QUAD"
+        top = c.gradient(pb.QUAD, w, h, "", 0, 0)
+            
+    # print "After mask"
+    c.top.brightness(1.4)
+
+    # mask destroys top layer
+    c.top.mask()
+
+    destx = x - xgutter
+    desty = y - ygutter
+    c.top.translate(x, y)
+    
+    c.top.opacity( 50 + rnd.random() * 50 )
+
+    if randomblur:
+        if rnd.random() &gt; 0.75:
+            #print "FLIP"
+            c.top.flip()
+
+        if rnd.random() &gt; 0.75:
+            #print "BLUR"
+            c.top.blur()
+</t>
+<t tx="karstenw.20210319130640.1">def grid(cols, rows, colSize=1, rowSize=1, shuffled=False):
+    """Returns an iterator that contains coordinate tuples.
+    Taken from nodebox.utils
+    """
+    rowRange = list(range(int(rows)))
+    colRange = list(range(int(cols)))
+    # Shuffled needs a real list, though.
+    if (shuffled):
+        rnd.shuffle(rowRange)
+        rnd.shuffle(colRange)
+    for y in rowRange:
+        for x in colRange:
+            yield (x*colSize,y*rowSize)
+
+
+</t>
+<t tx="karstenw.20210319141308.1">&lt;&lt; orange gilb &gt;&gt;
+
+&lt;&lt; paint texture &gt;&gt;
+
+c.draw(0,0)
+
+
+</t>
+<t tx="karstenw.20210319153803.1"></t>
+<t tx="karstenw.20210319153818.1"></t>
+<t tx="karstenw.20210319153822.1"></t>
 </tnodes>
 </leo_file>

@@ -88,7 +88,7 @@ y_offset = int(round(y_offset))
 # background image
 bgimage = backgrounds.pop()
 pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
-# print( "Background: %s" % bgimage.encode("utf-8") )
+print( "Background: %s" % bgimage.encode("utf-8") )
 
 for j in range(rows):
     colw = 0

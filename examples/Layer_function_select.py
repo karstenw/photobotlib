@@ -31,7 +31,7 @@ if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(0)
 
-imagewell = pb.loadImageWell()
+imagewell = pb.loadImageWell(resultfile="imagewell-files")
 tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
@@ -40,7 +40,7 @@ rnd.shuffle(tiles)
 img1path = tiles.pop()
 img2path = tiles.pop()
 
-# create a white canvas
+# create a gray canvas
 c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (192, 192, 192) )
 
@@ -62,7 +62,7 @@ pb.label(c, filename, x, y)
 #
 c.layers[img1].duplicate()
 
-path=( (w1/2,0), (w1,int(h1*0.667)), (0,h1),(0,h1/2) )
+path=( (w1/2,0), (w1,int(h1*0.667)), (w1/2.0, h1), (0,h1*0.75),(0,h1/2) )
 c.top.select( path )
 
 x, y = 10, h1+20+10

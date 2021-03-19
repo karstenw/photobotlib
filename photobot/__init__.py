@@ -74,9 +74,6 @@ except NameError:
     punichr = chr
     long = int
 
-from memory_profiler import profile
-
-
 
 # PIL interpolation modes
 NEAREST = Image.NEAREST
@@ -459,7 +456,6 @@ class Canvas:
         self.flatten(layers)
 
 
-    #  profile
     def flatten(self, layers=[]):
 
         """Flattens all layers according to their blend modes.
@@ -1815,12 +1811,15 @@ def scaleLayerToHeight( layer, newheight ):
     return layer
 
 
-def placeImage(canv, path, x, y, maxsize, name, width=True, height=False):
+def placeImage(canv, path, x, y, maxsize=None, name="", width=True, height=False):
     """Create an image layer.
     
     """
-    img1 = resizeImage(path, maxsize, width=width, height=height)
-    top = canv.layer(img1, name=name)
+    if maxsize:
+        img1 = resizeImage(path, maxsize, width=width, height=height)
+        top = canv.layer(img1, name=name)
+    else:
+        top = canv.layer(path, name=name)
     canv.top.translate(x, y)
     w, h, = canv.top.bounds()
     return top, w, h

@@ -1,71 +1,95 @@
 # heavily inspired by https://www.nodebox.net/code/index.php/Landslide
-W,H = 1920, 1080
-RATIO = W / H
-import os
+# heavily inspired by https://www.nodebox.net/code/index.php/Landslide
+
+from __future__ import print_function
+
+import sys, os
+
+import pprint
+pp = pprint.pprint
 kwdbg = 0
 
-size(W, H)
-
-background( 0.333 )
-
-# need a different name; random is taken
+# need a different name for nodebox
 import random as rnd
 
-if kwdbg:
+import libgradient
+
+if kwdbg and 0:
     # make random choices repeatable for debugging
     rnd.seed(0)
-    # pass
 
-# import photobot
+# width and height of destination image
+# W, H =  800,  600
+# W, H = 1024,  768
+# W, H = 1280,  800
+# W, H = 1440,  900
+W, H = 1920, 1080
+
+# import photobot lib
 try:
     pb = ximport("photobot")
-    pbh = ximport("pbhelpers")
+    size(W, H)
+    background( 0.333 )
 except ImportError:
     pb = ximport("__init__")
     reload(pb)
-from pbhelpers import *
-
-# import extensions if nodebox version < 1.9.18
-try:
-    imagefiles
+    size(W, H)
+    background( 0.333 )
 except NameError:
-    from nodeboxExtensions import *
+    import photobot as pb
+    WIDTH, HEIGHT = W, H
+RATIO = WIDTH / HEIGHT
+
+# load the image library
+# check for command line folders
+additionals = sys.argv[1:]
+
+# get all images from user image wells
+imagewell = pb.loadImageWell(   bgsize=(WIDTH, HEIGHT),
+                                minsize=(256,256),
+                                pathonly=True,
+                                additionals=additionals,
+                                resultfile="imagewell-files")
+
+# tiles are images >256x256 and <=WIDTH, HEIGHT
+tiles = imagewell['tiles']
+
+# backgrounds are images >W,H
+backgrounds = imagewell['backgrounds']
+
+if not kwdbg:
+    rnd.shuffle(tiles)
+    rnd.shuffle(backgrounds)
+
+print( "tiles: %i" % len(tiles) )
+print( "backgrounds: %i" % len(backgrounds) )
+
 
 # create the canvas
-c = pb.canvas(int(WIDTH), int(HEIGHT))
-
-sources = [
-    #u"/Volumes/Vulcan/bilder/sci-fi/2001/+screenshots",
-    #u"/Volumes/Vulcan/bilder/sci-fi/2001/2017",
-]
-
-# get all images from system "Desktop Pictures" folder
-filetuples = imagefiles( "/Library/Desktop Pictures", False )
-# filetuples = imagefiles( "../images", False )
-# filetuples = imagefiles( sources, False )
-
-# filter out all 1 pix one color images by ignoring all files < 100k
-tiles = []
-for t in filetuples:
-    path, filesize, lastmodified, mode, islink = t
-    if filesize < 50000:
-        continue
-    tiles.append( path )
-
-# shuffle the images
-rnd.shuffle(tiles)
-rnd.shuffle(tiles)
-rnd.shuffle(tiles)
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (85,85,85) )
 
 
-img1path = tiles.pop()
-img2path = tiles.pop()
+def grid(cols, rows, colSize=1, rowSize=1, shuffled=False):
+    """Returns an iterator that contains coordinate tuples.
+    Taken from nodebox.utils
+    """
+    rowRange = list(range(int(rows)))
+    colRange = list(range(int(cols)))
+    # Shuffled needs a real list, though.
+    if (shuffled):
+        rnd.shuffle(rowRange)
+        rnd.shuffle(colRange)
+    for y in rowRange:
+        for x in colRange:
+            yield (x*colSize,y*rowSize)
+
 
 
 # CONFIGURATION
 
-columns = 3
-rows = 2
+columns = 9
+rows = 4
 
 colwidth = int(WIDTH / columns)
 rowheight = int(HEIGHT / rows)
@@ -81,11 +105,11 @@ ygutter = rowheight * 0.0667
 realwidth = colwidth - 1*xgutter
 realheight = rowheight - 1*ygutter 
 
-positions = list(grid(columns, rows, colwidth, rowheight))
+positions = list(grid(columns, rows, colwidth, rowheight, shuffled=True))
 
 randomblur = not kwdbg
-paintoverlay = not kwdbg
-
+paintoverlay = 0 # not kwdbg
+gilb = 0
 
 #
 # Base Image
@@ -93,28 +117,35 @@ paintoverlay = not kwdbg
 
 #  create, scale and place the image
 x, y = 0, 0
-top, w, h = pb.placeImage(c, img1path, x, y, W, "Image 1")
-
+bgimage = backgrounds.pop()
+top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1")
+print( "Background: %s" % bgimage.encode("utf-8") )
 
 for position in positions:
     x, y = position
 
-
     # create image in canvas at 0,0
     p = tiles.pop()
-    print p
-    top, w, h = pb.placeImage(c, p, 0, 0, maxsize, "Image %i,%i" % (x,y)) #, width=False, height=True)
+    print(p)
+    top, w, h = pb.placeImage(c, p, 0, 0, maxsize=None, name="Image %i,%i" % (x,y)) #, width=False, height=True)
 
     # scale the layer to row height
-    scaleLayerToHeight( c.top, rowheight )
+    if rnd.random() > 0.5:
+        # random row height 0.5 <= x <= 4.5
+        tileheight = rowheight * (0.5 + rnd.random() * 3.0)
+    else:
+        # random row height is integer multiple
+        tileheight = rowheight * rnd.choice( (1,2,3,4,5) )
+    pb.scaleLayerToHeight( c.top, tileheight )
 
     # uniform width
     #layer = cropImageToRatioHorizontal( layer, RATIO )
 
-    # get the new image bounds - layer still valid
+    # get the new image bounds
     w, h = c.top.bounds()
+    halfwidth = int(w/2.0)
 
-    # add contrast - layer still valid
+    # add contrast
     c.top.contrast(1.1)
 
     r = rnd.random()
@@ -123,18 +154,18 @@ for position in positions:
         #print "20% LINEAR"
         # create gradient layer
         # top is now gradient index
-        top = c.gradient(pb.LINEAR, int(w/2), h)
+        top = c.gradient(pb.LINEAR, halfwidth, h)
         c.top.flip( pb.HORIZONTAL )
 
         # layer + 4 flip
         # c.top.flip( pb.HORIZONTAL )
 
         # layer +4 translate half a pict right
-        c.top.translate(w/2, 0)
+        c.top.translate(halfwidth, 0)
 
         # create gradient layer
         # top is now second gradient index
-        top = c.gradient(pb.LINEAR, int(w/2), h)
+        top = c.gradient(pb.LINEAR, halfwidth, h)
 
         # merge both gradients; destroys top layer
         c.merge([ top-1 , top ])
@@ -149,23 +180,25 @@ for position in positions:
     elif 0.6 <= r < 0.8:
         #print "20% ROUNDRECT"
         # 25%
-        top = c.gradient(pb.ROUNDRECT, w, h, "", radius=int(w/5.0), radius2=int(w/5.0))
+        radius = int( w / 5.0 )
+        top = c.gradient(pb.ROUNDRECT, w, h, "", radius=radius, radius2=radius)
     elif r >= 0.8:
         #print "20% QUAD"
         top = c.gradient(pb.QUAD, w, h, "", 0, 0)
             
     # print "After mask"
     c.top.brightness(1.4)
+
     # mask destroys top layer
     c.top.mask()
 
     destx = x - xgutter
     desty = y - ygutter
-    # print "Image@", x, y
-    # c.top.translate(destx, desty)
     c.top.translate(x, y)
+    
+    c.top.opacity( 50 + rnd.random() * 50 )
 
-    if 0: #randomblur:
+    if randomblur:
         if rnd.random() > 0.75:
             #print "FLIP"
             c.top.flip()
@@ -173,27 +206,30 @@ for position in positions:
         if rnd.random() > 0.75:
             #print "BLUR"
             c.top.blur()
-
-if 1:
-    # orange hue mask finish
-    #print "Mr. Orange"
-    top = c.fill((220,110,0))
-    c.top.opacity(60)
-    # c.top.color()
+if gilb:
+    # orange hue overlay finish
+    # create new color layer
+    c.fill((200,100,0))
+    c.top.opacity(30)
     c.top.hue()
 
-if 0: #paintoverlay:
+
+paintfile = os.path.abspath("./paint.jpg")
+if paintoverlay:
     # paint overlay
-    #print "VINCENT"
-    top = c.layer( os.path.abspath("./paint.jpg") )
-    w, h = c.top.bounds()
-    xs = WIDTH / float(w)
-    ys = HEIGHT / float(h)
-    s = max(xs,ys)
-    c.top.scale(s, s)
-    # c.top.opacity(50)
-    c.top.overlay()
+    if os.path.exists( paintfile ):
+        if kwdbg:
+            print( "paint overlay:  %s" % paintfile )
+        topidx = c.layer( paintfile )
+        w, h = c.top.bounds()
+        xs = WIDTH / float(w)
+        ys = HEIGHT / float(h)
+        s = max(xs,ys)
+        c.top.scale(s, s)
+        c.top.opacity( 10 )
+        c.top.overlay()
 
 
+c.draw(0,0)
 
-c.draw(0, 0)
+
