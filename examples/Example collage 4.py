@@ -126,7 +126,7 @@ for position in positions:
 
     # create image in canvas at 0,0
     p = tiles.pop()
-    print(p)
+    print(p.encode("utf-8"))
     top, w, h = pb.placeImage(c, p, 0, 0, maxsize=None, name="Image %i,%i" % (x,y)) #, width=False, height=True)
 
     # scale the layer to row height
