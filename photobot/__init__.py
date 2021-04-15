@@ -636,7 +636,7 @@ class Canvas:
         except:
             pass
 
-        if 0:
+        if kwdbg and 0:
             # if debugging is on export each layer separately
             basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
 
@@ -1923,7 +1923,8 @@ def filelist( folderpathorlist, pathonly=True ):
     for folder in folders:
         for root, dirs, files in os.walk( folder ):
             root = makeunicode( root )
-
+            if kwdbg:
+                print (root.encode("utf-8"))
             for thefile in files:
                 thefile = makeunicode( thefile )
                 basename, ext = os.path.splitext(thefile)
@@ -1976,6 +1977,7 @@ def imagefiles( folderpathorlist, pathonly=True ):
         if ext.lower() not in extensions:
             continue
         if pathonly:
+            # print (path.encode("utf-8"))
             yield path
         else:
             path, filesize, lastmodf, mode, islink = filetuple
@@ -1987,6 +1989,7 @@ def imagefiles( folderpathorlist, pathonly=True ):
             except:
                 pass #continue
             filetuple = (path, filesize, lastmodf, mode, islink, s[0], s[1])
+            # print (path.encode("utf-8"))
             yield filetuple
 
 
@@ -2056,7 +2059,7 @@ class Imagecollection(object):
 def loadImageWell( bgsize=(1024,768), minsize=(256,256),
                    maxfilesize=100000000, maxpixellength=16000,
                    pathonly=True, additionals=None, ignorelibs=False,
-                   resultfile=False):
+                   resultfile=False, ignoreFolderNames=None):
 
     """
     Find images imagewells or additional folders. 
@@ -2127,14 +2130,27 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         folders.extend( additionals )
     filetuples = imagefiles( folders, pathonly=False )
 
+
     if kwdbg:
         print("Reading folders...")
 
     for t in filetuples:
         path, filesize, lastmodified, mode, islink, w0, h0 = t
         folder, filename = os.path.split( path )
+        root, parent =  os.path.split( folder )
         basename, ext = os.path.splitext( filename )
 
+        # parent names
+        cancel = False
+        if ignoreFolderNames:
+            for name in ignoreFolderNames:
+                if parent.startswith( name ):
+                    cancel = True
+                    # print("IGNORE PARENT: %s  %s" % (name,path))
+                    break
+        if cancel:
+            continue
+            
         # filter minimal pixel lengths
         if ext.lower() != ".eps":
             if (w0 < minw) and (h0 < minh):
@@ -2210,6 +2226,7 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         else:
             result['portrait'].append( record )
 
+
     if kwdbg:
         print("Reading folders... Done.")
 
@@ -2256,7 +2273,7 @@ class TiledImage(object):
         self.tilebam = [ 0 ] * tiles
 
         self.w = tilesize * wtiles
-        self.h = tilesize = htiles
+        self.h = tilesize * htiles
 
         self.img = None
         self.layout = []
