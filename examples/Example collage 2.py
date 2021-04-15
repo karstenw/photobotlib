@@ -13,9 +13,10 @@ import random as rnd
 
 import libgradient
 
-if kwdbg and 0:
+if kwdbg and 1:
     # make random choices repeatable for debugging
     rnd.seed(0)
+
 
 # width and height of destination image
 # W, H =  800,  600
@@ -37,6 +38,7 @@ except ImportError:
 except NameError:
     import photobot as pb
     WIDTH, HEIGHT = W, H
+    print( "File: %s" % (__file__,) )
 RATIO = WIDTH / HEIGHT
 
 # load the image library
@@ -48,17 +50,14 @@ imagewell = pb.loadImageWell(   bgsize=(WIDTH, HEIGHT),
                                 minsize=(256,256),
                                 pathonly=True,
                                 additionals=additionals,
-                                resultfile="imagewell-files")
+                                resultfile="imagewell-files",
+                                ignoreFolderNames=('+offline',))
 
 # tiles are images >256x256 and <=WIDTH, HEIGHT
 tiles = imagewell['tiles']
 
 # backgrounds are images >W,H
 backgrounds = imagewell['backgrounds']
-
-if not kwdbg:
-    rnd.shuffle(tiles)
-    rnd.shuffle(backgrounds)
 
 print( "tiles: %i" % len(tiles) )
 print( "backgrounds: %i" % len(backgrounds) )
@@ -67,6 +66,13 @@ print( "backgrounds: %i" % len(backgrounds) )
 # create the canvas
 c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (85,85,85) )
+
+
+if 1: #not kwdbg:
+    turns = int(10 + rnd.random() * 10)
+    for turn in range( turns ):
+        rnd.shuffle(tiles)
+        rnd.shuffle(backgrounds)
 
 
 # CONFIGURATION
@@ -89,10 +95,9 @@ picts = []
 for t in range(columns*rows*2):
     s = rnd.choice(tiles)
     picts.append(s)
-    if enoughTiles:
+    if 0: #enoughTiles:
         tiles.remove(s)
-
-rnd.shuffle(picts)
+# rnd.shuffle(picts)
 
 # background image
 bgimage = backgrounds.pop()
@@ -108,8 +113,8 @@ for j in range(rows):
         nextpictpath = picts.pop()
         c.layer( nextpictpath )
         tilecounter += 1
-        if kwdbg:
-            print( "%i  -- %s" % (tilecounter,repr(nextpictpath)) )
+        if kwdbg or 1:
+            print( "%i  -- %s" % (tilecounter, nextpictpath.encode("utf-8")) )
 
         # add contrast
         c.top.contrast(1.1)
