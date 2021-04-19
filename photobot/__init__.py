@@ -57,6 +57,7 @@ import pdb
 import pprint
 pp = pprint.pprint
 kwdbg = 0
+kwlog = 0
 import traceback
 
 # py3 stuff
@@ -460,8 +461,8 @@ class Canvas:
 
         """Flattens all layers according to their blend modes.
 
-        Merges all layers to the canvas,
-        using the blend mode and opacity defined for each layer.
+        Merges all layers to the canvas, using the
+        blend mode and opacity defined for each layer.
         Once flattened, the stack of layers is emptied except
         for the transparent background (bottom layer).
 
@@ -475,9 +476,13 @@ class Canvas:
         # this should be fixed by merging to a transparent background
         # large enough to hold all the given layers' data
         # (=time consuming).
-        
+
+        if kwlog:
+            start = time.time()
+
         if layers == []:
             layers = range(1, len(self.layers))
+
         background = self.layers._get_bg()
         background.name = "Background"
         
@@ -599,7 +604,10 @@ class Canvas:
         else:
             self.layers.insert(layers[-1], background)
         del img
-
+        
+        if kwlog:
+            stop = time.time()
+            print("Canvas.flatten( %s ) in %.3fsec." % (repr(layers), stop-start))
 
     def export(self, name, ext=".png", format="PNG"):
 
@@ -610,6 +618,8 @@ class Canvas:
         Other possibilities are JPEG and GIF.
 
         """
+
+        start = time.time()
 
         if not name:
             name = "photobot_" + datestring()
@@ -679,6 +689,11 @@ class Canvas:
         self.layers[1].img.save(path, format=format, optimize=False)
         if kwdbg:
             print( "export() %s" % path.encode("utf-8") )
+
+        if kwlog:
+            stop = time.time()
+            print("Canvas.export(%s) in %.3f sec." % (name, stop-start))
+
         return path
 
     def draw(self, x=0, y=0, name="", ext=".png", format='PNG'):
@@ -1930,7 +1945,7 @@ def filelist( folderpathorlist, pathonly=True ):
                 basename, ext = os.path.splitext(thefile)
 
                 # exclude dotfiles
-                if thefile.startswith('.'):
+                if thefile.startswith(u'.'):
                     continue
 
                 # exclude the specials
@@ -1939,6 +1954,7 @@ def filelist( folderpathorlist, pathonly=True ):
                         continue
 
                 filepath = os.path.join( root, thefile )
+                filepath = filepath.encode("utf-8")
 
                 record = filepath
                 if not pathonly:
@@ -2065,21 +2081,32 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
     Find images imagewells or additional folders. 
        
     Params:
-        bgsize - tuple with width and height for images to be classified background
-        minsize - tuple with minimal width and height for images not to be ignored
-        maxfilesize - in bytes. Images above this file size will be ignored
-        maxpixellength - in pixels. Images above in either dimension will be ignored
-        pathonly - return path or record
-        additionals - list of folders to me considered for this run
-        ignorelibs - if imagewells file should be ignored
+        bgsize
+            tuple with width and height for images to be classified background
 
+        minsize
+            tuple with minimal width and height for images not to be ignored
+
+        maxfilesize
+            in bytes. Images above this file size will be ignored
+
+        maxpixellength
+            in pixels. Images above in either dimension will be ignored
+
+        pathonly
+            return path or record
+        additionals
+            list of folders to me considered for this run
+
+        ignorelibs
+            if imagewells file should be ignored
+    
     Returns:
         A dict of dicts with several image classifications.
-
+    
         list of file paths if pathonly is True
         list of file records else.
     """
-
 
     tiles = []
     backgrounds = []
@@ -2105,6 +2132,7 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
     medianw, medianh = 0,0
     slope = 1.0
     imagecount = 0
+    filetuples = False
 
 
     if resultfile:
@@ -2113,12 +2141,12 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         
         pickfile = os.path.join( folder, filename + ".pick" )
         if os.path.exists( pickfile ):
-            #print("Reading pickle...")
+            print("Reading pickle...")
             f = open(pickfile, "rb")
-            result = pickle.load( f )
+            filetuples = pickle.load( f )
             f.close()
-            #print("Reading pickle... Done.")
-            return result
+            print("Reading pickle... Done.")
+            # return result
 
 
     # get all images from user image wells
@@ -2128,12 +2156,15 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
     if additionals:
         folders.extend( additionals )
-    filetuples = imagefiles( folders, pathonly=False )
+
+    if not filetuples:
+        filetuples = list( imagefiles( folders, pathonly=False ) )
 
 
     if kwdbg:
         print("Reading folders...")
 
+    # pdb.set_trace()
     for t in filetuples:
         path, filesize, lastmodified, mode, islink, w0, h0 = t
         folder, filename = os.path.split( path )
@@ -2168,10 +2199,12 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
         # filter images with anormal width or height
         if w0 in (0, 0.0):
-            print( "Anormal width: %s %s %s" % (repr(path), repr(w0), repr(h0)))
+            print( "Anormal width: %s %s %s" % (repr(path),
+                                                repr(w0), repr(h0)))
             continue
         if h0 in (0, 0.0):
-            print( "Anormal height: %s %s %s" % (repr(path), repr(w0), repr(h0)))
+            print( "Anormal height: %s %s %s" % (repr(path),
+                                                 repr(w0), repr(h0)))
             continue
 
         imagecount += 1
@@ -2232,7 +2265,8 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
     result[ 'WxH largest' ] = (largestw,largesth)
     result[ 'WxH smallest' ] = (smallestw,smallesth)
-    result[ 'WxH median' ] = (medianw / float(imagecount), medianh / float(imagecount))
+    result[ 'WxH median' ] = (medianw / float(imagecount),
+                              medianh / float(imagecount))
 
     if resultfile:
         print("Writing pickle...")
@@ -2243,7 +2277,7 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         pickfile = os.path.join( folder, filename + ".pick" )
         if os.path.exists( folder ):
             f = open(pickfile, "wb")
-            pickle.dump( result, f, 0 )
+            pickle.dump( filetuples, f, 0 )
             f.close()
         print("Writing pickle... Done.")
         

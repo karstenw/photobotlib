@@ -31,7 +31,11 @@ if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(0)
 
-imagewell = pb.loadImageWell()
+imagewell = pb.loadImageWell(   resultfile="imagewell-files",
+                                ignoreFolderNames=('+offline',))
+
+
+
 tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 

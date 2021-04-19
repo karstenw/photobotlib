@@ -183,17 +183,19 @@ paintfile = os.path.abspath("./paint.jpg")
 if paintoverlay:
     # paint overlay
     if os.path.exists( paintfile ):
-        if kwdbg:
-            print( "paint overlay:  %s" % paintfile )
+        if kwdbg or 1:
+            print( "paint overlay start")
+        c.flatten()
         topidx = c.layer( paintfile )
         w, h = c.top.bounds()
         xs = WIDTH / float(w)
         ys = HEIGHT / float(h)
         s = max(xs,ys)
         c.top.scale(s, s)
-        c.top.opacity( 10 )
+        c.top.opacity( 90 )
         c.top.overlay()
-
+        if kwdbg or 1:
+            print( "paint overlay end")
 
 c.draw(0,0)
 

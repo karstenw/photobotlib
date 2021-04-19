@@ -84,8 +84,8 @@ enoughTiles = len(tiles) > (columns * 2 * rows)
 
 randomblur = 1
 randomflip = 1
-paintoverlay = 1
-gilb = 1
+paintoverlay = 0
+gilb = 0
 
 
 # 
@@ -138,14 +138,14 @@ for j in range(rows):
         # P: 0.5 # flip the tile
         if randomblur:
             if rnd.random() > 0.5:
-                if kwdbg:
+                if kwdbg or 1:
                     print( "Flip" )
                 c.top.flip()
 
         # P: 0.5 # add blur
         if randomflip:
             if rnd.random() > 0.5:
-                if kwdbg:
+                if kwdbg or 1:
                     print( "Blur" )
                 c.top.blur()
 
@@ -154,36 +154,37 @@ for j in range(rows):
             print( "Translate" )
         c.top.translate(colw, j*y_offset)
         colw += w
-        
-        # merge with previous layer fro memory reasons
-        top = c.topindex
-        if top > 2:
-            c.merge([top-1, top])
-
 
 if gilb:
     # orange hue overlay finish
     # create new color layer
+    if kwdbg or 1:
+        print("Orange gilb start")
+    c.flatten()
     c.fill((200,100,0))
     c.top.opacity(30)
     c.top.hue()
+    if kwdbg or 1:
+        print("Orange gilb end")
 
 
 paintfile = os.path.abspath("./paint.jpg")
 if paintoverlay:
     # paint overlay
     if os.path.exists( paintfile ):
-        if kwdbg:
-            print( "paint overlay:  %s" % paintfile )
+        if kwdbg or 1:
+            print( "paint overlay start")
+        c.flatten()
         topidx = c.layer( paintfile )
         w, h = c.top.bounds()
         xs = WIDTH / float(w)
         ys = HEIGHT / float(h)
         s = max(xs,ys)
         c.top.scale(s, s)
-        c.top.opacity( 10 )
+        c.top.opacity( 90 )
         c.top.overlay()
-
+        if kwdbg or 1:
+            print( "paint overlay end")
 
 c.draw(0,0)
 
