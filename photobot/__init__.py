@@ -37,6 +37,8 @@ import json
 
 import colorsys
 
+import io
+
 import PIL
 import PIL.ImageFilter as ImageFilter
 import PIL.Image as Image
@@ -609,7 +611,7 @@ class Canvas:
             stop = time.time()
             print("Canvas.flatten( %s ) in %.3fsec." % (repr(layers), stop-start))
 
-    def export(self, name, ext=".png", format="PNG"):
+    def export(self, name, ext=".png", format="PNG", unique=False):
 
         """Exports the flattened canvas.
 
@@ -645,6 +647,8 @@ class Canvas:
             path = os.path.abspath( path )
         except:
             pass
+
+        path = uniquepath(folder, name, ext, nfill=2, startindex=1, sep="_", always=unique)
 
         if kwdbg and 0:
             # if debugging is on export each layer separately
@@ -1712,6 +1716,24 @@ def makeunicode(s, srcencoding="utf-8", normalizer="NFC"):
     return s
 
 
+def uniquepath(folder, filenamebase, ext, nfill=1, startindex=1, sep="_", always=False):
+    folder = os.path.abspath( folder )
+    if not always:
+        path = os.path.join(folder, filenamebase + ext )
+        if not os.path.exists( path ):
+            return path
+    n = startindex
+    while True:
+        serialstring = str(n).rjust(nfill, "0")
+        filename = filenamebase + sep + serialstring + ext
+        fullpath = os.path.join(folder, filename)
+        if n >= 10**nfill:
+            nfill = nfill + 1
+        if not os.path.exists(fullpath):
+            return fullpath
+        n += 1
+
+
 def hashFromString( s ):
     h = hashlib.sha1()
     h.update( s )
@@ -2132,21 +2154,37 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
     medianw, medianh = 0,0
     slope = 1.0
     imagecount = 0
-    filetuples = False
+    filetuples = []
 
 
+    fileLoaded = False
     if resultfile:
         path = os.path.abspath( resultfile )
         folder, filename = os.path.split( path )
-        
-        pickfile = os.path.join( folder, filename + ".pick" )
-        if os.path.exists( pickfile ):
-            print("Reading pickle...")
-            f = open(pickfile, "rb")
-            filetuples = pickle.load( f )
+        tabfile = os.path.join( folder, filename + ".tab" )
+        if os.path.exists( tabfile ):
+            print("Reading tabfile...")
+            start = time.time()
+            f = io.open(tabfile, "r", encoding="utf-8")
+            lines = f.readlines()
             f.close()
-            print("Reading pickle... Done.")
-            # return result
+            filetuples = []
+            
+            for line in lines:
+                path, filesize, lastmodified, mode, islink, w0, h0 = line.split( u"\t" )
+                filesize = int(filesize)
+                islink = bool(islink)
+                w0 = int(w0)
+                h0 = int(h0)
+                if os.path.exists( path ):
+                    filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
+
+            fileLoaded = True
+            print("%i records loaded from tabfile." % len(filetuples))
+            print("Reading tabfile... Done.")
+            stop = time.time()
+            print( "READ TIME: %.3f" % (stop-start,) )        
+
 
 
     # get all images from user image wells
@@ -2158,15 +2196,25 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         folders.extend( additionals )
 
     if not filetuples:
-        filetuples = list( imagefiles( folders, pathonly=False ) )
+        start = time.time()
+        filetuples = []
+        items = list( imagefiles( folders, pathonly=False ) )
+        for filetuple in items:
+            path, filesize, lastmodified, mode, islink, w0, h0 = filetuple
+            path = makeunicode(path)
+            item = ( path, filesize, lastmodified, mode, islink, w0, h0 )
+            filetuples.append( item )
+        stop = time.time()
+        print("FOLDER SCAN TIME: %.3f" % (stop-start,))
 
 
     if kwdbg:
-        print("Reading folders...")
+        print("File loop...")
 
     # pdb.set_trace()
     for t in filetuples:
         path, filesize, lastmodified, mode, islink, w0, h0 = t
+        path = makeunicode( path )
         folder, filename = os.path.split( path )
         root, parent =  os.path.split( folder )
         basename, ext = os.path.splitext( filename )
@@ -2248,6 +2296,7 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         if (w0 >= bgw) and (h0 >= bgh):
             result['backgrounds'].append( record )
         else:
+            # print( "TILE: %i < %i  and  %i < %i" % (w0,bgw,h0,bgh) )
             result['tiles'].append( record )
 
         if fracs not in result['fractions']:
@@ -2261,34 +2310,38 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
 
     if kwdbg:
-        print("Reading folders... Done.")
+        print("File loop... Done.")
 
     result[ 'WxH largest' ] = (largestw,largesth)
     result[ 'WxH smallest' ] = (smallestw,smallesth)
     result[ 'WxH median' ] = (medianw / float(imagecount),
                               medianh / float(imagecount))
 
-    if resultfile:
-        print("Writing pickle...")
+    if resultfile and not fileLoaded:
+        print("Writing tabfile...")
 
         path = os.path.abspath( resultfile )
         folder, filename = os.path.split( path )
         
-        pickfile = os.path.join( folder, filename + ".pick" )
         if os.path.exists( folder ):
-            f = open(pickfile, "wb")
-            pickle.dump( filetuples, f, 0 )
+            start = time.time()
+            tabfile = os.path.join( folder, filename + ".tab" )
+            items = []
+            template = u"%s\t%s\t%s\t%s\t%i\t%i\t%i\n"
+            f = io.open(tabfile, "w", encoding="utf-8")
+            for item in filetuples:
+                path, filesize, lastmodified, mode, islink, w0, h0 = item
+                w0 = int(w0)
+                h0 = int(h0)
+                islink = int(bool(islink))
+                filesize  = str( filesize )
+                item = ( path, filesize, lastmodified, mode, islink, w0, h0 )
+                f.write( template % item )
             f.close()
-        print("Writing pickle... Done.")
-        
-        if 0:
-            print("Writing json...")
-            jsonfile = os.path.join( folder, filename + ".json" )
-            if os.path.exists( folder ):
-                f = open(jsonfile, "w")
-                json.dump( result, f, indent=4, sort_keys=True )
-                f.close()
-            print("Writing json... Done.")
+            print("Writing tabfile... Done.")
+            stop = time.time()
+            print("WRITE TIME: %.3f" % (stop-start,) )        
+
 
     return result
 
