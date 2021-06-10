@@ -2330,7 +2330,7 @@ import libgradient
 
 if kwdbg and 1:
     # make random choices repeatable for debugging
-    rnd.seed( 1 )
+    rnd.seed( 123456 )
 
 
 # width and height of destination image

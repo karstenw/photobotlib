@@ -29,10 +29,10 @@ else:
 
 if kwdbg:
     # make random choices repeatable for debugging
-    rnd.seed(0)
+    rnd.seed(8)
 
 imagewell = pb.loadImageWell(resultfile="imagewell-files")
-tiles = imagewell['backgrounds']
+tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
 
@@ -131,5 +131,5 @@ c.top.translate( x, y)
 pb.label(c, "Image 8 Contrast: 200", x, y)
 
 # draw the result
-c.draw()
+c.draw(name="Layer_function_contrast")
 

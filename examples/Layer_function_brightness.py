@@ -29,10 +29,10 @@ else:
 
 if kwdbg:
     # make random choices repeatable for debugging
-    rnd.seed(0)
+    rnd.seed(8)
 
 imagewell = pb.loadImageWell(resultfile="imagewell-files")
-tiles = imagewell['backgrounds']
+tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
 
@@ -133,5 +133,5 @@ pb.label(c, "Image 8 Brightness: 200", x, y)
 
 
 # draw the result
-c.draw(0, 0)
+c.draw(name="Layer_function_brightness")
 

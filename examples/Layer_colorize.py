@@ -29,10 +29,10 @@ else:
 
 if kwdbg:
     # make random choices repeatable for debugging
-    rnd.seed(0)
+    rnd.seed(8)
 
 imagewell = pb.loadImageWell()
-tiles = imagewell['backgrounds']
+tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
 
@@ -69,4 +69,4 @@ pb.label(c, "Image 1 colored", x, y, 30)
 
 
 # draw the result
-c.draw(0, 0)
+c.draw(name="Layer_function_colorize")

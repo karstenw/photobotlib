@@ -29,7 +29,7 @@ else:
 
 if kwdbg:
     # make random choices repeatable for debugging
-    rnd.seed(0)
+    rnd.seed(8)
 
 imagewell = pb.loadImageWell(resultfile="imagewell-files")
 tiles = imagewell['landscape']
@@ -89,4 +89,4 @@ c.top.subtract()
 pb.label(c, "Subtract Image 2 over Image 1", x, y)
 
 # draw the result
-c.draw()
+c.draw(name="Layer_function_subtract")

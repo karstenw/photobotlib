@@ -29,7 +29,7 @@ else:
 
 if kwdbg:
     # make random choices repeatable for debugging
-    rnd.seed(0)
+    rnd.seed(8)
 
 imagewell = pb.loadImageWell(resultfile="imagewell-files")
 tiles = imagewell['landscape']
@@ -129,5 +129,5 @@ c.top.translate( x, y)
 pb.label(c, "%s posterize: 1" % filename, x, y)
 
 # draw the result
-c.draw()
+c.draw(name="Layer_function_posterize")
 
