@@ -15,7 +15,7 @@ import libgradient
 
 if kwdbg and 1:
     # make random choices repeatable for debugging
-    rnd.seed(0)
+    rnd.seed( 1 )
 
 
 # width and height of destination image
@@ -69,7 +69,8 @@ c.fill( (85,85,85) )
 
 
 if 1: #not kwdbg:
-    turns = int(10 + rnd.random() * 10)
+    turns = int( round(20 + (rnd.random() * 10)) )
+    print( "shuffle turns: %i" % turns )
     for turn in range( turns ):
         rnd.shuffle(tiles)
         rnd.shuffle(backgrounds)
