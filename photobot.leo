@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20200419210659.1"><vh>Photobot</vh>
@@ -127,13 +127,14 @@
 </v>
 <v t="karstenw.20200419183424.1"><vh>Tools</vh>
 <v t="karstenw.20200419185608.1"><vh>makeunicode</vh></v>
+<v t="karstenw.20210603134137.1"><vh>uniquepath</vh></v>
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 </v>
-<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
-<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
+<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
@@ -151,7 +152,7 @@
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
 </v>
-<v t="karstenw.20200419205343.1"><vh>ImageWell</vh>
+<v t="karstenw.20200419205343.1" a="E"><vh>ImageWell</vh>
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
 <v t="karstenw.20210315131908.1"><vh>Imagecollection</vh>
 <v t="karstenw.20210316194210.1"><vh>&lt;&lt; class doc &gt;&gt;</vh></v>
@@ -170,7 +171,7 @@
 </v>
 </v>
 <v t="karstenw.20201009153259.1"><vh>Image Sectors</vh>
-<v t="karstenw.20201010122613.1" a="E"><vh>TiledImage</vh>
+<v t="karstenw.20201010122613.1"><vh>TiledImage</vh>
 <v t="karstenw.20201010122902.1"><vh>__init__</vh></v>
 <v t="karstenw.20201010123021.1"><vh>makeimage</vh></v>
 </v>
@@ -181,9 +182,9 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20201006211515.1"><vh>examples</vh>
-<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
+<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 <v t="karstenw.20210331155153.1"><vh>shuffle tiles</vh></v>
@@ -323,6 +324,8 @@ import pickle
 import json
 
 import colorsys
+
+import io
 
 import PIL
 import PIL.ImageFilter as ImageFilter
@@ -562,7 +565,7 @@ except NameError:
         print("Canvas.flatten( %s ) in %.3fsec." % (repr(layers), stop-start))
 
 </t>
-<t tx="karstenw.20170709210125.13">def export(self, name, ext=".png", format="PNG"):
+<t tx="karstenw.20170709210125.13">def export(self, name, ext=".png", format="PNG", unique=False):
 
     """Exports the flattened canvas.
 
@@ -2093,21 +2096,23 @@ def smooth_more(self):
 
     &lt;&lt; init &gt;&gt;
 
+    fileLoaded = False
     &lt;&lt; load result pickle &gt;&gt;
 
     &lt;&lt; read image folders &gt;&gt;
 
     if kwdbg:
-        print("Reading folders...")
+        print("File loop...")
 
     &lt;&lt; file loop &gt;&gt;
 
     if kwdbg:
-        print("Reading folders... Done.")
+        print("File loop... Done.")
 
     &lt;&lt; accumulate stats &gt;&gt;
 
     &lt;&lt; setup optional result file &gt;&gt;
+
     return result
 
 
@@ -2239,6 +2244,8 @@ try:
 except:
     pass
 
+path = uniquepath(folder, name, ext, nfill=2, startindex=1, sep="_", always=unique)
+
 </t>
 <t tx="karstenw.20200430120955.1"># if debugging is on export each layer separately
 basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
@@ -2323,7 +2330,7 @@ import libgradient
 
 if kwdbg and 1:
     # make random choices repeatable for debugging
-    rnd.seed(0)
+    rnd.seed( 1 )
 
 
 # width and height of destination image
@@ -2774,7 +2781,7 @@ largestw, largesth = 0,0
 medianw, medianh = 0,0
 slope = 1.0
 imagecount = 0
-filetuples = False
+filetuples = []
 
 </t>
 <t tx="karstenw.20210315131220.1"># get all images from user image wells
@@ -2786,30 +2793,42 @@ if additionals:
     folders.extend( additionals )
 
 if not filetuples:
-    filetuples = list( imagefiles( folders, pathonly=False ) )
+    start = time.time()
+    filetuples = []
+    items = list( imagefiles( folders, pathonly=False ) )
+    for filetuple in items:
+        path, filesize, lastmodified, mode, islink, w0, h0 = filetuple
+        path = makeunicode(path)
+        item = ( path, filesize, lastmodified, mode, islink, w0, h0 )
+        filetuples.append( item )
+    stop = time.time()
+    print("FOLDER SCAN TIME: %.3f" % (stop-start,))
 
 </t>
-<t tx="karstenw.20210315131302.1">if resultfile:
-    print("Writing pickle...")
+<t tx="karstenw.20210315131302.1">if resultfile and not fileLoaded:
+    print("Writing tabfile...")
 
     path = os.path.abspath( resultfile )
     folder, filename = os.path.split( path )
     
-    pickfile = os.path.join( folder, filename + ".pick" )
     if os.path.exists( folder ):
-        f = open(pickfile, "wb")
-        pickle.dump( filetuples, f, 0 )
+        start = time.time()
+        tabfile = os.path.join( folder, filename + ".tab" )
+        items = []
+        template = u"%s\t%s\t%s\t%s\t%i\t%i\t%i\n"
+        f = io.open(tabfile, "w", encoding="utf-8")
+        for item in filetuples:
+            path, filesize, lastmodified, mode, islink, w0, h0 = item
+            w0 = int(w0)
+            h0 = int(h0)
+            islink = int(bool(islink))
+            filesize  = str( filesize )
+            item = ( path, filesize, lastmodified, mode, islink, w0, h0 )
+            f.write( template % item )
         f.close()
-    print("Writing pickle... Done.")
-    
-    if 0:
-        print("Writing json...")
-        jsonfile = os.path.join( folder, filename + ".json" )
-        if os.path.exists( folder ):
-            f = open(jsonfile, "w")
-            json.dump( result, f, indent=4, sort_keys=True )
-            f.close()
-        print("Writing json... Done.")
+        print("Writing tabfile... Done.")
+        stop = time.time()
+        print("WRITE TIME: %.3f" % (stop-start,) )        
 
 </t>
 <t tx="karstenw.20210315131908.1">class Imagecollection(object):
@@ -2823,6 +2842,7 @@ if not filetuples:
 <t tx="karstenw.20210315143241.1"># pdb.set_trace()
 for t in filetuples:
     path, filesize, lastmodified, mode, islink, w0, h0 = t
+    path = makeunicode( path )
     folder, filename = os.path.split( path )
     root, parent =  os.path.split( folder )
     basename, ext = os.path.splitext( filename )
@@ -2910,6 +2930,7 @@ result['allimages'].append( record )
 if (w0 &gt;= bgw) and (h0 &gt;= bgh):
     result['backgrounds'].append( record )
 else:
+    # print( "TILE: %i &lt; %i  and  %i &lt; %i" % (w0,bgw,h0,bgh) )
     result['tiles'].append( record )
 
 if fracs not in result['fractions']:
@@ -2930,15 +2951,30 @@ result[ 'WxH median' ] = (medianw / float(imagecount),
 <t tx="karstenw.20210315232316.1">if resultfile:
     path = os.path.abspath( resultfile )
     folder, filename = os.path.split( path )
-    
-    pickfile = os.path.join( folder, filename + ".pick" )
-    if os.path.exists( pickfile ):
-        print("Reading pickle...")
-        f = open(pickfile, "rb")
-        filetuples = pickle.load( f )
+    tabfile = os.path.join( folder, filename + ".tab" )
+    if os.path.exists( tabfile ):
+        print("Reading tabfile...")
+        start = time.time()
+        f = io.open(tabfile, "r", encoding="utf-8")
+        lines = f.readlines()
         f.close()
-        print("Reading pickle... Done.")
-        # return result
+        filetuples = []
+        
+        for line in lines:
+            path, filesize, lastmodified, mode, islink, w0, h0 = line.split( u"\t" )
+            filesize = int(filesize)
+            islink = bool(islink)
+            w0 = int(w0)
+            h0 = int(h0)
+            if os.path.exists( path ):
+                filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
+
+        fileLoaded = True
+        print("%i records loaded from tabfile." % len(filetuples))
+        print("Reading tabfile... Done.")
+        stop = time.time()
+        print( "READ TIME: %.3f" % (stop-start,) )        
+
 
 </t>
 <t tx="karstenw.20210316183613.1"># CONFIGURATION
@@ -3664,7 +3700,8 @@ c.draw(0,0)
 <t tx="karstenw.20210319153818.1"></t>
 <t tx="karstenw.20210319153822.1"></t>
 <t tx="karstenw.20210331155153.1">if 1: #not kwdbg:
-    turns = int(10 + rnd.random() * 10)
+    turns = int( round(20 + (rnd.random() * 10)) )
+    print( "shuffle turns: %i" % turns )
     for turn in range( turns ):
         rnd.shuffle(tiles)
         rnd.shuffle(backgrounds)
@@ -3800,6 +3837,25 @@ if rnd.random() &gt; 0.9:
 </t>
 <t tx="karstenw.20210331165305.1"># add contrast
 c.top.contrast(1.1)
+
+</t>
+<t tx="karstenw.20210603134137.1">def uniquepath(folder, filenamebase, ext, nfill=1, startindex=1, sep="_", always=False):
+    folder = os.path.abspath( folder )
+    if not always:
+        path = os.path.join(folder, filenamebase + ext )
+        if not os.path.exists( path ):
+            return path
+    n = startindex
+    while True:
+        serialstring = str(n).rjust(nfill, "0")
+        filename = filenamebase + sep + serialstring + ext
+        fullpath = os.path.join(folder, filename)
+        if n &gt;= 10**nfill:
+            nfill = nfill + 1
+        if not os.path.exists(fullpath):
+            return fullpath
+        n += 1
+
 
 </t>
 </tnodes>
