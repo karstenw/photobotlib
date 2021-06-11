@@ -159,9 +159,10 @@
 <v t="karstenw.20210316194210.1"><vh>&lt;&lt; class doc &gt;&gt;</vh></v>
 </v>
 <v t="karstenw.20200419185716.1" a="E"><vh>loadImageWell</vh>
+<v t="karstenw.20210611114959.1"><vh>&lt;&lt; functioncomment &gt;&gt;</vh></v>
 <v t="karstenw.20210315130855.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210611112926.1"><vh>&lt;&lt; check file dates &gt;&gt;</vh></v>
-<v t="karstenw.20210315232316.1"><vh>&lt;&lt; load result pickle &gt;&gt;</vh></v>
+<v t="karstenw.20210315232316.1"><vh>&lt;&lt; load tabs file &gt;&gt;</vh></v>
 <v t="karstenw.20210315131220.1"><vh>&lt;&lt; read image folders &gt;&gt;</vh></v>
 <v t="karstenw.20210315143241.1" a="E"><vh>&lt;&lt; file loop &gt;&gt;</vh>
 <v t="karstenw.20210315143319.1"><vh>&lt;&lt; filters &gt;&gt;</vh></v>
@@ -2054,54 +2055,26 @@ def smooth_more(self):
                    pathonly=True, additionals=None, ignorelibs=False,
                    resultfile=False, ignoreFolderNames=None):
 
-    """
-    Find images imagewells or additional folders. 
-       
-    Params:
-        bgsize
-            tuple with width and height for images to be classified background
-
-        minsize
-            tuple with minimal width and height for images not to be ignored
-
-        maxfilesize
-            in bytes. Images above this file size will be ignored
-
-        maxpixellength
-            in pixels. Images above in either dimension will be ignored
-
-        pathonly
-            return path or record
-        additionals
-            list of folders to me considered for this run
-
-        ignorelibs
-            if imagewells file should be ignored
-    
-    Returns:
-        A dict of dicts with several image classifications.
-    
-        list of file paths if pathonly is True
-        list of file records else.
-    """
+    &lt;&lt; functioncomment &gt;&gt;
 
     &lt;&lt; init &gt;&gt;
 
     fileLoaded = False
-    
-    imageWellsFile = getImageWellsFile()
-    imageWellsIsNewer = False
 
+    imageWellsFile = getImageWellsFile()
+    imageTabsfileIsNewer = False
+
+    pdb.set_trace()
     if ignorelibs == False:
-        if additionals == None:
+        if not additionals:
             if resultfile != False:
                 path = os.path.abspath( resultfile )
                 folder, filename = os.path.split( path )
                 tabfile = os.path.join( folder, filename + ".tab" )
                 if os.path.exists( tabfile ):
                     &lt;&lt; check file dates &gt;&gt;
-                    if imageWellsIsNewer:
-                        &lt;&lt; load result pickle &gt;&gt;
+                    if imageTabsfileIsNewer:
+                        &lt;&lt; load tabs file &gt;&gt;
 
     &lt;&lt; read image folders &gt;&gt;
 
@@ -3816,13 +3789,44 @@ c.top.contrast(1.1)
     info1 = os.stat( imageWellsFile )
     lastmodf1 = datetime.datetime.fromtimestamp( info1.st_mtime )
 
-    info2 = os.stat( resultfile )
+    info2 = os.stat( tabfile )
     lastmodf2 = datetime.datetime.fromtimestamp( info2.st_mtime )
     
-    imageWellsIsNewer = lastmodf1 &gt; lastmodf2
+    imageTabsfileIsNewer = lastmodf2 &gt; lastmodf1
 except:
     pass
 
+</t>
+<t tx="karstenw.20210611114959.1">"""
+Find images imagewells or additional folders. 
+   
+Params:
+    bgsize
+        tuple with width and height for images to be classified background
+
+    minsize
+        tuple with minimal width and height for images not to be ignored
+
+    maxfilesize
+        in bytes. Images above this file size will be ignored
+
+    maxpixellength
+        in pixels. Images above in either dimension will be ignored
+
+    pathonly
+        return path or record
+    additionals
+        list of folders to me considered for this run
+
+    ignorelibs
+        if imagewells file should be ignored
+
+Returns:
+    A dict of dicts with several image classifications.
+
+    list of file paths if pathonly is True
+    list of file records else.
+"""
 </t>
 </tnodes>
 </leo_file>

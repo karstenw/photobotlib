@@ -2126,10 +2126,10 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
         ignorelibs
             if imagewells file should be ignored
-    
+
     Returns:
         A dict of dicts with several image classifications.
-    
+
         list of file paths if pathonly is True
         list of file records else.
     """
@@ -2162,12 +2162,13 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
 
     fileLoaded = False
-    
-    imageWellsFile = getImageWellsFile()
-    imageWellsIsNewer = False
 
+    imageWellsFile = getImageWellsFile()
+    imageTabsfileIsNewer = False
+
+    pdb.set_trace()
     if ignorelibs == False:
-        if additionals == None:
+        if not additionals:
             if resultfile != False:
                 path = os.path.abspath( resultfile )
                 folder, filename = os.path.split( path )
@@ -2177,14 +2178,14 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
                         info1 = os.stat( imageWellsFile )
                         lastmodf1 = datetime.datetime.fromtimestamp( info1.st_mtime )
 
-                        info2 = os.stat( resultfile )
+                        info2 = os.stat( tabfile )
                         lastmodf2 = datetime.datetime.fromtimestamp( info2.st_mtime )
                         
-                        imageWellsIsNewer = lastmodf1 > lastmodf2
+                        imageTabsfileIsNewer = lastmodf2 > lastmodf1
                     except:
                         pass
 
-                    if imageWellsIsNewer:
+                    if imageTabsfileIsNewer:
                         print("Reading tabfile...")
                         start = time.time()
                         f = io.open(tabfile, "r", encoding="utf-8")
