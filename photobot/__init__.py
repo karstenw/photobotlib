@@ -2166,7 +2166,7 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
     imageWellsFile = getImageWellsFile()
     imageTabsfileIsNewer = False
 
-    pdb.set_trace()
+    # pdb.set_trace()
     if ignorelibs == False:
         if not additionals:
             if resultfile != False:

@@ -2064,7 +2064,7 @@ def smooth_more(self):
     imageWellsFile = getImageWellsFile()
     imageTabsfileIsNewer = False
 
-    pdb.set_trace()
+    # pdb.set_trace()
     if ignorelibs == False:
         if not additionals:
             if resultfile != False:
