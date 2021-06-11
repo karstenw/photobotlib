@@ -157,7 +157,7 @@
 <v t="karstenw.20210315131908.1"><vh>Imagecollection</vh>
 <v t="karstenw.20210316194210.1"><vh>&lt;&lt; class doc &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20200419185716.1"><vh>loadImageWell</vh>
+<v t="karstenw.20200419185716.1" a="E"><vh>loadImageWell</vh>
 <v t="karstenw.20210315130855.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210315232316.1"><vh>&lt;&lt; load result pickle &gt;&gt;</vh></v>
 <v t="karstenw.20210315131220.1"><vh>&lt;&lt; read image folders &gt;&gt;</vh></v>
@@ -2097,7 +2097,11 @@ def smooth_more(self):
     &lt;&lt; init &gt;&gt;
 
     fileLoaded = False
-    &lt;&lt; load result pickle &gt;&gt;
+    
+    if ignorelibs == False:
+        if additionals == None:
+            if resultfile:
+                &lt;&lt; load result pickle &gt;&gt;
 
     &lt;&lt; read image folders &gt;&gt;
 
@@ -2792,6 +2796,7 @@ if not ignorelibs:
 if additionals:
     folders.extend( additionals )
 
+# check if it has read the cache
 if not filetuples:
     start = time.time()
     filetuples = []
@@ -2948,32 +2953,31 @@ result[ 'WxH smallest' ] = (smallestw,smallesth)
 result[ 'WxH median' ] = (medianw / float(imagecount),
                           medianh / float(imagecount))
 </t>
-<t tx="karstenw.20210315232316.1">if resultfile:
-    path = os.path.abspath( resultfile )
-    folder, filename = os.path.split( path )
-    tabfile = os.path.join( folder, filename + ".tab" )
-    if os.path.exists( tabfile ):
-        print("Reading tabfile...")
-        start = time.time()
-        f = io.open(tabfile, "r", encoding="utf-8")
-        lines = f.readlines()
-        f.close()
-        filetuples = []
-        
-        for line in lines:
-            path, filesize, lastmodified, mode, islink, w0, h0 = line.split( u"\t" )
-            filesize = int(filesize)
-            islink = bool(islink)
-            w0 = int(w0)
-            h0 = int(h0)
-            if os.path.exists( path ):
-                filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
+<t tx="karstenw.20210315232316.1">path = os.path.abspath( resultfile )
+folder, filename = os.path.split( path )
+tabfile = os.path.join( folder, filename + ".tab" )
+if os.path.exists( tabfile ):
+    print("Reading tabfile...")
+    start = time.time()
+    f = io.open(tabfile, "r", encoding="utf-8")
+    lines = f.readlines()
+    f.close()
+    filetuples = []
+    
+    for line in lines:
+        path, filesize, lastmodified, mode, islink, w0, h0 = line.split( u"\t" )
+        filesize = int(filesize)
+        islink = bool(islink)
+        w0 = int(w0)
+        h0 = int(h0)
+        if os.path.exists( path ):
+            filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
 
-        fileLoaded = True
-        print("%i records loaded from tabfile." % len(filetuples))
-        print("Reading tabfile... Done.")
-        stop = time.time()
-        print( "READ TIME: %.3f" % (stop-start,) )        
+    fileLoaded = True
+    print("%i records loaded from tabfile." % len(filetuples))
+    print("Reading tabfile... Done.")
+    stop = time.time()
+    print( "READ TIME: %.3f" % (stop-start,) )        
 
 
 </t>

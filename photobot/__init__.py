@@ -2158,32 +2158,35 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
 
     fileLoaded = False
-    if resultfile:
-        path = os.path.abspath( resultfile )
-        folder, filename = os.path.split( path )
-        tabfile = os.path.join( folder, filename + ".tab" )
-        if os.path.exists( tabfile ):
-            print("Reading tabfile...")
-            start = time.time()
-            f = io.open(tabfile, "r", encoding="utf-8")
-            lines = f.readlines()
-            f.close()
-            filetuples = []
-            
-            for line in lines:
-                path, filesize, lastmodified, mode, islink, w0, h0 = line.split( u"\t" )
-                filesize = int(filesize)
-                islink = bool(islink)
-                w0 = int(w0)
-                h0 = int(h0)
-                if os.path.exists( path ):
-                    filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
+    
+    if ignorelibs == False:
+        if additionals == None:
+            if resultfile:
+                path = os.path.abspath( resultfile )
+                folder, filename = os.path.split( path )
+                tabfile = os.path.join( folder, filename + ".tab" )
+                if os.path.exists( tabfile ):
+                    print("Reading tabfile...")
+                    start = time.time()
+                    f = io.open(tabfile, "r", encoding="utf-8")
+                    lines = f.readlines()
+                    f.close()
+                    filetuples = []
+                    
+                    for line in lines:
+                        path, filesize, lastmodified, mode, islink, w0, h0 = line.split( u"\t" )
+                        filesize = int(filesize)
+                        islink = bool(islink)
+                        w0 = int(w0)
+                        h0 = int(h0)
+                        if os.path.exists( path ):
+                            filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
 
-            fileLoaded = True
-            print("%i records loaded from tabfile." % len(filetuples))
-            print("Reading tabfile... Done.")
-            stop = time.time()
-            print( "READ TIME: %.3f" % (stop-start,) )        
+                    fileLoaded = True
+                    print("%i records loaded from tabfile." % len(filetuples))
+                    print("Reading tabfile... Done.")
+                    stop = time.time()
+                    print( "READ TIME: %.3f" % (stop-start,) )        
 
 
 
@@ -2195,6 +2198,7 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
     if additionals:
         folders.extend( additionals )
 
+    # check if it has read the cache
     if not filetuples:
         start = time.time()
         filetuples = []
