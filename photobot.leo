@@ -134,7 +134,7 @@
 <v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
-<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
+<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
@@ -148,37 +148,28 @@
 <v t="karstenw.20210301171559.1"><vh>Text</vh>
 <v t="karstenw.20200419184336.1"><vh>label</vh></v>
 </v>
-<v t="karstenw.20210301171611.1"><vh>Folderscanner</vh>
+<v t="karstenw.20210301171611.1" a="E"><vh>Folderscanner</vh>
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
 </v>
 <v t="karstenw.20200419205343.1" a="E"><vh>ImageWell</vh>
+<v t="karstenw.20210611105714.1"><vh>getImageWellsFile</vh></v>
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
 <v t="karstenw.20210315131908.1"><vh>Imagecollection</vh>
 <v t="karstenw.20210316194210.1"><vh>&lt;&lt; class doc &gt;&gt;</vh></v>
 </v>
 <v t="karstenw.20200419185716.1" a="E"><vh>loadImageWell</vh>
 <v t="karstenw.20210315130855.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
+<v t="karstenw.20210611112926.1"><vh>&lt;&lt; check file dates &gt;&gt;</vh></v>
 <v t="karstenw.20210315232316.1"><vh>&lt;&lt; load result pickle &gt;&gt;</vh></v>
 <v t="karstenw.20210315131220.1"><vh>&lt;&lt; read image folders &gt;&gt;</vh></v>
-<v t="karstenw.20210315143241.1"><vh>&lt;&lt; file loop &gt;&gt;</vh>
+<v t="karstenw.20210315143241.1" a="E"><vh>&lt;&lt; file loop &gt;&gt;</vh>
 <v t="karstenw.20210315143319.1"><vh>&lt;&lt; filters &gt;&gt;</vh></v>
 <v t="karstenw.20210315143430.1"><vh>&lt;&lt; stats &gt;&gt;</vh></v>
 <v t="karstenw.20210315143623.1"><vh>&lt;&lt; categories &gt;&gt;</vh></v>
 </v>
 <v t="karstenw.20210315225632.1"><vh>&lt;&lt; accumulate stats &gt;&gt;</vh></v>
 <v t="karstenw.20210315131302.1"><vh>&lt;&lt; setup optional result file &gt;&gt;</vh></v>
-</v>
-</v>
-<v t="karstenw.20201009153259.1"><vh>Image Sectors</vh>
-<v t="karstenw.20201010122613.1"><vh>TiledImage</vh>
-<v t="karstenw.20201010122902.1"><vh>__init__</vh></v>
-<v t="karstenw.20201010123021.1"><vh>makeimage</vh></v>
-</v>
-</v>
-<v t="karstenw.20201009153305.1"><vh>Canvas layout</vh>
-<v t="karstenw.20201010124204.1" a="E"><vh>Layout</vh>
-<v t="karstenw.20201010124230.1"><vh>__init__</vh></v>
 </v>
 </v>
 </v>
@@ -1551,7 +1542,7 @@ def canvas(w, h):
     images = os.path.abspath( "images" )
     if os.path.exists( images ):
         folders.append( images )
-    fullpath = os.path.abspath( "imagewell.txt" )
+    fullpath = getImageWellsFile()
     
     if not os.path.exists( fullpath ):
         try:
@@ -2098,10 +2089,19 @@ def smooth_more(self):
 
     fileLoaded = False
     
+    imageWellsFile = getImageWellsFile()
+    imageWellsIsNewer = False
+
     if ignorelibs == False:
         if additionals == None:
-            if resultfile:
-                &lt;&lt; load result pickle &gt;&gt;
+            if resultfile != False:
+                path = os.path.abspath( resultfile )
+                folder, filename = os.path.split( path )
+                tabfile = os.path.join( folder, filename + ".tab" )
+                if os.path.exists( tabfile ):
+                    &lt;&lt; check file dates &gt;&gt;
+                    if imageWellsIsNewer:
+                        &lt;&lt; load result pickle &gt;&gt;
 
     &lt;&lt; read image folders &gt;&gt;
 
@@ -2386,52 +2386,6 @@ print( "backgrounds: %i" % len(backgrounds) )
 # create the canvas
 c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (85,85,85) )
-
-
-</t>
-<t tx="karstenw.20201009153259.1">#
-# Image Sectors
-#
-
-</t>
-<t tx="karstenw.20201009153305.1"></t>
-<t tx="karstenw.20201010122613.1">class TiledImage(object):
-    ""
-    @others
-
-
-</t>
-<t tx="karstenw.20201010122902.1">def __init__(self, tilesize, wtiles, htiles):
-    self.tilesize = int( self.tilesize )
-    self.wtiles = int( self.wtiles )
-    self.htiles = int( self.htiles )
-    tiles = self.wtiles * self.htiles 
-    self.tilebam = [ 0 ] * tiles
-
-    self.w = tilesize * wtiles
-    self.h = tilesize * htiles
-
-    self.img = None
-    self.layout = []
-    
-
-</t>
-<t tx="karstenw.20201010123021.1">def makeimage( self ):
-    pass
-
-
-def makelayout( self ):
-    pass
-
-</t>
-<t tx="karstenw.20201010124204.1">class Layout( object ):
-    ""
-    @others
-
-
-</t>
-<t tx="karstenw.20201010124230.1">def __init__(self):
-    pass
 
 
 </t>
@@ -2808,7 +2762,6 @@ if not filetuples:
         filetuples.append( item )
     stop = time.time()
     print("FOLDER SCAN TIME: %.3f" % (stop-start,))
-
 </t>
 <t tx="karstenw.20210315131302.1">if resultfile and not fileLoaded:
     print("Writing tabfile...")
@@ -2834,7 +2787,6 @@ if not filetuples:
         print("Writing tabfile... Done.")
         stop = time.time()
         print("WRITE TIME: %.3f" % (stop-start,) )        
-
 </t>
 <t tx="karstenw.20210315131908.1">class Imagecollection(object):
     &lt;&lt; class doc &gt;&gt;
@@ -2946,40 +2898,33 @@ if proportion == "landscape":
     result['landscape'].append( record )
 else:
     result['portrait'].append( record )
-
 </t>
 <t tx="karstenw.20210315225632.1">result[ 'WxH largest' ] = (largestw,largesth)
 result[ 'WxH smallest' ] = (smallestw,smallesth)
 result[ 'WxH median' ] = (medianw / float(imagecount),
                           medianh / float(imagecount))
 </t>
-<t tx="karstenw.20210315232316.1">path = os.path.abspath( resultfile )
-folder, filename = os.path.split( path )
-tabfile = os.path.join( folder, filename + ".tab" )
-if os.path.exists( tabfile ):
-    print("Reading tabfile...")
-    start = time.time()
-    f = io.open(tabfile, "r", encoding="utf-8")
-    lines = f.readlines()
-    f.close()
-    filetuples = []
-    
-    for line in lines:
-        path, filesize, lastmodified, mode, islink, w0, h0 = line.split( u"\t" )
-        filesize = int(filesize)
-        islink = bool(islink)
-        w0 = int(w0)
-        h0 = int(h0)
-        if os.path.exists( path ):
-            filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
+<t tx="karstenw.20210315232316.1">print("Reading tabfile...")
+start = time.time()
+f = io.open(tabfile, "r", encoding="utf-8")
+lines = f.readlines()
+f.close()
+filetuples = []
 
-    fileLoaded = True
-    print("%i records loaded from tabfile." % len(filetuples))
-    print("Reading tabfile... Done.")
-    stop = time.time()
-    print( "READ TIME: %.3f" % (stop-start,) )        
+for line in lines:
+    path, filesize, lastmodified, mode, islink, w0, h0 = line.split( u"\t" )
+    filesize = int(filesize)
+    islink = bool(islink)
+    w0 = int(w0)
+    h0 = int(h0)
+    if os.path.exists( path ):
+        filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
 
-
+fileLoaded = True
+print("%i records loaded from tabfile." % len(filetuples))
+print("Reading tabfile... Done.")
+stop = time.time()
+print( "READ TIME: %.3f" % (stop-start,) )        
 </t>
 <t tx="karstenw.20210316183613.1"># CONFIGURATION
 
@@ -3860,6 +3805,23 @@ c.top.contrast(1.1)
             return fullpath
         n += 1
 
+
+</t>
+<t tx="karstenw.20210611105714.1">def getImageWellsFile():
+    return os.path.abspath( "imagewell.txt" )
+
+
+</t>
+<t tx="karstenw.20210611112926.1">try:
+    info1 = os.stat( imageWellsFile )
+    lastmodf1 = datetime.datetime.fromtimestamp( info1.st_mtime )
+
+    info2 = os.stat( resultfile )
+    lastmodf2 = datetime.datetime.fromtimestamp( info2.st_mtime )
+    
+    imageWellsIsNewer = lastmodf1 &gt; lastmodf2
+except:
+    pass
 
 </t>
 </tnodes>

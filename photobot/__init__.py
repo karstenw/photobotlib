@@ -2035,6 +2035,10 @@ def imagefiles( folderpathorlist, pathonly=True ):
 # image well
 #
 
+def getImageWellsFile():
+    return os.path.abspath( "imagewell.txt" )
+
+
 def imagewells():
     """Find a file named "imagewell.txt" and interpret it as image folder paths.
     If no file is found create one with the desktop image folders for
@@ -2055,7 +2059,7 @@ def imagewells():
     images = os.path.abspath( "images" )
     if os.path.exists( images ):
         folders.append( images )
-    fullpath = os.path.abspath( "imagewell.txt" )
+    fullpath = getImageWellsFile()
     
     if not os.path.exists( fullpath ):
         try:
@@ -2159,36 +2163,49 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
     fileLoaded = False
     
+    imageWellsFile = getImageWellsFile()
+    imageWellsIsNewer = False
+
     if ignorelibs == False:
         if additionals == None:
-            if resultfile:
+            if resultfile != False:
                 path = os.path.abspath( resultfile )
                 folder, filename = os.path.split( path )
                 tabfile = os.path.join( folder, filename + ".tab" )
                 if os.path.exists( tabfile ):
-                    print("Reading tabfile...")
-                    start = time.time()
-                    f = io.open(tabfile, "r", encoding="utf-8")
-                    lines = f.readlines()
-                    f.close()
-                    filetuples = []
-                    
-                    for line in lines:
-                        path, filesize, lastmodified, mode, islink, w0, h0 = line.split( u"\t" )
-                        filesize = int(filesize)
-                        islink = bool(islink)
-                        w0 = int(w0)
-                        h0 = int(h0)
-                        if os.path.exists( path ):
-                            filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
+                    try:
+                        info1 = os.stat( imageWellsFile )
+                        lastmodf1 = datetime.datetime.fromtimestamp( info1.st_mtime )
 
-                    fileLoaded = True
-                    print("%i records loaded from tabfile." % len(filetuples))
-                    print("Reading tabfile... Done.")
-                    stop = time.time()
-                    print( "READ TIME: %.3f" % (stop-start,) )        
+                        info2 = os.stat( resultfile )
+                        lastmodf2 = datetime.datetime.fromtimestamp( info2.st_mtime )
+                        
+                        imageWellsIsNewer = lastmodf1 > lastmodf2
+                    except:
+                        pass
 
+                    if imageWellsIsNewer:
+                        print("Reading tabfile...")
+                        start = time.time()
+                        f = io.open(tabfile, "r", encoding="utf-8")
+                        lines = f.readlines()
+                        f.close()
+                        filetuples = []
 
+                        for line in lines:
+                            path, filesize, lastmodified, mode, islink, w0, h0 = line.split( u"\t" )
+                            filesize = int(filesize)
+                            islink = bool(islink)
+                            w0 = int(w0)
+                            h0 = int(h0)
+                            if os.path.exists( path ):
+                                filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
+
+                        fileLoaded = True
+                        print("%i records loaded from tabfile." % len(filetuples))
+                        print("Reading tabfile... Done.")
+                        stop = time.time()
+                        print( "READ TIME: %.3f" % (stop-start,) )        
 
     # get all images from user image wells
     folders = []
@@ -2210,7 +2227,6 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
             filetuples.append( item )
         stop = time.time()
         print("FOLDER SCAN TIME: %.3f" % (stop-start,))
-
 
     if kwdbg:
         print("File loop...")
@@ -2312,7 +2328,6 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
         else:
             result['portrait'].append( record )
 
-
     if kwdbg:
         print("File loop... Done.")
 
@@ -2346,44 +2361,6 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
             stop = time.time()
             print("WRITE TIME: %.3f" % (stop-start,) )        
 
-
     return result
-
-
-#
-# Image Sectors
-#
-
-class TiledImage(object):
-    ""
-    def __init__(self, tilesize, wtiles, htiles):
-        self.tilesize = int( self.tilesize )
-        self.wtiles = int( self.wtiles )
-        self.htiles = int( self.htiles )
-        tiles = self.wtiles * self.htiles 
-        self.tilebam = [ 0 ] * tiles
-
-        self.w = tilesize * wtiles
-        self.h = tilesize * htiles
-
-        self.img = None
-        self.layout = []
-        
-
-    def makeimage( self ):
-        pass
-
-
-    def makelayout( self ):
-        pass
-
-
-
-class Layout( object ):
-    ""
-    def __init__(self):
-        pass
-
-
 
 
