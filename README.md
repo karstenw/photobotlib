@@ -85,7 +85,7 @@ If a folder does not exist, it will be ignored. The idea is to put your own imag
 
 
 
-##### The parameters for loadImageWell are as follows: #####
+#### The parameters for loadImageWell are as follows: ####
 
 - bgsize=(w,h) - a tuple marking the size at which a image is designated 'background'. Usually the canvas size.
 
@@ -100,7 +100,7 @@ If a folder does not exist, it will be ignored. The idea is to put your own imag
 - ignoreFolderNames=('folder',) - a list of folder names. If a scanned folder STARTS with a name from that list, it will be ignored.
 
 
-##### The resulting dictionary contains the following keys: #####
+#### The resulting dictionary contains the following keys: ####
 
 
 - allimages - a list of all images
@@ -124,5 +124,67 @@ If a folder does not exist, it will be ignored. The idea is to put your own imag
 The items of each image list key will depend on the `pathonly` parameter.
 
 
+### Examples ###
+
+See "examples/Example collage *.py"
+
+![](./demo-images/photobot_2021-06-10_144446.png?raw=True)
+
+![](./demo-images/photobot_2021-06-10_144727.png?raw=True)
+
+![](./demo-images/photobot_2021-06-10_144808.png?raw=True)
+
+
+See "examples/Layer\_function\_*.py"
+
+![](./demo-images/Layer_function_add_modulo.png?raw=True)
+
+![](./demo-images/Layer_function_add.png?raw=True)
+
+![](./demo-images/Layer_function_autocontrast.png?raw=True)
+
+![](./demo-images/Layer_function_boxblur.png?raw=True)
+
+![](./demo-images/Layer_function_brightness.png?raw=True)
+
+![](./demo-images/Layer_function_color.png?raw=True)
+
+![](./demo-images/Layer_function_contour.png?raw=True)
+
+![](./demo-images/Layer_function_contrast.png?raw=True)
+
+![](./demo-images/Layer_function_difference.png?raw=True)
+
+![](./demo-images/Layer_function_emboss.png?raw=True)
+
+![](./demo-images/Layer_function_enhance_more.png?raw=True)
+
+![](./demo-images/Layer_function_enhance.png?raw=True)
+
+![](./demo-images/Layer_function_find_edges.png?raw=True)
+
+![](./demo-images/Layer_function_flip.png?raw=True)
+
+![](./demo-images/Layer_function_hue.png?raw=True)
+
+![](./demo-images/Layer_function_mask.png?raw=True)
+
+![](./demo-images/Layer_function_multiply.png?raw=True)
+
+![](./demo-images/Layer_function_opacity.png?raw=True)
+
+![](./demo-images/Layer_function_overlay.png?raw=True)
+
+![](./demo-images/Layer_function_posterize.png?raw=True)
+
+![](./demo-images/Layer_function_screen.png?raw=True)
+
+![](./demo-images/Layer_function_select.png?raw=True)
+
+![](./demo-images/Layer_function_solarize.png?raw=True)
+
+![](./demo-images/Layer_function_subtract_modulo.png?raw=True)
+
+![](./demo-images/Layer_function_subtract.png?raw=True)
 
 
