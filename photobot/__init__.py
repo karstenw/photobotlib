@@ -1697,6 +1697,7 @@ class Pixels:
 #
 # nodebox & standalone pillow tools
 #
+
 def makeunicode(s, srcencoding="utf-8", normalizer="NFC"):
     typ = type(s)
     
@@ -1759,6 +1760,10 @@ def datestring(dt = None, dateonly=False, nospaces=True, nocolons=True):
     return now
 
 
+#
+# image tools section
+#
+
 def invertimage( img ):
     # alpha = img.split()[3]
     alpha = img.getchannel("A")
@@ -1775,6 +1780,14 @@ def cropimage( img, bounds):
     
     """
     return img.crop( bounds )
+
+
+def splitimage( img, hor=1, vert=1):
+    """Split a PIL image hor times horizontally and vert times vertically.
+    
+    Return a (hor+1) * (vert+1) list with images.
+    """
+    pass
 
 
 def aspectRatio(size, maxsize, height=False, width=False, assize=False):
@@ -1909,6 +1922,10 @@ def normalizeOrientationImage( img ):
     return img
 
 
+#
+# text section
+#
+
 def label( canvas, string, x, y, fontsize=18, fontpath="" ):
     """Needs to be written...
 
@@ -1947,6 +1964,10 @@ def label( canvas, string, x, y, fontsize=18, fontpath="" ):
     canvas.layer( mask )
     canvas.top.mask()
 
+
+#
+# folderscanner section
+#
 
 def filelist( folderpathorlist, pathonly=True ):
     """Walk a folder or a list of folders and return
@@ -2032,7 +2053,7 @@ def imagefiles( folderpathorlist, pathonly=True ):
 
 
 #
-# image well
+# image well section
 #
 
 def getImageWellsFile():
@@ -2160,11 +2181,11 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
     imagecount = 0
     filetuples = []
 
-
     fileLoaded = False
 
     imageWellsFile = getImageWellsFile()
     imageTabsfileIsNewer = False
+
 
     # pdb.set_trace()
     if ignorelibs == False:

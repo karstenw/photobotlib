@@ -12,7 +12,7 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
+<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
 <v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
@@ -62,7 +62,7 @@
 <v t="karstenw.20170709210125.30"><vh>select</vh></v>
 <v t="karstenw.20170709210125.31"><vh>mask</vh></v>
 <v t="karstenw.20170709210125.32"><vh>duplicate</vh></v>
-<v t="karstenw.20170727231803.1" a="E"><vh>BLENDS</vh>
+<v t="karstenw.20170727231803.1"><vh>BLENDS</vh>
 <v t="karstenw.20170709210125.33"><vh>opacity</vh></v>
 <v t="karstenw.20170709210125.34"><vh>multiply</vh></v>
 <v t="karstenw.20200419182817.1"><vh>add</vh></v>
@@ -125,7 +125,7 @@
 <v t="karstenw.20170709210125.64"><vh>convolute</vh></v>
 </v>
 </v>
-<v t="karstenw.20200419183424.1"><vh>Tools</vh>
+<v t="karstenw.20200419183424.1" a="E"><vh>Nodebox &amp; standalone pillow tools</vh>
 <v t="karstenw.20200419185608.1"><vh>makeunicode</vh></v>
 <v t="karstenw.20210603134137.1"><vh>uniquepath</vh></v>
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
@@ -134,7 +134,8 @@
 <v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
-<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
+<v t="karstenw.20210612104640.1"><vh>splitimage</vh></v>
+<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
@@ -145,7 +146,7 @@
 </v>
 <v t="karstenw.20170709210125.66"><vh>normalizeOrientationImage</vh></v>
 </v>
-<v t="karstenw.20210301171559.1"><vh>Text</vh>
+<v t="karstenw.20210301171559.1" a="E"><vh>Text</vh>
 <v t="karstenw.20200419184336.1"><vh>label</vh></v>
 </v>
 <v t="karstenw.20210301171611.1" a="E"><vh>Folderscanner</vh>
@@ -158,7 +159,7 @@
 <v t="karstenw.20210315131908.1"><vh>Imagecollection</vh>
 <v t="karstenw.20210316194210.1"><vh>&lt;&lt; class doc &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20200419185716.1" a="E"><vh>loadImageWell</vh>
+<v t="karstenw.20200419185716.1"><vh>loadImageWell</vh>
 <v t="karstenw.20210611114959.1"><vh>&lt;&lt; functioncomment &gt;&gt;</vh></v>
 <v t="karstenw.20210315130855.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210611112926.1"><vh>&lt;&lt; check file dates &gt;&gt;</vh></v>
@@ -187,7 +188,7 @@
 <v t="karstenw.20210316200115.1"><vh>&lt;&lt; paint texture &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
+<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -198,7 +199,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
+<v t="karstenw.20210316195906.1" a="E"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -225,7 +226,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
+<v t="karstenw.20210317152433.1" a="E"><vh>@clean examples/Example collage 3.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -234,7 +235,7 @@
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
-<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -1782,6 +1783,7 @@ def smooth_more(self):
 <t tx="karstenw.20200419183424.1">#
 # nodebox &amp; standalone pillow tools
 #
+
 </t>
 <t tx="karstenw.20200419184336.1">def label( canvas, string, x, y, fontsize=18, fontpath="" ):
     """Needs to be written...
@@ -2059,11 +2061,6 @@ def smooth_more(self):
 
     &lt;&lt; init &gt;&gt;
 
-    fileLoaded = False
-
-    imageWellsFile = getImageWellsFile()
-    imageTabsfileIsNewer = False
-
     # pdb.set_trace()
     if ignorelibs == False:
         if not additionals:
@@ -2095,7 +2092,7 @@ def smooth_more(self):
 
 </t>
 <t tx="karstenw.20200419205343.1">#
-# image well
+# image well section
 #
 
 </t>
@@ -2362,7 +2359,11 @@ c.fill( (85,85,85) )
 
 
 </t>
-<t tx="karstenw.20201022144341.1"></t>
+<t tx="karstenw.20201022144341.1">#
+# image tools section
+#
+
+</t>
 <t tx="karstenw.20201022144702.1">def innerRect( w0, h0, w1, h1):
     """Create an inner size crop rect (0,0,w1,h1) + translation
     """
@@ -2387,8 +2388,16 @@ c.fill( (85,85,85) )
 
 </t>
 <t tx="karstenw.20210301171313.1"></t>
-<t tx="karstenw.20210301171559.1"></t>
-<t tx="karstenw.20210301171611.1"></t>
+<t tx="karstenw.20210301171559.1">#
+# text section
+#
+
+</t>
+<t tx="karstenw.20210301171611.1">#
+# folderscanner section
+#
+
+</t>
 <t tx="karstenw.20210301171902.1">if type(w) == float:
     w *= self.w
 if type(h) == float:
@@ -2713,6 +2722,11 @@ medianw, medianh = 0,0
 slope = 1.0
 imagecount = 0
 filetuples = []
+
+fileLoaded = False
+
+imageWellsFile = getImageWellsFile()
+imageTabsfileIsNewer = False
 
 </t>
 <t tx="karstenw.20210315131220.1"># get all images from user image wells
@@ -3827,6 +3841,15 @@ Returns:
     list of file paths if pathonly is True
     list of file records else.
 """
+</t>
+<t tx="karstenw.20210612104640.1">def splitimage( img, hor=1, vert=1):
+    """Split a PIL image hor times horizontally and vert times vertically.
+    
+    Return a (hor+1) * (vert+1) list with images.
+    """
+    pass
+
+
 </t>
 </tnodes>
 </leo_file>
