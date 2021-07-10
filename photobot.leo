@@ -12,7 +12,7 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
+<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
 <v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
@@ -125,17 +125,17 @@
 <v t="karstenw.20170709210125.64"><vh>convolute</vh></v>
 </v>
 </v>
-<v t="karstenw.20200419183424.1" a="E"><vh>Nodebox &amp; standalone pillow tools</vh>
+<v t="karstenw.20200419183424.1"><vh>Nodebox &amp; standalone pillow tools</vh>
 <v t="karstenw.20200419185608.1"><vh>makeunicode</vh></v>
 <v t="karstenw.20210603134137.1"><vh>uniquepath</vh></v>
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 </v>
-<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitimage</vh></v>
-<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
+<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
@@ -146,14 +146,14 @@
 </v>
 <v t="karstenw.20170709210125.66"><vh>normalizeOrientationImage</vh></v>
 </v>
-<v t="karstenw.20210301171559.1" a="E"><vh>Text</vh>
+<v t="karstenw.20210301171559.1"><vh>Text</vh>
 <v t="karstenw.20200419184336.1"><vh>label</vh></v>
 </v>
-<v t="karstenw.20210301171611.1" a="E"><vh>Folderscanner</vh>
+<v t="karstenw.20210301171611.1"><vh>Folderscanner</vh>
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
 </v>
-<v t="karstenw.20200419205343.1" a="E"><vh>ImageWell</vh>
+<v t="karstenw.20200419205343.1"><vh>ImageWell</vh>
 <v t="karstenw.20210611105714.1"><vh>getImageWellsFile</vh></v>
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
 <v t="karstenw.20210315131908.1"><vh>Imagecollection</vh>
@@ -176,8 +176,8 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 <v t="karstenw.20210331155153.1"><vh>shuffle tiles</vh></v>
@@ -188,7 +188,7 @@
 <v t="karstenw.20210316200115.1"><vh>&lt;&lt; paint texture &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a.py</vh>
+<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -199,7 +199,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210316195906.1" a="E"><vh>@clean examples/Example collage 1b.py</vh>
+<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -226,7 +226,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152433.1" a="E"><vh>@clean examples/Example collage 3.py</vh>
+<v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -235,7 +235,7 @@
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
-<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -445,7 +445,7 @@ except NameError:
         w = min(background.w, layer.x+layer.w)
         h = min(background.h, layer.y+layer.h)
     
-        base = background.img.crop( (x, y, w, h) )
+        baseimage = background.img.crop( (x, y, w, h) )
 
         # Determine which piece of the layer
         # falls within the canvas.
@@ -455,8 +455,8 @@ except NameError:
         w -= layer.x
         h -= layer.y
 
-        blend = layer.img.crop( (x, y, w, h) )
-        lblend = blend.convert("L")
+        blendimage = layer.img.crop( (x, y, w, h) )
+        lblend = blendimage.convert("L")
         bwblend = lblend.convert("1")
 
         # Buffer layer blend modes:
@@ -465,41 +465,41 @@ except NameError:
         # on which to merge this blended layer.
     
         if layer.blend == NORMAL:
-            buffer = blend
+            buffimage = blendimage
         elif layer.blend == MULTIPLY:
-            buffer = ImageChops.multiply(base, blend)
+            buffimage = ImageChops.multiply(baseimage, blendimage)
         elif layer.blend == SCREEN:
-            buffer = ImageChops.screen(base, blend)
+            buffimage = ImageChops.screen(baseimage, blendimage)
         elif layer.blend == OVERLAY:
-            buffer = Blend().overlay(base, blend)
+            buffimage = Blend().overlay(baseimage, blendimage)
         elif layer.blend == HUE:
-            buffer = Blend().hue(base, blend)
+            buffimage = Blend().hue(baseimage, blendimage)
         elif layer.blend == COLOR:
-            buffer = Blend().color(base, blend)
+            buffimage = Blend().color(baseimage, blendimage)
         elif layer.blend == ADD:
-            buffer = ImageChops.add(base, blend)
+            buffimage = ImageChops.add(baseimage, blendimage)
 
         elif layer.blend == SUBTRACT:
-            img1 = base.convert("RGB")
-            img2 = blend.convert("RGB")
-            buffer = ImageChops.subtract(img1, img2)
-            buffer = buffer.convert("RGBA")
+            img1 = baseimage.convert("RGB")
+            img2 = blendimage.convert("RGB")
+            buffimage = ImageChops.subtract(img1, img2)
+            buffimage = buffimage.convert("RGBA")
             del img1, img2
-            # buffer = ImageChops.subtract(base, blend)
-            # buffer = Blend().subtract(base, blend)
+            # buffimage = ImageChops.subtract(baseimage, blendimage)
+            # buffimage = Blend().subtract(baseimage, blendimage)
 
         elif layer.blend == ADD_MODULO:
-            buffer = ImageChops.add_modulo(base, blend)
+            buffimage = ImageChops.add_modulo(baseimage, blendimage)
 
         elif layer.blend == SUBTRACT_MODULO:
-            buffer = Blend().subtract_modulo(base, blend)
+            buffimage = Blend().subtract_modulo(baseimage, blendimage)
 
         elif layer.blend == DIFFERENCE:
-            # buffer = ImageChops.difference(base, blend)
-            img1 = base.convert("RGB")
-            img2 = blend.convert("RGB")
-            buffer = ImageChops.difference(img1, img2)
-            buffer = buffer.convert("RGBA")
+            # buffimage = ImageChops.difference(baseimage, blendimage)
+            img1 = baseimage.convert("RGB")
+            img2 = blendimage.convert("RGB")
+            buffimage = ImageChops.difference(img1, img2)
+            buffimage = buffimage.convert("RGBA")
             del img1, img2
         
         # Buffer a merge between the base and blend
@@ -509,34 +509,40 @@ except NameError:
         # Merging the first layer to the transparent canvas
         # works slightly different than the other layers.
 
-        # alpha = buffer.split()[3]
-        alpha = buffer.getchannel("A")
-        basealpha = base.getchannel("A")
+        # buffalpha = buffimage.split()[3]
+        buffalpha = buffimage.getchannel("A")
+        basealpha = baseimage.getchannel("A")
         if i == 1:
-            buffer = Image.composite(base, buffer, basealpha)
+            buffimage = Image.composite(baseimage, buffimage, basealpha)
         else:
-            buffer = Image.composite(buffer, base, alpha)
+            buffimage = Image.composite(buffimage, baseimage, buffalpha)
     
         # The alpha channel becomes a composite of this layer and the base:
         # the base's (optional) tranparent background
         # is retained in arrays where the blend layer
         # is transparent as well.
     
-        alpha = ImageChops.lighter(alpha, basealpha) #base.split()[3])
-        buffer.putalpha(alpha)
+        buffalpha = ImageChops.lighter(buffalpha, basealpha) #baseimage.split()[3])
+        try:
+            buffimage.putalpha(buffalpha)
+        except Exception as err:
+            if kwdbg:
+                pdb.set_trace()
+            # TBD This needs fixing
+            print("PILLOW ERROR:", err)
     
         # Apply the layer's opacity,
-        # merging the buffer to the base with
+        # merging the buff to the base with
         # the given layer opacity.
     
-        base = Image.blend(base, buffer, layer.alpha)
+        baseimage = Image.blend(baseimage, buffimage, layer.alpha)
 
         # Merge the base to the flattened canvas.
 
         x = max(0, int(layer.x))
         y = max(0, int(layer.y))
-        background.img.paste(base, (x,y))
-        del base, buffer, alpha, basealpha, blend
+        background.img.paste(baseimage, (x,y))
+        del baseimage, buffimage, buffalpha, basealpha, blendimage
 
     layers = list(layers)
     layers.reverse()
@@ -576,7 +582,7 @@ except NameError:
 
     self.flatten()
     self.layers[1].img.save(path, format=format, optimize=False)
-    if kwdbg:
+    if kwlog:
         print( "export() %s" % path.encode("utf-8") )
 
     if kwlog:
@@ -1095,27 +1101,30 @@ def equalize(self, mask=None):
     # Calculate the diagonal width, and angle from
     # the layer center.  This way we can use the
     # layers's corners to calculate the bounding box.
+    
+    
+    def mid( t1, t2, makeint=True ):
+        # calculate the middle between t1 and t2
+        return int(round( (t2-t1) / 2.0 ))
 
     w0, h0 = self.img.size
-    d = sqrt(pow(w0,2) + pow(h0,2))
-    d_angle = degrees(asin((w0*0.5) / (d*0.5)))
+    diag0 = sqrt(pow(w0,2) + pow(h0,2))
+    d_angle = degrees(asin((w0*0.5) / (diag0*0.5)))
 
     angle = angle % 360
     if (    angle &gt;   90
         and angle &lt;= 270):
         d_angle += 180
 
-    w = sin(radians(d_angle + angle)) * d
-    w = max(w, sin(radians(d_angle - angle)) * d)
+    w = sin(radians(d_angle + angle)) * diag0
+    w = max(w, sin(radians(d_angle - angle)) * diag0)
     w = int(abs(w))
 
-    h = cos(radians(d_angle + angle)) * d
-    h = max(h, cos(radians(d_angle - angle)) * d)
+    h = cos(radians(d_angle + angle)) * diag0
+    h = max(h, cos(radians(d_angle - angle)) * diag0)
     h = int(abs(h))
 
-    dx = int((w-w0) / 2)
-    dy = int((h-h0) / 2)
-    d = int(d)
+    diag1 = int(round(diag0))
 
     # The rotation box's background color
     # is the mean pixel value of the rotating image.
@@ -1125,18 +1134,24 @@ def equalize(self, mask=None):
     bg = ImageStat.Stat(self.img).mean
     bg = (int(bg[0]), int(bg[1]), int(bg[2]), 0)
 
-    box = Image.new("RGBA", (d,d), bg)
-    box.paste(self.img, ((d-w0)/2, (d-h0)/2))
+    box = Image.new("RGBA", (diag1,diag1), bg)
+    
+    dw02 = mid( w0, diag0 ) # (diag0-w0)/2
+    dh02 = mid( h0, diag0 ) # (diag0-h0)/2
+    box.paste(self.img, (dw02, dh02))
     box = box.rotate(angle, Image.BICUBIC)
-    box = box.crop(((d-w)/2+2, (d-h)/2, d-(d-w)/2, d-(d-h)/2))
+    
+    dw2 = mid(w, diag0) # int( (diag0-w) / 2.0 )
+    dh2 = mid(h, diag0) #int( (diag0-h) / 2.0 )
+    box = box.crop(( dw2+2, dh2, diag1-dw2, diag1-dh2))
     self.img = box
 
     # Since rotate changes the bounding box size,
     # update the layers' width, height, and position,
     # so it rotates from the center.
-
-    self.x += (self.w-w)/2
-    self.y += (self.h-h)/2
+    
+    self.x += mid( w, self.w ) # int( (self.w-w)/2.0 )
+    self.y += mid( h, self.h ) # int( (self.h-h)/2.0 )
     self.w = w
     self.h = h   
 
@@ -1932,7 +1947,7 @@ def smooth_more(self):
     for folder in folders:
         for root, dirs, files in os.walk( folder ):
             root = makeunicode( root )
-            if kwdbg:
+            if kwlog:
                 print (root.encode("utf-8"))
             for thefile in files:
                 thefile = makeunicode( thefile )
@@ -2075,12 +2090,12 @@ def smooth_more(self):
 
     &lt;&lt; read image folders &gt;&gt;
 
-    if kwdbg:
+    if kwlog:
         print("File loop...")
 
     &lt;&lt; file loop &gt;&gt;
 
-    if kwdbg:
+    if kwlog:
         print("File loop... Done.")
 
     &lt;&lt; accumulate stats &gt;&gt;
@@ -2196,12 +2211,16 @@ QUAD = "quad"
 <t tx="karstenw.20200430120922.1">if not name:
     name = "photobot_" + datestring()
 
+if os.sep in name:
+    name = os.path.abspath( os.path.expanduser( name ))
+
 folder, name = os.path.split( name )
 
 if not folder:
     folder = os.path.abspath( os.curdir )
     folder = os.path.join( folder, "exports" )
 folder = os.path.abspath( folder )
+
 
 filename = name + ext
 if name.endswith( ext ):
@@ -2218,7 +2237,8 @@ try:
 except:
     pass
 
-path = uniquepath(folder, name, ext, nfill=2, startindex=1, sep="_", always=unique)
+if unique or os.path.exists( path ):
+    path = uniquepath(folder, name, ext, nfill=2, startindex=1, sep="_", always=unique)
 
 </t>
 <t tx="karstenw.20200430120955.1"># if debugging is on export each layer separately
@@ -2296,6 +2316,7 @@ import sys, os
 import pprint
 pp = pprint.pprint
 kwdbg = 0
+kwlog = 0
 
 # need a different name for nodebox
 import random as rnd
@@ -2411,7 +2432,7 @@ if h &lt; 0:
 w = max(1,w)
 h = max(1,h)
 
-if kwdbg:
+if kwlog:
     print( (style, self.w,self.h,w,h) )
 
 if style not in (RADIALCOSINE,):
@@ -2950,7 +2971,7 @@ for j in range(rows):
         # c.layer returns the index of the top layer
         topidx = c.layer( nextpictpath )
         tilecounter += 1
-        if kwdbg or 1:
+        if kwlog or 1:
             print( "%i  -- %s" % (tilecounter, nextpictpath.encode("utf-8")) )
 
         # get current image bounds
@@ -2959,17 +2980,17 @@ for j in range(rows):
         # calculate scale &amp; apply
         s = pb.aspectRatio( (w,h), y_offset, height=True)
         c.top.scale(s, s)
-        if kwdbg:
+        if kwlog:
             print( "Scale" )
 
         # get current image bounds
         w, h = c.top.bounds()
 
         # create a random mask gradient for this tile
-        if kwdbg:
+        if kwlog:
             print( "Gradient" )
         libgradient.makerandomgradient( c, w, h, j*y_offset )
-        if kwdbg:
+        if kwlog:
             print( "Mask" )
         c.top.mask()
 
@@ -2977,19 +2998,19 @@ for j in range(rows):
         # P: 0.5 # flip the tile
         if randomblur:
             if rnd.random() &gt; 0.5:
-                if kwdbg or 1:
+                if kwlog or 1:
                     print( "Flip" )
                 c.top.flip()
 
         # P: 0.5 # add blur
         if randomflip:
             if rnd.random() &gt; 0.5:
-                if kwdbg or 1:
+                if kwlog or 1:
                     print( "Blur" )
                 c.top.blur()
 
         w, h = c.top.bounds()
-        if kwdbg:
+        if kwlog:
             print( "Translate" )
         c.top.translate(colw, j*y_offset)
         colw += w
@@ -3020,13 +3041,13 @@ is newer or imagewell.txt is newer than imagewell-files.pick.
 <t tx="karstenw.20210316200041.1">if gilb:
     # orange hue overlay finish
     # create new color layer
-    if kwdbg or 1:
+    if kwlog and 1:
         print("Orange gilb start")
     c.flatten()
     c.fill((200,100,0))
     c.top.opacity(30)
     c.top.hue()
-    if kwdbg or 1:
+    if kwlog and 1:
         print("Orange gilb end")
 
 </t>
@@ -3635,9 +3656,10 @@ c.draw(0,0)
 <t tx="karstenw.20210319153803.1"></t>
 <t tx="karstenw.20210319153818.1"></t>
 <t tx="karstenw.20210319153822.1"></t>
-<t tx="karstenw.20210331155153.1">if 1: #not kwdbg:
+<t tx="karstenw.20210331155153.1">if not kwdbg:
     turns = int( round(20 + (rnd.random() * 10)) )
-    print( "shuffle turns: %i" % turns )
+    if kwlog:
+        print( "shuffle turns: %i" % turns )
     for turn in range( turns ):
         rnd.shuffle(tiles)
         rnd.shuffle(backgrounds)
