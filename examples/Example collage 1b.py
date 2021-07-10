@@ -7,6 +7,7 @@ import sys, os
 import pprint
 pp = pprint.pprint
 kwdbg = 0
+kwlog = 0
 
 # need a different name for nodebox
 import random as rnd
@@ -68,9 +69,10 @@ c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (85,85,85) )
 
 
-if 1: #not kwdbg:
+if not kwdbg:
     turns = int( round(20 + (rnd.random() * 10)) )
-    print( "shuffle turns: %i" % turns )
+    if kwlog:
+        print( "shuffle turns: %i" % turns )
     for turn in range( turns ):
         rnd.shuffle(tiles)
         rnd.shuffle(backgrounds)

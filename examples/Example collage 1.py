@@ -7,6 +7,7 @@ import sys, os
 import pprint
 pp = pprint.pprint
 kwdbg = 0
+kwlog = 0
 
 # need a different name for nodebox
 import random as rnd
@@ -68,9 +69,10 @@ c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (85,85,85) )
 
 
-if 1: #not kwdbg:
+if not kwdbg:
     turns = int( round(20 + (rnd.random() * 10)) )
-    print( "shuffle turns: %i" % turns )
+    if kwlog:
+        print( "shuffle turns: %i" % turns )
     for turn in range( turns ):
         rnd.shuffle(tiles)
         rnd.shuffle(backgrounds)
@@ -112,7 +114,7 @@ for j in range(rows):
         # c.layer returns the index of the top layer
         topidx = c.layer( nextpictpath )
         tilecounter += 1
-        if kwdbg or 1:
+        if kwlog or 1:
             print( "%i  -- %s" % (tilecounter, nextpictpath.encode("utf-8")) )
 
         # get current image bounds
@@ -121,17 +123,17 @@ for j in range(rows):
         # calculate scale & apply
         s = pb.aspectRatio( (w,h), y_offset, height=True)
         c.top.scale(s, s)
-        if kwdbg:
+        if kwlog:
             print( "Scale" )
 
         # get current image bounds
         w, h = c.top.bounds()
 
         # create a random mask gradient for this tile
-        if kwdbg:
+        if kwlog:
             print( "Gradient" )
         libgradient.makerandomgradient( c, w, h, j*y_offset )
-        if kwdbg:
+        if kwlog:
             print( "Mask" )
         c.top.mask()
 
@@ -139,19 +141,19 @@ for j in range(rows):
         # P: 0.5 # flip the tile
         if randomblur:
             if rnd.random() > 0.5:
-                if kwdbg or 1:
+                if kwlog or 1:
                     print( "Flip" )
                 c.top.flip()
 
         # P: 0.5 # add blur
         if randomflip:
             if rnd.random() > 0.5:
-                if kwdbg or 1:
+                if kwlog or 1:
                     print( "Blur" )
                 c.top.blur()
 
         w, h = c.top.bounds()
-        if kwdbg:
+        if kwlog:
             print( "Translate" )
         c.top.translate(colw, j*y_offset)
         colw += w
@@ -159,13 +161,13 @@ for j in range(rows):
 if gilb:
     # orange hue overlay finish
     # create new color layer
-    if kwdbg or 1:
+    if kwlog and 1:
         print("Orange gilb start")
     c.flatten()
     c.fill((200,100,0))
     c.top.opacity(30)
     c.top.hue()
-    if kwdbg or 1:
+    if kwlog and 1:
         print("Orange gilb end")
 
 
