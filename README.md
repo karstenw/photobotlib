@@ -19,8 +19,23 @@ Since 2013 it has been updated to the current Python 2/3 and Pillow libraries.
 This version works standalone with Python2.7, Python3.8 and is identical to the current NodeBox Library version.
 
 
-
 #### Fundamental changes ####
+
+`canvas.draw()` has a double functionality. In Nodebox1 it places the result in the content section of the document window.
+
+The image is also written out to a folder "exports" with a name like "photobot_YYYY-MM-DD_HHMMSS.png" using the current datetimestamp.
+
+If run from the Terminal, only the exports part is done.
+
+If the exports folder does not fit your needs use canvas.export() as follows:
+
+`cv.export( name="/Full/Path/to/image.png", ext=".png", format="PNG" )`
+
+Extension and format follow [Pillow]() rules
+
+
+
+#### New functions & properties ####
 
 - property `canvas.top` adresses the top layer
 
