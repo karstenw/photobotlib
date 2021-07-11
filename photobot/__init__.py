@@ -2076,11 +2076,11 @@ def imagefiles( folderpathorlist, pathonly=True ):
 # image well section
 #
 
-def getImageWellsFile():
-    return os.path.abspath( "imagewell.txt" )
+def getImageWellsFile( imagewellsfile="imagewell.txt" ):
+    return os.path.abspath( imagewellsfile )
 
 
-def imagewells():
+def imagewells( imagewellsfile="imagewell.txt" ):
     """Find a file named "imagewell.txt" and interpret it as image folder paths.
     If no file is found create one with the desktop image folders for
     mac & win10.
@@ -2100,7 +2100,7 @@ def imagewells():
     images = os.path.abspath( "images" )
     if os.path.exists( images ):
         folders.append( images )
-    fullpath = getImageWellsFile()
+    fullpath = getImageWellsFile( imagewellsfile )
     
     if not os.path.exists( fullpath ):
         try:
@@ -2142,6 +2142,7 @@ class Imagecollection(object):
 def loadImageWell( bgsize=(1024,768), minsize=(256,256),
                    maxfilesize=100000000, maxpixellength=16000,
                    pathonly=True, additionals=None, ignorelibs=False,
+                   imagewellsfile="imagewell.txt",
                    resultfile=False, ignoreFolderNames=None):
 
     """
@@ -2203,7 +2204,7 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
     fileLoaded = False
 
-    imageWellsFile = getImageWellsFile()
+    imageWellsFile = getImageWellsFile( imagewellsfile )
     imageTabsfileIsNewer = False
 
 

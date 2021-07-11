@@ -153,13 +153,13 @@
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
 </v>
-<v t="karstenw.20200419205343.1"><vh>ImageWell</vh>
+<v t="karstenw.20200419205343.1" a="E"><vh>ImageWell</vh>
 <v t="karstenw.20210611105714.1"><vh>getImageWellsFile</vh></v>
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
 <v t="karstenw.20210315131908.1"><vh>Imagecollection</vh>
 <v t="karstenw.20210316194210.1"><vh>&lt;&lt; class doc &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20200419185716.1"><vh>loadImageWell</vh>
+<v t="karstenw.20200419185716.1" a="E"><vh>loadImageWell</vh>
 <v t="karstenw.20210611114959.1"><vh>&lt;&lt; functioncomment &gt;&gt;</vh></v>
 <v t="karstenw.20210315130855.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210611112926.1"><vh>&lt;&lt; check file dates &gt;&gt;</vh></v>
@@ -1539,7 +1539,7 @@ def canvas(w, h):
 
 
 </t>
-<t tx="karstenw.20170709210125.67">def imagewells():
+<t tx="karstenw.20170709210125.67">def imagewells( imagewellsfile="imagewell.txt" ):
     """Find a file named "imagewell.txt" and interpret it as image folder paths.
     If no file is found create one with the desktop image folders for
     mac &amp; win10.
@@ -1559,7 +1559,7 @@ def canvas(w, h):
     images = os.path.abspath( "images" )
     if os.path.exists( images ):
         folders.append( images )
-    fullpath = getImageWellsFile()
+    fullpath = getImageWellsFile( imagewellsfile )
     
     if not os.path.exists( fullpath ):
         try:
@@ -2070,6 +2070,7 @@ def smooth_more(self):
 <t tx="karstenw.20200419185716.1">def loadImageWell( bgsize=(1024,768), minsize=(256,256),
                    maxfilesize=100000000, maxpixellength=16000,
                    pathonly=True, additionals=None, ignorelibs=False,
+                   imagewellsfile="imagewell.txt",
                    resultfile=False, ignoreFolderNames=None):
 
     &lt;&lt; functioncomment &gt;&gt;
@@ -2746,7 +2747,7 @@ filetuples = []
 
 fileLoaded = False
 
-imageWellsFile = getImageWellsFile()
+imageWellsFile = getImageWellsFile( imagewellsfile )
 imageTabsfileIsNewer = False
 
 </t>
@@ -3816,8 +3817,8 @@ c.top.contrast(1.1)
 
 
 </t>
-<t tx="karstenw.20210611105714.1">def getImageWellsFile():
-    return os.path.abspath( "imagewell.txt" )
+<t tx="karstenw.20210611105714.1">def getImageWellsFile( imagewellsfile="imagewell.txt" ):
+    return os.path.abspath( imagewellsfile )
 
 
 </t>
