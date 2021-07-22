@@ -12,8 +12,8 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
+<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
+<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -32,6 +32,7 @@
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
+<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
 <v t="karstenw.20170709210125.13"><vh>export</vh>
@@ -39,18 +40,21 @@
 <v t="karstenw.20200430120955.1"><vh>&lt;&lt;debug&gt;&gt;</vh></v>
 </v>
 <v t="karstenw.20170709210125.14"><vh>draw</vh></v>
+</v>
 <v t="karstenw.20170709210125.15"><vh>preferences</vh></v>
 <v t="karstenw.20200430120743.1"><vh>STACK OPS</vh>
 <v t="karstenw.20170710142919.1"><vh>top</vh></v>
+<v t="karstenw.20210722112454.1"><vh>topindex</vh></v>
 <v t="karstenw.20200430124808.1"><vh>dup</vh></v>
 </v>
+<v t="karstenw.20210722112739.1"><vh>copy</vh></v>
 </v>
 <v t="karstenw.20170709210125.17"><vh>class Layers</vh>
 <v t="karstenw.20170709210125.18"><vh>__getitem__</vh></v>
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -2281,14 +2285,6 @@ for i in layers:
     print( "export() DBG: '%s'" % path.encode("utf-8") )
 </t>
 <t tx="karstenw.20200430124808.1">@property
-def topindex(self):
-    """get index of top layer.
-    
-    """
-    return len(self.layers)-1
-
-
-@property
 def dup(self):
     """Duplicate top layer/stackelement.
     
@@ -3872,6 +3868,36 @@ Returns:
     """
     pass
 
+
+</t>
+<t tx="karstenw.20210722112454.1">@property
+def topindex(self):
+    """get index of top layer.
+    
+    """
+    return len(self.layers)-1
+
+
+</t>
+<t tx="karstenw.20210722112540.1"></t>
+<t tx="karstenw.20210722112739.1">def copy(self):
+    
+    """Returns a copy of the canvas.
+    
+    """
+    
+    canvas = Canvas(None, self.img.copy(), self.x, self.y, self.name)
+
+
+    canvas = self.interpolation = INTERPOLATION
+    canvas.layers = Layers()
+    canvas.w = self.w
+    canvas.h = self.h
+    for layer in self.layers:
+        layercopy = layer.copy()
+        canvas.layer( layercopy )
+    
+    return canvas
 
 </t>
 </tnodes>

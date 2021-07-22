@@ -799,6 +799,25 @@ class Canvas:
         self.layers.append( layer )
         return self.top
 
+    def copy(self):
+        
+        """Returns a copy of the canvas.
+        
+        """
+        
+        canvas = Canvas(None, self.img.copy(), self.x, self.y, self.name)
+
+
+        canvas = self.interpolation = INTERPOLATION
+        canvas.layers = Layers()
+        canvas.w = self.w
+        canvas.h = self.h
+        for layer in self.layers:
+            layercopy = layer.copy()
+            canvas.layer( layercopy )
+        
+        return canvas
+
 
 def canvas(w, h):
     return Canvas(w, h)
