@@ -17,7 +17,7 @@
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
-<v t="karstenw.20170709210125.9"><vh>makegradientimage</vh>
+<v t="karstenw.20170709210125.9" a="E"><vh>makegradientimage</vh>
 <v t="karstenw.20210301171902.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172848.1"><vh>&lt;&lt; solid &gt;&gt;</vh></v>
 <v t="karstenw.20210301172906.1"><vh>&lt;&lt; linear &gt;&gt;</vh></v>
@@ -26,7 +26,7 @@
 <v t="karstenw.20210301172931.1"><vh>&lt;&lt; diamond &gt;&gt;</vh></v>
 <v t="karstenw.20210301172939.1"><vh>&lt;&lt; sine cosine &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20170709210125.10"><vh>gradient</vh>
+<v t="karstenw.20170709210125.10" a="E"><vh>gradient</vh>
 <v t="karstenw.20210301172109.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172149.1"><vh>&lt;&lt; one Image gradients &gt;&gt;</vh></v>
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
@@ -49,7 +49,7 @@
 </v>
 <v t="karstenw.20210722112739.1"><vh>copy</vh></v>
 </v>
-<v t="karstenw.20170709210125.17"><vh>class Layers</vh>
+<v t="karstenw.20170709210125.17" a="E"><vh>class Layers</vh>
 <v t="karstenw.20170709210125.18"><vh>__getitem__</vh></v>
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
@@ -66,7 +66,7 @@
 <v t="karstenw.20170709210125.30"><vh>select</vh></v>
 <v t="karstenw.20170709210125.31"><vh>mask</vh></v>
 <v t="karstenw.20170709210125.32"><vh>duplicate</vh></v>
-<v t="karstenw.20170727231803.1"><vh>BLENDS</vh>
+<v t="karstenw.20170727231803.1" a="E"><vh>BLENDS</vh>
 <v t="karstenw.20170709210125.33"><vh>opacity</vh></v>
 <v t="karstenw.20170709210125.34"><vh>multiply</vh></v>
 <v t="karstenw.20200419182817.1"><vh>add</vh></v>
@@ -79,7 +79,7 @@
 <v t="karstenw.20170709210125.37"><vh>hue</vh></v>
 <v t="karstenw.20170709210125.38"><vh>color</vh></v>
 </v>
-<v t="karstenw.20170727231827.1"><vh>INTENSITIES</vh>
+<v t="karstenw.20170727231827.1" a="E"><vh>INTENSITIES</vh>
 <v t="karstenw.20170709210125.39"><vh>brightness</vh></v>
 <v t="karstenw.20170709210125.40"><vh>contrast</vh></v>
 <v t="karstenw.20170709210125.41"><vh>desaturate</vh></v>
@@ -94,7 +94,7 @@
 <v t="karstenw.20170709210125.48"><vh>flip</vh></v>
 <v t="karstenw.20170727233343.1"><vh>crop</vh></v>
 </v>
-<v t="karstenw.20200421172034.1"><vh>FILTERS</vh>
+<v t="karstenw.20200421172034.1" a="E"><vh>FILTERS</vh>
 <v t="karstenw.20170727232434.1"><vh>autocontrast</vh></v>
 <v t="karstenw.20170709210125.49"><vh>blur</vh></v>
 <v t="karstenw.20200421172500.1"><vh>new boxblur</vh></v>
@@ -112,7 +112,7 @@
 <v t="karstenw.20170709210125.51"><vh>statistics</vh></v>
 <v t="karstenw.20170709210125.52"><vh>levels</vh></v>
 </v>
-<v t="karstenw.20170709210125.53"><vh>class Blend</vh>
+<v t="karstenw.20170709210125.53" a="E"><vh>class Blend</vh>
 <v t="karstenw.20210301161622.1"><vh>subtract</vh></v>
 <v t="karstenw.20210301161642.1"><vh>subtract_modulo</vh></v>
 <v t="karstenw.20170709210125.54"><vh>overlay</vh></v>
@@ -135,11 +135,11 @@
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 </v>
-<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitimage</vh></v>
-<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
+<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
@@ -157,13 +157,13 @@
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
 </v>
-<v t="karstenw.20200419205343.1"><vh>ImageWell</vh>
+<v t="karstenw.20200419205343.1" a="E"><vh>ImageWell</vh>
 <v t="karstenw.20210611105714.1"><vh>getImageWellsFile</vh></v>
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
 <v t="karstenw.20210315131908.1"><vh>Imagecollection</vh>
 <v t="karstenw.20210316194210.1"><vh>&lt;&lt; class doc &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20200419185716.1"><vh>loadImageWell</vh>
+<v t="karstenw.20200419185716.1" a="E"><vh>loadImageWell</vh>
 <v t="karstenw.20210611114959.1"><vh>&lt;&lt; functioncomment &gt;&gt;</vh></v>
 <v t="karstenw.20210315130855.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210611112926.1"><vh>&lt;&lt; check file dates &gt;&gt;</vh></v>
@@ -344,7 +344,7 @@ import pdb
 import pprint
 pp = pprint.pprint
 kwdbg = 0
-kwlog = 0
+kwlog = 1
 import traceback
 
 # py3 stuff
@@ -361,6 +361,7 @@ except NameError:
     py3 = True
     punichr = chr
     long = int
+    xrange = range
 
 
 </t>
@@ -543,9 +544,9 @@ except NameError:
 
         # Merge the base to the flattened canvas.
 
-        x = max(0, int(layer.x))
-        y = max(0, int(layer.y))
-        background.img.paste(baseimage, (x,y))
+        x = max(0, int( round( layer.x )) )
+        y = max(0, int( round( layer.y )) )
+        background.img.paste(baseimage, (x,y) )
         del baseimage, buffimage, buffalpha, basealpha, blendimage
 
     layers = list(layers)
@@ -568,7 +569,8 @@ except NameError:
         print("Canvas.flatten( %s ) in %.3fsec." % (repr(layers), stop-start))
 
 </t>
-<t tx="karstenw.20170709210125.13">def export(self, name, ext=".png", format="PNG", unique=False):
+<t tx="karstenw.20170709210125.13">
+def export(self, name, ext=".png", format="PNG", unique=False):
 
     """Exports the flattened canvas.
 
@@ -1060,9 +1062,9 @@ def equalize(self, mask=None):
     """
     w0, h0 = self.img.size
     if type(w) == float:
-        w = int( round(w*w0) )
+        w = int( round( w*w0 ) )
     if type(h) == float:
-        h = int( round(h*h0) )
+        h = int( round( h*h0 ) )
     self.img = self.img.resize((w,h), resample=LANCZOS)
     self.w = w
     self.h = h
@@ -1109,7 +1111,7 @@ def equalize(self, mask=None):
     
     def mid( t1, t2, makeint=True ):
         # calculate the middle between t1 and t2
-        return int(round( (t2-t1) / 2.0 ))
+        return int( round( (t2-t1) / 2.0 ))
 
     w0, h0 = self.img.size
     diag0 = sqrt(pow(w0,2) + pow(h0,2))
@@ -1122,13 +1124,13 @@ def equalize(self, mask=None):
 
     w = sin(radians(d_angle + angle)) * diag0
     w = max(w, sin(radians(d_angle - angle)) * diag0)
-    w = int(abs(w))
+    w = int( round( abs(w) )) 
 
     h = cos(radians(d_angle + angle)) * diag0
     h = max(h, cos(radians(d_angle - angle)) * diag0)
-    h = int(abs(h))
+    h = int( round( abs(h) ))
 
-    diag1 = int(round(diag0))
+    diag1 = int( round( diag0 ))
 
     # The rotation box's background color
     # is the mean pixel value of the rotating image.
@@ -1261,8 +1263,8 @@ def canvas(w, h):
 
     """
 
-    p1 = list(img1.getdata())
-    p2 = list(img2.getdata())
+    p1 = list( img1.getdata() )
+    p2 = list( img2.getdata() )
 
     for i in range(len(p1)):
     
@@ -1276,14 +1278,14 @@ def canvas(w, h):
             # take the alpha of the most transparent layer.
         
             if j == 3:
-                # d = (a+b)*0.5
+                # d = (a+b) * 0.5
                 # d = a
                 d = min(a,b)
             elif a &gt; 0.5:
-                d = 2*(a+b-a*b)-1
+                d = 2 * (a+b - a*b)-1
             else:
                 d = 2*a*b            
-            p3 += (int(d*255),)
+            p3 += ( int( round(d * 255.0)), )
     
         p1[i] = p3
     
@@ -1305,6 +1307,7 @@ def canvas(w, h):
 
     p1 = list(img1.getdata())
     p2 = list(img2.getdata())
+
     for i in range(len(p1)):
     
         r1, g1, b1, a1 = p1[i]
@@ -1322,9 +1325,9 @@ def canvas(w, h):
     
         r3, g3, b3 = colorsys.hsv_to_rgb(h2, s1, v1)
     
-        r3 = int(r3*255)
-        g3 = int(g3*255)
-        b3 = int(b3*255)
+        r3 = int( round( r3*255.0 ))
+        g3 = int( round( g3*255.0 ))
+        b3 = int( round( b3*255.0 ))
         p1[i] = (r3, g3, b3, a1)
 
     img = Image.new("RGBA", img1.size, 255)
@@ -1361,9 +1364,10 @@ def canvas(w, h):
     
         r3, g3, b3 = colorsys.hsv_to_rgb(h2, s2, v1)
     
-        r3 = int(r3*255)
-        g3 = int(g3*255)
-        b3 = int(b3*255)
+        r3 = int( round( r3*255.0 ))
+        g3 = int( round( g3*255.0 ))
+        b3 = int( round( b3*255.0 ))
+
         p1[i] = (r3, g3, b3, a1)
 
     img = Image.new("RGBA", img1.size, 255)
@@ -1511,8 +1515,8 @@ def canvas(w, h):
         pass
     else:
         scale = float(maxsize) / currmax
-        w = int( round( w*scale, 0) )
-        h = int( round( h*scale, 0) )
+        w = int( round( w*scale ) )
+        h = int( round( h*scale ) )
         size = (w,h)
     if assize:
         return size
@@ -1880,7 +1884,7 @@ def smooth_more(self):
     """
     """
     w, h = layer.bounds()
-    newwidth = int( round( h*ratio) )
+    newwidth = int( round( h*ratio ))
     d = int( newwidth / 2.0 )
     x,y,w,h = insetRect( (0,0,w,h), d, 0 )
     layer.img = layer.img.crop(box=(x,y,x+w,y+h))
@@ -2509,9 +2513,9 @@ if type(h) == float:
     return self.layer(result, 0, 0, name=name)
 </t>
 <t tx="karstenw.20210301172509.1">if style == ROUNDRECT:
-    result = Image.new("L", (int(w),int(h)), 255)
-    r1 = int(round(radius))
-    r2 = int(round(radius2))
+    result = Image.new("L", ( w, h ), 255)
+    r1 = int( round( radius ))
+    r2 = int( round( radius2 ))
     if r1 == 0:
         r1 = 1
     if r2 == 0:
@@ -2580,24 +2584,25 @@ if type(h) == float:
 
 </t>
 <t tx="karstenw.20210301172906.1">if style == LINEAR:
-    for i in range(int(w)):
-        k = 255.0 * i / w
-        draw.rectangle((i, 0, i, h), fill=int(k))
-    
+    for i in range( w ):
+        k = int( round( 255.0 * i / w ))
+        draw.rectangle((i, 0, i, h), fill=k)
+
 </t>
 <t tx="karstenw.20210301172912.1">if style == RADIAL:
-    r = min(w,h)/2
-    for i in range(int(r)):
-        k = 255 - 255.0 * i/r
+    r = min(w,h) / 2.0
+    r0 = int( round( r ))
+    for i in range( r0 ):
+        k = int( round( 255 - 255.0 * i/r ))
         draw.ellipse((w/2-r+i, h/2-r+i,
-                      w/2+r-i, h/2+r-i), fill=int(k))
+                      w/2+r-i, h/2+r-i), fill=k)
     
 </t>
 <t tx="karstenw.20210301172925.1">if style == RADIALCOSINE:
     r = max(w,h) / 2.0
     rx = w / 2.0
     ry = h / 2.0
-    
+    r0 = int( round( r ))
     deg = 90
     base = 90 - deg
     deltaxdeg = deg / rx
@@ -2605,23 +2610,25 @@ if type(h) == float:
     deltadeg = deg / r
 
     step = min(deltaxdeg, deltaydeg)
-    for i in range(int(r)):
+    for i in range( r0 ):
         # k = 255.0 * i/r
-        k = 256 * sin( radians( base + i * deltadeg ) )
+        k = int( round( 256 * sin( radians( base + i * deltadeg ) ) ))
         ix = i * (rx / r)
         iy = i * (ry / r)
         draw.ellipse((0 + ix, 0 + iy,
-                      w - ix, h - iy), fill=int(k))
+                      w - ix, h - iy), fill=k)
 
 </t>
 <t tx="karstenw.20210301172931.1">if style == DIAMOND:
     r = max(w,h)
     r2 = r * 0.5
-    for i in range(int(r)):
+    r0 = int( round( r ))
+    for i in range( r0 ):
+        ratio = i / float( r )
         x = int( round( i*w / r2 ) )
         y = int( round( i*h / r2 ) )
-        k = 255.0 * i/r
-        draw.rectangle((x, y, w-x, h-y), outline=int(k))
+        k = int( round( 255.0 * ratio ))
+        draw.rectangle((x, y, w-x, h-y), outline=k)
 
 </t>
 <t tx="karstenw.20210301172939.1">if style in (SINE, COSINE):
@@ -2634,9 +2641,9 @@ if type(h) == float:
         deg = 90.0
         base = 90.0 - deg
     deltadeg = deg / w
-    for i in range( int(w) ):
-        k = 256 * action( radians( base + i * deltadeg ) )
-        draw.line( (i,0,i, h), fill=int(k), width=1)
+    for i in range( w ):
+        k = int( round( 256.0 * action( radians( base + i * deltadeg ) ) ))
+        draw.line( (i,0,i, h), fill=k, width=1)
 
 </t>
 <t tx="karstenw.20210314151702.1">tilecounter = 0
@@ -2793,9 +2800,11 @@ if not filetuples:
             item = ( path, filesize, lastmodified, mode, islink, w0, h0 )
             f.write( template % item )
         f.close()
-        print("Writing tabfile... Done.")
         stop = time.time()
-        print("WRITE TIME: %.3f" % (stop-start,) )        
+        if kwlog:
+            print("Writing tabfile... Done.")
+            print("WRITE TIME: %.3f" % (stop-start,) )        
+
 </t>
 <t tx="karstenw.20210315131908.1">class Imagecollection(object):
     &lt;&lt; class doc &gt;&gt;
@@ -2930,10 +2939,12 @@ for line in lines:
         filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
 
 fileLoaded = True
-print("%i records loaded from tabfile." % len(filetuples))
-print("Reading tabfile... Done.")
 stop = time.time()
-print( "READ TIME: %.3f" % (stop-start,) )        
+if kwlog:
+    print("%i records loaded from tabfile." % len(filetuples))
+    print("Reading tabfile... Done.")
+    print( "READ TIME: %.3f" % (stop-start,) )        
+
 </t>
 <t tx="karstenw.20210316183613.1"># CONFIGURATION
 

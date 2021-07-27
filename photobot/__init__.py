@@ -59,7 +59,7 @@ import pdb
 import pprint
 pp = pprint.pprint
 kwdbg = 0
-kwlog = 0
+kwlog = 1
 import traceback
 
 # py3 stuff
@@ -76,6 +76,7 @@ except NameError:
     py3 = True
     punichr = chr
     long = int
+    xrange = range
 
 
 # PIL interpolation modes
@@ -235,22 +236,23 @@ class Canvas:
             draw.rectangle((0, 0, w, h), fill=255)
 
         if style == LINEAR:
-            for i in range(int(w)):
-                k = 255.0 * i / w
-                draw.rectangle((i, 0, i, h), fill=int(k))
-            
+            for i in range( w ):
+                k = int( round( 255.0 * i / w ))
+                draw.rectangle((i, 0, i, h), fill=k)
+
         if style == RADIAL:
-            r = min(w,h)/2
-            for i in range(int(r)):
-                k = 255 - 255.0 * i/r
+            r = min(w,h) / 2.0
+            r0 = int( round( r ))
+            for i in range( r0 ):
+                k = int( round( 255 - 255.0 * i/r ))
                 draw.ellipse((w/2-r+i, h/2-r+i,
-                              w/2+r-i, h/2+r-i), fill=int(k))
+                              w/2+r-i, h/2+r-i), fill=k)
             
         if style == RADIALCOSINE:
             r = max(w,h) / 2.0
             rx = w / 2.0
             ry = h / 2.0
-            
+            r0 = int( round( r ))
             deg = 90
             base = 90 - deg
             deltaxdeg = deg / rx
@@ -258,22 +260,24 @@ class Canvas:
             deltadeg = deg / r
 
             step = min(deltaxdeg, deltaydeg)
-            for i in range(int(r)):
+            for i in range( r0 ):
                 # k = 255.0 * i/r
-                k = 256 * sin( radians( base + i * deltadeg ) )
+                k = int( round( 256 * sin( radians( base + i * deltadeg ) ) ))
                 ix = i * (rx / r)
                 iy = i * (ry / r)
                 draw.ellipse((0 + ix, 0 + iy,
-                              w - ix, h - iy), fill=int(k))
+                              w - ix, h - iy), fill=k)
 
         if style == DIAMOND:
             r = max(w,h)
             r2 = r * 0.5
-            for i in range(int(r)):
+            r0 = int( round( r ))
+            for i in range( r0 ):
+                ratio = i / float( r )
                 x = int( round( i*w / r2 ) )
                 y = int( round( i*h / r2 ) )
-                k = 255.0 * i/r
-                draw.rectangle((x, y, w-x, h-y), outline=int(k))
+                k = int( round( 255.0 * ratio ))
+                draw.rectangle((x, y, w-x, h-y), outline=k)
 
         if style in (SINE, COSINE):
             # sin/cos 0...180 left to right
@@ -285,9 +289,9 @@ class Canvas:
                 deg = 90.0
                 base = 90.0 - deg
             deltadeg = deg / w
-            for i in range( int(w) ):
-                k = 256 * action( radians( base + i * deltadeg ) )
-                draw.line( (i,0,i, h), fill=int(k), width=1)
+            for i in range( w ):
+                k = int( round( 256.0 * action( radians( base + i * deltadeg ) ) ))
+                draw.line( (i,0,i, h), fill=k, width=1)
 
         
         result = img.convert("RGBA")
@@ -380,9 +384,9 @@ class Canvas:
             return self.layer(result, 0, 0, name=name)
 
         if style == ROUNDRECT:
-            result = Image.new("L", (int(w),int(h)), 255)
-            r1 = int(round(radius))
-            r2 = int(round(radius2))
+            result = Image.new("L", ( w, h ), 255)
+            r1 = int( round( radius ))
+            r2 = int( round( radius2 ))
             if r1 == 0:
                 r1 = 1
             if r2 == 0:
@@ -597,9 +601,9 @@ class Canvas:
 
             # Merge the base to the flattened canvas.
 
-            x = max(0, int(layer.x))
-            y = max(0, int(layer.y))
-            background.img.paste(baseimage, (x,y))
+            x = max(0, int( round( layer.x )) )
+            y = max(0, int( round( layer.y )) )
+            background.img.paste(baseimage, (x,y) )
             del baseimage, buffimage, buffalpha, basealpha, blendimage
 
         layers = list(layers)
@@ -620,6 +624,7 @@ class Canvas:
         if kwlog:
             stop = time.time()
             print("Canvas.flatten( %s ) in %.3fsec." % (repr(layers), stop-start))
+
 
     def export(self, name, ext=".png", format="PNG", unique=False):
 
@@ -1223,9 +1228,9 @@ class Layer:
         """
         w0, h0 = self.img.size
         if type(w) == float:
-            w = int( round(w*w0) )
+            w = int( round( w*w0 ) )
         if type(h) == float:
-            h = int( round(h*h0) )
+            h = int( round( h*h0 ) )
         self.img = self.img.resize((w,h), resample=LANCZOS)
         self.w = w
         self.h = h
@@ -1254,7 +1259,7 @@ class Layer:
         
         def mid( t1, t2, makeint=True ):
             # calculate the middle between t1 and t2
-            return int(round( (t2-t1) / 2.0 ))
+            return int( round( (t2-t1) / 2.0 ))
 
         w0, h0 = self.img.size
         diag0 = sqrt(pow(w0,2) + pow(h0,2))
@@ -1267,13 +1272,13 @@ class Layer:
 
         w = sin(radians(d_angle + angle)) * diag0
         w = max(w, sin(radians(d_angle - angle)) * diag0)
-        w = int(abs(w))
+        w = int( round( abs(w) )) 
 
         h = cos(radians(d_angle + angle)) * diag0
         h = max(h, cos(radians(d_angle - angle)) * diag0)
-        h = int(abs(h))
+        h = int( round( abs(h) ))
 
-        diag1 = int(round(diag0))
+        diag1 = int( round( diag0 ))
 
         # The rotation box's background color
         # is the mean pixel value of the rotating image.
@@ -1544,8 +1549,8 @@ class Blend:
 
         """
 
-        p1 = list(img1.getdata())
-        p2 = list(img2.getdata())
+        p1 = list( img1.getdata() )
+        p2 = list( img2.getdata() )
 
         for i in range(len(p1)):
         
@@ -1559,14 +1564,14 @@ class Blend:
                 # take the alpha of the most transparent layer.
             
                 if j == 3:
-                    # d = (a+b)*0.5
+                    # d = (a+b) * 0.5
                     # d = a
                     d = min(a,b)
                 elif a > 0.5:
-                    d = 2*(a+b-a*b)-1
+                    d = 2 * (a+b - a*b)-1
                 else:
                     d = 2*a*b            
-                p3 += (int(d*255),)
+                p3 += ( int( round(d * 255.0)), )
         
             p1[i] = p3
         
@@ -1587,6 +1592,7 @@ class Blend:
 
         p1 = list(img1.getdata())
         p2 = list(img2.getdata())
+
         for i in range(len(p1)):
         
             r1, g1, b1, a1 = p1[i]
@@ -1604,9 +1610,9 @@ class Blend:
         
             r3, g3, b3 = colorsys.hsv_to_rgb(h2, s1, v1)
         
-            r3 = int(r3*255)
-            g3 = int(g3*255)
-            b3 = int(b3*255)
+            r3 = int( round( r3*255.0 ))
+            g3 = int( round( g3*255.0 ))
+            b3 = int( round( b3*255.0 ))
             p1[i] = (r3, g3, b3, a1)
 
         img = Image.new("RGBA", img1.size, 255)
@@ -1642,9 +1648,10 @@ class Blend:
         
             r3, g3, b3 = colorsys.hsv_to_rgb(h2, s2, v1)
         
-            r3 = int(r3*255)
-            g3 = int(g3*255)
-            b3 = int(b3*255)
+            r3 = int( round( r3*255.0 ))
+            g3 = int( round( g3*255.0 ))
+            b3 = int( round( b3*255.0 ))
+
             p1[i] = (r3, g3, b3, a1)
 
         img = Image.new("RGBA", img1.size, 255)
@@ -1859,8 +1866,8 @@ def aspectRatio(size, maxsize, height=False, width=False, assize=False):
         pass
     else:
         scale = float(maxsize) / currmax
-        w = int( round( w*scale, 0) )
-        h = int( round( h*scale, 0) )
+        w = int( round( w*scale ) )
+        h = int( round( h*scale ) )
         size = (w,h)
     if assize:
         return size
@@ -1888,7 +1895,7 @@ def cropImageToRatioHorizontal( layer, ratio ):
     """
     """
     w, h = layer.bounds()
-    newwidth = int( round( h*ratio) )
+    newwidth = int( round( h*ratio ))
     d = int( newwidth / 2.0 )
     x,y,w,h = insetRect( (0,0,w,h), d, 0 )
     layer.img = layer.img.crop(box=(x,y,x+w,y+h))
@@ -2268,10 +2275,12 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
                                 filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
 
                         fileLoaded = True
-                        print("%i records loaded from tabfile." % len(filetuples))
-                        print("Reading tabfile... Done.")
                         stop = time.time()
-                        print( "READ TIME: %.3f" % (stop-start,) )        
+                        if kwlog:
+                            print("%i records loaded from tabfile." % len(filetuples))
+                            print("Reading tabfile... Done.")
+                            print( "READ TIME: %.3f" % (stop-start,) )        
+
 
     # get all images from user image wells
     folders = []
@@ -2423,9 +2432,11 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
                 item = ( path, filesize, lastmodified, mode, islink, w0, h0 )
                 f.write( template % item )
             f.close()
-            print("Writing tabfile... Done.")
             stop = time.time()
-            print("WRITE TIME: %.3f" % (stop-start,) )        
+            if kwlog:
+                print("Writing tabfile... Done.")
+                print("WRITE TIME: %.3f" % (stop-start,) )        
+
 
     return result
 
