@@ -35,7 +35,7 @@
 <v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
-<v t="karstenw.20170709210125.13"><vh>export</vh>
+<v t="karstenw.20170709210125.13" a="E"><vh>export</vh>
 <v t="karstenw.20200430120922.1"><vh>&lt;&lt;init&gt;&gt;</vh></v>
 <v t="karstenw.20200430120955.1"><vh>&lt;&lt;debug&gt;&gt;</vh></v>
 </v>
@@ -434,7 +434,7 @@ except NameError:
         start = time.time()
 
     if layers == []:
-        layers = range(1, len(self.layers))
+        layers = xrange(1, len(self.layers))
 
     background = self.layers._get_bg()
     background.name = "Background"
@@ -734,7 +734,7 @@ def export(self, name, ext=".png", format="PNG", unique=False):
     
     """
     
-    for i in range(len(self.canvas.layers)):
+    for i in xrange(len(self.canvas.layers)):
         if self.canvas.layers[i] == self:
             break
     if self.canvas.layers[i] == self:
@@ -1266,10 +1266,10 @@ def canvas(w, h):
     p1 = list( img1.getdata() )
     p2 = list( img2.getdata() )
 
-    for i in range(len(p1)):
+    for i in xrange(len(p1)):
     
         p3 = ()
-        for j in range(len(p1[i])):
+        for j in xrange(len(p1[i])):
 
             a = p1[i][j] / 255.0
             b = p2[i][j] / 255.0
@@ -1308,7 +1308,7 @@ def canvas(w, h):
     p1 = list(img1.getdata())
     p2 = list(img2.getdata())
 
-    for i in range(len(p1)):
+    for i in xrange(len(p1)):
     
         r1, g1, b1, a1 = p1[i]
         r1 = r1 / 255.0
@@ -1347,7 +1347,7 @@ def canvas(w, h):
     """
     p1 = list(img1.getdata())
     p2 = list(img2.getdata())
-    for i in range(len(p1)):
+    for i in xrange(len(p1)):
     
         r1, g1, b1, a1 = p1[i]
         r1 = r1 / 255.0
@@ -2255,7 +2255,7 @@ basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
 
 background = self.layers._get_bg()
 background.name = "Background"
-layers = range(1, len(self.layers) )
+layers = xrange(1, len(self.layers) )
 for i in layers:
     layer = self.layers[i]
 
@@ -2584,7 +2584,7 @@ if type(h) == float:
 
 </t>
 <t tx="karstenw.20210301172906.1">if style == LINEAR:
-    for i in range( w ):
+    for i in xrange( w ):
         k = int( round( 255.0 * i / w ))
         draw.rectangle((i, 0, i, h), fill=k)
 
@@ -2592,7 +2592,7 @@ if type(h) == float:
 <t tx="karstenw.20210301172912.1">if style == RADIAL:
     r = min(w,h) / 2.0
     r0 = int( round( r ))
-    for i in range( r0 ):
+    for i in xrange( r0 ):
         k = int( round( 255 - 255.0 * i/r ))
         draw.ellipse((w/2-r+i, h/2-r+i,
                       w/2+r-i, h/2+r-i), fill=k)
@@ -2610,7 +2610,7 @@ if type(h) == float:
     deltadeg = deg / r
 
     step = min(deltaxdeg, deltaydeg)
-    for i in range( r0 ):
+    for i in xrange( r0 ):
         # k = 255.0 * i/r
         k = int( round( 256 * sin( radians( base + i * deltadeg ) ) ))
         ix = i * (rx / r)
@@ -2623,7 +2623,7 @@ if type(h) == float:
     r = max(w,h)
     r2 = r * 0.5
     r0 = int( round( r ))
-    for i in range( r0 ):
+    for i in xrange( r0 ):
         ratio = i / float( r )
         x = int( round( i*w / r2 ) )
         y = int( round( i*h / r2 ) )
@@ -2641,7 +2641,7 @@ if type(h) == float:
         deg = 90.0
         base = 90.0 - deg
     deltadeg = deg / w
-    for i in range( w ):
+    for i in xrange( w ):
         k = int( round( 256.0 * action( radians( base + i * deltadeg ) ) ))
         draw.line( (i,0,i, h), fill=k, width=1)
 
