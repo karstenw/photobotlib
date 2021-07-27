@@ -12,8 +12,8 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
+<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
+<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -32,7 +32,7 @@
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
+<v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
 <v t="karstenw.20170709210125.13"><vh>export</vh>
@@ -54,7 +54,7 @@
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -157,13 +157,13 @@
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
 </v>
-<v t="karstenw.20200419205343.1" a="E"><vh>ImageWell</vh>
+<v t="karstenw.20200419205343.1"><vh>ImageWell</vh>
 <v t="karstenw.20210611105714.1"><vh>getImageWellsFile</vh></v>
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
 <v t="karstenw.20210315131908.1"><vh>Imagecollection</vh>
 <v t="karstenw.20210316194210.1"><vh>&lt;&lt; class doc &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20200419185716.1" a="E"><vh>loadImageWell</vh>
+<v t="karstenw.20200419185716.1"><vh>loadImageWell</vh>
 <v t="karstenw.20210611114959.1"><vh>&lt;&lt; functioncomment &gt;&gt;</vh></v>
 <v t="karstenw.20210315130855.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210611112926.1"><vh>&lt;&lt; check file dates &gt;&gt;</vh></v>
