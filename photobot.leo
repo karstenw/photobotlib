@@ -12,8 +12,8 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
+<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
+<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -32,7 +32,7 @@
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
+<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
 <v t="karstenw.20170709210125.13"><vh>export</vh>
@@ -54,7 +54,7 @@
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -86,7 +86,7 @@
 <v t="karstenw.20170709210125.42"><vh>colorize</vh></v>
 </v>
 <v t="karstenw.20170709210125.43"><vh>invert</vh></v>
-<v t="karstenw.20170727232236.1"><vh>GEOMETRY</vh>
+<v t="karstenw.20170727232236.1" a="E"><vh>GEOMETRY</vh>
 <v t="karstenw.20170709210125.44"><vh>translate</vh></v>
 <v t="karstenw.20170709210125.45"><vh>scale</vh></v>
 <v t="karstenw.20170709210125.47"><vh>rotate</vh></v>
@@ -1060,9 +1060,9 @@ def equalize(self, mask=None):
     """
     w0, h0 = self.img.size
     if type(w) == float:
-        w = int(w*w0)
+        w = int( round(w*w0) )
     if type(h) == float:
-        h = int(h*h0)
+        h = int( round(h*h0) )
     self.img = self.img.resize((w,h), resample=LANCZOS)
     self.w = w
     self.h = h
@@ -2426,16 +2426,19 @@ if w &lt; 0:
     w = -w
 if h &lt; 0:
     h = -h
-w = max(1,w)
-h = max(1,h)
+w = int( round( max(1,w) ))
+h = int( round( max(1,h) ))
+
+w2 = w // 2
+h2 = h // 2
 
 if kwlog:
     print( (style, self.w,self.h,w,h) )
 
 if style not in (RADIALCOSINE,):
-    img = Image.new("L", (int(w),int(h)), 255)
+    img = Image.new("L", (w, h), 255)
 else:
-    img = Image.new("L", (int(w),int(h)), 0)
+    img = Image.new("L", (w, h), 0)
 
 draw = ImageDraw.Draw(img)
 
@@ -2443,9 +2446,9 @@ draw = ImageDraw.Draw(img)
 <t tx="karstenw.20210301172109.1">w0 = self.w
 h0 = self.h
 if type(w) == float:
-    w = int(w*w0)
+    w = int( round( w * w0 ))
 if type(h) == float:
-    h = int(h*h0)
+    h = int( round( h * h0 )) 
 
 </t>
 <t tx="karstenw.20210301172149.1">if style in (SOLID, LINEAR, RADIAL, DIAMOND,
@@ -2457,17 +2460,17 @@ if type(h) == float:
 </t>
 <t tx="karstenw.20210301172433.1">if style == QUAD:
     # make a rectangle with softened edges
-    result = Image.new("L", (int(w),int(h)), 255)
+    result = Image.new("L", ( w, h ), 255)
     
-    mask = Image.new("L", (w,h), 255)
+    mask = Image.new("L", ( w, h ), 255)
     draw = ImageDraw.Draw(mask)
 
     if radius == 0 and radius2 == 0:
         radius = w / 4.0
         radius2 = w / 10.0
 
-    r1 = int(round(radius,0))
-    r2 = int(round(radius2,0))
+    r1 = int(round( radius ))
+    r2 = int(round( radius2 ))
     
     if r1 == 0:
         r1 = 1
@@ -2613,9 +2616,10 @@ if type(h) == float:
 </t>
 <t tx="karstenw.20210301172931.1">if style == DIAMOND:
     r = max(w,h)
+    r2 = r * 0.5
     for i in range(int(r)):
-        x = int( i*w / r*0.5 )
-        y = int( i*h / r*0.5 )
+        x = int( round( i*w / r2 ) )
+        y = int( round( i*h / r2 ) )
         k = 255.0 * i/r
         draw.rectangle((x, y, w-x, h-y), outline=int(k))
 

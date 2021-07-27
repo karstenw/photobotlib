@@ -215,16 +215,19 @@ class Canvas:
             w = -w
         if h < 0:
             h = -h
-        w = max(1,w)
-        h = max(1,h)
+        w = int( round( max(1,w) ))
+        h = int( round( max(1,h) ))
+
+        w2 = w // 2
+        h2 = h // 2
 
         if kwlog:
             print( (style, self.w,self.h,w,h) )
 
         if style not in (RADIALCOSINE,):
-            img = Image.new("L", (int(w),int(h)), 255)
+            img = Image.new("L", (w, h), 255)
         else:
-            img = Image.new("L", (int(w),int(h)), 0)
+            img = Image.new("L", (w, h), 0)
 
         draw = ImageDraw.Draw(img)
 
@@ -265,9 +268,10 @@ class Canvas:
 
         if style == DIAMOND:
             r = max(w,h)
+            r2 = r * 0.5
             for i in range(int(r)):
-                x = int( i*w / r*0.5 )
-                y = int( i*h / r*0.5 )
+                x = int( round( i*w / r2 ) )
+                y = int( round( i*h / r2 ) )
                 k = 255.0 * i/r
                 draw.rectangle((x, y, w-x, h-y), outline=int(k))
 
@@ -311,9 +315,9 @@ class Canvas:
         w0 = self.w
         h0 = self.h
         if type(w) == float:
-            w = int(w*w0)
+            w = int( round( w * w0 ))
         if type(h) == float:
-            h = int(h*h0)
+            h = int( round( h * h0 )) 
 
 
         img = None
@@ -327,17 +331,17 @@ class Canvas:
 
         if style == QUAD:
             # make a rectangle with softened edges
-            result = Image.new("L", (int(w),int(h)), 255)
+            result = Image.new("L", ( w, h ), 255)
             
-            mask = Image.new("L", (w,h), 255)
+            mask = Image.new("L", ( w, h ), 255)
             draw = ImageDraw.Draw(mask)
 
             if radius == 0 and radius2 == 0:
                 radius = w / 4.0
                 radius2 = w / 10.0
 
-            r1 = int(round(radius,0))
-            r2 = int(round(radius2,0))
+            r1 = int(round( radius ))
+            r2 = int(round( radius2 ))
             
             if r1 == 0:
                 r1 = 1
@@ -1219,9 +1223,9 @@ class Layer:
         """
         w0, h0 = self.img.size
         if type(w) == float:
-            w = int(w*w0)
+            w = int( round(w*w0) )
         if type(h) == float:
-            h = int(h*h0)
+            h = int( round(h*h0) )
         self.img = self.img.resize((w,h), resample=LANCZOS)
         self.w = w
         self.h = h
