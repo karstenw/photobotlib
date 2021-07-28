@@ -814,18 +814,16 @@ class Canvas:
         
         """
         
-        canvas = Canvas(None, self.img.copy(), self.x, self.y, self.name)
-
-
-        canvas = self.interpolation = INTERPOLATION
-        canvas.layers = Layers()
-        canvas.w = self.w
-        canvas.h = self.h
+        _canvas = canvas( self.w, self.h )
+        _canvas.interpolation = self.interpolation
+        _canvas.layers = Layers()
+        _canvas.w = self.w
+        _canvas.h = self.h
         for layer in self.layers:
             layercopy = layer.copy()
-            canvas.layer( layercopy )
-        
-        return canvas
+            layercopy.canvas = self
+            _canvas.layer( layercopy )
+        return _canvas
 
 
 def canvas(w, h):
@@ -1160,9 +1158,6 @@ class Layer:
         self.img = img
 
     def posterize(self, bits=8):
-        if 0: #not (1 <= bits <= 8):
-            return
-        # alpha = self.img.split()[3]
         alpha = self.img.getchannel("A")
         img = self.img.convert("RGB")
         img = ImageOps.posterize(img, bits)

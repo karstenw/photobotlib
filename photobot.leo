@@ -13,7 +13,7 @@
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
+<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -32,7 +32,7 @@
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
+<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
 <v t="karstenw.20170709210125.13"><vh>export</vh>
@@ -42,7 +42,7 @@
 <v t="karstenw.20170709210125.14"><vh>draw</vh></v>
 </v>
 <v t="karstenw.20170709210125.15"><vh>preferences</vh></v>
-<v t="karstenw.20200430120743.1"><vh>STACK OPS</vh>
+<v t="karstenw.20200430120743.1" a="E"><vh>STACK OPS</vh>
 <v t="karstenw.20170710142919.1"><vh>top</vh></v>
 <v t="karstenw.20210722112454.1"><vh>topindex</vh></v>
 <v t="karstenw.20200430124808.1"><vh>dup</vh></v>
@@ -66,7 +66,7 @@
 <v t="karstenw.20170709210125.30"><vh>select</vh></v>
 <v t="karstenw.20170709210125.31"><vh>mask</vh></v>
 <v t="karstenw.20170709210125.32"><vh>duplicate</vh></v>
-<v t="karstenw.20170727231803.1" a="E"><vh>BLENDS</vh>
+<v t="karstenw.20170727231803.1"><vh>BLENDS</vh>
 <v t="karstenw.20170709210125.33"><vh>opacity</vh></v>
 <v t="karstenw.20170709210125.34"><vh>multiply</vh></v>
 <v t="karstenw.20200419182817.1"><vh>add</vh></v>
@@ -79,20 +79,18 @@
 <v t="karstenw.20170709210125.37"><vh>hue</vh></v>
 <v t="karstenw.20170709210125.38"><vh>color</vh></v>
 </v>
-<v t="karstenw.20170727231827.1" a="E"><vh>INTENSITIES</vh>
+<v t="karstenw.20170727231827.1"><vh>INTENSITIES</vh>
 <v t="karstenw.20170709210125.39"><vh>brightness</vh></v>
 <v t="karstenw.20170709210125.40"><vh>contrast</vh></v>
 <v t="karstenw.20170709210125.41"><vh>desaturate</vh></v>
 <v t="karstenw.20170709210125.42"><vh>colorize</vh></v>
-</v>
-<v t="karstenw.20210727161625.1" a="E"><vh>newHeadline</vh>
 <v t="karstenw.20210727161432.1"><vh>posterize</vh></v>
 <v t="karstenw.20210727161432.2"><vh>solarize</vh></v>
 <v t="karstenw.20210727161432.3"><vh>autocontrast</vh></v>
 <v t="karstenw.20210727161432.4"><vh>deform</vh></v>
 <v t="karstenw.20210727161432.5"><vh>equalize</vh></v>
-</v>
 <v t="karstenw.20170709210125.43"><vh>invert</vh></v>
+</v>
 <v t="karstenw.20170727232236.1"><vh>GEOMETRY</vh>
 <v t="karstenw.20170709210125.44"><vh>translate</vh></v>
 <v t="karstenw.20170709210125.45"><vh>scale</vh></v>
@@ -3870,24 +3868,19 @@ def topindex(self):
     
     """
     
-    canvas = Canvas(None, self.img.copy(), self.x, self.y, self.name)
-
-
-    canvas = self.interpolation = INTERPOLATION
-    canvas.layers = Layers()
-    canvas.w = self.w
-    canvas.h = self.h
+    _canvas = canvas( self.w, self.h )
+    _canvas.interpolation = self.interpolation
+    _canvas.layers = Layers()
+    _canvas.w = self.w
+    _canvas.h = self.h
     for layer in self.layers:
         layercopy = layer.copy()
-        canvas.layer( layercopy )
-    
-    return canvas
+        layercopy.canvas = self
+        _canvas.layer( layercopy )
+    return _canvas
 
 </t>
 <t tx="karstenw.20210727161432.1">def posterize(self, bits=8):
-    if 0: #not (1 &lt;= bits &lt;= 8):
-        return
-    # alpha = self.img.split()[3]
     alpha = self.img.getchannel("A")
     img = self.img.convert("RGB")
     img = ImageOps.posterize(img, bits)
@@ -3931,6 +3924,5 @@ def topindex(self):
     self.img = img
 
 </t>
-<t tx="karstenw.20210727161625.1"></t>
 </tnodes>
 </leo_file>
