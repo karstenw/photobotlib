@@ -1143,7 +1143,6 @@ class Layer:
         self.img = self.img.convert("RGBA")
         self.img.putalpha(alpha)
 
-
     def colorize(self, black, white, mid=None,
                        blackpoint=0, whitepoint=255, midpoint=127):
 
@@ -1191,11 +1190,16 @@ class Layer:
         img.putalpha(alpha)
         self.img = img
 
-    def deform( self, deformer, resample=2 ):
+    def deform( self, deformer, resample=LANCZOS ):
         self.img = ImageOps.deform(self.img, deformer, resample)
 
     def equalize(self, mask=None):
-        self.img = ImageOps.equalize(self.img, mask)
+        alpha = self.img.getchannel("A")
+        img = self.img.convert("RGB")
+        img = ImageOps.equalize(img, mask)
+        img = img.convert("RGBA")
+        img.putalpha(alpha)
+        self.img = img
 
     def invert(self):
 

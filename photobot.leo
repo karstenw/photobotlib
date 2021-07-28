@@ -13,11 +13,11 @@
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
+<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
-<v t="karstenw.20170709210125.9" a="E"><vh>makegradientimage</vh>
+<v t="karstenw.20170709210125.9"><vh>makegradientimage</vh>
 <v t="karstenw.20210301171902.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172848.1"><vh>&lt;&lt; solid &gt;&gt;</vh></v>
 <v t="karstenw.20210301172906.1"><vh>&lt;&lt; linear &gt;&gt;</vh></v>
@@ -26,16 +26,16 @@
 <v t="karstenw.20210301172931.1"><vh>&lt;&lt; diamond &gt;&gt;</vh></v>
 <v t="karstenw.20210301172939.1"><vh>&lt;&lt; sine cosine &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20170709210125.10" a="E"><vh>gradient</vh>
+<v t="karstenw.20170709210125.10"><vh>gradient</vh>
 <v t="karstenw.20210301172109.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172149.1"><vh>&lt;&lt; one Image gradients &gt;&gt;</vh></v>
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
+<v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
-<v t="karstenw.20170709210125.13" a="E"><vh>export</vh>
+<v t="karstenw.20170709210125.13"><vh>export</vh>
 <v t="karstenw.20200430120922.1"><vh>&lt;&lt;init&gt;&gt;</vh></v>
 <v t="karstenw.20200430120955.1"><vh>&lt;&lt;debug&gt;&gt;</vh></v>
 </v>
@@ -49,7 +49,7 @@
 </v>
 <v t="karstenw.20210722112739.1"><vh>copy</vh></v>
 </v>
-<v t="karstenw.20170709210125.17" a="E"><vh>class Layers</vh>
+<v t="karstenw.20170709210125.17"><vh>class Layers</vh>
 <v t="karstenw.20170709210125.18"><vh>__getitem__</vh></v>
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
@@ -85,8 +85,15 @@
 <v t="karstenw.20170709210125.41"><vh>desaturate</vh></v>
 <v t="karstenw.20170709210125.42"><vh>colorize</vh></v>
 </v>
+<v t="karstenw.20210727161625.1" a="E"><vh>newHeadline</vh>
+<v t="karstenw.20210727161432.1"><vh>posterize</vh></v>
+<v t="karstenw.20210727161432.2"><vh>solarize</vh></v>
+<v t="karstenw.20210727161432.3"><vh>autocontrast</vh></v>
+<v t="karstenw.20210727161432.4"><vh>deform</vh></v>
+<v t="karstenw.20210727161432.5"><vh>equalize</vh></v>
+</v>
 <v t="karstenw.20170709210125.43"><vh>invert</vh></v>
-<v t="karstenw.20170727232236.1" a="E"><vh>GEOMETRY</vh>
+<v t="karstenw.20170727232236.1"><vh>GEOMETRY</vh>
 <v t="karstenw.20170709210125.44"><vh>translate</vh></v>
 <v t="karstenw.20170709210125.45"><vh>scale</vh></v>
 <v t="karstenw.20170709210125.47"><vh>rotate</vh></v>
@@ -94,7 +101,7 @@
 <v t="karstenw.20170709210125.48"><vh>flip</vh></v>
 <v t="karstenw.20170727233343.1"><vh>crop</vh></v>
 </v>
-<v t="karstenw.20200421172034.1" a="E"><vh>FILTERS</vh>
+<v t="karstenw.20200421172034.1"><vh>FILTERS</vh>
 <v t="karstenw.20170727232434.1"><vh>autocontrast</vh></v>
 <v t="karstenw.20170709210125.49"><vh>blur</vh></v>
 <v t="karstenw.20200421172500.1"><vh>new boxblur</vh></v>
@@ -112,7 +119,7 @@
 <v t="karstenw.20170709210125.51"><vh>statistics</vh></v>
 <v t="karstenw.20170709210125.52"><vh>levels</vh></v>
 </v>
-<v t="karstenw.20170709210125.53" a="E"><vh>class Blend</vh>
+<v t="karstenw.20170709210125.53"><vh>class Blend</vh>
 <v t="karstenw.20210301161622.1"><vh>subtract</vh></v>
 <v t="karstenw.20210301161642.1"><vh>subtract_modulo</vh></v>
 <v t="karstenw.20170709210125.54"><vh>overlay</vh></v>
@@ -135,7 +142,7 @@
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 </v>
-<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitimage</vh></v>
@@ -157,7 +164,7 @@
 <v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
 <v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
 </v>
-<v t="karstenw.20200419205343.1" a="E"><vh>ImageWell</vh>
+<v t="karstenw.20200419205343.1"><vh>ImageWell</vh>
 <v t="karstenw.20210611105714.1"><vh>getImageWellsFile</vh></v>
 <v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
 <v t="karstenw.20210315131908.1"><vh>Imagecollection</vh>
@@ -180,7 +187,7 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
+<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
 <v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
@@ -974,8 +981,7 @@ def export(self, name, ext=".png", format="PNG", unique=False):
     self.img.putalpha(alpha)
 
 </t>
-<t tx="karstenw.20170709210125.42">
-def colorize(self, black, white, mid=None,
+<t tx="karstenw.20170709210125.42">def colorize(self, black, white, mid=None,
                    blackpoint=0, whitepoint=255, midpoint=127):
 
     """Use the ImageOps.colorize() on desaturated layer.
@@ -990,43 +996,6 @@ def colorize(self, black, white, mid=None,
     img = img.convert("RGBA")
     img.putalpha(alpha)
     self.img = img
-
-def posterize(self, bits=8):
-    if 0: #not (1 &lt;= bits &lt;= 8):
-        return
-    # alpha = self.img.split()[3]
-    alpha = self.img.getchannel("A")
-    img = self.img.convert("RGB")
-    img = ImageOps.posterize(img, bits)
-    img = img.convert("RGBA")
-    img.putalpha(alpha)
-    self.img = img
-
-def solarize(self, threshhold):
-    # alpha = self.img.split()[3]
-    alpha = self.img.getchannel("A")
-    img = self.img.convert("RGB")
-    img = ImageOps.solarize(img, threshhold)
-    img = img.convert("RGBA")
-    img.putalpha(alpha)
-    self.img = img
-
-def autocontrast(self, cutoff=0, ignore=None):
-    if 0: #not (1 &lt;= bits &lt;= 8):
-        return
-    # alpha = self.img.split()[3]
-    alpha = self.img.getchannel("A")
-    img = self.img.convert("RGB")
-    img = ImageOps.autocontrast(img, cutoff, ignore)
-    img = img.convert("RGBA")
-    img.putalpha(alpha)
-    self.img = img
-
-def deform( self, deformer, resample=2 ):
-    self.img = ImageOps.deform(self.img, deformer, resample)
-
-def equalize(self, mask=None):
-    self.img = ImageOps.equalize(self.img, mask)
 
 </t>
 <t tx="karstenw.20170709210125.43">def invert(self):
@@ -3915,5 +3884,53 @@ def topindex(self):
     return canvas
 
 </t>
+<t tx="karstenw.20210727161432.1">def posterize(self, bits=8):
+    if 0: #not (1 &lt;= bits &lt;= 8):
+        return
+    # alpha = self.img.split()[3]
+    alpha = self.img.getchannel("A")
+    img = self.img.convert("RGB")
+    img = ImageOps.posterize(img, bits)
+    img = img.convert("RGBA")
+    img.putalpha(alpha)
+    self.img = img
+
+</t>
+<t tx="karstenw.20210727161432.2">def solarize(self, threshhold):
+    # alpha = self.img.split()[3]
+    alpha = self.img.getchannel("A")
+    img = self.img.convert("RGB")
+    img = ImageOps.solarize(img, threshhold)
+    img = img.convert("RGBA")
+    img.putalpha(alpha)
+    self.img = img
+
+</t>
+<t tx="karstenw.20210727161432.3">def autocontrast(self, cutoff=0, ignore=None):
+    if 0: #not (1 &lt;= bits &lt;= 8):
+        return
+    # alpha = self.img.split()[3]
+    alpha = self.img.getchannel("A")
+    img = self.img.convert("RGB")
+    img = ImageOps.autocontrast(img, cutoff, ignore)
+    img = img.convert("RGBA")
+    img.putalpha(alpha)
+    self.img = img
+
+</t>
+<t tx="karstenw.20210727161432.4">def deform( self, deformer, resample=LANCZOS ):
+    self.img = ImageOps.deform(self.img, deformer, resample)
+
+</t>
+<t tx="karstenw.20210727161432.5">def equalize(self, mask=None):
+    alpha = self.img.getchannel("A")
+    img = self.img.convert("RGB")
+    img = ImageOps.equalize(img, mask)
+    img = img.convert("RGBA")
+    img.putalpha(alpha)
+    self.img = img
+
+</t>
+<t tx="karstenw.20210727161625.1"></t>
 </tnodes>
 </leo_file>
