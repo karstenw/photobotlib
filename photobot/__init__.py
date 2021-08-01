@@ -270,13 +270,14 @@ class Canvas:
 
         if style == DIAMOND:
             r = max(w,h)
-            r2 = r * 0.5
             r0 = int( round( r ))
+            r2 = r * 0.5
             for i in xrange( r0 ):
-                ratio = i / float( r )
-                x = int( round( i*w / r2 ) )
-                y = int( round( i*h / r2 ) )
-                k = int( round( 255.0 * ratio ))
+                ratio = i / float( r0 )
+                x = int( round( i*w / r*0.5 ) )
+                y = int( round( i*h / r*0.5 ) )
+                k = int( round( 256.0 * ratio ))
+                print( (i,x,y, w-x, h-y, k) )
                 draw.rectangle((x, y, w-x, h-y), outline=k)
 
         if style in (SINE, COSINE):

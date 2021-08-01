@@ -17,7 +17,7 @@
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
-<v t="karstenw.20170709210125.9"><vh>makegradientimage</vh>
+<v t="karstenw.20170709210125.9" a="E"><vh>makegradientimage</vh>
 <v t="karstenw.20210301171902.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172848.1"><vh>&lt;&lt; solid &gt;&gt;</vh></v>
 <v t="karstenw.20210301172906.1"><vh>&lt;&lt; linear &gt;&gt;</vh></v>
@@ -2588,13 +2588,14 @@ if type(h) == float:
 </t>
 <t tx="karstenw.20210301172931.1">if style == DIAMOND:
     r = max(w,h)
-    r2 = r * 0.5
     r0 = int( round( r ))
+    r2 = r * 0.5
     for i in xrange( r0 ):
-        ratio = i / float( r )
-        x = int( round( i*w / r2 ) )
-        y = int( round( i*h / r2 ) )
-        k = int( round( 255.0 * ratio ))
+        ratio = i / float( r0 )
+        x = int( round( i*w / r*0.5 ) )
+        y = int( round( i*h / r*0.5 ) )
+        k = int( round( 256.0 * ratio ))
+        print( (i,x,y, w-x, h-y, k) )
         draw.rectangle((x, y, w-x, h-y), outline=k)
 
 </t>
