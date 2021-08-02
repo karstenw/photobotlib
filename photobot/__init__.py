@@ -59,7 +59,7 @@ import pdb
 import pprint
 pp = pprint.pprint
 kwdbg = 0
-kwlog = 1
+kwlog = 0
 import traceback
 
 # py3 stuff
@@ -269,15 +269,14 @@ class Canvas:
                               w - ix, h - iy), fill=k)
 
         if style == DIAMOND:
-            r = max(w,h)
-            r0 = int( round( r ))
-            r2 = r * 0.5
-            for i in xrange( r0 ):
+            maxwidthheight = int( round( max(w,h) ))
+            widthradius = w * 0.5
+            heightradius = h * 0.5
+            for i in xrange( maxwidthheight ):
                 ratio = i / float( r0 )
-                x = int( round( i*w / r*0.5 ) )
-                y = int( round( i*h / r*0.5 ) )
+                x = int( round( ratio * widthradius ) )
+                y = int( round( ratio * heightradius ) )
                 k = int( round( 256.0 * ratio ))
-                print( (i,x,y, w-x, h-y, k) )
                 draw.rectangle((x, y, w-x, h-y), outline=k)
 
         if style in (SINE, COSINE):
