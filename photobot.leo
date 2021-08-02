@@ -2591,7 +2591,7 @@ if type(h) == float:
     widthradius = w * 0.5
     heightradius = h * 0.5
     for i in xrange( maxwidthheight ):
-        ratio = i / float( r0 )
+        ratio = i / float( maxwidthheight )
         x = int( round( ratio * widthradius ) )
         y = int( round( ratio * heightradius ) )
         k = int( round( 256.0 * ratio ))
