@@ -15,6 +15,7 @@ ALL = ['canvas', 'Layers', 'Layer', 'label', 'invertimage', 'cropimage',
 import sys
 import os
 
+import random
 import math
 sqrt = math.sqrt
 pow = math.pow
@@ -110,6 +111,7 @@ SOLID = "solid"
 LINEAR = "linear"
 RADIAL = "radial"
 DIAMOND = "diamond"
+SCATTER = "scatter"
 COSINE = "cosine"
 SINE = "sine"
 ROUNDRECT = "roundrect"
@@ -225,10 +227,12 @@ class Canvas:
         if kwlog:
             print( (style, self.w,self.h,w,h) )
 
-        if style not in (RADIALCOSINE,):
-            img = Image.new("L", (w, h), 255)
-        else:
+        if style in (RADIALCOSINE, ):
             img = Image.new("L", (w, h), 0)
+        elif style in (SCATTER, ):
+            img = Image.new("RGBA", (w, h), (0,0,0,0))
+        else:
+            img = Image.new("L", (w, h), 255)
 
         draw = ImageDraw.Draw(img)
 
@@ -279,6 +283,25 @@ class Canvas:
                 k = int( round( 256.0 * ratio ))
                 draw.rectangle((x, y, w-x, h-y), outline=k)
 
+        if style == SCATTER:
+            # scatter should be some circles randomly across WxH
+            
+            maxwidthheight = int( round( max(w,h) ))
+            minwidthheight = int( round( min(w,h) ))
+            def rnd( w, offset ):
+                r = random.random()
+                result = -offset + r * (w + offset + offset)
+                return result
+
+            # circles at 10%
+            circleradius = int( round( minwidthheight / 10.0 ))
+            c2 = 2 * circleradius
+            for count in xrange( 400 ):
+                x = int( round( rnd( w, circleradius ) ))
+                y = int( round( rnd( h, circleradius ) ))
+                k = int( round( 5 + random.random() * 127))
+                draw.ellipse((x, y, x+c2, y+c2), fill=(255,255,255,k) )
+
         if style in (SINE, COSINE):
             # sin/cos 0...180 left to right
             action = sin
@@ -312,8 +335,8 @@ class Canvas:
         easily be flipped, rotated, scaled, inverted, made brighter
         or darker, ...
 
-        Styles for gradients are LINEAR, RADIAL, DIAMOND, SINE,
-        COSINE and ROUNDRECT
+        Styles for gradients are LINEAR, RADIAL, DIAMOND, SCATTER,
+        SINE, COSINE and ROUNDRECT
         """
 
         w0 = self.w
@@ -327,7 +350,7 @@ class Canvas:
         img = None
 
         if style in (SOLID, LINEAR, RADIAL, DIAMOND,
-                     SINE, COSINE, RADIALCOSINE):
+                     SCATTER, SINE, COSINE, RADIALCOSINE):
             img = self.makegradientimage(style, w, h)
             img = img.convert("RGBA")
             return self.layer(img, 0, 0, name=name)

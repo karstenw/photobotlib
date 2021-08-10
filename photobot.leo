@@ -24,9 +24,10 @@
 <v t="karstenw.20210301172912.1"><vh>&lt;&lt; radial &gt;&gt;</vh></v>
 <v t="karstenw.20210301172925.1"><vh>&lt;&lt; radialcosine &gt;&gt;</vh></v>
 <v t="karstenw.20210301172931.1"><vh>&lt;&lt; diamond &gt;&gt;</vh></v>
+<v t="karstenw.20210803163323.1"><vh>&lt;&lt; scatter &gt;&gt;</vh></v>
 <v t="karstenw.20210301172939.1"><vh>&lt;&lt; sine cosine &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20170709210125.10"><vh>gradient</vh>
+<v t="karstenw.20170709210125.10" a="E"><vh>gradient</vh>
 <v t="karstenw.20210301172109.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172149.1"><vh>&lt;&lt; one Image gradients &gt;&gt;</vh></v>
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
@@ -305,6 +306,7 @@ ALL = ['canvas', 'Layers', 'Layer', 'label', 'invertimage', 'cropimage',
 import sys
 import os
 
+import random
 import math
 sqrt = math.sqrt
 pow = math.pow
@@ -382,8 +384,8 @@ except NameError:
     easily be flipped, rotated, scaled, inverted, made brighter
     or darker, ...
 
-    Styles for gradients are LINEAR, RADIAL, DIAMOND, SINE,
-    COSINE and ROUNDRECT
+    Styles for gradients are LINEAR, RADIAL, DIAMOND, SCATTER,
+    SINE, COSINE and ROUNDRECT
     """
 
     &lt;&lt; init &gt;&gt;
@@ -1630,6 +1632,7 @@ def canvas(w, h):
     &lt;&lt; radial &gt;&gt;
     &lt;&lt; radialcosine &gt;&gt;
     &lt;&lt; diamond &gt;&gt;
+    &lt;&lt; scatter &gt;&gt;
     &lt;&lt; sine cosine &gt;&gt;
     
     result = img.convert("RGBA")
@@ -2119,6 +2122,7 @@ SOLID = "solid"
 LINEAR = "linear"
 RADIAL = "radial"
 DIAMOND = "diamond"
+SCATTER = "scatter"
 COSINE = "cosine"
 SINE = "sine"
 ROUNDRECT = "roundrect"
@@ -2406,10 +2410,12 @@ h2 = h // 2
 if kwlog:
     print( (style, self.w,self.h,w,h) )
 
-if style not in (RADIALCOSINE,):
-    img = Image.new("L", (w, h), 255)
-else:
+if style in (RADIALCOSINE, ):
     img = Image.new("L", (w, h), 0)
+elif style in (SCATTER, ):
+    img = Image.new("RGBA", (w, h), (0,0,0,0))
+else:
+    img = Image.new("L", (w, h), 255)
 
 draw = ImageDraw.Draw(img)
 
@@ -2423,7 +2429,7 @@ if type(h) == float:
 
 </t>
 <t tx="karstenw.20210301172149.1">if style in (SOLID, LINEAR, RADIAL, DIAMOND,
-             SINE, COSINE, RADIALCOSINE):
+             SCATTER, SINE, COSINE, RADIALCOSINE):
     img = self.makegradientimage(style, w, h)
     img = img.convert("RGBA")
     return self.layer(img, 0, 0, name=name)
@@ -3922,6 +3928,26 @@ def topindex(self):
     img = img.convert("RGBA")
     img.putalpha(alpha)
     self.img = img
+
+</t>
+<t tx="karstenw.20210803163323.1">if style == SCATTER:
+    # scatter should be some circles randomly across WxH
+    
+    maxwidthheight = int( round( max(w,h) ))
+    minwidthheight = int( round( min(w,h) ))
+    def rnd( w, offset ):
+        r = random.random()
+        result = -offset + r * (w + offset + offset)
+        return result
+
+    # circles at 10%
+    circleradius = int( round( minwidthheight / 10.0 ))
+    c2 = 2 * circleradius
+    for count in xrange( 400 ):
+        x = int( round( rnd( w, circleradius ) ))
+        y = int( round( rnd( h, circleradius ) ))
+        k = int( round( 5 + random.random() * 127))
+        draw.ellipse((x, y, x+c2, y+c2), fill=(255,255,255,k) )
 
 </t>
 </tnodes>

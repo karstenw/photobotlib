@@ -61,6 +61,11 @@ grad4idx = c.gradient(pb.DIAMOND, 180, 180)
 c.top.translate(580, 10)
 pb.label( c, "DIAMOND", 580, 10, 26)
 
+# SCATTER
+grad9idx = c.gradient(pb.SCATTER, 180, 180)
+c.top.translate(770, 10)
+pb.label( c, "SCATTER", 770, 10, 26)
+
 # SINE (from 0 to 180)
 grad5idx = c.gradient(pb.SINE, 180, 180)
 c.top.translate(10, 200)
