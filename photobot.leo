@@ -2410,10 +2410,10 @@ h2 = h // 2
 if kwlog:
     print( (style, self.w,self.h,w,h) )
 
-if style in (RADIALCOSINE, ):
+if style in (RADIALCOSINE, SCATTER):
     img = Image.new("L", (w, h), 0)
-elif style in (SCATTER, ):
-    img = Image.new("RGBA", (w, h), (0,0,0,0))
+#elif style in (SCATTER, ):
+#    img = Image.new("RGBA", (w, h), (0,0,0,0))
 else:
     img = Image.new("L", (w, h), 255)
 
@@ -3933,6 +3933,7 @@ def topindex(self):
 <t tx="karstenw.20210803163323.1">if style == SCATTER:
     # scatter should be some circles randomly across WxH
     
+    # img, draw
     maxwidthheight = int( round( max(w,h) ))
     minwidthheight = int( round( min(w,h) ))
     def rnd( w, offset ):
@@ -3940,14 +3941,24 @@ def topindex(self):
         result = -offset + r * (w + offset + offset)
         return result
 
-    # circles at 10%
-    circleradius = int( round( minwidthheight / 10.0 ))
-    c2 = 2 * circleradius
-    for count in xrange( 400 ):
-        x = int( round( rnd( w, circleradius ) ))
-        y = int( round( rnd( h, circleradius ) ))
-        k = int( round( 5 + random.random() * 127))
-        draw.ellipse((x, y, x+c2, y+c2), fill=(255,255,255,k) )
+    # circles at 12.5%
+    circleradius1 = int( round( minwidthheight / 12.5 ))
+    circleradius2 = int( round( maxwidthheight / 12.5 ))
+    c2 = 2 * circleradius1
+    
+    for count in xrange( 384 ):
+        tempimage = Image.new("L", (w, h), 0 )
+        draw2 = ImageDraw.Draw( tempimage )
+        x = int( round( rnd( w, circleradius1 ) ))
+        y = int( round( rnd( h, circleradius1 ) ))
+        k = int( round( 15 + random.random() * 31))
+        r = 0.6 + random.random()
+        draw2.ellipse((x, y, x+c2*r, y+c2*r), fill=( k ) )
+        
+        # merge
+        img = ImageChops.add(img, tempimage)
+        del draw2
+
 
 </t>
 </tnodes>
