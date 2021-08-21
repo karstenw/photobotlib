@@ -289,23 +289,25 @@ class Canvas:
             # img, draw
             maxwidthheight = int( round( max(w,h) ))
             minwidthheight = int( round( min(w,h) ))
+
             def rnd( w, offset ):
                 r = random.random()
-                result = -offset + r * (w + offset + offset)
+                o2 = offset / 2.0
+                result = o2 + r * (w - (offset * 2))
                 return result
 
             # circles at 12.5%
-            circleradius1 = int( round( minwidthheight / 12.5 ))
-            circleradius2 = int( round( maxwidthheight / 12.5 ))
+            circleradius1 = int( round( minwidthheight / 8.0 ) )
+            circleradius2 = int( round( maxwidthheight / 8.0 ) )
             c2 = 2 * circleradius1
             
-            for count in xrange( 384 ):
+            for count in xrange( 255 ):
                 tempimage = Image.new("L", (w, h), 0 )
                 draw2 = ImageDraw.Draw( tempimage )
                 x = int( round( rnd( w, circleradius1 ) ))
                 y = int( round( rnd( h, circleradius1 ) ))
-                k = int( round( 15 + random.random() * 31))
-                r = 0.6 + random.random()
+                k = int( round( 7 + random.random() * 23))
+                r = 0.6 + random.random() * 0.4
                 draw2.ellipse((x, y, x+c2*r, y+c2*r), fill=( k ) )
                 
                 # merge
@@ -744,6 +746,9 @@ class Canvas:
                 print( "export() DBG: '%s'" % path.encode("utf-8") )
 
         self.flatten()
+        if format in ("JPEG",):
+            if self.layers[1].img.mode == "RGBA":
+                self.layers[1].img = self.layers[1].img.convert("RGB")
         self.layers[1].img.save(path, format=format, optimize=False)
         if kwlog:
             print( "export() %s" % path.encode("utf-8") )

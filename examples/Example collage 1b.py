@@ -96,7 +96,7 @@ x_offset = WIDTH / float(columns)
 
 # background image
 bgimage = backgrounds.pop()
-pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
+pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage", width=True, height=True)
 print( "Background: %s" % bgimage.encode("utf-8") )
 
 tilecounter = 0

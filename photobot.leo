@@ -27,13 +27,13 @@
 <v t="karstenw.20210803163323.1"><vh>&lt;&lt; scatter &gt;&gt;</vh></v>
 <v t="karstenw.20210301172939.1"><vh>&lt;&lt; sine cosine &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20170709210125.10" a="E"><vh>gradient</vh>
+<v t="karstenw.20170709210125.10"><vh>gradient</vh>
 <v t="karstenw.20210301172109.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172149.1"><vh>&lt;&lt; one Image gradients &gt;&gt;</vh></v>
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
+<v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
 <v t="karstenw.20170709210125.13"><vh>export</vh>
@@ -43,7 +43,7 @@
 <v t="karstenw.20170709210125.14"><vh>draw</vh></v>
 </v>
 <v t="karstenw.20170709210125.15"><vh>preferences</vh></v>
-<v t="karstenw.20200430120743.1" a="E"><vh>STACK OPS</vh>
+<v t="karstenw.20200430120743.1"><vh>STACK OPS</vh>
 <v t="karstenw.20170710142919.1"><vh>top</vh></v>
 <v t="karstenw.20210722112454.1"><vh>topindex</vh></v>
 <v t="karstenw.20200430124808.1"><vh>dup</vh></v>
@@ -55,7 +55,7 @@
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -141,7 +141,7 @@
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 </v>
-<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitimage</vh></v>
@@ -187,7 +187,7 @@
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
 <v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 <v t="karstenw.20210331155153.1"><vh>shuffle tiles</vh></v>
@@ -198,7 +198,7 @@
 <v t="karstenw.20210316200115.1"><vh>&lt;&lt; paint texture &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
+<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -209,7 +209,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
+<v t="karstenw.20210316195906.1" a="E"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -220,7 +220,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152421.1"><vh>@clean examples/Example collage 2.py</vh>
+<v t="karstenw.20210317152421.1" a="E"><vh>@clean examples/Example collage 2.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -236,7 +236,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
+<v t="karstenw.20210317152433.1" a="E"><vh>@clean examples/Example collage 3.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -245,7 +245,7 @@
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
-<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -259,7 +259,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210331161145.1"><vh>@clean examples/Example collage 5.py</vh>
+<v t="karstenw.20210331161145.1" a="E"><vh>@clean examples/Example collage 5.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -594,6 +594,9 @@ def export(self, name, ext=".png", format="PNG", unique=False):
         &lt;&lt;debug&gt;&gt;
 
     self.flatten()
+    if format in ("JPEG",):
+        if self.layers[1].img.mode == "RGBA":
+            self.layers[1].img = self.layers[1].img.convert("RGB")
     self.layers[1].img.save(path, format=format, optimize=False)
     if kwlog:
         print( "export() %s" % path.encode("utf-8") )
@@ -2938,7 +2941,7 @@ y_offset = int(round(y_offset))
 
 # background image
 bgimage = backgrounds.pop()
-pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
+pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
 print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
@@ -3072,7 +3075,7 @@ y_offset = int(round(y_offset))
 
 # background image
 bgimage = backgrounds.pop()
-pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
+pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
 print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
@@ -3094,7 +3097,7 @@ x_offset = WIDTH / float(columns)
 
 # background image
 bgimage = backgrounds.pop()
-pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
+pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage", width=True, height=True)
 print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
@@ -3245,7 +3248,7 @@ for t in range(columns*rows*2):
 
 # background image
 bgimage = backgrounds.pop()
-pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage")
+pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage", width=True, height=True)
 print( "Background: %s" % bgimage.encode("utf-8") )
 
 
@@ -3386,7 +3389,7 @@ paintoverlay = not kwdbg
 #  create, scale and place the image
 x, y = 0, 0
 bgimage = backgrounds.pop()
-top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1")
+top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
 print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
@@ -3522,7 +3525,7 @@ gilb = 0
 #  create, scale and place the image
 x, y = 0, 0
 bgimage = backgrounds.pop()
-top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1")
+top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
 print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
@@ -3695,7 +3698,7 @@ gilb = 0
 #  create, scale and place the image
 x, y = 0, 0
 bgimage = backgrounds.pop()
-top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1")
+top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
 print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
@@ -3936,23 +3939,25 @@ def topindex(self):
     # img, draw
     maxwidthheight = int( round( max(w,h) ))
     minwidthheight = int( round( min(w,h) ))
+
     def rnd( w, offset ):
         r = random.random()
-        result = -offset + r * (w + offset + offset)
+        o2 = offset / 2.0
+        result = o2 + r * (w - (offset * 2))
         return result
 
     # circles at 12.5%
-    circleradius1 = int( round( minwidthheight / 12.5 ))
-    circleradius2 = int( round( maxwidthheight / 12.5 ))
+    circleradius1 = int( round( minwidthheight / 8.0 ) )
+    circleradius2 = int( round( maxwidthheight / 8.0 ) )
     c2 = 2 * circleradius1
     
-    for count in xrange( 384 ):
+    for count in xrange( 255 ):
         tempimage = Image.new("L", (w, h), 0 )
         draw2 = ImageDraw.Draw( tempimage )
         x = int( round( rnd( w, circleradius1 ) ))
         y = int( round( rnd( h, circleradius1 ) ))
-        k = int( round( 15 + random.random() * 31))
-        r = 0.6 + random.random()
+        k = int( round( 7 + random.random() * 23))
+        r = 0.6 + random.random() * 0.4
         draw2.ellipse((x, y, x+c2*r, y+c2*r), fill=( k ) )
         
         # merge

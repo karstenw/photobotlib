@@ -96,7 +96,7 @@ y_offset = int(round(y_offset))
 
 # background image
 bgimage = backgrounds.pop()
-pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1")
+pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
 print( "Background: %s" % bgimage.encode("utf-8") )
 
 tilecounter = 0

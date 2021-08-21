@@ -123,7 +123,7 @@ paintoverlay = not kwdbg
 #  create, scale and place the image
 x, y = 0, 0
 bgimage = backgrounds.pop()
-top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1")
+top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
 print( "Background: %s" % bgimage.encode("utf-8") )
 
 
