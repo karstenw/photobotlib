@@ -13,8 +13,11 @@ kwlog = 0
 import random as rnd
 
 import libgradient
+import imagewells
+loadImageWell = imagewells.loadImageWell
 
-if kwdbg and 1:
+
+if kwdbg and 0:
     # make random choices repeatable for debugging
     rnd.seed( 123456 )
 
@@ -38,6 +41,8 @@ except ImportError:
     background( 0.333 )
 except NameError:
     import photobot as pb
+    pb.kwdbg = kwdbg
+    pb.kwlog = kwlog
     WIDTH, HEIGHT = W, H
     print( "File: %s" % (__file__,) )
 RATIO = WIDTH / HEIGHT
@@ -47,12 +52,12 @@ RATIO = WIDTH / HEIGHT
 additionals = sys.argv[1:]
 
 # get all images from user image wells
-imagewell = pb.loadImageWell(   bgsize=(WIDTH, HEIGHT),
-                                minsize=(256,256),
-                                pathonly=True,
-                                additionals=additionals,
-                                resultfile="imagewell-files",
-                                ignoreFolderNames=('+offline',))
+imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
+                             minsize=(256,256),
+                             pathonly=True,
+                             additionals=additionals,
+                             resultfile="imagewell-files",
+                             ignoreFolderNames=('+offline',))
 
 # tiles are images >256x256 and <=WIDTH, HEIGHT
 tiles = imagewell['tiles']

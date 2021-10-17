@@ -12,7 +12,7 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
+<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
 <v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
@@ -141,11 +141,11 @@
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 </v>
-<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitimage</vh></v>
-<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
+<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
@@ -158,31 +158,6 @@
 </v>
 <v t="karstenw.20210301171559.1"><vh>Text</vh>
 <v t="karstenw.20200419184336.1"><vh>label</vh></v>
-</v>
-<v t="karstenw.20210301171611.1"><vh>Folderscanner</vh>
-<v t="karstenw.20200419185227.1"><vh>filelist</vh></v>
-<v t="karstenw.20200419185246.1"><vh>imagefiles</vh></v>
-</v>
-<v t="karstenw.20200419205343.1"><vh>ImageWell</vh>
-<v t="karstenw.20210611105714.1"><vh>getImageWellsFile</vh></v>
-<v t="karstenw.20170709210125.67"><vh>imagewells</vh></v>
-<v t="karstenw.20210315131908.1"><vh>Imagecollection</vh>
-<v t="karstenw.20210316194210.1"><vh>&lt;&lt; class doc &gt;&gt;</vh></v>
-</v>
-<v t="karstenw.20200419185716.1" a="E"><vh>loadImageWell</vh>
-<v t="karstenw.20210611114959.1"><vh>&lt;&lt; functioncomment &gt;&gt;</vh></v>
-<v t="karstenw.20210315130855.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
-<v t="karstenw.20210611112926.1"><vh>&lt;&lt; check file dates &gt;&gt;</vh></v>
-<v t="karstenw.20210315232316.1"><vh>&lt;&lt; load tabs file &gt;&gt;</vh></v>
-<v t="karstenw.20210315131220.1"><vh>&lt;&lt; read image folders &gt;&gt;</vh></v>
-<v t="karstenw.20210315143241.1" a="E"><vh>&lt;&lt; file loop &gt;&gt;</vh>
-<v t="karstenw.20210315143319.1"><vh>&lt;&lt; filters &gt;&gt;</vh></v>
-<v t="karstenw.20210315143430.1"><vh>&lt;&lt; stats &gt;&gt;</vh></v>
-<v t="karstenw.20210315143623.1"><vh>&lt;&lt; categories &gt;&gt;</vh></v>
-</v>
-<v t="karstenw.20210315225632.1"><vh>&lt;&lt; accumulate stats &gt;&gt;</vh></v>
-<v t="karstenw.20210315131302.1"><vh>&lt;&lt; setup optional result file &gt;&gt;</vh></v>
-</v>
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
@@ -209,7 +184,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210316195906.1" a="E"><vh>@clean examples/Example collage 1b.py</vh>
+<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -220,7 +195,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152421.1" a="E"><vh>@clean examples/Example collage 2.py</vh>
+<v t="karstenw.20210317152421.1"><vh>@clean examples/Example collage 2.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -236,7 +211,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152433.1" a="E"><vh>@clean examples/Example collage 3.py</vh>
+<v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -245,7 +220,7 @@
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
-<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -275,6 +250,26 @@
 <v t="karstenw.20210331165116.1"></v>
 </v>
 <v t="karstenw.20210331161246.1" a="E"><vh>finish</vh>
+<v t="karstenw.20210316200041.1"></v>
+<v t="karstenw.20210316200115.1"></v>
+</v>
+</v>
+<v t="karstenw.20211005225841.1" a="E"><vh>@clean examples/Example collage 6.py</vh>
+<v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20201006211627.1"></v>
+<v t="karstenw.20210331155153.1"></v>
+<v t="karstenw.20210319130640.1"></v>
+<v t="karstenw.20211005225906.2"><vh>config</vh></v>
+<v t="karstenw.20211005233913.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210331164744.1"></v>
+<v t="karstenw.20210331164848.1"></v>
+<v t="karstenw.20210331165305.1"></v>
+<v t="karstenw.20211005234613.1"><vh>&lt;&lt; create scatter mask &gt;&gt;</vh></v>
+<v t="karstenw.20210331165103.1"></v>
+<v t="karstenw.20210331165110.1"></v>
+<v t="karstenw.20210331165116.1"></v>
+</v>
+<v t="karstenw.20211005230001.1"><vh>finnish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
@@ -323,9 +318,6 @@ import datetime
 import time
 import hashlib
 import unicodedata
-
-import pickle
-import json
 
 import colorsys
 
@@ -1519,51 +1511,6 @@ def canvas(w, h):
 
 
 </t>
-<t tx="karstenw.20170709210125.67">def imagewells( imagewellsfile="imagewell.txt" ):
-    """Find a file named "imagewell.txt" and interpret it as image folder paths.
-    If no file is found create one with the desktop image folders for
-    mac &amp; win10.
-    
-    """
-    folders = [
-        # macos system wallpapers
-        "/Library/Desktop Pictures",
-        
-        # windows
-        "C:\Windows\Web",
-        
-        # linux wallpapers
-        "/usr/share/backgrounds",
-        "/usr/share/wallpapers" ]
-
-    images = os.path.abspath( "images" )
-    if os.path.exists( images ):
-        folders.append( images )
-    fullpath = getImageWellsFile( imagewellsfile )
-    
-    if not os.path.exists( fullpath ):
-        try:
-            f = open(fullpath, 'w')
-            f.write( "\n".join( folders ) )
-            f.close()
-        except:
-            pass
-        return folders
-    try:
-        with open(fullpath, 'Ur') as f:
-            lines = f.readlines()
-        if not lines:
-            return folders
-        folders = []
-        for line in lines:
-            line = line.strip("\n\r")
-            folders.append( makeunicode( line ) )
-    except:
-        pass
-    folders = [x for x in folders if os.path.exists(x)]
-    return folders
-
-</t>
 <t tx="karstenw.20170709210125.7">def layer(self, img, x=0, y=0, name=""):
 
     """Creates a new layer from file, Layer, PIL Image.
@@ -1916,91 +1863,6 @@ def smooth_more(self):
 
 
 </t>
-<t tx="karstenw.20200419185227.1">def filelist( folderpathorlist, pathonly=True ):
-    """Walk a folder or a list of folders and return
-    paths or ((filepath, size, lastmodified, mode) tuples..
-    """
-
-    folders = folderpathorlist
-    if type(folderpathorlist) in (pstr, punicode):
-        folders = [folderpathorlist]
-    result = []
-    for folder in folders:
-        for root, dirs, files in os.walk( folder ):
-            root = makeunicode( root )
-            if kwlog:
-                print (root.encode("utf-8"))
-            for thefile in files:
-                thefile = makeunicode( thefile )
-                basename, ext = os.path.splitext(thefile)
-
-                # exclude dotfiles
-                if thefile.startswith(u'.'):
-                    continue
-
-                # exclude the specials
-                for item in (u'\r', u'\n', u'\t'):
-                    if item in thefile:
-                        continue
-
-                filepath = os.path.join( root, thefile )
-                filepath = filepath.encode("utf-8")
-
-                record = filepath
-                if not pathonly:
-                    info = os.stat( filepath )
-                    lastmodf = datetime.datetime.fromtimestamp( info.st_mtime )
-                    islink = os.path.islink( filepath )
-                    record = (filepath,
-                              info.st_size,
-                              lastmodf,
-                              oct(info.st_mode),
-                              islink )
-                yield record
-
-
-</t>
-<t tx="karstenw.20200419185246.1">def imagefiles( folderpathorlist, pathonly=True ):
-    """Get a list of images from a list of folders.
-
-    folderpathorlist: is either a string with a path or a list of paths
-    
-    pathonly: if True return list of fullpath
-              else: return a list of filetuples
-    filetuple = 
-        (path, filesize, lastmodf, mode, islink, width, height)
-    
-    """
-    filetuples = filelist( folderpathorlist, pathonly=pathonly )
-    exts = ".tif .tiff .gif .jpg .jpeg .png" # + " .eps"
-    extensions = tuple( exts.split() )
-    for filetuple in filetuples:
-        path = filetuple
-        if not pathonly:
-            path = filetuple[0]
-        path = makeunicode( path )
-
-        _, ext = os.path.splitext( path )
-        if ext.lower() not in extensions:
-            continue
-        if pathonly:
-            # print (path.encode("utf-8"))
-            yield path
-        else:
-            path, filesize, lastmodf, mode, islink = filetuple
-            s = (-1,-1)
-            try:
-                img = Image.open(path)
-                s = img.size
-                del img
-            except:
-                pass #continue
-            filetuple = (path, filesize, lastmodf, mode, islink, s[0], s[1])
-            # print (path.encode("utf-8"))
-            yield filetuple
-
-
-</t>
 <t tx="karstenw.20200419185543.1">def hashFromString( s ):
     h = hashlib.sha1()
     h.update( s )
@@ -2046,51 +1908,6 @@ def smooth_more(self):
         now = now.replace(":", "")
     return now
 
-
-</t>
-<t tx="karstenw.20200419185716.1">def loadImageWell( bgsize=(1024,768), minsize=(256,256),
-                   maxfilesize=100000000, maxpixellength=16000,
-                   pathonly=True, additionals=None, ignorelibs=False,
-                   imagewellsfile="imagewell.txt",
-                   resultfile=False, ignoreFolderNames=None):
-
-    &lt;&lt; functioncomment &gt;&gt;
-
-    &lt;&lt; init &gt;&gt;
-
-    # pdb.set_trace()
-    if ignorelibs == False:
-        if not additionals:
-            if resultfile != False:
-                path = os.path.abspath( resultfile )
-                folder, filename = os.path.split( path )
-                tabfile = os.path.join( folder, filename + ".tab" )
-                if os.path.exists( tabfile ):
-                    &lt;&lt; check file dates &gt;&gt;
-                    if imageTabsfileIsNewer:
-                        &lt;&lt; load tabs file &gt;&gt;
-
-    &lt;&lt; read image folders &gt;&gt;
-
-    if kwlog:
-        print("File loop...")
-
-    &lt;&lt; file loop &gt;&gt;
-
-    if kwlog:
-        print("File loop... Done.")
-
-    &lt;&lt; accumulate stats &gt;&gt;
-
-    &lt;&lt; setup optional result file &gt;&gt;
-
-    return result
-
-
-</t>
-<t tx="karstenw.20200419205343.1">#
-# image well section
-#
 
 </t>
 <t tx="karstenw.20200419210659.1"></t>
@@ -2297,8 +2114,11 @@ kwlog = 0
 import random as rnd
 
 import libgradient
+import imagewells
+loadImageWell = imagewells.loadImageWell
 
-if kwdbg and 1:
+
+if kwdbg and 0:
     # make random choices repeatable for debugging
     rnd.seed( 123456 )
 
@@ -2322,6 +2142,8 @@ except ImportError:
     background( 0.333 )
 except NameError:
     import photobot as pb
+    pb.kwdbg = kwdbg
+    pb.kwlog = kwlog
     WIDTH, HEIGHT = W, H
     print( "File: %s" % (__file__,) )
 </t>
@@ -2332,12 +2154,12 @@ except NameError:
 additionals = sys.argv[1:]
 
 # get all images from user image wells
-imagewell = pb.loadImageWell(   bgsize=(WIDTH, HEIGHT),
-                                minsize=(256,256),
-                                pathonly=True,
-                                additionals=additionals,
-                                resultfile="imagewell-files",
-                                ignoreFolderNames=('+offline',))
+imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
+                             minsize=(256,256),
+                             pathonly=True,
+                             additionals=additionals,
+                             resultfile="imagewell-files",
+                             ignoreFolderNames=('+offline',))
 
 # tiles are images &gt;256x256 and &lt;=WIDTH, HEIGHT
 tiles = imagewell['tiles']
@@ -2389,11 +2211,6 @@ c.fill( (85,85,85) )
 #
 
 </t>
-<t tx="karstenw.20210301171611.1">#
-# folderscanner section
-#
-
-</t>
 <t tx="karstenw.20210301171902.1">if type(w) == float:
     w *= self.w
 if type(h) == float:
@@ -2413,10 +2230,11 @@ h2 = h // 2
 if kwlog:
     print( (style, self.w,self.h,w,h) )
 
-if style in (RADIALCOSINE, SCATTER):
+if style in (RADIALCOSINE,): #, SCATTER):
     img = Image.new("L", (w, h), 0)
-#elif style in (SCATTER, ):
-#    img = Image.new("RGBA", (w, h), (0,0,0,0))
+elif style in (SCATTER, ):
+    img = Image.new("L", (w, h), 0)
+    # img = Image.new("RGBA", (w, h), (0,0,0,0))
 else:
     img = Image.new("L", (w, h), 255)
 
@@ -2702,226 +2520,6 @@ c.draw(0,0)
 
 
 </t>
-<t tx="karstenw.20210315130855.1">tiles = []
-backgrounds = []
-proportions = {}
-fractions = {}
-
-result = {
-    'allimages': [],
-    'tiles': [],
-    'backgrounds': [],
-    'landscape': [],
-    'portrait': [],
-    'fractions': {},
-    'WxH largest': "",
-    'WxH smallest': "",
-    'WxH median': "",
-}
-
-minw, minh = minsize
-bgw, bgh = bgsize
-smallestw, smallesth = 99999,99999
-largestw, largesth = 0,0
-medianw, medianh = 0,0
-slope = 1.0
-imagecount = 0
-filetuples = []
-
-fileLoaded = False
-
-imageWellsFile = getImageWellsFile( imagewellsfile )
-imageTabsfileIsNewer = False
-
-</t>
-<t tx="karstenw.20210315131220.1"># get all images from user image wells
-folders = []
-if not ignorelibs:
-    folders = imagewells()
-
-if additionals:
-    folders.extend( additionals )
-
-# check if it has read the cache
-if not filetuples:
-    start = time.time()
-    filetuples = []
-    items = list( imagefiles( folders, pathonly=False ) )
-    for filetuple in items:
-        path, filesize, lastmodified, mode, islink, w0, h0 = filetuple
-        path = makeunicode(path)
-        item = ( path, filesize, lastmodified, mode, islink, w0, h0 )
-        filetuples.append( item )
-    stop = time.time()
-    print("FOLDER SCAN TIME: %.3f" % (stop-start,))
-</t>
-<t tx="karstenw.20210315131302.1">if resultfile and not fileLoaded:
-    print("Writing tabfile...")
-
-    path = os.path.abspath( resultfile )
-    folder, filename = os.path.split( path )
-    
-    if os.path.exists( folder ):
-        start = time.time()
-        tabfile = os.path.join( folder, filename + ".tab" )
-        items = []
-        template = u"%s\t%s\t%s\t%s\t%i\t%i\t%i\n"
-        f = io.open(tabfile, "w", encoding="utf-8")
-        for item in filetuples:
-            path, filesize, lastmodified, mode, islink, w0, h0 = item
-            w0 = int(w0)
-            h0 = int(h0)
-            islink = int(bool(islink))
-            filesize  = str( filesize )
-            item = ( path, filesize, lastmodified, mode, islink, w0, h0 )
-            f.write( template % item )
-        f.close()
-        stop = time.time()
-        if kwlog:
-            print("Writing tabfile... Done.")
-            print("WRITE TIME: %.3f" % (stop-start,) )        
-
-</t>
-<t tx="karstenw.20210315131908.1">class Imagecollection(object):
-    &lt;&lt; class doc &gt;&gt;
-    def __init__(self):
-        self.data = {}
-    
-    
-
-</t>
-<t tx="karstenw.20210315143241.1"># pdb.set_trace()
-for t in filetuples:
-    path, filesize, lastmodified, mode, islink, w0, h0 = t
-    path = makeunicode( path )
-    folder, filename = os.path.split( path )
-    root, parent =  os.path.split( folder )
-    basename, ext = os.path.splitext( filename )
-
-    &lt;&lt; filters &gt;&gt;
-
-    &lt;&lt; stats &gt;&gt;
-
-    &lt;&lt; categories &gt;&gt;
-</t>
-<t tx="karstenw.20210315143319.1"># parent names
-cancel = False
-if ignoreFolderNames:
-    for name in ignoreFolderNames:
-        if parent.startswith( name ):
-            cancel = True
-            # print("IGNORE PARENT: %s  %s" % (name,path))
-            break
-if cancel:
-    continue
-    
-# filter minimal pixel lengths
-if ext.lower() != ".eps":
-    if (w0 &lt; minw) and (h0 &lt; minh):
-        continue
-    if (w0 &gt; maxpixellength) or (h0 &gt; maxpixellength):
-        continue
-
-# filter maximal pixel lengths
-if (w0 &gt; maxpixellength) or (h0 &gt; maxpixellength):
-    continue
-
-# filter max filesize
-if filesize &gt; maxfilesize:
-    continue
-
-# filter images with anormal width or height
-if w0 in (0, 0.0):
-    print( "Anormal width: %s %s %s" % (repr(path),
-                                        repr(w0), repr(h0)))
-    continue
-if h0 in (0, 0.0):
-    print( "Anormal height: %s %s %s" % (repr(path),
-                                         repr(w0), repr(h0)))
-    continue
-</t>
-<t tx="karstenw.20210315143430.1">imagecount += 1
-
-# collect some stats
-if w0 &lt; smallestw:
-    smallestw = w0
-if  h0 &lt; smallesth:
-    smallesth = h0
-if w0 &gt; largestw:
-    largestw = w0
-if  h0 &gt; largesth:
-    largesth = h0
-
-medianw += w0
-medianh += h0
-</t>
-<t tx="karstenw.20210315143623.1">proportion = "landscape"
-if h0 &gt; w0:
-    proportion = "portrait"
-
-fracs = "x:y"
-try:
-    frac = Fraction(w0, h0)
-    fracs = "%i:%i" % (frac.numerator, frac.denominator )
-except TypeError as err:
-    print(err)
-    print(w0)
-    print(h0)
-
-if pathonly:
-    record = path
-else:
-    record = (path, filesize, lastmodified, mode, islink,
-              w0, h0, proportion, frac)
-
-result['allimages'].append( record )
-
-# candidate has at least canvas size and can be used as background
-# otherwise it is a tile
-if (w0 &gt;= bgw) and (h0 &gt;= bgh):
-    result['backgrounds'].append( record )
-else:
-    # print( "TILE: %i &lt; %i  and  %i &lt; %i" % (w0,bgw,h0,bgh) )
-    result['tiles'].append( record )
-
-if fracs not in result['fractions']:
-    result['fractions'][fracs] = []
-result['fractions'][fracs].append( record )
-
-if proportion == "landscape":
-    result['landscape'].append( record )
-else:
-    result['portrait'].append( record )
-</t>
-<t tx="karstenw.20210315225632.1">result[ 'WxH largest' ] = (largestw,largesth)
-result[ 'WxH smallest' ] = (smallestw,smallesth)
-result[ 'WxH median' ] = (medianw / float(imagecount),
-                          medianh / float(imagecount))
-</t>
-<t tx="karstenw.20210315232316.1">print("Reading tabfile...")
-start = time.time()
-f = io.open(tabfile, "r", encoding="utf-8")
-lines = f.readlines()
-f.close()
-filetuples = []
-
-for line in lines:
-    path, filesize, lastmodified, mode, islink, w0, h0 = line.split( u"\t" )
-    filesize = int(filesize)
-    islink = bool(islink)
-    w0 = int(w0)
-    h0 = int(h0)
-    if os.path.exists( path ):
-        filetuples.append( (path, filesize, lastmodified, mode, islink, w0, h0) )
-
-fileLoaded = True
-stop = time.time()
-if kwlog:
-    print("%i records loaded from tabfile." % len(filetuples))
-    print("Reading tabfile... Done.")
-    print( "READ TIME: %.3f" % (stop-start,) )        
-
-</t>
 <t tx="karstenw.20210316183613.1"># CONFIGURATION
 
 columns = 3
@@ -3010,16 +2608,6 @@ for j in range(rows):
 
 c.draw(0,0)
 
-
-</t>
-<t tx="karstenw.20210316194210.1">"""
-ImageCollection should be the return value of loadImageWell() and
-transparently handle the imagewell.txt pickling.
-
-The folders in imagewell.txt should be parsed, if one of the folders
-is newer or imagewell.txt is newer than imagewell-files.pick.
-
-"""
 
 </t>
 <t tx="karstenw.20210316195906.1">@language python
@@ -3804,54 +3392,6 @@ c.top.contrast(1.1)
 
 
 </t>
-<t tx="karstenw.20210611105714.1">def getImageWellsFile( imagewellsfile="imagewell.txt" ):
-    return os.path.abspath( imagewellsfile )
-
-
-</t>
-<t tx="karstenw.20210611112926.1">try:
-    info1 = os.stat( imageWellsFile )
-    lastmodf1 = datetime.datetime.fromtimestamp( info1.st_mtime )
-
-    info2 = os.stat( tabfile )
-    lastmodf2 = datetime.datetime.fromtimestamp( info2.st_mtime )
-    
-    imageTabsfileIsNewer = lastmodf2 &gt; lastmodf1
-except:
-    pass
-
-</t>
-<t tx="karstenw.20210611114959.1">"""
-Find images imagewells or additional folders. 
-   
-Params:
-    bgsize
-        tuple with width and height for images to be classified background
-
-    minsize
-        tuple with minimal width and height for images not to be ignored
-
-    maxfilesize
-        in bytes. Images above this file size will be ignored
-
-    maxpixellength
-        in pixels. Images above in either dimension will be ignored
-
-    pathonly
-        return path or record
-    additionals
-        list of folders to me considered for this run
-
-    ignorelibs
-        if imagewells file should be ignored
-
-Returns:
-    A dict of dicts with several image classifications.
-
-    list of file paths if pathonly is True
-    list of file records else.
-"""
-</t>
 <t tx="karstenw.20210612104640.1">def splitimage( img, hor=1, vert=1):
     """Split a PIL image hor times horizontally and vert times vertically.
     
@@ -3947,23 +3487,102 @@ def topindex(self):
         return result
 
     # circles at 12.5%
-    circleradius1 = int( round( minwidthheight / 8.0 ) )
-    circleradius2 = int( round( maxwidthheight / 8.0 ) )
-    c2 = 2 * circleradius1
+    circleplacemin = int( round( minwidthheight / 9.0 ) )
+    circleplacemax = int( round( maxwidthheight / 9.0 ) )
+    c2 = 2 * circleplacemin
     
-    for count in xrange( 255 ):
-        tempimage = Image.new("L", (w, h), 0 )
+    for count in xrange( 511 ):
+        tempimage = Image.new("L", (w, h), (0,) )
         draw2 = ImageDraw.Draw( tempimage )
-        x = int( round( rnd( w, circleradius1 ) ))
-        y = int( round( rnd( h, circleradius1 ) ))
-        k = int( round( 7 + random.random() * 23))
-        r = 0.6 + random.random() * 0.4
-        draw2.ellipse((x, y, x+c2*r, y+c2*r), fill=( k ) )
+        x = int( round( rnd( w, circleplacemin ) ))
+        y = int( round( rnd( h, circleplacemin ) ))
+        k = min(255, int( round( 33 + random.random() * 127)) )
+        r = (circleplacemin / 4.0) + random.random() * (circleplacemin / 4.0)
+        bottom = int(round(y + r))
+        right = int(round(x + r))
+        draw2.ellipse( (x, y, right, bottom), fill=( k ) )
+        if 0:
+            print( (x, y, bottom, right) )
         
         # merge
         img = ImageChops.add(img, tempimage)
         del draw2
+    img = img.convert("L")
 
+
+</t>
+<t tx="karstenw.20211005225841.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211005225906.2">
+# CONFIGURATION
+
+columns = 9
+rows = 4
+
+colwidth = int(WIDTH / columns)
+rowheight = int(HEIGHT / rows)
+maxsize = int(max(colwidth,rowheight)*1.2)
+maxsize = int( rowheight * 1.2 )
+
+xgutter = colwidth * 0.0667
+ygutter = rowheight * 0.0667
+
+realwidth = colwidth - 1*xgutter
+realheight = rowheight - 1*ygutter 
+
+positions = list(grid(columns, rows, colwidth, rowheight, shuffled=True))
+# positions.extend( list(grid(columns, rows, colwidth, rowheight, shuffled=True)) )
+# positions.extend( list(grid(columns, rows, colwidth, rowheight, shuffled=True)) )
+
+randomblur = 0 # not kwdbg
+paintoverlay = 0 # not kwdbg
+gilb = 0
+
+#
+# Base Image
+#
+
+#  create, scale and place the image
+x, y = 0, 0
+bgimage = backgrounds.pop()
+top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
+print( "Background: %s" % bgimage.encode("utf-8") )
+
+</t>
+<t tx="karstenw.20211005230001.1">&lt;&lt; orange gilb &gt;&gt;
+
+&lt;&lt; paint texture &gt;&gt;
+
+c.draw(0,0)
+</t>
+<t tx="karstenw.20211005233913.1">for position in positions:
+    x, y = position
+
+    &lt;&lt; image placement &gt;&gt;
+
+    &lt;&lt; tile height &gt;&gt;
+
+    &lt;&lt; tile contrast crank &gt;&gt;
+
+    &lt;&lt; create scatter mask &gt;&gt;
+
+    &lt;&lt; tile translation &gt;&gt;
+
+    &lt;&lt; opacity &gt;&gt;
+
+    &lt;&lt; tile blur &gt;&gt;
+
+</t>
+<t tx="karstenw.20211005234613.1">if kwdbg:
+    print("SCATTER")
+
+# create bullets mask
+# top = c.gradient(pb.SCATTER, int(w*0.8), int(h*0.8))
+top = c.gradient(pb.SCATTER, w, h )
+# c.top.brightness(1.4)
+c.top.mask()
 
 </t>
 </tnodes>
