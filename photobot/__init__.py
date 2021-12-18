@@ -6,11 +6,11 @@
 
 from __future__ import print_function
 
-ALL = ['canvas', 'Layers', 'Layer', 'label', 'invertimage', 'cropimage',
+ALL = ['canvas', 'Layers', 'Layer', 'invertimage', 'cropimage',
     'aspectRatio', 'normalizeOrientationImage', 'insetRect',
     'cropImageToRatioHorizontal', 'scaleLayerToHeight', 'placeImage',
-    'resizeImage', 'hashFromString', 'makeunicode', 'datestring', 'filelist',
-    'imagefiles', 'imagewells', 'loadImageWell' ]
+    'resizeImage', 'hashFromString', 'makeunicode', 'datestring',
+    'label' ]
 
 import sys
 import os
@@ -79,8 +79,8 @@ except NameError:
 
 # PIL interpolation modes
 NEAREST = Image.NEAREST
-BICUBIC = Image.BICUBIC
 BILINEAR = Image.BILINEAR
+BICUBIC = Image.BICUBIC
 LANCZOS = Image.LANCZOS
 INTERPOLATION = Image.BICUBIC
 
@@ -1227,7 +1227,7 @@ class Layer:
         img.putalpha(alpha)
         self.img = img
 
-    def deform( self, deformer, resample=LANCZOS ):
+    def deform( self, deformer, resample=BICUBIC ):
         self.img = ImageOps.deform(self.img, deformer, resample)
 
     def equalize(self, mask=None):
@@ -1851,6 +1851,28 @@ def datestring(dt = None, dateonly=False, nospaces=True, nocolons=True):
     return now
 
 
+def grid(cols, rows, colSize=1, rowSize=1, shuffled=False):
+    """Returns an iterator that contains coordinate tuples.
+    
+    The grid can be used to quickly create grid-like structures.
+    A common way to use them is:
+        for x, y in grid(10,10,12,12):
+            rect(x,y, 10,10)
+    """
+    # Prefer using generators.
+    rowRange = range( int(rows) )
+    colRange = range( int(cols) )
+    # Shuffled needs a real list, though.
+    if (shuffled):
+        rowRange = list(rowRange)
+        colRange = list(colRange)
+        random.shuffle(rowRange)
+        random.shuffle(colRange)
+    for y in rowRange:
+        for x in colRange:
+            yield (x*colSize, y*rowSize)
+
+
 #
 # image tools section
 #
@@ -1873,12 +1895,48 @@ def cropimage( img, bounds):
     return img.crop( bounds )
 
 
-def splitimage( img, hor=1, vert=1):
-    """Split a PIL image hor times horizontally and vert times vertically.
+def splitrect( left, top, right, bottom, hor=True, t=0.5 ):
+    """Split a PIL image horizontally or vertically.
     
-    Return a (hor+1) * (vert+1) list with images.
+    A split is horizontal if the splitline is horizontal.
+    
+    Return a list with images.
     """
+
+    # w,h = img.size
+    w = int( round( right-left ))
+    h = int( round( bottom-top ))
+
+    w2 = int( round( w * t ))
+    h2 = int( round( h * t ))
+
+    if hor:
+        rects = [ (left, top, right, top+h2), (left, top+h2+1, right, bottom) ]
+    else:
+        rects = [ (left, top, l+w2, bottom), (left+w2+1, top, right, bottom) ]
+    return rects
+
+
+def splitimage( img ):
     pass
+
+# gridsizeh = w // hor
+# remainderh = w % hor
+# noofmainchunks = noofrecords // chunksize
+# remainingrecords = noofrecords % chunksize
+
+"""
+with Image.open("hopper.jpg") as im:
+
+    # The crop method from the Image module takes four coordinates as input.
+    # The right can also be represented as (left+width)
+    # and lower can be represented as (upper+height).
+    (left, upper, right, lower) = (20, 20, 100, 100)
+
+    # Here the image "im" is cropped and assigned to new variable im_crop
+    im_crop = im.crop((left, upper, right, lower))
+"""    
+    
 
 
 def aspectRatio(size, maxsize, height=False, width=False, assize=False):
