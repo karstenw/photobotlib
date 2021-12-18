@@ -9,7 +9,9 @@ pp = pprint.pprint
 import pdb
 kwdbg = 0
 
-W, H = 800, 1050
+W, H = 542, 1050
+fullwidth = int(W-20)
+tilewidth = int((fullwidth-10) / 2.0)
 
 
 # check for Nodebox
@@ -26,12 +28,13 @@ else:
     WIDTH, HEIGHT = W, H
     import photobot as pb
 
+import imagewells
 
 if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(8)
 
-imagewell = pb.loadImageWell(resultfile="imagewell-files")
+imagewell = imagewells.loadImageWell(resultfile="imagewell-files")
 tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
@@ -52,7 +55,7 @@ _, filename = os.path.split( img1path )
 
 #  create, scale and place the image
 x, y = 10, 10
-img1, w1, h1 = pb.placeImage(c, img1path, x, y, 380, "Image 1 Base")
+img1, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1 Base")
 
 c.layers[img1].duplicate()
 c.top.solarize(256)

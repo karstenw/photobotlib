@@ -9,7 +9,9 @@ pp = pprint.pprint
 import pdb
 kwdbg = 0
 
-W, H = 800, 1050
+W, H = 542, 1050
+fullwidth = int(W-20)
+tilewidth = int((fullwidth-10) / 2.0)
 
 
 # check for Nodebox
@@ -26,12 +28,13 @@ else:
     WIDTH, HEIGHT = W, H
     import photobot as pb
 
+import imagewells
 
 if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(8)
 
-imagewell = pb.loadImageWell(resultfile="imagewell-files")
+imagewell = imagewells.loadImageWell(resultfile="imagewell-files")
 tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
@@ -111,7 +114,7 @@ x, y = 10, 10
 h = 10
 x, y = 10 , h + 20
 
-top, w, h = pb.placeImage(c, img1path, x, y, 522, "Image 1", 0)
+top, w, h = pb.placeImage(c, img1path, x, y, fullwidth, "Image 1", 0)
 
 pb.label(c, "Normal Image 1", x, y)
 
@@ -122,7 +125,7 @@ pb.label(c, "Normal Image 1", x, y)
 
 x, y = 10 , h + 20 + y
 
-top, w4, h4 = pb.placeImage(c, img1path, x, y, 522, "Image 2", 1)
+top, w4, h4 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 2", 1)
 c.top.deform( _Deformer() )
 pb.label(c, "Deformed Image 1", x, y)
 

@@ -9,8 +9,10 @@ pp = pprint.pprint
 import pdb
 kwdbg = 0
 
-W, H = 800, 1850
-tilewidth = int((W-30) / 2.0)
+W, H = 542, 1050
+fullwidth = int(W-20)
+tilewidth = int((fullwidth-10) / 2.0)
+
 
 # check for Nodebox
 NB = True
@@ -26,12 +28,13 @@ else:
     WIDTH, HEIGHT = W, H
     import photobot as pb
 
+import imagewells
 
 if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(8)
 
-imagewell = pb.loadImageWell(resultfile="imagewell-files")
+imagewell = imagewells.loadImageWell(resultfile="imagewell-files")
 tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 

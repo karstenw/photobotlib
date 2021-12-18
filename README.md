@@ -61,19 +61,28 @@ creates a contact print of a folder. All other Layer_* examples demonstrate a si
 
 
 
-#### Scanning your images ####
+#### Scanning your images with ImageWells ####
+
+The collage examples make use of the yet unreleased "ImageWells" library of which a preliminary version is included in the examples folder.
 
 Abbreviated example from "Example collage 1.py"
 
-```
-import photobot as pb
+```Python
 
-imagewell = pb.loadImageWell(   bgsize=(WIDTH, HEIGHT),
-                                minsize=(256,256),
-                                pathonly=True,
-                                additionals=additionals,
-                                resultfile="imagewell-files",
-                                ignoreFolderNames=('+offline',))
+import imagewells
+loadImageWell = imagewells.loadImageWell
+
+imagewell = loadImageWell(
+				bgsize=(1024,768),
+				minsize=(256,256),
+				maxfilesize=100000000,
+				maxpixellength=16000,
+				pathonly=True,
+				additionals=None,
+				ignorelibs=False,
+				imagewellsfile="imagewell.txt",
+				resultfile="imagewell-files",
+				ignoreFolderNames=('+offline',))
 ```
 
 

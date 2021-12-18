@@ -1,4 +1,6 @@
 #!/bin/sh
+python2 Layer_colorize.py
+python2 explore_gradients 1.py
 
 python2 Layer_filter_boxblur.py
 python2 Layer_filter_contour.py
