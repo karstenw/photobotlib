@@ -9,15 +9,15 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20200419210659.1"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
+<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
-<v t="karstenw.20170709210125.9" a="E"><vh>makegradientimage</vh>
+<v t="karstenw.20170709210125.9"><vh>makegradientimage</vh>
 <v t="karstenw.20210301171902.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172848.1"><vh>&lt;&lt; solid &gt;&gt;</vh></v>
 <v t="karstenw.20210301172906.1"><vh>&lt;&lt; linear &gt;&gt;</vh></v>
@@ -36,7 +36,7 @@
 <v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
-<v t="karstenw.20170709210125.13"><vh>export</vh>
+<v t="karstenw.20170709210125.13" a="E"><vh>export</vh>
 <v t="karstenw.20200430120922.1"><vh>&lt;&lt;init&gt;&gt;</vh></v>
 <v t="karstenw.20200430120955.1"><vh>&lt;&lt;debug&gt;&gt;</vh></v>
 </v>
@@ -140,11 +140,13 @@
 <v t="karstenw.20210603134137.1"><vh>uniquepath</vh></v>
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
+<v t="karstenw.20211021133612.1"><vh>grid</vh></v>
 </v>
 <v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
-<v t="karstenw.20210612104640.1"><vh>splitimage</vh></v>
+<v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
+<v t="karstenw.20211021151303.1"><vh>splitimage</vh></v>
 <v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
@@ -161,8 +163,8 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 <v t="karstenw.20210331155153.1"><vh>shuffle tiles</vh></v>
@@ -173,7 +175,7 @@
 <v t="karstenw.20210316200115.1"><vh>&lt;&lt; paint texture &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a.py</vh>
+<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -234,7 +236,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210331161145.1" a="E"><vh>@clean examples/Example collage 5.py</vh>
+<v t="karstenw.20210331161145.1"><vh>@clean examples/Example collage 5.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -254,7 +256,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20211005225841.1" a="E"><vh>@clean examples/Example collage 6.py</vh>
+<v t="karstenw.20211005225841.1"><vh>@clean examples/Example collage 6.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -275,8 +277,123 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1"><vh>Filter</vh></v>
-<v t="karstenw.20210319153822.1"><vh>Functions</vh></v>
+<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
+<v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
+<v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
+</v>
+<v t="karstenw.20211206134707.1" a="E"><vh>@clean examples/Layer_colorize.py</vh>
+<v t="karstenw.20211206131524.1"><vh>Declarations</vh></v>
+<v t="karstenw.20211206134707.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206122120.1" a="E"><vh>@clean examples/Layer_filter_boxblur.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206122136.1"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123730.1"><vh>@clean examples/Layer_filter_contour.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123730.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123753.1"><vh>@clean examples/Layer_filter_edge_enhance_more.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123753.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123754.1"><vh>@clean examples/Layer_filter_edge_enhance.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123754.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123755.1"><vh>@clean examples/Layer_filter_emboss.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123755.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123755.3"><vh>@clean examples/Layer_filter_find_edges.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123755.4"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123755.5"><vh>@clean examples/Layer_function_add_modulo.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123755.6"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123755.7"><vh>@clean examples/Layer_function_add.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123755.8"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123755.9"><vh>@clean examples/Layer_function_autocontrast.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123755.10"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123755.11"><vh>@clean examples/Layer_function_brightness.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123755.12"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123756.1"><vh>@clean examples/Layer_function_color.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123756.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123756.3"><vh>@clean examples/Layer_function_contrast.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123756.4"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206123757.1"><vh>@clean examples/Layer_function_deform.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206123757.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124323.1"><vh>@clean examples/Layer_function_difference.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124323.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124348.1"><vh>@clean examples/Layer_function_equalize.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124348.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124349.1"><vh>@clean examples/Layer_function_flip.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124349.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124349.3"><vh>@clean examples/Layer_function_hue.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124349.4"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124350.1"><vh>@clean examples/Layer_function_mask.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124350.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124350.3"><vh>@clean examples/Layer_function_multiply.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124350.4"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124350.5"><vh>@clean examples/Layer_function_opacity.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124350.6"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124351.1"><vh>@clean examples/Layer_function_overlay.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124351.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124351.3"><vh>@clean examples/Layer_function_posterize.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124351.4"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124352.1"><vh>@clean examples/Layer_function_screen.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124352.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124352.3"><vh>@clean examples/Layer_function_select.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124352.4"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124352.5"><vh>@clean examples/Layer_function_solarize.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124352.6"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124353.1"><vh>@clean examples/Layer_function_subtract_modulo.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124353.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20211206124353.3"><vh>@clean examples/Layer_function_subtract.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206124353.4"><vh>Content</vh></v>
+</v>
+</v>
 </v>
 </vnodes>
 <tnodes>
@@ -292,11 +409,11 @@
 
 from __future__ import print_function
 
-ALL = ['canvas', 'Layers', 'Layer', 'label', 'invertimage', 'cropimage',
+ALL = ['canvas', 'Layers', 'Layer', 'invertimage', 'cropimage',
     'aspectRatio', 'normalizeOrientationImage', 'insetRect',
     'cropImageToRatioHorizontal', 'scaleLayerToHeight', 'placeImage',
-    'resizeImage', 'hashFromString', 'makeunicode', 'datestring', 'filelist',
-    'imagefiles', 'imagewells', 'loadImageWell' ]
+    'resizeImage', 'hashFromString', 'makeunicode', 'datestring',
+    'label' ]
 
 import sys
 import os
@@ -3231,7 +3348,6 @@ c.draw(0,0)
 </t>
 <t tx="karstenw.20210319153803.1"></t>
 <t tx="karstenw.20210319153818.1"></t>
-<t tx="karstenw.20210319153822.1"></t>
 <t tx="karstenw.20210331155153.1">if not kwdbg:
     turns = int( round(20 + (rnd.random() * 10)) )
     if kwlog:
@@ -3392,12 +3508,26 @@ c.top.contrast(1.1)
 
 
 </t>
-<t tx="karstenw.20210612104640.1">def splitimage( img, hor=1, vert=1):
-    """Split a PIL image hor times horizontally and vert times vertically.
+<t tx="karstenw.20210612104640.1">def splitrect( left, top, right, bottom, hor=True, t=0.5 ):
+    """Split a PIL image horizontally or vertically.
     
-    Return a (hor+1) * (vert+1) list with images.
+    A split is horizontal if the splitline is horizontal.
+    
+    Return a list with images.
     """
-    pass
+
+    # w,h = img.size
+    w = int( round( right-left ))
+    h = int( round( bottom-top ))
+
+    w2 = int( round( w * t ))
+    h2 = int( round( h * t ))
+
+    if hor:
+        rects = [ (left, top, right, top+h2), (left, top+h2+1, right, bottom) ]
+    else:
+        rects = [ (left, top, l+w2, bottom), (left+w2+1, top, right, bottom) ]
+    return rects
 
 
 </t>
@@ -3584,6 +3714,2068 @@ top = c.gradient(pb.SCATTER, w, h )
 # c.top.brightness(1.4)
 c.top.mask()
 
+</t>
+<t tx="karstenw.20211021133612.1">def grid(cols, rows, colSize=1, rowSize=1, shuffled=False):
+    """Returns an iterator that contains coordinate tuples.
+    
+    The grid can be used to quickly create grid-like structures.
+    A common way to use them is:
+        for x, y in grid(10,10,12,12):
+            rect(x,y, 10,10)
+    """
+    # Prefer using generators.
+    rowRange = range( int(rows) )
+    colRange = range( int(cols) )
+    # Shuffled needs a real list, though.
+    if (shuffled):
+        rowRange = list(rowRange)
+        colRange = list(colRange)
+        random.shuffle(rowRange)
+        random.shuffle(colRange)
+    for y in rowRange:
+        for x in colRange:
+            yield (x*colSize, y*rowSize)
+
+
+</t>
+<t tx="karstenw.20211021151303.1">def splitimage( img ):
+    pass
+
+# gridsizeh = w // hor
+# remainderh = w % hor
+# noofmainchunks = noofrecords // chunksize
+# remainingrecords = noofrecords % chunksize
+
+"""
+with Image.open("hopper.jpg") as im:
+
+    # The crop method from the Image module takes four coordinates as input.
+    # The right can also be represented as (left+width)
+    # and lower can be represented as (upper+height).
+    (left, upper, right, lower) = (20, 20, 100, 100)
+
+    # Here the image "im" is cropped and assigned to new variable im_crop
+    im_crop = im.crop((left, upper, right, lower))
+"""    
+    
+
+
+</t>
+<t tx="karstenw.20211206121916.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206121944.1"># heavily inspired by https://www.nodebox.net/code/index.php/Landslide
+import sys, os
+
+# need a different name
+import random as rnd
+
+
+import pprint
+pp = pprint.pprint
+
+import pdb
+kwdbg = 0
+
+if kwdbg:
+    # make random choices repeatable for debugging
+    rnd.seed(0)
+
+W, H = 960, 1200
+
+
+# check for Nodebox
+NB = True
+try:
+    _ctx
+except(NameError):
+    NB = False
+
+if NB:
+    size(W, H)
+    pb = ximport("photobot")
+else:
+    WIDTH, HEIGHT = W, H
+    import photobot as pb
+
+
+# create the canvas
+c = pb.canvas( WIDTH, HEIGHT)
+
+c.fill((210, 210, 10))
+
+
+# the gradients
+
+# SOLID
+grad1idx = c.gradient(pb.SOLID, 180, 180)
+c.top.translate(10, 10)
+pb.label( c, "SOLID", 10, 10, 26)
+
+# LINEAR
+grad2idx = c.gradient(pb.LINEAR, 180, 180)
+c.top.translate(200, 10)
+pb.label( c, "LINEAR", 200, 10, 26)
+
+# RADIAL
+grad3idx = c.gradient(pb.RADIAL, 180, 180)
+c.top.translate(390, 10)
+pb.label( c, "RADIAL", 390, 10, 26)
+
+# DIAMOND
+grad4idx = c.gradient(pb.DIAMOND, 180, 180)
+c.top.translate(580, 10)
+pb.label( c, "DIAMOND", 580, 10, 26)
+
+# SCATTER
+grad9idx = c.gradient(pb.SCATTER, 180, 180)
+c.top.translate(770, 10)
+pb.label( c, "SCATTER", 770, 10, 26)
+
+# SINE (from 0 to 180)
+grad5idx = c.gradient(pb.SINE, 180, 180)
+c.top.translate(10, 200)
+pb.label( c, "SINE 0..180", 10, 200, 26)
+
+# COSINE (from 0 to 90)
+grad6idx = c.gradient(pb.COSINE, 180, 180)
+c.top.translate(200, 200)
+pb.label( c, "COSINE 0..90", 200, 200, 26)
+
+# ROUNDRECT (with radius arg)
+grad7idx = c.gradient(pb.ROUNDRECT, 180, 180, radius=30, radius2=30)
+c.top.translate(390, 200)
+pb.label( c, "ROUNDRECT", 390, 200, 26)
+
+# RADIALCOSINE
+grad8idx = c.gradient(pb.RADIALCOSINE, 180, 180)
+c.top.translate(580, 200)
+pb.label( c, "RADIALCOSINE", 580, 200, 26)
+
+# QUAD
+grad8idx = c.gradient(pb.QUAD, 180, 180, radius=36, radius2=36)
+c.top.translate(770, 200)
+pb.label( c, "QUAD", 770, 200, 26)
+
+
+# the gradients masked with itself
+# 
+gx, xy = 180, 180
+# SOLID
+grad1idx = c.gradient(pb.SOLID , gx, xy)
+mask = c.gradient(pb.SOLID, gx, xy)
+c.top.mask()
+c.top.translate(10, 390)
+
+
+# LINEAR
+grad2idx = c.gradient(pb.LINEAR, gx, xy)
+mask = c.gradient(pb.LINEAR, gx, xy)
+c.top.mask()
+c.top.translate(200, 390)
+
+
+# RADIAL
+# you want to have the RADIAL gradient inverted
+grad3idx = c.gradient(pb.RADIAL, gx, xy, radius=36)
+c.top.invert()
+mask = c.gradient(pb.RADIAL, gx, xy)
+c.top.invert()
+c.top.mask()
+c.top.translate(390, 390)
+
+
+# DIAMOND
+grad4idx = c.gradient(pb.DIAMOND, gx, xy)
+mask = c.gradient(pb.DIAMOND, gx, xy)
+c.top.mask()
+c.top.translate(580, 390)
+
+
+# SINE 0..180
+grad5idx = c.gradient(pb.SINE, gx, xy)
+mask = c.gradient(pb.SINE, gx, xy)
+c.top.mask()
+c.top.translate(10, 580)
+
+
+# COSINE 0..90
+grad6idx = c.gradient(pb.COSINE, gx, xy)
+mask = c.gradient(pb.COSINE, gx, xy)
+c.top.mask()
+c.top.translate(200, 580)
+
+
+# ROUNDRECT 
+grad7idx = c.gradient(pb.ROUNDRECT, gx, xy, radius=30, radius2=30)
+mask = c.gradient(pb.ROUNDRECT, gx, xy, radius=30, radius2=30)
+c.top.mask()
+c.top.translate(390, 580)
+
+
+# RADIALCOSINE
+grad8idx = c.gradient(pb.RADIALCOSINE, gx, xy)
+mask = c.gradient(pb.RADIALCOSINE, gx, xy)
+c.top.mask()
+c.top.translate(580, 580)
+
+# QUAD
+grad9idx = c.gradient(pb.QUAD, gx, xy, radius=36, radius2=9)
+mask = c.gradient(pb.QUAD, gx, xy, radius=36, radius2=9)
+c.top.mask()
+c.top.translate(770, 580)
+
+
+
+
+# COSINE 0..90
+grad6idx = c.gradient(pb.COSINE, gx, xy)
+mask = c.gradient(pb.COSINE, gx, xy)
+c.top.mask()
+c.top.translate(100, 800)
+c.top.rotate(45)
+
+
+# RADIALCOSINE
+
+grad8idx = c.gradient(pb.RADIALCOSINE, gx*2, xy)
+mask = c.gradient(pb.RADIALCOSINE, gx*2, xy)
+c.top.mask()
+c.top.translate(390, 770)
+
+
+# QUAD
+grad9idx = c.gradient(pb.QUAD, gx*2, xy)
+mask = c.gradient(pb.QUAD, gx*2, xy)
+c.top.mask()
+c.top.translate(390, 960)
+
+c.draw()
+</t>
+<t tx="karstenw.20211206122120.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206122136.1"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, fname = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+pb.label(c, fname, x, y)
+
+#
+# Image 2
+#
+x, y = 10, 10 + h1 + 10
+top, w2, h2 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+c.layers[top].boxblur( 4 )
+
+
+pb.label(c, "%s boxblur(4)" % fname, x, y)
+
+
+# draw the result
+c.draw(name="Layer_function_boxblur")
+
+</t>
+<t tx="karstenw.20211206123730.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123730.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, fname = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+pb.label(c, fname, x, y)
+
+#
+# Image 2
+#
+x, y = 10, 10 + h1 + 10
+top, w2, h2 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+c.layers[top].contour()
+
+pb.label(c, "%s contour()" % fname, x, y)
+
+
+# draw the result
+c.draw(name="Layer_function_contour")
+
+</t>
+<t tx="karstenw.20211206123753.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123753.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, fname = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+pb.label(c, fname, x, y)
+
+#
+# Image 2
+#
+x, y = 10, 10 + h1 + 10
+top, w2, h2 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+c.layers[top].edge_enhance_more()
+
+
+pb.label(c, "%s edge_enhance_more()" % fname, x, y)
+
+
+# draw the result
+c.draw(name="Layer_function_enhance_more")
+
+</t>
+<t tx="karstenw.20211206123754.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123754.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, fname = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+pb.label(c, fname, x, y)
+
+#
+# Image 2
+#
+x, y = 10, 10 + h1 + 10
+top, w2, h2 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+c.layers[top].edge_enhance()
+
+
+pb.label(c, "%s edge_enhance()" % fname, x, y)
+
+
+# draw the result
+c.draw(name="Layer_function_enhance")
+
+</t>
+<t tx="karstenw.20211206123755.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123755.10"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, filename = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+img1, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1 Base")
+
+c.layers[img1].duplicate()
+c.top.autocontrast(cutoff=0)
+pb.label(c, "%s autocontrast: 0" % filename, x, y)
+
+#
+# Image 2
+#
+c.layers[img1].duplicate()
+c.top.autocontrast(cutoff=5)
+
+x, y = w1+20, 10
+c.top.translate( x, y)
+pb.label(c, "%s autocontrast: 5" % filename, x, y)
+
+#
+# Image 3
+#
+c.layers[img1].duplicate()
+c.top.autocontrast(cutoff=10)
+
+x, y = 10, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "%s autocontrast: 10" % filename, x, y)
+
+#
+# Image 4
+#
+c.layers[img1].duplicate()
+c.top.autocontrast(cutoff=15)
+
+x, y = w1+20, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "%s autocontrast: 15" % filename, x, y)
+
+#
+# Image 5
+#
+c.layers[img1].duplicate()
+c.top.autocontrast(cutoff=30)
+
+x, y = 10, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "%s autocontrast: 30" % filename, x, y)
+
+#
+# Image 6
+#
+c.layers[img1].duplicate()
+c.top.autocontrast(cutoff=35)
+
+x, y = w1+20, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "%s autocontrast: 35" % filename, x, y)
+
+#
+# Image 7
+#
+c.layers[img1].duplicate()
+c.top.autocontrast(42)
+
+x, y = 10, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "%s autocontrast: 42" % filename, x, y)
+
+#
+# Image 8
+#
+c.layers[img1].duplicate()
+c.top.autocontrast(cutoff=49)
+
+x, y = w1 + 20, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "%s autocontrast: 49" % filename, x, y)
+
+# draw the result
+c.draw(name="Layer_function_autocontrast")
+
+</t>
+<t tx="karstenw.20211206123755.11">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123755.12"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+img1, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1 Brightness: 100", x, y)
+
+#
+# Image 2
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 2"
+c.top.brightness(80)
+
+x, y = w1+20, 10
+c.top.translate( x, y)
+pb.label(c, "Image 2 Brightness: 80", x, y)
+
+#
+# Image 3
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 3"
+c.top.brightness(60)
+
+x, y = 10, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "Image 3 Brightness: 60", x, y)
+
+#
+# Image 4
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 4"
+c.top.brightness(40)
+
+x, y = w1+20, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "Image 4 Brightness: 40", x, y)
+
+#
+# Image 5
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 5"
+c.top.brightness(20)
+
+x, y = 10, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "Image 3 Brightness: 20", x, y)
+
+#
+# Image 6
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 6"
+c.top.brightness(10)
+
+x, y = w1+20, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "Image 6 Brightness: 10", x, y)
+
+#
+# Image 7
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 7"
+c.top.brightness(150)
+
+x, y = 10, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "Image 7 Brightness: 150", x, y)
+
+#
+# Image 8
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 8"
+c.top.brightness(200)
+
+x, y = w1 + 20, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "Image 8 Brightness: 200", x, y)
+
+
+
+# draw the result
+c.draw(name="Layer_function_brightness")
+
+</t>
+<t tx="karstenw.20211206123755.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, fname = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+pb.label(c, fname, x, y)
+
+#
+# Image 2
+#
+x, y = 10, 10 + h1 + 10
+top, w2, h2 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+c.layers[top].emboss()
+
+
+pb.label(c, "%s emboss()" % fname, x, y)
+
+
+# draw the result
+c.draw(name="Layer_function_emboss")
+
+</t>
+<t tx="karstenw.20211206123755.3">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123755.4"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, fname = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+pb.label(c, fname, x, y)
+
+#
+# Image 2
+#
+x, y = 10, 10 + h1 + 10
+top, w2, h2 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+c.top.find_edges()
+
+
+pb.label(c, "%s find_edges()" % fname, x, y)
+
+
+# draw the result
+c.draw(name="Layer_function_find_edges")
+
+</t>
+<t tx="karstenw.20211206123755.5">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123755.6"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+#
+# Image 1
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1", x, y)
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2")
+pb.label(c, "Image 2", x, y)
+
+yskip = max( h1, h2 )
+
+#
+# Add Images 1 &amp; 2
+#
+
+x, y = 10 , 1 * (yskip + 20)
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 3")
+top, w2, h2 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 4")
+c.top.add_modulo()
+
+yskip = h1 # max( h1, h2 )
+
+pb.label(c, "Add Modulo Image 2 over Image 1", x, y)
+
+
+#
+# Screen Images 2 &amp; 1
+#
+
+x, y = 10 , y + yskip + 20
+top, w2, h2 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 5")
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 6")
+c.top.add_modulo()
+
+pb.label(c, "Add Modulo Image 1 over Image 2", x, y)
+
+# draw the result
+c.draw(name="Layer_function_add_modulo")
+
+</t>
+<t tx="karstenw.20211206123755.7">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123755.8"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+#
+# Image 1
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1", x, y)
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2")
+pb.label(c, "Image 2", x, y)
+
+yskip = max( h1, h2 )
+
+#
+# Add Images 1 &amp; 2
+#
+
+x, y = 10 , 1 * (yskip + 20)
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 3")
+top, w2, h2 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 4")
+c.top.add()
+
+yskip = h1 # max( h1, h2 )
+
+pb.label(c, "Add Image 2 over Image 1", x, y)
+
+
+#
+# Screen Images 2 &amp; 1
+#
+
+x, y = 10 , y + yskip + 20
+top, w2, h2 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 5")
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 6")
+c.top.add()
+
+pb.label(c, "Add Image 1 over Image 2", x, y)
+
+# draw the result
+c.draw(name="Layer_function_add")
+
+</t>
+<t tx="karstenw.20211206123755.9">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123756.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123756.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1", x, y)
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2")
+pb.label(c, "Image 2", x, y)
+
+
+#
+# Color Images 1 &amp; 2
+#
+
+h = max(h1, h2)
+x, y = 10 , h + 20
+
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 3")
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 4")
+
+
+c.top.color()
+pb.label(c, "Color Image2 over Image1", x, y)
+
+#
+# Color Images 2 &amp; 1
+#
+
+h = max(h3, h4)
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 5")
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 6")
+
+
+c.top.color()
+pb.label(c, "Color Image1 over Image2", x, y)
+
+# draw the result
+c.draw(name="Layer_function_color")
+
+</t>
+<t tx="karstenw.20211206123756.3">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123756.4"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+img1, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1 Contrast: 100", x, y)
+
+#
+# Image 2
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 2"
+c.top.contrast(80)
+
+x, y = w1+20, 10
+c.top.translate( x, y)
+pb.label(c, "Image 2 Contrast: 80", x, y)
+
+#
+# Image 3
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 3"
+c.top.contrast(60)
+
+x, y = 10, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "Image 3 Contrast: 60", x, y)
+
+#
+# Image 4
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 4"
+c.top.contrast(40)
+
+x, y = w1+20, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "Image 4 Contrast: 40", x, y)
+
+#
+# Image 5
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 5"
+c.top.contrast(20)
+
+x, y = 10, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "Image 3 Contrast: 20", x, y)
+
+#
+# Image 6
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 6"
+c.top.contrast(10)
+
+x, y = w1+20, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "Image 6 Contrast: 10", x, y)
+
+#
+# Image 7
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 7"
+c.top.contrast(150)
+
+x, y = 10, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "Image 7 Contrast: 150", x, y)
+
+#
+# Image 8
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 8"
+c.top.contrast(200)
+
+x, y = w1 + 20, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "Image 8 Contrast: 200", x, y)
+
+# draw the result
+c.draw(name="Layer_function_contrast")
+
+</t>
+<t tx="karstenw.20211206123757.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206123757.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+
+
+
+
+'''
+class QuadTransform(Transform):
+    """
+    Define a quad image transform.
+
+    Maps a quadrilateral (a region defined by four corners) from the image to a
+    rectangle of the given size.
+
+    See :py:meth:`~PIL.Image.Image.transform`
+
+    :param xy: An 8-tuple (x0, y0, x1, y1, x2, y2, x3, y3) which contain the
+        upper left, lower left, lower right, and upper right corner of the
+        source quadrilateral.
+    """
+
+    method = Image.QUAD
+
+
+
+class MeshTransform(Transform):
+    """
+    Define a mesh image transform.  A mesh transform consists of one or more
+    individual quad transforms.
+
+    See :py:meth:`~PIL.Image.Image.transform`
+
+    :param data: A list of (bbox, quad) tuples.
+    """
+
+    method = Image.MESH
+'''
+
+
+
+class _Deformer(object):
+    def getmesh(self, img):
+        (w, h) = img.size
+        return [
+            (   # target rectangle (1)
+                (0,0,w,h),
+                (
+                -100, 100,
+                0, h,
+                w-100, h,
+                w-100 , 0) ),
+            ]
+        
+        
+        
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+
+#
+# Normal Image 1
+#
+
+h = 10
+x, y = 10 , h + 20
+
+top, w, h = pb.placeImage(c, img1path, x, y, fullwidth, "Image 1", 0)
+
+pb.label(c, "Normal Image 1", x, y)
+
+
+#
+# Equalize Image 1
+#
+
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 2", 1)
+c.top.deform( _Deformer() )
+pb.label(c, "Deformed Image 1", x, y)
+
+# draw the result
+c.draw(name="Layer_function_equalize")
+
+</t>
+<t tx="karstenw.20211206124323.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124323.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1", 0)
+pb.label(c, "Image 1", x, y)
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2", 1)
+pb.label(c, "Image 2", x, y)
+
+
+#
+# Difference Images 1 &amp; 2
+#
+
+h = max(h1, h2)
+x, y = 10 , h + 20
+
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 3", 0)
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 4", 1)
+c.top.difference()
+pb.label(c, "Difference Image 1 over Image 2", x, y)
+
+
+#
+# Screen Images 2 &amp; 1
+#
+
+h = max(h3, h4)
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 5", 1)
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 6", 0)
+c.top.difference()
+pb.label(c, "Difference Image 2 over Image 1", x, y)
+
+# draw the result
+c.draw(name="Layer_function_difference")
+
+</t>
+<t tx="karstenw.20211206124348.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124348.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+
+
+#
+# Normal Image 1
+#
+
+h = 10
+x, y = 10 , h + 20
+
+top, w, h = pb.placeImage(c, img1path, x, y, fullwidth, "Image 1", 0)
+
+pb.label(c, "Normal Image 1", x, y)
+
+
+#
+# Equalize Image 1
+#
+
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 2", 1)
+c.top.equalize()
+pb.label(c, "Equalized Image 1", x, y)
+
+# draw the result
+c.draw(name="Layer_function_equalize")
+
+</t>
+<t tx="karstenw.20211206124349.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124349.2">img1path = tiles.pop()
+img2path = tiles.pop()
+
+
+# create the canvas
+c = pb.canvas(int(WIDTH), int(HEIGHT))
+c.fill( (255,255,255) )
+
+
+imsize = int((WIDTH-30)/2)
+x, y = 10, 10
+img1, w1, h1 = pb.placeImage(c, img1path, x, y, imsize, "image1")
+pb.label(c, "Original Image", x, y)
+
+#
+# flip horizontal
+#
+c.layers["image1"].duplicate()
+c.top.name = "flip1"
+
+x, y = w1+20, 10
+c.top.translate( x, y)
+c.top.flip( pb.HORIZONTAL )
+pb.label(c, "Horizontal Flip", x, y)
+
+
+#
+# flip vertical
+#
+
+c.layers["image1"].duplicate()
+c.top.name = "flip2"
+x, y = 10 , h1 + 20
+c.top.flip( pb.VERTICAL )
+c.top.translate( x, y )
+pb.label(c, "Vertical Flip", x, y)
+
+
+
+#
+# flip horizontal &amp; vertical
+#
+
+# duplicate does not return top
+c.layers["image1"].duplicate()
+c.top.name = "flip3"
+
+x, y = w1 + 20, h1 + 20
+c.top.flip( pb.HORIZONTAL | pb.VERTICAL)
+c.top.translate( x, y)
+pb.label(c, "Horizontal  and Vertical Flip", x, y)
+
+# draw the result
+c.draw(name="Layer_function_flip")
+
+</t>
+<t tx="karstenw.20211206124349.3">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124349.4"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1", x, y)
+
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2")
+pb.label(c, "Image 2", x, y)
+
+
+#
+# Hue Images 1 &amp; 2
+#
+
+h = max(h1, h2)
+x, y = 10 , h + 20
+
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 3")
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 4")
+
+
+c.top.hue()
+pb.label(c, "Hue Image2 over Image1", x, y)
+
+#
+# Hue Images 2 &amp; 1
+#
+
+h = max(h3, h4)
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 5")
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 6")
+
+
+c.top.hue()
+pb.label(c, "Hue Image1 over Image2", x, y)
+
+# draw the result
+c.draw(name="Layer_function_hue")
+
+</t>
+<t tx="karstenw.20211206124350.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124350.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+_, w1, h1 = pb.placeImage(c, img1path, x, y, 192, "Image 1", width=True)
+pb.label(c, "Image 1", x, y)
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+_, w2, h2 = pb.placeImage(c, img2path, x, y, 192, "Image 2", width=True)
+pb.label(c, "Image 2", x, y)
+
+
+
+#
+# Mask Images 1 &amp; 2
+#
+
+h = max(h1, h2)
+x, y = 10 , h + 20
+
+_, w3, h3 = pb.placeImage(c, img1path, 0, 0, fullwidth, "Image 3", width=True)
+_, w4, h4 = pb.placeImage(c, img2path, 0, 0, fullwidth, "Image 4", width=True)
+c.top.mask()
+c.top.translate(x, y)
+
+pb.label(c, "Mask Image1 over Image2", x, y)
+
+#
+# Mask Images 2 &amp; 1
+#
+
+h = max(h3, h4)
+x, y = 10 , h + 20 + y
+
+_, w4, h4 = pb.placeImage(c, img2path, 0, 0, fullwidth, "Image 5", width=True)
+_, w3, h3 = pb.placeImage(c, img1path, 0, 0, fullwidth, "Image 6", width=True)
+c.top.mask()
+c.top.translate(x, y)
+
+pb.label(c, "Mask Image2 over Image1", x, y)
+
+# draw the result
+c.draw(name="Layer_function_mask")
+</t>
+<t tx="karstenw.20211206124350.3">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124350.4"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1", x, y)
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2")
+pb.label(c, "Image 2", x, y)
+
+
+
+#
+# Multiply Images 1 &amp; 2
+#
+
+h = max(h1, h2)
+x, y = 10 , h + 20
+
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 3")
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 4")
+
+
+c.top.multiply()
+pb.label(c, "Multiply Image2 over Image1", x, y)
+
+#
+# Multiply Images 2 &amp; 1
+#
+
+h = max(h3, h4)
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 5")
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 6")
+
+
+c.top.multiply()
+pb.label(c, "Multiply Image1 over Image2", x, y)
+
+# draw the result
+c.draw(name="Layer_function_multiply")
+
+</t>
+<t tx="karstenw.20211206124350.5">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124350.6"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+img1, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1 Opacity: 100", x, y)
+
+#
+# Image 2
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 2"
+c.top.opacity(80)
+
+x, y = w1+20, 10
+c.top.translate( x, y)
+pb.label(c, "Image 2 Opacity: 80", x, y)
+
+#
+# Image 3
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 3"
+c.top.opacity(60)
+
+x, y = 10, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "Image 3 Opacity: 60", x, y)
+
+#
+# Image 4
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 4"
+c.top.opacity(40)
+
+x, y = w1+20, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "Image 4 Opacity: 40", x, y)
+
+#
+# Image 5
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 5"
+c.top.opacity(20)
+
+x, y = 10, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "Image 3 Opacity: 20", x, y)
+
+#
+# Image 6
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 6"
+c.top.opacity(10)
+
+x, y = w1+20, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "Image 6 Opacity: 10", x, y)
+
+#
+# Image 7
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 7"
+c.top.opacity(150)
+
+x, y = 10, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "Image 7 Opacity: 150", x, y)
+
+#
+# Image 8
+#
+c.layers[img1].duplicate()
+c.top.name = "Image 8"
+c.top.opacity(200)
+
+x, y = w1 + 20, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "Image 8 Opacity: 200", x, y)
+
+
+
+# draw the result
+c.draw(name="Layer_function_opacity")
+</t>
+<t tx="karstenw.20211206124351.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124351.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a gray canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1", x, y)
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2")
+pb.label(c, "Image 2", x, y)
+
+
+
+#
+# Overlay Images 1 &amp; 2
+#
+
+h = max(h1, h2)
+x, y = 10 , h + 20
+
+top, w3, h3 = pb.placeImage(c, img1path, x, y, tilewidth*2, "Image 3")
+top, w4, h4 = pb.placeImage(c, img2path, x, y, tilewidth*2, "Image 4")
+
+
+c.top.overlay()
+pb.label(c, "Overlay Image2 over Image1", x, y)
+
+#
+# Overlay Images 2 &amp; 1
+#
+
+h = max(h3, h4)
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img2path, x, y, tilewidth*2, "Image 5")
+top, w3, h3 = pb.placeImage(c, img1path, x, y, tilewidth*2, "Image 6")
+
+
+c.top.overlay()
+pb.label(c, "Overlay Image1 over Image2", x, y)
+
+# draw the result
+c.draw(name="Layer_function_overlay")
+
+</t>
+<t tx="karstenw.20211206124351.3">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124351.4"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a gray canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, filename = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+img1, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1 Base")
+
+c.layers[img1].duplicate()
+c.top.posterize(8)
+pb.label(c, "%s posterize: None" % filename, x, y)
+
+#
+# Image 2
+#
+c.layers[img1].duplicate()
+c.top.posterize(7)
+
+x, y = w1+20, 10
+c.top.translate( x, y)
+pb.label(c, "%s posterize: 7" % filename, x, y)
+
+#
+# Image 3
+#
+c.layers[img1].duplicate()
+c.top.posterize(6)
+
+x, y = 10, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "%s posterize: 6" % filename, x, y)
+
+#
+# Image 4
+#
+c.layers[img1].duplicate()
+c.top.posterize(5)
+
+x, y = w1+20, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "%s posterize: 5" % filename, x, y)
+
+#
+# Image 5
+#
+c.layers[img1].duplicate()
+c.top.posterize(4)
+
+x, y = 10, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "%s posterize: 4" % filename, x, y)
+
+#
+# Image 6
+#
+c.layers[img1].duplicate()
+c.top.posterize(3)
+
+x, y = w1+20, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "%s posterize: 3" % filename, x, y)
+
+#
+# Image 7
+#
+c.layers[img1].duplicate()
+c.top.posterize(2)
+
+x, y = 10, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "%s posterize: 2" % filename, x, y)
+
+#
+# Image 8
+#
+c.layers[img1].duplicate()
+c.top.posterize(1)
+
+x, y = w1 + 20, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "%s posterize: 1" % filename, x, y)
+
+# draw the result
+c.draw(name="Layer_function_posterize")
+
+</t>
+<t tx="karstenw.20211206124352.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124352.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a gray canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1", x, y)
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2")
+pb.label(c, "Image 2", x, y)
+
+
+#
+# Screen Images 1 &amp; 2
+#
+
+h = max(h1, h2)
+x, y = 10 , h + 20
+
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 3")
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 4")
+
+c.top.screen()
+pb.label(c, "Screen Image 1 over Image 2", x, y)
+
+
+#
+# Screen Images 2 &amp; 1
+#
+
+h = max(h3, h4)
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 5")
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 6")
+
+c.top.screen()
+pb.label(c, "Screen Image 2 over Image 1", x, y)
+
+# draw the result
+c.draw(name="Layer_function_screen")
+
+</t>
+<t tx="karstenw.20211206124352.3">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124352.4"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a gray canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, filename = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+img1, w1, h1 = pb.placeImage(c, img1path, x, y, WIDTH-20, "Image 1 Base")
+
+c.top.autocontrast(cutoff=0)
+pb.label(c, filename, x, y)
+
+#
+# Image 2
+#
+c.layers[img1].duplicate()
+
+path=( (w1/2,0), (w1,int(h1*0.667)), (w1/2.0, h1), (0,h1*0.75),(0,h1/2) )
+c.top.select( path )
+
+x, y = 10, h1+20+10
+c.top.translate( x, y)
+
+
+# draw the result
+c.draw(name="Layer_function_select")
+
+</t>
+<t tx="karstenw.20211206124352.5">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124352.6"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a gray canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, filename = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+img1, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1 Base")
+
+c.layers[img1].duplicate()
+c.top.solarize(256)
+pb.label(c, "%s solarize: 256" % filename, x, y)
+
+#
+# Image 2
+#
+c.layers[img1].duplicate()
+c.top.solarize(224)
+
+x, y = w1+20, 10
+c.top.translate( x, y)
+pb.label(c, "%s solarize: 224" % filename, x, y)
+
+#
+# Image 3
+#
+c.layers[img1].duplicate()
+c.top.solarize(192)
+
+x, y = 10, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "%s solarize: 192" % filename, x, y)
+
+#
+# Image 4
+#
+c.layers[img1].duplicate()
+c.top.solarize(160)
+
+x, y = w1+20, h1 + 20
+c.top.translate( x, y)
+pb.label(c, "%s solarize: 160" % filename, x, y)
+
+#
+# Image 5
+#
+c.layers[img1].duplicate()
+c.top.solarize(128)
+
+x, y = 10, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "%s solarize: 128" % filename, x, y)
+
+#
+# Image 6
+#
+c.layers[img1].duplicate()
+c.top.solarize(96)
+
+x, y = w1+20, 2*h1 + 30
+c.top.translate( x, y)
+pb.label(c, "%s solarize: 96" % filename, x, y)
+
+#
+# Image 7
+#
+c.layers[img1].duplicate()
+c.top.solarize(64)
+
+x, y = 10, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "%s solarize: 64" % filename, x, y)
+
+#
+# Image 8
+#
+c.layers[img1].duplicate()
+c.top.solarize(32)
+
+x, y = w1 + 20, 3*h1 + 40
+c.top.translate( x, y)
+pb.label(c, "%s solarize: 32" % filename, x, y)
+
+# draw the result
+c.draw(name="Layer_function_solarize")
+
+</t>
+<t tx="karstenw.20211206124353.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124353.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a gray canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1", x, y)
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2")
+pb.label(c, "Image 2", x, y)
+
+
+#
+# Subtract Images 1 &amp; 2
+#
+
+h = max(h1, h2)
+x, y = 10 , h + 20
+
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 3")
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 4")
+c.top.subtract_modulo()
+
+pb.label(c, "Subtract Modulo Image 1 over Image 2", x, y)
+
+
+#
+# Subtract Images 2 &amp; 1
+#
+
+h = max(h3, h4)
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 5")
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 6")
+c.top.subtract_modulo()
+pb.label(c, "Subtract Modulo Image 2 over Image 1", x, y)
+
+# draw the result
+c.draw(name="Layer_function_subtract_modulo")
+</t>
+<t tx="karstenw.20211206124353.3">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206124353.4"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a gray canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1", x, y)
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2")
+pb.label(c, "Image 2", x, y)
+
+
+#
+# Subtract Images 1 &amp; 2
+#
+
+h = max(h1, h2)
+x, y = 10 , h + 20
+
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 3")
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 4")
+# c.layers[top].subtract()
+c.top.subtract()
+
+pb.label(c, "Subtract Image 1 over Image 2", x, y)
+
+
+#
+# Subtract Images 2 &amp; 1
+#
+
+h = max(h3, h4)
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 5")
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 6")
+c.top.subtract()
+pb.label(c, "Subtract Image 2 over Image 1", x, y)
+
+# draw the result
+c.draw(name="Layer_function_subtract")
+</t>
+<t tx="karstenw.20211206131524.1">import sys, os
+
+# need a different name
+import random as rnd
+
+import pprint
+pp = pprint.pprint
+
+import pdb
+kwdbg = 0
+
+W, H = 542, 1050
+fullwidth = int(W-20)
+tilewidth = int((fullwidth-10) / 2.0)
+
+
+# check for Nodebox
+NB = True
+try:
+    _ctx
+except(NameError):
+    NB = False
+
+if NB:
+    size(W, H)
+    pb = ximport("photobot")
+else:
+    WIDTH, HEIGHT = W, H
+    import photobot as pb
+
+import imagewells
+
+if kwdbg:
+    # make random choices repeatable for debugging
+    rnd.seed(8)
+
+imagewell = imagewells.loadImageWell(resultfile="imagewell-files")
+tiles = imagewell['landscape']
+rnd.shuffle(tiles)
+
+
+</t>
+<t tx="karstenw.20211206134707.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20211206134707.2"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+print( img1path.encode("utf-8") )
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 1")
+pb.label(c, "Image 1", x, y, 30)
+
+x, y = 10, h1 + 10 + 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 1 colored")
+
+# apply colorize
+
+# c.top.colorize((192, 120, 0), (240, 255, 127))
+
+c.top.colorize( black=( 60,  60, 0),
+                white=(250, 200, 96),
+                  mid=(220, 190, 16))
+
+pb.label(c, "Image 1 colored", x, y, 30)
+
+
+# draw the result
+c.draw(name="Layer_function_colorize")
 </t>
 </tnodes>
 </leo_file>
