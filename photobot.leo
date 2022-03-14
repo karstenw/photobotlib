@@ -163,8 +163,8 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 <v t="karstenw.20210331155153.1"><vh>shuffle tiles</vh></v>
@@ -236,7 +236,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210331161145.1"><vh>@clean examples/Example collage 5.py</vh>
+<v t="karstenw.20210331161145.1" a="E"><vh>@clean examples/Example collage 5.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -256,7 +256,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20211005225841.1"><vh>@clean examples/Example collage 6.py</vh>
+<v t="karstenw.20211005225841.1" a="E"><vh>@clean examples/Example collage 6.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -277,8 +277,8 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
-<v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
+<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
+<v t="karstenw.20211206121916.1" a="E"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
 <v t="karstenw.20211206134707.1" a="E"><vh>@clean examples/Layer_colorize.py</vh>
@@ -2030,8 +2030,8 @@ def smooth_more(self):
 <t tx="karstenw.20200419210659.1"></t>
 <t tx="karstenw.20200421130950.1"># PIL interpolation modes
 NEAREST = Image.NEAREST
-BICUBIC = Image.BICUBIC
 BILINEAR = Image.BILINEAR
+BICUBIC = Image.BICUBIC
 LANCZOS = Image.LANCZOS
 INTERPOLATION = Image.BICUBIC
 
@@ -3590,7 +3590,7 @@ def topindex(self):
     self.img = img
 
 </t>
-<t tx="karstenw.20210727161432.4">def deform( self, deformer, resample=LANCZOS ):
+<t tx="karstenw.20210727161432.4">def deform( self, deformer, resample=BICUBIC ):
     self.img = ImageOps.deform(self.img, deformer, resample)
 
 </t>
@@ -5008,14 +5008,14 @@ c.fill( (192, 192, 192) )
 
 #  create, scale and place the image
 x, y = 10, 10
-_, w1, h1 = pb.placeImage(c, img1path, x, y, 192, "Image 1", width=True)
+_, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1", width=True)
 pb.label(c, "Image 1", x, y)
 
 #
 # Image 2
 #
 x, y = w1+20, 10
-_, w2, h2 = pb.placeImage(c, img2path, x, y, 192, "Image 2", width=True)
+_, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2", width=True)
 pb.label(c, "Image 2", x, y)
 
 
