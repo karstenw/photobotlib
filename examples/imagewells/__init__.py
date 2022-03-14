@@ -445,8 +445,7 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
         # candidate has at least canvas size and can be used as background
         # otherwise it is a tile
-        mbg = max( (bgw, bgh) )
-        if (w0 >= mbg) and (h0 >= mbg):
+        if (w0 >= bgw) and (h0 >= bgh):
             result['backgrounds'].append( record )
         else:
             # print( "TILE: %i < %i  and  %i < %i" % (w0,bgw,h0,bgh) )
