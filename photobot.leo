@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20200419210659.1"><vh>Photobot</vh>
@@ -163,11 +163,12 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 <v t="karstenw.20210331155153.1"><vh>shuffle tiles</vh></v>
+<v t="karstenw.20220409174745.1"><vh>background image</vh></v>
 <v t="karstenw.20210316183613.1"><vh>config</vh></v>
 <v t="karstenw.20210316183643.1"><vh>loop</vh></v>
 <v t="karstenw.20210316183734.1"><vh>finish</vh>
@@ -179,6 +180,7 @@
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
+<v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210316200956.1"><vh>config</vh></v>
 <v t="karstenw.20210314151702.1"><vh>loop</vh></v>
 <v t="karstenw.20210314151706.1"><vh>finish</vh>
@@ -190,6 +192,7 @@
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
+<v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210316201117.1"><vh>config</vh></v>
 <v t="karstenw.20210316201120.1"><vh>loop</vh></v>
 <v t="karstenw.20210316201125.1"><vh>finish</vh>
@@ -201,8 +204,9 @@
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
+<v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210317152601.1"><vh>config</vh></v>
-<v t="karstenw.20210317152606.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210317152606.1"><vh>loop</vh>
 <v t="karstenw.20210317154410.1"><vh>&lt;&lt; place image &gt;&gt;</vh></v>
 <v t="karstenw.20210317154416.1"><vh>&lt;&lt; create gradients &gt;&gt;</vh></v>
 <v t="karstenw.20210317154440.1"><vh>&lt;&lt; flip and blur &gt;&gt;</vh></v>
@@ -218,6 +222,7 @@
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"><vh>grid</vh></v>
+<v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210319124939.2"><vh>config</vh></v>
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
@@ -227,22 +232,24 @@
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"></v>
+<v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210319125114.1"><vh>config</vh></v>
-<v t="karstenw.20210319125121.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210319125121.1"><vh>loop</vh>
 <v t="karstenw.20210331165116.1"><vh>&lt;&lt; tile blur &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210319141308.1" a="E"><vh>finish</vh>
+<v t="karstenw.20210319141308.1"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210331161145.1" a="E"><vh>@clean examples/Example collage 5.py</vh>
+<v t="karstenw.20210331161145.1"><vh>@clean examples/Example collage 5.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"></v>
+<v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210331161336.1"><vh>config</vh></v>
-<v t="karstenw.20210331161342.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210331161342.1"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"><vh>&lt;&lt; image placement &gt;&gt;</vh></v>
 <v t="karstenw.20210331164848.1"><vh>&lt;&lt; tile height &gt;&gt;</vh></v>
 <v t="karstenw.20210331165305.1"><vh>&lt;&lt; tile contrast crank &gt;&gt;</vh></v>
@@ -251,16 +258,17 @@
 <v t="karstenw.20210331165110.1"><vh>&lt;&lt; opacity &gt;&gt;</vh></v>
 <v t="karstenw.20210331165116.1"></v>
 </v>
-<v t="karstenw.20210331161246.1" a="E"><vh>finish</vh>
+<v t="karstenw.20210331161246.1"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20211005225841.1" a="E"><vh>@clean examples/Example collage 6.py</vh>
+<v t="karstenw.20211005225841.1"><vh>@clean examples/Example collage 6.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"></v>
+<v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20211005225906.2"><vh>config</vh></v>
 <v t="karstenw.20211005233913.1" a="E"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"></v>
@@ -278,14 +286,14 @@
 </v>
 </v>
 <v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
-<v t="karstenw.20211206121916.1" a="E"><vh>@clean examples/explore_gradients 1.py</vh>
+<v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
-<v t="karstenw.20211206134707.1" a="E"><vh>@clean examples/Layer_colorize.py</vh>
+<v t="karstenw.20211206134707.1"><vh>@clean examples/Layer_colorize.py</vh>
 <v t="karstenw.20211206131524.1"><vh>Declarations</vh></v>
 <v t="karstenw.20211206134707.2"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20211206122120.1" a="E"><vh>@clean examples/Layer_filter_boxblur.py</vh>
+<v t="karstenw.20211206122120.1"><vh>@clean examples/Layer_filter_boxblur.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206122136.1"><vh>Content</vh></v>
 </v>
@@ -427,9 +435,6 @@ cos = math.cos
 degrees = math.degrees
 radians = math.radians
 asin = math.asin
-
-import fractions
-Fraction = fractions.Fraction
 
 import datetime
 import time
@@ -2290,7 +2295,7 @@ print( "backgrounds: %i" % len(backgrounds) )
 
 # create the canvas
 c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (85,85,85) )
+c.fill( (127,127,127) )
 
 
 </t>
@@ -2654,11 +2659,6 @@ gilb = 0
 y_offset = HEIGHT / float(rows)
 y_offset = int(round(y_offset))
 
-# background image
-bgimage = backgrounds.pop()
-pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
-print( "Background: %s" % bgimage.encode("utf-8") )
-
 </t>
 <t tx="karstenw.20210316183643.1">tilecounter = 0
 cols = -1
@@ -2778,11 +2778,6 @@ gilb =0
 y_offset = HEIGHT / float(rows)
 y_offset = int(round(y_offset))
 
-# background image
-bgimage = backgrounds.pop()
-pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
-print( "Background: %s" % bgimage.encode("utf-8") )
-
 </t>
 <t tx="karstenw.20210316201117.1"># CONFIGURATION
 
@@ -2799,11 +2794,6 @@ gilb = 0
 y_offset = HEIGHT / float(rows)
 y_offset = int(round(y_offset))
 x_offset = WIDTH / float(columns)
-
-# background image
-bgimage = backgrounds.pop()
-pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage", width=True, height=True)
-print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
 <t tx="karstenw.20210316201120.1">tilecounter = 0
@@ -2951,11 +2941,6 @@ for t in range(columns*rows*2):
         tiles.remove(s)
 # rnd.shuffle(picts)
 
-# background image
-bgimage = backgrounds.pop()
-pb.placeImage(c, bgimage, 0, 0, WIDTH, "bgimage", width=True, height=True)
-print( "Background: %s" % bgimage.encode("utf-8") )
-
 
 </t>
 <t tx="karstenw.20210317152606.1">tilecounter = 0
@@ -3092,10 +3077,10 @@ paintoverlay = not kwdbg
 #
 
 #  create, scale and place the image
-x, y = 0, 0
-bgimage = backgrounds.pop()
-top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
-print( "Background: %s" % bgimage.encode("utf-8") )
+#x, y = 0, 0
+#bgimage = backgrounds.pop()
+#top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
+#print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
 <t tx="karstenw.20210319124939.3">
@@ -3223,15 +3208,6 @@ randomblur = not kwdbg
 paintoverlay = 0 # not kwdbg
 gilb = 0
 
-#
-# Base Image
-#
-
-#  create, scale and place the image
-x, y = 0, 0
-bgimage = backgrounds.pop()
-top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
-print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
 <t tx="karstenw.20210319125121.1">for position in positions:
@@ -3394,16 +3370,6 @@ positions = list(grid(columns, rows, colwidth, rowheight, shuffled=True))
 randomblur = 0 # not kwdbg
 paintoverlay = 0 # not kwdbg
 gilb = 0
-
-#
-# Base Image
-#
-
-#  create, scale and place the image
-x, y = 0, 0
-bgimage = backgrounds.pop()
-top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
-print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
 <t tx="karstenw.20210331161342.1">for position in positions:
@@ -3669,16 +3635,6 @@ positions = list(grid(columns, rows, colwidth, rowheight, shuffled=True))
 randomblur = 0 # not kwdbg
 paintoverlay = 0 # not kwdbg
 gilb = 0
-
-#
-# Base Image
-#
-
-#  create, scale and place the image
-x, y = 0, 0
-bgimage = backgrounds.pop()
-top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
-print( "Background: %s" % bgimage.encode("utf-8") )
 
 </t>
 <t tx="karstenw.20211005230001.1">&lt;&lt; orange gilb &gt;&gt;
@@ -5776,6 +5732,14 @@ pb.label(c, "Image 1 colored", x, y, 30)
 
 # draw the result
 c.draw(name="Layer_function_colorize")
+</t>
+<t tx="karstenw.20220409174745.1"># background image
+if len(backgrounds) &gt; 0:
+    bgimage = backgrounds.pop()
+    pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
+    print( "Background: %s" % bgimage.encode("utf-8") )
+
+
 </t>
 </tnodes>
 </leo_file>
