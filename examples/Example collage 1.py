@@ -71,7 +71,7 @@ print( "backgrounds: %i" % len(backgrounds) )
 
 # create the canvas
 c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (85,85,85) )
+c.fill( (127,127,127) )
 
 
 if not kwdbg:
@@ -81,6 +81,13 @@ if not kwdbg:
     for turn in range( turns ):
         rnd.shuffle(tiles)
         rnd.shuffle(backgrounds)
+
+
+# background image
+if len(backgrounds) > 0:
+    bgimage = backgrounds.pop()
+    pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
+    print( "Background: %s" % bgimage.encode("utf-8") )
 
 
 # CONFIGURATION
@@ -99,11 +106,6 @@ gilb = 0
 # 
 y_offset = HEIGHT / float(rows)
 y_offset = int(round(y_offset))
-
-# background image
-bgimage = backgrounds.pop()
-pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
-print( "Background: %s" % bgimage.encode("utf-8") )
 
 tilecounter = 0
 cols = -1

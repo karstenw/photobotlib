@@ -71,7 +71,7 @@ print( "backgrounds: %i" % len(backgrounds) )
 
 # create the canvas
 c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (85,85,85) )
+c.fill( (127,127,127) )
 
 
 if not kwdbg:
@@ -96,6 +96,13 @@ def grid(cols, rows, colSize=1, rowSize=1, shuffled=False):
     for y in rowRange:
         for x in colRange:
             yield (x*colSize,y*rowSize)
+
+
+# background image
+if len(backgrounds) > 0:
+    bgimage = backgrounds.pop()
+    pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
+    print( "Background: %s" % bgimage.encode("utf-8") )
 
 
 
@@ -124,15 +131,6 @@ randomblur = not kwdbg
 paintoverlay = 0 # not kwdbg
 gilb = 0
 
-#
-# Base Image
-#
-
-#  create, scale and place the image
-x, y = 0, 0
-bgimage = backgrounds.pop()
-top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
-print( "Background: %s" % bgimage.encode("utf-8") )
 
 for position in positions:
     x, y = position
