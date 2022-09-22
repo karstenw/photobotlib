@@ -25,9 +25,6 @@ degrees = math.degrees
 radians = math.radians
 asin = math.asin
 
-import fractions
-Fraction = fractions.Fraction
-
 import datetime
 import time
 import hashlib
