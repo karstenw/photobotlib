@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import sys
 import os
 import io
@@ -152,6 +154,7 @@ def imagewells( imagewellsfile="imagewell.txt" ):
     macOS, win10 and linux.
     
     """
+    
     folders = [
         # macos system wallpapers
         "/Library/Desktop Pictures",
@@ -163,9 +166,12 @@ def imagewells( imagewellsfile="imagewell.txt" ):
         "/usr/share/backgrounds",
         "/usr/share/wallpapers" ]
 
-    images = os.path.abspath( "images" )
-    if os.path.exists( images ):
-        folders.append( images )
+    
+    for imgfolder in ("./images", "../images"):
+        images = os.path.abspath( os.path.expanduser(imgfolder) )
+        if os.path.exists( images ):
+            folders.append( images )
+    
     fullpath = getImageWellsFile( imagewellsfile )
     
     if not os.path.exists( fullpath ):
@@ -445,6 +451,8 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
         # candidate has at least canvas size and can be used as background
         # otherwise it is a tile
+        #mbg = max( (bgw, bgh) )
+        #if (w0 >= mbg) and (h0 >= mbg):
         if (w0 >= bgw) and (h0 >= bgh):
             result['backgrounds'].append( record )
         else:
