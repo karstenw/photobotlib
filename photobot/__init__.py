@@ -53,8 +53,8 @@ Image.MAX_IMAGE_PIXELS = None # 200000000
 import pdb
 import pprint
 pp = pprint.pprint
-kwdbg = 0
-kwlog = 0
+kwdbg = 1
+kwlog = 1
 import traceback
 
 # py3 stuff
@@ -150,6 +150,13 @@ class Canvas:
         If img is a Layer,
         uses that layer's x and y position and name.
         """
+
+        if (x > self.w) or (y > self.h):
+            print("\n\nERROR: Image placed outside of canvas. IGNORED.")
+            print(img)
+            print("Canvas:", self.w, self.h)
+            print("Img:", x, y )
+            return None
 
         if isinstance(img, Image.Image):
             img = img.convert("RGBA")
@@ -542,7 +549,15 @@ class Canvas:
             y = max(0, layer.y)
             w = min(background.w, layer.x+layer.w)
             h = min(background.h, layer.y+layer.h)
-        
+            
+            if x > w:
+                #pdb.set_trace()
+                #print( (x, y, w, h) )
+                continue
+            if y > h:
+                #pdb.set_trace()
+                #print( (x, y, w, h) )
+                continue
             baseimage = background.img.crop( (x, y, w, h) )
 
             # Determine which piece of the layer
@@ -624,8 +639,9 @@ class Canvas:
             try:
                 buffimage.putalpha(buffalpha)
             except Exception as err:
-                if kwdbg:
-                    pdb.set_trace()
+                if kwdbg and 0:
+                    pass
+                    # pdb.set_trace()
                 # TBD This needs fixing
                 print("PILLOW ERROR:", err)
         
@@ -930,8 +946,8 @@ class Layer:
         print( "name: '%s' " % self.name.encode("utf-8") )
         print("xy: %i  %i" % (self.x, self.y) )
         print("wh: %i  %i" % (self.w, self.h) )
-        print("alpha: %.2f" % self.alpha)
-        print("blend: %.2f" % self.blend)
+        print("alpha: %.2f" % float(self.alpha) )
+        print("blend: %s" % str(self.blend) )
         print("-" * 20)
 
     def index(self):
@@ -1251,7 +1267,8 @@ class Layer:
         measured from the top left of the canvas.
 
         """
-
+        x = min(x, self.canvas.w)
+        y = min(y, self.canvas.h)
         self.x = int( round( x ))
         self.y = int( round( y ))
 
@@ -1988,12 +2005,24 @@ def insetRect( rectangle, horInset, vertInset):
 
 def cropImageToRatioHorizontal( layer, ratio ):
     
-    """
+    """Defekt
     """
     w, h = layer.bounds()
     newwidth = int( round( h*ratio ))
+    oldwidth = w
+    oldheight = h
     d = int( newwidth / 2.0 )
     x,y,w,h = insetRect( (0,0,w,h), d, 0 )
+    
+    # pdb.set_trace()
+    if 0:
+        if (x > x+w) or (y > y+h):
+            print("\n\ncropImageToRatioHorizontal")
+            layer.prnt()
+            print( (x,y,w,h) )
+            print("oldwidth,newwidth:",oldwidth,newwidth)
+    w = abs(w)
+    h = abs(h)
     layer.img = layer.img.crop(box=(x,y,x+w,y+h))
     return layer
 
