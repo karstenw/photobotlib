@@ -198,26 +198,16 @@ def imagewells( imagewellsfile="imagewell.txt" ):
 
 
 # TBD
-class Imagecollection(object):
-    """
-    ImageCollection should be the return value of loadImageWell() and
-    transparently handle the imagewell.txt pickling.
-
-    The folders in imagewell.txt should be parsed, if one of the folders
-    is newer or imagewell.txt is newer than imagewell-files.pick.
-
-    """
-
-    def __init__(self):
-        self.data = {}
-
-
-
-def loadImageWell( bgsize=(1024,768), minsize=(256,256),
-                   maxfilesize=100000000, maxpixellength=16000,
-                   pathonly=True, additionals=None, ignorelibs=False,
-                   imagewellsfile="imagewell.txt",
-                   resultfile=False, ignoreFolderNames=None):
+def loadImageWell(  bgsize=(1024,768),
+                    minsize=(256,256),
+                    maxfilesize=100000000,
+                    maxpixellength=16000,
+                    pathonly=True,
+                    additionals=None,
+                    ignorelibs=False,
+                    imagewellsfile="imagewell.txt",
+                    resultfile=False,
+                    ignoreFolderNames=None):
 
     """
     Find images imagewells or additional folders. 
@@ -506,5 +496,20 @@ def loadImageWell( bgsize=(1024,768), minsize=(256,256),
 
 
     return result
+
+
+class Imagecollection(object):
+    """
+    ImageCollection should be the return value of loadImageWell() and
+    transparently handle the imagewell.txt pickling.
+
+    The folders in imagewell.txt should be parsed, if one of the folders
+    is newer or imagewell.txt is newer than imagewell-files.pick.
+
+    """
+
+    def __init__(self):
+        self.data = {}
+
 
 
