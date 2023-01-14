@@ -81,6 +81,7 @@ BICUBIC = Image.BICUBIC
 LANCZOS = Image.LANCZOS
 INTERPOLATION = Image.BICUBIC
 
+# unused
 LAYERS = []
 
 # blend modes
@@ -91,16 +92,18 @@ OVERLAY = "overlay"
 HUE = "hue"
 COLOR = "color"
 
+# imagemath modes
 ADD = "add"
 SUBTRACT = "subtract"
 ADD_MODULO = "add_modulo"
 SUBTRACT_MODULO = "subtract_modulo"
 DIFFERENCE = "difference"
 
-
+# flip image
 HORIZONTAL = 1
 VERTICAL = 2
 
+# gradients
 SOLID = "solid"
 LINEAR = "linear"
 RADIAL = "radial"
