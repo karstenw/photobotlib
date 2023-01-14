@@ -9,8 +9,9 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
+<v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20200419210659.1"><vh>Photobot</vh>
 <v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
@@ -33,7 +34,7 @@
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
+<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
 <v t="karstenw.20170709210125.13" a="E"><vh>export</vh>
@@ -147,7 +148,7 @@
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
 <v t="karstenw.20211021151303.1"><vh>splitimage</vh></v>
-<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
+<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
@@ -249,7 +250,7 @@
 <v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210331161336.1"><vh>config</vh></v>
-<v t="karstenw.20210331161342.1"><vh>loop</vh>
+<v t="karstenw.20210331161342.1" a="E"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"><vh>&lt;&lt; image placement &gt;&gt;</vh></v>
 <v t="karstenw.20210331164848.1"><vh>&lt;&lt; tile height &gt;&gt;</vh></v>
 <v t="karstenw.20210331165305.1"><vh>&lt;&lt; tile contrast crank &gt;&gt;</vh></v>
@@ -464,26 +465,9 @@ Image.MAX_IMAGE_PIXELS = None # 200000000
 import pdb
 import pprint
 pp = pprint.pprint
-kwdbg = 0
-kwlog = 0
+kwdbg = 1
+kwlog = 1
 import traceback
-
-# py3 stuff
-
-py3 = False
-try:
-    unicode('')
-    punicode = unicode
-    pstr = str
-    punichr = unichr
-except NameError:
-    punicode = str
-    pstr = bytes
-    py3 = True
-    punichr = chr
-    long = int
-    xrange = range
-
 
 </t>
 <t tx="karstenw.20170709210125.10">def gradient(self, style=LINEAR, w=1.0, h=1.0, name="",
@@ -570,7 +554,15 @@ except NameError:
         y = max(0, layer.y)
         w = min(background.w, layer.x+layer.w)
         h = min(background.h, layer.y+layer.h)
-    
+        
+        if x &gt; w:
+            #pdb.set_trace()
+            #print( (x, y, w, h) )
+            continue
+        if y &gt; h:
+            #pdb.set_trace()
+            #print( (x, y, w, h) )
+            continue
         baseimage = background.img.crop( (x, y, w, h) )
 
         # Determine which piece of the layer
@@ -652,8 +644,9 @@ except NameError:
         try:
             buffimage.putalpha(buffalpha)
         except Exception as err:
-            if kwdbg:
-                pdb.set_trace()
+            if kwdbg and 0:
+                pass
+                # pdb.set_trace()
             # TBD This needs fixing
             print("PILLOW ERROR:", err)
     
@@ -844,8 +837,8 @@ def export(self, name, ext=".png", format="PNG", unique=False):
     print( "name: '%s' " % self.name.encode("utf-8") )
     print("xy: %i  %i" % (self.x, self.y) )
     print("wh: %i  %i" % (self.w, self.h) )
-    print("alpha: %.2f" % self.alpha)
-    print("blend: %.2f" % self.blend)
+    print("alpha: %.2f" % float(self.alpha) )
+    print("blend: %s" % str(self.blend) )
     print("-" * 20)
 
 </t>
@@ -1132,7 +1125,8 @@ def export(self, name, ext=".png", format="PNG", unique=False):
     measured from the top left of the canvas.
 
     """
-
+    x = min(x, self.canvas.w)
+    y = min(y, self.canvas.h)
     self.x = int( round( x ))
     self.y = int( round( y ))
 
@@ -1645,6 +1639,13 @@ def canvas(w, h):
     uses that layer's x and y position and name.
     """
 
+    if (x &gt; self.w) or (y &gt; self.h):
+        print("\n\nERROR: Image placed outside of canvas. IGNORED.")
+        print(img)
+        print("Canvas:", self.w, self.h)
+        print("Img:", x, y )
+        return None
+
     if isinstance(img, Image.Image):
         img = img.convert("RGBA")
         self.layers.append( Layer(self, img, x, y, name) )
@@ -1923,12 +1924,24 @@ def smooth_more(self):
 </t>
 <t tx="karstenw.20200419185034.1">def cropImageToRatioHorizontal( layer, ratio ):
     
-    """
+    """Defekt
     """
     w, h = layer.bounds()
     newwidth = int( round( h*ratio ))
+    oldwidth = w
+    oldheight = h
     d = int( newwidth / 2.0 )
     x,y,w,h = insetRect( (0,0,w,h), d, 0 )
+    
+    # pdb.set_trace()
+    if 0:
+        if (x &gt; x+w) or (y &gt; y+h):
+            print("\n\ncropImageToRatioHorizontal")
+            layer.prnt()
+            print( (x,y,w,h) )
+            print("oldwidth,newwidth:",oldwidth,newwidth)
+    w = abs(w)
+    h = abs(h)
     layer.img = layer.img.crop(box=(x,y,x+w,y+h))
     return layer
 
@@ -2040,6 +2053,7 @@ BICUBIC = Image.BICUBIC
 LANCZOS = Image.LANCZOS
 INTERPOLATION = Image.BICUBIC
 
+# unused
 LAYERS = []
 
 # blend modes
@@ -2050,16 +2064,18 @@ OVERLAY = "overlay"
 HUE = "hue"
 COLOR = "color"
 
+# imagemath modes
 ADD = "add"
 SUBTRACT = "subtract"
 ADD_MODULO = "add_modulo"
 SUBTRACT_MODULO = "subtract_modulo"
 DIFFERENCE = "difference"
 
-
+# flip image
 HORIZONTAL = 1
 VERTICAL = 2
 
+# gradients
 SOLID = "solid"
 LINEAR = "linear"
 RADIAL = "radial"
@@ -5738,6 +5754,24 @@ if len(backgrounds) &gt; 0:
     bgimage = backgrounds.pop()
     pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
     print( "Background: %s" % bgimage.encode("utf-8") )
+
+
+</t>
+<t tx="karstenw.20230114013608.1"># py3 stuff
+
+py3 = False
+try:
+    unicode('')
+    punicode = unicode
+    pstr = str
+    punichr = unichr
+except NameError:
+    punicode = str
+    pstr = bytes
+    py3 = True
+    punichr = chr
+    long = int
+    xrange = range
 
 
 </t>
