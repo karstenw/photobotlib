@@ -53,8 +53,8 @@ Image.MAX_IMAGE_PIXELS = None # 200000000
 import pdb
 import pprint
 pp = pprint.pprint
-kwdbg = 1
-kwlog = 1
+kwdbg = 0
+kwlog = 0
 import traceback
 
 # py3 stuff
@@ -2018,9 +2018,11 @@ def cropImageToRatioHorizontal( layer, ratio ):
     x,y,w,h = insetRect( (0,0,w,h), d, 0 )
     
     # pdb.set_trace()
-    if 0:
+    if 1:
         if (x > x+w) or (y > y+h):
+            
             print("\n\ncropImageToRatioHorizontal")
+            print("ratio:", ratio)
             layer.prnt()
             print( (x,y,w,h) )
             print("oldwidth,newwidth:",oldwidth,newwidth)

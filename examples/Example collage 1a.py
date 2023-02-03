@@ -16,8 +16,7 @@ import libgradient
 import imagewells
 loadImageWell = imagewells.loadImageWell
 
-
-if kwdbg and 0:
+if kwdbg and 1:
     # make random choices repeatable for debugging
     rnd.seed( 123456 )
 
@@ -44,19 +43,45 @@ except NameError:
     pb.kwdbg = kwdbg
     pb.kwlog = kwlog
     WIDTH, HEIGHT = W, H
-    print( "File: %s" % (__file__,) )
-RATIO = WIDTH / HEIGHT
 
-# load the image library
-# check for command line folders
-additionals = sys.argv[1:]
+if pb.py3:
+    print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
+else:
+    print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
+# I use several distinct image collections
+
+configname = "std"
+pathsfilename = "imagewell.txt"
+storagefilename = "imagewell.tab"
+additionals = []
+
+for item in sys.argv[1:]:
+    # try path
+    path = os.path.abspath( os.path.expanduser( item ) )
+    if os.path.exists( path ):
+        additionals.append( path )
+    elif item not in ('',):
+        # if given multiple config names only the last survives
+        pathsfilename = "imagewell-" + item + '.txt'
+        storagefilename = "imagewell-" + item + '.tab'
+        configname = item
+
+if kwlog or 1:
+    print("configname:", configname)
+    print("pathsfilename:", pathsfilename)
+    print("storagefilename:", storagefilename)
+
+# used in some examples
+RATIO = WIDTH / HEIGHT
 
 # get all images from user image wells
 imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
                              minsize=(256,256),
                              pathonly=True,
                              additionals=additionals,
-                             resultfile="imagewell-files",
+                             imagewellfilename=pathsfilename,
+                             tabfilename=storagefilename,
+                             ignoreDotFolders=False,
                              ignoreFolderNames=('+offline',))
 
 # tiles are images >256x256 and <=WIDTH, HEIGHT
@@ -208,6 +233,9 @@ if paintoverlay:
         if kwdbg or 1:
             print( "paint overlay end")
 
-c.draw(0,0)
+name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname
+c.draw(0,0, name=name)
 
 

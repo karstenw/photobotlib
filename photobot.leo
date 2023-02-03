@@ -9,12 +9,12 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20200419210659.1"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
+<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -164,9 +164,10 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
+<v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 <v t="karstenw.20210331155153.1"><vh>shuffle tiles</vh></v>
 <v t="karstenw.20220409174745.1"><vh>background image</vh></v>
@@ -179,6 +180,7 @@
 </v>
 <v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
@@ -191,6 +193,7 @@
 </v>
 <v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
@@ -203,6 +206,7 @@
 </v>
 <v t="karstenw.20210317152421.1"><vh>@clean examples/Example collage 2.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
@@ -220,6 +224,7 @@
 </v>
 <v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"><vh>grid</vh></v>
@@ -230,6 +235,7 @@
 </v>
 <v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"></v>
@@ -245,12 +251,13 @@
 </v>
 <v t="karstenw.20210331161145.1"><vh>@clean examples/Example collage 5.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210331161336.1"><vh>config</vh></v>
-<v t="karstenw.20210331161342.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210331161342.1"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"><vh>&lt;&lt; image placement &gt;&gt;</vh></v>
 <v t="karstenw.20210331164848.1"><vh>&lt;&lt; tile height &gt;&gt;</vh></v>
 <v t="karstenw.20210331165305.1"><vh>&lt;&lt; tile contrast crank &gt;&gt;</vh></v>
@@ -266,12 +273,13 @@
 </v>
 <v t="karstenw.20211005225841.1"><vh>@clean examples/Example collage 6.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20211005225906.2"><vh>config</vh></v>
-<v t="karstenw.20211005233913.1" a="E"><vh>loop</vh>
+<v t="karstenw.20211005233913.1"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"></v>
 <v t="karstenw.20210331164848.1"></v>
 <v t="karstenw.20210331165305.1"></v>
@@ -465,8 +473,8 @@ Image.MAX_IMAGE_PIXELS = None # 200000000
 import pdb
 import pprint
 pp = pprint.pprint
-kwdbg = 1
-kwlog = 1
+kwdbg = 0
+kwlog = 0
 import traceback
 
 </t>
@@ -1934,9 +1942,11 @@ def smooth_more(self):
     x,y,w,h = insetRect( (0,0,w,h), d, 0 )
     
     # pdb.set_trace()
-    if 0:
+    if 1:
         if (x &gt; x+w) or (y &gt; y+h):
+            
             print("\n\ncropImageToRatioHorizontal")
+            print("ratio:", ratio)
             layer.prnt()
             print( (x,y,w,h) )
             print("oldwidth,newwidth:",oldwidth,newwidth)
@@ -2255,8 +2265,7 @@ import libgradient
 import imagewells
 loadImageWell = imagewells.loadImageWell
 
-
-if kwdbg and 0:
+if kwdbg and 1:
     # make random choices repeatable for debugging
     rnd.seed( 123456 )
 
@@ -2283,20 +2292,23 @@ except NameError:
     pb.kwdbg = kwdbg
     pb.kwlog = kwlog
     WIDTH, HEIGHT = W, H
-    print( "File: %s" % (__file__,) )
-</t>
-<t tx="karstenw.20201006211627.1">RATIO = WIDTH / HEIGHT
 
-# load the image library
-# check for command line folders
-additionals = sys.argv[1:]
+if pb.py3:
+    print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
+else:
+    print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
+</t>
+<t tx="karstenw.20201006211627.1"># used in some examples
+RATIO = WIDTH / HEIGHT
 
 # get all images from user image wells
 imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
                              minsize=(256,256),
                              pathonly=True,
                              additionals=additionals,
-                             resultfile="imagewell-files",
+                             imagewellfilename=pathsfilename,
+                             tabfilename=storagefilename,
+                             ignoreDotFolders=False,
                              ignoreFolderNames=('+offline',))
 
 # tiles are images &gt;256x256 and &lt;=WIDTH, HEIGHT
@@ -2654,7 +2666,10 @@ for j in range(rows):
 
 &lt;&lt; paint texture &gt;&gt;
 
-c.draw(0,0)
+name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname
+c.draw(0,0, name=name)
 
 
 </t>
@@ -2717,14 +2732,14 @@ for j in range(rows):
         # P: 0.5 # flip the tile
         if randomblur:
             if rnd.random() &gt; 0.5:
-                if kwlog or 1:
+                if kwlog or 0:
                     print( "Flip" )
                 c.top.flip()
 
         # P: 0.5 # add blur
         if randomflip:
             if rnd.random() &gt; 0.5:
-                if kwlog or 1:
+                if kwlog or 0:
                     print( "Blur" )
                 c.top.blur()
 
@@ -2739,8 +2754,10 @@ for j in range(rows):
 
 &lt;&lt; paint texture &gt;&gt;
 
-c.draw(0,0)
-
+name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname
+c.draw(0,0, name=name)
 
 </t>
 <t tx="karstenw.20210316195906.1">@language python
@@ -2892,10 +2909,6 @@ for j in range(rows):
 
 &lt;&lt; paint texture &gt;&gt;
 
-c.draw(0,0)
-
-
-
 if 1:
     # orange hue mask finish
     top = c.fill((200,100,0))
@@ -2912,6 +2925,13 @@ if paintoverlay:
     c.top.scale(s, s)
     # c.top.opacity(60)
     c.top.overlay()
+
+name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname
+c.draw(0,0, name=name)
+
+
 </t>
 <t tx="karstenw.20210317123345.1">if gilb:
     # orange hue overlay finish
@@ -2976,7 +2996,10 @@ for j in range(rows):
 
 &lt;&lt; paint texture &gt;&gt;
 
-c.draw(0,0)
+name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname
+c.draw(0,0, name=name)
 
 
 </t>
@@ -3175,8 +3198,8 @@ for position in positions:
         if rnd.random() &gt; 0.75:
             #print "BLUR"
             c.top.blur()
-
-if 0:
+</t>
+<t tx="karstenw.20210319124940.1">if 0:
     # orange hue mask finish
     #print "Mr. Orange"
     top = c.fill((200,100,0))
@@ -3195,9 +3218,13 @@ if paintoverlay:
     c.top.opacity(50)
     c.top.overlay()
 
-c.draw(0, 0)
+name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname
+c.draw(0,0, name=name)
+
+
 </t>
-<t tx="karstenw.20210319124940.1"></t>
 <t tx="karstenw.20210319125114.1">
 # CONFIGURATION
 
@@ -3334,7 +3361,10 @@ gilb = 0
 
 &lt;&lt; paint texture &gt;&gt;
 
-c.draw(0,0)
+name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname
+c.draw(0,0, name=name)
 
 
 </t>
@@ -3358,8 +3388,10 @@ c.draw(0,0)
 
 &lt;&lt; paint texture &gt;&gt;
 
-c.draw(0,0)
-
+name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname
+c.draw(0,0, name=name)
 
 </t>
 <t tx="karstenw.20210331161336.1">
@@ -3657,7 +3689,12 @@ gilb = 0
 
 &lt;&lt; paint texture &gt;&gt;
 
-c.draw(0,0)
+name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname
+c.draw(0,0, name=name)
+
+
 </t>
 <t tx="karstenw.20211005233913.1">for position in positions:
     x, y = position
@@ -5773,6 +5810,30 @@ except NameError:
     long = int
     xrange = range
 
+
+</t>
+<t tx="karstenw.20230115124413.1"># I use several distinct image collections
+
+configname = "std"
+pathsfilename = "imagewell.txt"
+storagefilename = "imagewell.tab"
+additionals = []
+
+for item in sys.argv[1:]:
+    # try path
+    path = os.path.abspath( os.path.expanduser( item ) )
+    if os.path.exists( path ):
+        additionals.append( path )
+    elif item not in ('',):
+        # if given multiple config names only the last survives
+        pathsfilename = "imagewell-" + item + '.txt'
+        storagefilename = "imagewell-" + item + '.tab'
+        configname = item
+
+if kwlog or 1:
+    print("configname:", configname)
+    print("pathsfilename:", pathsfilename)
+    print("storagefilename:", storagefilename)
 
 </t>
 </tnodes>
