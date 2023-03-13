@@ -1367,7 +1367,7 @@ class Layer:
         self.w = w
         self.h = h   
 
-    def distort(self, x1=0,y1=0, x2=0,y2=0, x3=0,y3=0, x4=0,y4=0):
+    def distort(self, x1=0,y1=0, x2=0,y2=0, x3=0,y3=0, x4=0,y4=0,method=Image.QUAD):
 
         """Distorts the layer.
         
@@ -1379,9 +1379,9 @@ class Layer:
         """
 
         w, h = self.img.size
-        quad = (-x1,-y1, -x4,h-y4, w-x3,w-y3, w-x2,-y2)
+        quad = (-x1,-y1, -x4,h-y4, w-x3,h-y3, w-x2,-y2)
         # quad = (x1,y1, x2,y2, x3,y3, x4,y4) #, LANCZOS)
-        self.img = self.img.transform(self.img.size, Image.QUAD, quad)
+        self.img = self.img.transform(self.img.size, method, quad)
 
     def flip(self, axis=HORIZONTAL):
 
@@ -2026,8 +2026,8 @@ def cropImageToRatioHorizontal( layer, ratio ):
             layer.prnt()
             print( (x,y,w,h) )
             print("oldwidth,newwidth:",oldwidth,newwidth)
-    w = abs(w)
-    h = abs(h)
+        w = abs(w)
+        h = abs(h)
     layer.img = layer.img.crop(box=(x,y,x+w,y+h))
     return layer
 
