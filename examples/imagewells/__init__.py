@@ -13,8 +13,8 @@ Fraction = fractions.Fraction
 import pdb
 import pprint
 pp = pprint.pprint
-kwdbg = 1
-kwlog = 1
+kwdbg = 0
+kwlog = 0
 import traceback
 
 import PIL
@@ -179,10 +179,9 @@ def imagefiles( folderpathorlist, ignoreDotFolders=False ):
         try:
             img = Image.open(path)
             s = img.size
+            del img
         except:
             pass #continue
-        finally:
-            del img
 
         record = (path, filesize, lastmodf, mode, islink, s[0], s[1])
         yield record
@@ -385,6 +384,7 @@ def loadImageWell(  bgsize=(1024,768),
         tabfilename
             The basename of the file in the scripts folder which contains the
             tab separated image records for faster image loading.
+            If True: take the path of "imagewellfilename" and extension ".tab"
             Defaults to False
             
         ignoreFolderNames
