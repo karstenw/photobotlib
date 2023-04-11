@@ -72,17 +72,19 @@ Abbreviated example from "Example collage 1.py"
 import imagewells
 loadImageWell = imagewells.loadImageWell
 
+
 imagewell = loadImageWell(
-				bgsize=(1024,768),
+				bgsize=(1280, 1024),
 				minsize=(256,256),
+				pathonly=True,
 				maxfilesize=100000000,
 				maxpixellength=16000,
-				pathonly=True,
-				additionals=None,
-				ignorelibs=False,
-				imagewellsfile="imagewell.txt",
-				resultfile="imagewell-files",
+				additionals=additionals,
+				imagewellfilename="imagewell.txt",
+				tabfilename="imagewell.tab",
+				ignoreDotFolders=False,
 				ignoreFolderNames=('+offline',))
+
 ```
 
 
@@ -119,7 +121,11 @@ If a folder does not exist, it will be ignored. The idea is to put your own imag
 
 - addtionals=('folder',) - a list of folders to be added. If this is active, no caching is used.
 
-- resultfile="imagewell-files" - the name of the resulting cache file. Has not been tested with other names.
+- imagewellfilename="imagewell.txt" - the name of the folderlist file to be read.
+
+- tabfilename="imagewell.tab" - the name of the resulting cache file.
+
+- ignoreDotFolders=False - ignore folders starting with a '.'.  This is for MacOS '.thumbnails' folders which you usually want to ignore
 
 - ignoreFolderNames=('folder',) - a list of folder names. If a scanned folder STARTS with a name from that list, it will be ignored.
 
