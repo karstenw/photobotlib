@@ -13,8 +13,8 @@
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
+<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
+<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -34,7 +34,7 @@
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
+<v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
 <v t="karstenw.20170709210125.13" a="E"><vh>export</vh>
@@ -56,7 +56,7 @@
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -68,7 +68,7 @@
 <v t="karstenw.20170709210125.30"><vh>select</vh></v>
 <v t="karstenw.20170709210125.31"><vh>mask</vh></v>
 <v t="karstenw.20170709210125.32"><vh>duplicate</vh></v>
-<v t="karstenw.20170727231803.1"><vh>BLENDS</vh>
+<v t="karstenw.20170727231803.1" a="E"><vh>BLENDS</vh>
 <v t="karstenw.20170709210125.33"><vh>opacity</vh></v>
 <v t="karstenw.20170709210125.34"><vh>multiply</vh></v>
 <v t="karstenw.20200419182817.1"><vh>add</vh></v>
@@ -81,7 +81,7 @@
 <v t="karstenw.20170709210125.37"><vh>hue</vh></v>
 <v t="karstenw.20170709210125.38"><vh>color</vh></v>
 </v>
-<v t="karstenw.20170727231827.1"><vh>INTENSITIES</vh>
+<v t="karstenw.20170727231827.1" a="E"><vh>INTENSITIES</vh>
 <v t="karstenw.20170709210125.39"><vh>brightness</vh></v>
 <v t="karstenw.20170709210125.40"><vh>contrast</vh></v>
 <v t="karstenw.20170709210125.41"><vh>desaturate</vh></v>
@@ -93,7 +93,7 @@
 <v t="karstenw.20210727161432.5"><vh>equalize</vh></v>
 <v t="karstenw.20170709210125.43"><vh>invert</vh></v>
 </v>
-<v t="karstenw.20170727232236.1"><vh>GEOMETRY</vh>
+<v t="karstenw.20170727232236.1" a="E"><vh>GEOMETRY</vh>
 <v t="karstenw.20170709210125.44"><vh>translate</vh></v>
 <v t="karstenw.20170709210125.45"><vh>scale</vh></v>
 <v t="karstenw.20170709210125.47"><vh>rotate</vh></v>
@@ -164,8 +164,8 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
@@ -233,7 +233,7 @@
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
-<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -241,7 +241,7 @@
 <v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210319125114.1"><vh>config</vh></v>
-<v t="karstenw.20210319125121.1"><vh>loop</vh>
+<v t="karstenw.20210319125121.1" a="E"><vh>loop</vh>
 <v t="karstenw.20210331165116.1"><vh>&lt;&lt; tile blur &gt;&gt;</vh></v>
 </v>
 <v t="karstenw.20210319141308.1"><vh>finish</vh>
@@ -294,7 +294,7 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
@@ -353,6 +353,10 @@
 <v t="karstenw.20211206123757.1"><vh>@clean examples/Layer_function_deform.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206123757.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20230313131659.1" a="E"><vh>@clean examples/Layer_function_distort_extend.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20230313131723.1"><vh>Content</vh></v>
 </v>
 <v t="karstenw.20211206124323.1"><vh>@clean examples/Layer_function_difference.py</vh>
 <v t="karstenw.20211206131524.1"></v>
@@ -1158,7 +1162,7 @@ def export(self, name, ext=".png", format="PNG", unique=False):
     self.h = h
 
 </t>
-<t tx="karstenw.20170709210125.46">def distort(self, x1=0,y1=0, x2=0,y2=0, x3=0,y3=0, x4=0,y4=0):
+<t tx="karstenw.20170709210125.46">def distort(self, x1=0,y1=0, x2=0,y2=0, x3=0,y3=0, x4=0,y4=0,method=Image.QUAD):
 
     """Distorts the layer.
     
@@ -1170,9 +1174,9 @@ def export(self, name, ext=".png", format="PNG", unique=False):
     """
 
     w, h = self.img.size
-    quad = (-x1,-y1, -x4,h-y4, w-x3,w-y3, w-x2,-y2)
+    quad = (-x1,-y1, -x4,h-y4, w-x3,h-y3, w-x2,-y2)
     # quad = (x1,y1, x2,y2, x3,y3, x4,y4) #, LANCZOS)
-    self.img = self.img.transform(self.img.size, Image.QUAD, quad)
+    self.img = self.img.transform(self.img.size, method, quad)
 
 </t>
 <t tx="karstenw.20170709210125.47">def rotate(self, angle):
@@ -1950,8 +1954,8 @@ def smooth_more(self):
             layer.prnt()
             print( (x,y,w,h) )
             print("oldwidth,newwidth:",oldwidth,newwidth)
-    w = abs(w)
-    h = abs(h)
+        w = abs(w)
+        h = abs(h)
     layer.img = layer.img.crop(box=(x,y,x+w,y+h))
     return layer
 
@@ -2268,7 +2272,6 @@ loadImageWell = imagewells.loadImageWell
 if kwdbg and 1:
     # make random choices repeatable for debugging
     rnd.seed( 123456 )
-
 
 # width and height of destination image
 # W, H =  800,  600
@@ -3491,11 +3494,13 @@ c.top.translate(x, y)
         c.top.blur()
 
 if rnd.random() &gt; 0.9:
-    print("BLEND SCREEN")
+    if kwdbg:
+        print("BLEND SCREEN")
     c.top.screen()
 
 if rnd.random() &gt; 0.9:
-    print("BLEND COLOR")
+    if kwdbg:
+        print("BLEND COLOR")
     c.top.color()
 
 </t>
@@ -4723,22 +4728,19 @@ class MeshTransform(Transform):
 '''
 
 
+rnd.seed(3)
 
 class _Deformer(object):
     def getmesh(self, img):
         (w, h) = img.size
         return [
             (   # target rectangle (1)
+                # 
                 (0,0,w,h),
-                (
-                -100, 100,
-                0, h,
-                w-100, h,
-                w-100 , 0) ),
-            ]
-        
-        
-        
+                # ( 0,0, w-30,30, w,h, 30,h-30)
+                (w,0, w,h, 0,h//2, 0,0)
+            ),]
+
 #
 # Image 1
 #
@@ -4769,7 +4771,7 @@ c.top.deform( _Deformer() )
 pb.label(c, "Deformed Image 1", x, y)
 
 # draw the result
-c.draw(name="Layer_function_equalize")
+c.draw(name="Layer_function_deform")
 
 </t>
 <t tx="karstenw.20211206124323.1">@language python
@@ -5714,7 +5716,7 @@ import pprint
 pp = pprint.pprint
 
 import pdb
-kwdbg = 0
+kwdbg = 1
 
 W, H = 542, 1050
 fullwidth = int(W-20)
@@ -5741,7 +5743,7 @@ if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(8)
 
-imagewell = imagewells.loadImageWell(resultfile="imagewell-files")
+imagewell = imagewells.loadImageWell(tabfilename=True)
 tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
@@ -5814,7 +5816,7 @@ except NameError:
 </t>
 <t tx="karstenw.20230115124413.1"># I use several distinct image collections
 
-configname = "std"
+configname = ""
 pathsfilename = "imagewell.txt"
 storagefilename = "imagewell.tab"
 additionals = []
@@ -5834,6 +5836,62 @@ if kwlog or 1:
     print("configname:", configname)
     print("pathsfilename:", pathsfilename)
     print("storagefilename:", storagefilename)
+
+</t>
+<t tx="karstenw.20230313131659.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20230313131723.1">import PIL
+
+# pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+        
+#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+
+#
+# Normal Image 1
+#
+
+h = 10
+x, y = 10 , h + 20
+
+top, w, h = pb.placeImage(c, img2path, x, y, fullwidth, "Image 1", 0)
+
+pb.label(c, "Normal Image 1", x, y)
+
+
+#
+# distort Image 1
+#
+
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 2", 1)
+
+class Example:
+    def getdata(self):
+        method = PIL.Image.Transform.EXTENT
+        data = (-50, -50, 550, 550)
+        return method, data
+
+# x1=0,y1=0, x2=w,y2=0, x3=w,y3=h, x4=0,y4=h
+c.top.distort( method=Example() )
+pb.label(c, "Distorted Image 1", x, y)
+
+# draw the result
+c.draw(name="Layer_function_distort")
 
 </t>
 </tnodes>

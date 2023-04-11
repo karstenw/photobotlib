@@ -20,7 +20,6 @@ if kwdbg and 1:
     # make random choices repeatable for debugging
     rnd.seed( 123456 )
 
-
 # width and height of destination image
 # W, H =  800,  600
 # W, H = 1024,  768
@@ -50,7 +49,7 @@ else:
     print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
 # I use several distinct image collections
 
-configname = "std"
+configname = ""
 pathsfilename = "imagewell.txt"
 storagefilename = "imagewell.tab"
 additionals = []
@@ -216,11 +215,13 @@ for position in positions:
             c.top.blur()
 
     if rnd.random() > 0.9:
-        print("BLEND SCREEN")
+        if kwdbg:
+            print("BLEND SCREEN")
         c.top.screen()
 
     if rnd.random() > 0.9:
-        print("BLEND COLOR")
+        if kwdbg:
+            print("BLEND COLOR")
         c.top.color()
 
 if gilb:

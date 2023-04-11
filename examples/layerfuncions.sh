@@ -14,7 +14,9 @@ python2 Layer_function_autocontrast.py
 python2 Layer_function_brightness.py
 python2 Layer_function_color.py
 python2 Layer_function_contrast.py
+python2 Layer_function_deform.py
 python2 Layer_function_difference.py
+python2 Layer_function_distort_extend.py
 python2 Layer_function_flip.py
 python2 Layer_function_hue.py
 python2 Layer_function_mask.py
@@ -42,7 +44,9 @@ python3 Layer_function_autocontrast.py
 python3 Layer_function_brightness.py
 python3 Layer_function_color.py
 python3 Layer_function_contrast.py
+python3 Layer_function_deform.py
 python3 Layer_function_difference.py
+python3 Layer_function_distort_extend.py
 python3 Layer_function_flip.py
 python3 Layer_function_hue.py
 python3 Layer_function_mask.py

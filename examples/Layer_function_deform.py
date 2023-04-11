@@ -7,7 +7,7 @@ import pprint
 pp = pprint.pprint
 
 import pdb
-kwdbg = 0
+kwdbg = 1
 
 W, H = 542, 1050
 fullwidth = int(W-20)
@@ -34,7 +34,7 @@ if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(8)
 
-imagewell = imagewells.loadImageWell(resultfile="imagewell-files")
+imagewell = imagewells.loadImageWell(tabfilename=True)
 tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
@@ -84,22 +84,19 @@ class MeshTransform(Transform):
 '''
 
 
+rnd.seed(3)
 
 class _Deformer(object):
     def getmesh(self, img):
         (w, h) = img.size
         return [
             (   # target rectangle (1)
+                # 
                 (0,0,w,h),
-                (
-                -100, 100,
-                0, h,
-                w-100, h,
-                w-100 , 0) ),
-            ]
-        
-        
-        
+                # ( 0,0, w-30,30, w,h, 30,h-30)
+                (w,0, w,h, 0,h//2, 0,0)
+            ),]
+
 #
 # Image 1
 #
@@ -130,5 +127,5 @@ c.top.deform( _Deformer() )
 pb.label(c, "Deformed Image 1", x, y)
 
 # draw the result
-c.draw(name="Layer_function_equalize")
+c.draw(name="Layer_function_deform")
 

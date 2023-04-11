@@ -20,7 +20,6 @@ if kwdbg and 1:
     # make random choices repeatable for debugging
     rnd.seed( 123456 )
 
-
 # width and height of destination image
 # W, H =  800,  600
 # W, H = 1024,  768
@@ -50,7 +49,7 @@ else:
     print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
 # I use several distinct image collections
 
-configname = "std"
+configname = ""
 pathsfilename = "imagewell.txt"
 storagefilename = "imagewell.tab"
 additionals = []

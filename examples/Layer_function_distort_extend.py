@@ -39,6 +39,8 @@ tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
 
+import PIL
+
 # pick 2 images
 img1path = tiles.pop()
 img2path = tiles.pop()
@@ -47,28 +49,44 @@ img2path = tiles.pop()
 c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (192, 192, 192) )
 
+        
 #
 # Image 1
 #
 
-_, fname = os.path.split( img1path )
-
 #  create, scale and place the image
 x, y = 10, 10
-top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
-pb.label(c, fname, x, y)
 
 #
-# Image 2
+# Normal Image 1
 #
-x, y = 10, 10 + h1 + 10
-top, w2, h2 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
-c.layers[top].edge_enhance()
+
+h = 10
+x, y = 10 , h + 20
+
+top, w, h = pb.placeImage(c, img2path, x, y, fullwidth, "Image 1", 0)
+
+pb.label(c, "Normal Image 1", x, y)
 
 
-pb.label(c, "%s edge_enhance()" % fname, x, y)
+#
+# distort Image 1
+#
 
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 2", 1)
+
+class Example:
+    def getdata(self):
+        method = PIL.Image.Transform.EXTENT
+        data = (-50, -50, 550, 550)
+        return method, data
+
+# x1=0,y1=0, x2=w,y2=0, x3=w,y3=h, x4=0,y4=h
+c.top.distort( method=Example() )
+pb.label(c, "Distorted Image 1", x, y)
 
 # draw the result
-c.draw(name="Layer_function_enhance")
+c.draw(name="Layer_function_distort")
 

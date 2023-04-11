@@ -7,7 +7,7 @@ import pprint
 pp = pprint.pprint
 
 import pdb
-kwdbg = 0
+kwdbg = 1
 
 W, H = 542, 1050
 fullwidth = int(W-20)
@@ -34,7 +34,7 @@ if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(8)
 
-imagewell = imagewells.loadImageWell(resultfile="imagewell-files")
+imagewell = imagewells.loadImageWell(tabfilename=True)
 tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
