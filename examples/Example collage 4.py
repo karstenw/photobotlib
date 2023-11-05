@@ -161,6 +161,7 @@ for position in positions:
 
     # create image in canvas at 0,0
     p = tiles.pop()
+    nextpictpath = p
     print(p.encode("utf-8"))
     top, w, h = pb.placeImage(c, p, 0, 0, maxsize=None, name="Image %i,%i" % (x,y)) #, width=False, height=True)
 
@@ -233,19 +234,29 @@ for position in positions:
     
     c.top.opacity( 50 + rnd.random() * 50 )
 
+    doflip = randomblur
+    if doflip:
+        if "/comic/" in nextpictpath:
+            doflip = 0
+        if doflip:
+            if rnd.random() > 0.75:
+                #print "FLIP"
+                c.top.flip()
+    
     if randomblur:
-        if rnd.random() > 0.75:
-            #print "FLIP"
-            c.top.flip()
-
         if rnd.random() > 0.75:
             #print "BLUR"
             c.top.blur()
     
-    if randomblur:
-        if rnd.random() > 0.75:
-            c.top.flip()
+    doflip = randomblur
+    if doflip:
+        if "/comic/" in nextpictpath:
+            doflip = 0
+        if doflip:
+            if rnd.random() > 0.75:
+                c.top.flip()
 
+    if randomblur:
         if rnd.random() > 0.75:
             c.top.blur()
 

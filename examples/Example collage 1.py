@@ -170,14 +170,18 @@ for j in range(rows):
 
 
         # P: 0.5 # flip the tile
-        if randomblur:
+        doflip = randomflip
+        if doflip:
+            if "/comic/" in nextpictpath:
+                doflip = 0
+        if doflip:
             if rnd.random() > 0.5:
                 if kwlog or 0:
                     print( "Flip" )
                 c.top.flip()
 
         # P: 0.5 # add blur
-        if randomflip:
+        if randomblur:
             if rnd.random() > 0.5:
                 if kwlog or 0:
                     print( "Blur" )
