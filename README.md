@@ -16,7 +16,7 @@ PhotoBot was initially a part of the NodeBox Library.
 
 Since 2013 it has been updated to the current Python 2/3 and Pillow libraries.
 
-This version works standalone with Python2.7, Python3.8 and is identical to the current NodeBox Library version.
+This version works standalone with Python2.7, Python3.11 and is identical to the current [NodeBox Library](https://github.com/karstenw/Library) version.
 
 
 #### Fundamental changes ####
@@ -31,7 +31,7 @@ If the exports folder does not fit your needs use canvas.export() as follows:
 
 `cv.export( name="/Full/Path/to/image.png", ext=".png", format="PNG" )`
 
-Extension and format follow [Pillow]() rules
+Extension and format follow [Pillow Image.save](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.save) rules
 
 
 
