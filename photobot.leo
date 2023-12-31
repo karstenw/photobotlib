@@ -3509,9 +3509,9 @@ c.top.translate(x, y)
 </t>
 <t tx="karstenw.20210331165116.1">doflip = randomblur
 if doflip:
-    if "/comic/" in nextpictpath:
-        doflip = 0
-    if doflip:
+    # do not flip if using comic tiles
+    if "/comic/" not in nextpictpath:
+        # 
         if rnd.random() &gt; 0.75:
             c.top.flip()
 
