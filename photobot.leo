@@ -266,7 +266,7 @@
 <v t="karstenw.20210331165110.1"><vh>&lt;&lt; opacity &gt;&gt;</vh></v>
 <v t="karstenw.20210331165116.1"></v>
 </v>
-<v t="karstenw.20210331161246.1"><vh>finish</vh>
+<v t="karstenw.20210331161246.1" a="E"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
@@ -2731,17 +2731,14 @@ for j in range(rows):
             print( "Mask" )
         c.top.mask()
 
-
         # P: 0.5 # flip the tile
         doflip = randomflip
         if doflip:
-            if "/comic/" in nextpictpath:
-                doflip = 0
-        if doflip:
-            if rnd.random() &gt; 0.5:
-                if kwlog or 0:
-                    print( "Flip" )
-                c.top.flip()
+            if "/comic/" not in nextpictpath:
+                if rnd.random() &gt; 0.5:
+                    if kwlog or 0:
+                        print( "Flip" )
+                    c.top.flip()
 
         # P: 0.5 # add blur
         if randomblur:
@@ -3071,15 +3068,12 @@ c.top.translate(i*w/3, j*y_offset)
 <t tx="karstenw.20210317154440.1">if kwdbg:
     print( "Layer flip" )
 
-
-doflip = 1
-if "/comic/" in nextpictpath:
-    doflip = 0
 if doflip:
-    if rnd.random() &gt; 0.5:
-        if kwdbg:
-            print( "flip" )
-        c.top.flip()
+    if "/comic/" not in nextpictpath:
+        if rnd.random() &gt; 0.5:
+            if kwdbg:
+                print( "flip" )
+            c.top.flip()
 
 if kwdbg:
     print( "Layer blur" )
@@ -3205,9 +3199,7 @@ for position in positions:
 
     doflip = randomblur
     if doflip:
-        if "/comic/" in nextpictpath:
-            doflip = 0
-        if doflip:
+        if "/comic/" not in nextpictpath:
             if rnd.random() &gt; 0.75:
                 #print "FLIP"
                 c.top.flip()
@@ -3511,7 +3503,6 @@ c.top.translate(x, y)
 if doflip:
     # do not flip if using comic tiles
     if "/comic/" not in nextpictpath:
-        # 
         if rnd.random() &gt; 0.75:
             c.top.flip()
 

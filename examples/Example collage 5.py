@@ -212,7 +212,6 @@ for position in positions:
     if doflip:
         # do not flip if using comic tiles
         if "/comic/" not in nextpictpath:
-            # 
             if rnd.random() > 0.75:
                 c.top.flip()
 

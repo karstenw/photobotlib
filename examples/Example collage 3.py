@@ -233,9 +233,7 @@ for position in positions:
 
     doflip = randomblur
     if doflip:
-        if "/comic/" in nextpictpath:
-            doflip = 0
-        if doflip:
+        if "/comic/" not in nextpictpath:
             if rnd.random() > 0.75:
                 #print "FLIP"
                 c.top.flip()

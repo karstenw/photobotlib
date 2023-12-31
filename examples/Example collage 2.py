@@ -204,15 +204,12 @@ for j in range(rows):
         if kwdbg:
             print( "Layer flip" )
 
-
-        doflip = 1
-        if "/comic/" in nextpictpath:
-            doflip = 0
         if doflip:
-            if rnd.random() > 0.5:
-                if kwdbg:
-                    print( "flip" )
-                c.top.flip()
+            if "/comic/" not in nextpictpath:
+                if rnd.random() > 0.5:
+                    if kwdbg:
+                        print( "flip" )
+                    c.top.flip()
 
         if kwdbg:
             print( "Layer blur" )
