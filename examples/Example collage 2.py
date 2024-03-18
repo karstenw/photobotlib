@@ -204,6 +204,7 @@ for j in range(rows):
         if kwdbg:
             print( "Layer flip" )
 
+        doflip = randomblur
         if doflip:
             if "/comic/" not in nextpictpath:
                 if rnd.random() > 0.5:
