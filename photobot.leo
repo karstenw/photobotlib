@@ -3068,6 +3068,7 @@ c.top.translate(i*w/3, j*y_offset)
 <t tx="karstenw.20210317154440.1">if kwdbg:
     print( "Layer flip" )
 
+doflip = randomblur
 if doflip:
     if "/comic/" not in nextpictpath:
         if rnd.random() &gt; 0.5:
