@@ -298,7 +298,8 @@ def imagewells( imagewellsfile="imagewell.txt" ):
         # linux wallpapers
         "/usr/share/backgrounds",
         "/usr/share/wallpapers" ]
-
+    
+    
     fullpath = getImageWellsFile( imagewellsfile )
 
     # include adjacent "images" folders
@@ -319,7 +320,7 @@ def imagewells( imagewellsfile="imagewell.txt" ):
 
     # read imagewells file
     try:
-        with open(fullpath, 'Ur') as f:
+        with open(fullpath, 'r') as f:
             lines = f.readlines()
         if not lines:
             return folders
