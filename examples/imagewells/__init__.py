@@ -104,7 +104,9 @@ def filelist( folderpathorlist, ignoreDotFolders=True ):
     """Walk a folder or a list of folders and return
     paths or ((filepath, size, lastmodified, mode) tuples..
     """
-
+    
+    # pdb.set_trace()
+    
     folders = folderpathorlist
     if type(folderpathorlist) in (pstr, punicode):
         folders = [folderpathorlist]
@@ -310,7 +312,7 @@ def imagewells( imagewellsfile="imagewell.txt" ):
     # write new default imagewells.txt file and exit
     if not os.path.exists( fullpath ):
         try:
-            f = open(fullpath, 'w')
+            f = io.open(fullpath, 'w', encoding="utf-8")
             f.write( "\n".join( folders ) )
             f.close()
         except:
@@ -319,7 +321,7 @@ def imagewells( imagewellsfile="imagewell.txt" ):
 
     # read imagewells file
     try:
-        with open(fullpath, 'Ur') as f:
+        with io.open(fullpath, 'r', encoding="utf-8") as f:
             lines = f.readlines()
         if not lines:
             return folders
@@ -428,7 +430,8 @@ def loadImageWell(  bgsize=(1024,768),
     fileLoaded = False
     folders = []
     # <init
-
+    
+    # pdb.set_trace()
     imageWellsFilePath = getImageWellsFile( imagewellfilename )
     if kwlog:
         uniprint("imageWellsFilePath: %s" % imageWellsFilePath)
@@ -604,8 +607,10 @@ def loadImageWell(  bgsize=(1024,768),
     # store largest smallest median
     result[ 'WxH largest' ] = (largestw,largesth)
     result[ 'WxH smallest' ] = (smallestw,smallesth)
-    result[ 'WxH median' ] = (medianw / float(imagecount),
-                              medianh / float(imagecount))
+    result[ 'WxH median' ] = (0,0)
+    if imagecount > 0:
+        result[ 'WxH median' ] = (medianw / float(imagecount),
+                                  medianh / float(imagecount))
 
     # setup optional result file
     if tabfilename and (not fileLoaded):
