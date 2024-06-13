@@ -300,7 +300,8 @@ def imagewells( imagewellsfile="imagewell.txt" ):
         # linux wallpapers
         "/usr/share/backgrounds",
         "/usr/share/wallpapers" ]
-
+    
+    
     fullpath = getImageWellsFile( imagewellsfile )
 
     # include adjacent "images" folders
