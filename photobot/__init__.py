@@ -1917,7 +1917,7 @@ def splitrect( left, top, right, bottom, hor=True, t=0.5 ):
     
     A split is horizontal if the splitline is horizontal.
     
-    Return a list with images.
+    Return a list with 2 rectangles in (left, top, right, bottom) order.
     """
 
     # w,h = img.size
@@ -2010,25 +2010,26 @@ def cropImageToRatioHorizontal( layer, ratio ):
     
     """Defekt
     """
-    w, h = layer.bounds()
-    newwidth = int( round( h*ratio ))
-    oldwidth = w
-    oldheight = h
+    
+    width, height = layer.bounds()
+    newwidth = int( round( height * ratio ))
+    oldwidth = width
+    oldheight = height
     d = int( newwidth / 2.0 )
-    x,y,w,h = insetRect( (0,0,w,h), d, 0 )
+    x,y,width,height = insetRect( (0,0,width,height), d, 0 )
     
     # pdb.set_trace()
     if 1:
-        if (x > x+w) or (y > y+h):
+        if (x > x+width) or (y > y+height):
             
             print("\n\ncropImageToRatioHorizontal")
             print("ratio:", ratio)
             layer.prnt()
-            print( (x,y,w,h) )
+            print( (x,y,width,height) )
             print("oldwidth,newwidth:",oldwidth,newwidth)
-        w = abs(w)
-        h = abs(h)
-    layer.img = layer.img.crop(box=(x,y,x+w,y+h))
+        width = abs(width)
+        height = abs(height)
+    layer.img = layer.img.crop(box=(x,y,x+width,y+height))
     return layer
 
 
