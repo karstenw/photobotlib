@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
@@ -143,7 +143,7 @@
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 <v t="karstenw.20211021133612.1"><vh>grid</vh></v>
 </v>
-<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
@@ -1938,25 +1938,26 @@ def smooth_more(self):
     
     """Defekt
     """
-    w, h = layer.bounds()
-    newwidth = int( round( h*ratio ))
-    oldwidth = w
-    oldheight = h
+    
+    width, height = layer.bounds()
+    newwidth = int( round( height * ratio ))
+    oldwidth = width
+    oldheight = height
     d = int( newwidth / 2.0 )
-    x,y,w,h = insetRect( (0,0,w,h), d, 0 )
+    x,y,width,height = insetRect( (0,0,width,height), d, 0 )
     
     # pdb.set_trace()
     if 1:
-        if (x &gt; x+w) or (y &gt; y+h):
+        if (x &gt; x+width) or (y &gt; y+height):
             
             print("\n\ncropImageToRatioHorizontal")
             print("ratio:", ratio)
             layer.prnt()
-            print( (x,y,w,h) )
+            print( (x,y,width,height) )
             print("oldwidth,newwidth:",oldwidth,newwidth)
-        w = abs(w)
-        h = abs(h)
-    layer.img = layer.img.crop(box=(x,y,x+w,y+h))
+        width = abs(width)
+        height = abs(height)
+    layer.img = layer.img.crop(box=(x,y,x+width,y+height))
     return layer
 
 
@@ -2261,6 +2262,7 @@ import pprint
 pp = pprint.pprint
 kwdbg = 0
 kwlog = 0
+# import pdb
 
 # need a different name for nodebox
 import random as rnd
@@ -3550,7 +3552,7 @@ c.top.contrast(1.1)
     
     A split is horizontal if the splitline is horizontal.
     
-    Return a list with images.
+    Return a list with 2 rectangles in (left, top, right, bottom) order.
     """
 
     # w,h = img.size
@@ -5838,6 +5840,9 @@ configname = ""
 pathsfilename = "imagewell.txt"
 storagefilename = "imagewell.tab"
 additionals = []
+
+if kwdbg:
+    pdb.set_trace()
 
 for item in sys.argv[1:]:
     # try path

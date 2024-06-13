@@ -8,6 +8,7 @@ import pprint
 pp = pprint.pprint
 kwdbg = 0
 kwlog = 0
+# import pdb
 
 # need a different name for nodebox
 import random as rnd
@@ -53,6 +54,9 @@ configname = ""
 pathsfilename = "imagewell.txt"
 storagefilename = "imagewell.tab"
 additionals = []
+
+if kwdbg:
+    pdb.set_trace()
 
 for item in sys.argv[1:]:
     # try path
