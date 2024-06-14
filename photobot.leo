@@ -173,12 +173,12 @@
 <v t="karstenw.20220409174745.1"><vh>background image</vh></v>
 <v t="karstenw.20210316183613.1"><vh>config</vh></v>
 <v t="karstenw.20210316183643.1"><vh>loop</vh></v>
-<v t="karstenw.20210316183734.1" a="E"><vh>finish</vh>
+<v t="karstenw.20210316183734.1"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"><vh>&lt;&lt; orange gilb &gt;&gt;</vh></v>
 <v t="karstenw.20210316200115.1"><vh>&lt;&lt; paint texture &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a.py</vh>
+<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -191,7 +191,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210316195906.1" a="E"><vh>@clean examples/Example collage 1b.py</vh>
+<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -204,7 +204,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152421.1" a="E"><vh>@clean examples/Example collage 2.py</vh>
+<v t="karstenw.20210317152421.1"><vh>@clean examples/Example collage 2.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -222,7 +222,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152433.1" a="E"><vh>@clean examples/Example collage 3.py</vh>
+<v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -233,7 +233,7 @@
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
-<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -249,7 +249,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210331161145.1" a="E"><vh>@clean examples/Example collage 5.py</vh>
+<v t="karstenw.20210331161145.1"><vh>@clean examples/Example collage 5.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -2262,7 +2262,8 @@ import pprint
 pp = pprint.pprint
 kwdbg = 0
 kwlog = 0
-# import pdb
+if kwdbg:
+    import pdb
 
 # need a different name for nodebox
 import random as rnd
@@ -2321,6 +2322,7 @@ tiles = imagewell['tiles']
 
 # backgrounds are images &gt;W,H
 backgrounds = imagewell['backgrounds']
+
 
 print( "tiles: %i" % len(tiles) )
 print( "backgrounds: %i" % len(backgrounds) )

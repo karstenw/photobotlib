@@ -8,7 +8,8 @@ import pprint
 pp = pprint.pprint
 kwdbg = 0
 kwlog = 0
-# import pdb
+if kwdbg:
+    import pdb
 
 # need a different name for nodebox
 import random as rnd
@@ -92,6 +93,7 @@ tiles = imagewell['tiles']
 
 # backgrounds are images >W,H
 backgrounds = imagewell['backgrounds']
+
 
 print( "tiles: %i" % len(tiles) )
 print( "backgrounds: %i" % len(backgrounds) )
