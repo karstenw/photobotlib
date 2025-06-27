@@ -74,6 +74,11 @@ class Pathitems:
         _, self.parent = os.path.split( self.folder )
         self.setFilename( filename, makepath=False )
 
+    def setFolder( self, folder ):
+        folder = os.path.abspath( os.path.expanduser( folder ))
+        path = os.path.join( folder, self.filename )
+        self.setPath( path )
+    
     def setFilename( self, name, makepath=True ):
         self.basename, self.ext = os.path.splitext( name )
         self.filename = self.basename + self.ext 
@@ -279,7 +284,16 @@ def writetabsfile( tabfilepath, filetuples ):
 #
 
 def getImageWellsFile( imagewellsfile="imagewell.txt" ):
-    return os.path.abspath( imagewellsfile )
+    fullpath = os.path.abspath( imagewellsfile )
+    if os.path.exists( fullpath ):
+        return fullpath
+    
+    folder, filename = os.path.split( fullpath )
+    basefolder = os.path.join( folder, "imagewells-config" )
+    altfullpath = os.path.join( basefolder, filename )
+    if os.path.exists( altfullpath ):
+        return altfullpath
+    return fullpath
 
 
 def imagewells( imagewellsfile="imagewell.txt" ):
@@ -400,7 +414,11 @@ def loadImageWell(  bgsize=(1024,768),
         list of file paths if pathonly is True
         list of filetuple records else.
     """
-
+    
+    if kwdbg:
+        pp(locals())
+        pdb.set_trace()
+    
     # init
     tiles = []
     backgrounds = []
@@ -434,6 +452,7 @@ def loadImageWell(  bgsize=(1024,768),
     
     # pdb.set_trace()
     imageWellsFilePath = getImageWellsFile( imagewellfilename )
+    imagewellitem = Pathitems( imageWellsFilePath )
     if kwlog:
         uniprint("imageWellsFilePath: %s" % imageWellsFilePath)
     
@@ -443,10 +462,9 @@ def loadImageWell(  bgsize=(1024,768),
 
     elif tabfilename:
         tabitem = Pathitems( tabfilename )
+        tabitem.setFolder( imagewellitem.folder )
     else:
         tabitem = False
-
-    imagewellitem = Pathitems( imageWellsFilePath )
 
     # read cached folders
     if not ignorelibs:
@@ -498,17 +516,19 @@ def loadImageWell(  bgsize=(1024,768),
 
         imageitem = Pathitems( path )
         path, folder, parent, filename, basename, ext, folderexists, fileexists = imageitem.items()
-
+        
+        pathcomponents = path.split(os.path.sep)
         # apply all filters
 
-        # name of parent folder starts with
-        # parent names
+        # any folder component equals any ignoreFolderNames element
         cancel = False
         if ignoreFolderNames:
             for name in ignoreFolderNames:
-                if parent.startswith( name ):
+                # if parent.startswith( name ):
+                if name and name in pathcomponents:
                     cancel = True
-                    # print( "IGNORE PARENT: %s  %s" % (name,path) )
+                    if kwlog:
+                        print( "IGNORE IMAGE: %s  %s" % (name,path) )
                     break
         if cancel:
             continue
@@ -614,8 +634,8 @@ def loadImageWell(  bgsize=(1024,768),
                                   medianh / float(imagecount))
 
     # setup optional result file
-    if tabfilename and (not fileLoaded):
-        writetabsfile( tabfilename, filetuples )
+    if tabitem and (not fileLoaded):
+        writetabsfile( tabitem.path, filetuples )
     
     return result
 
