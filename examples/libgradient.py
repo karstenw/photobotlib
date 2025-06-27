@@ -23,7 +23,7 @@ def makerandomgradient( c, w, h, y_offset ):
     # create gradient layer
     grad = "BILINEAR"
     
-    halfwidth = int( w / 2.0 )
+    halfwidth = int( round(w / 2.0) )
     
     # P:0.3 - create a dual ramp gradient
     if r < 0.3:
