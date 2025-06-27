@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
@@ -143,7 +143,7 @@
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 <v t="karstenw.20211021133612.1"><vh>grid</vh></v>
 </v>
-<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
@@ -165,7 +165,7 @@
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
 <v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
@@ -271,7 +271,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20211005225841.1"><vh>@clean examples/Example collage 6.py</vh>
+<v t="karstenw.20211005225841.1" a="E"><vh>@clean examples/Example collage 6.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -279,7 +279,7 @@
 <v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20211005225906.2"><vh>config</vh></v>
-<v t="karstenw.20211005233913.1"><vh>loop</vh>
+<v t="karstenw.20211005233913.1" a="E"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"></v>
 <v t="karstenw.20210331164848.1"></v>
 <v t="karstenw.20210331165305.1"></v>
@@ -288,13 +288,35 @@
 <v t="karstenw.20210331165110.1"></v>
 <v t="karstenw.20210331165116.1"></v>
 </v>
-<v t="karstenw.20211005230001.1"><vh>finnish</vh>
+<v t="karstenw.20211005230001.1" a="E"><vh>finnish</vh>
+<v t="karstenw.20210316200041.1"></v>
+<v t="karstenw.20210316200115.1"></v>
+</v>
+</v>
+<v t="karstenw.20250409154304.1" a="E"><vh>@clean examples/Example collage 7.py</vh>
+<v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20230115124413.1"></v>
+<v t="karstenw.20201006211627.1"></v>
+<v t="karstenw.20210331155153.1"></v>
+<v t="karstenw.20210319130640.1"></v>
+<v t="karstenw.20220409174745.1"></v>
+<v t="karstenw.20250409154448.1"><vh>config</vh></v>
+<v t="karstenw.20250409154454.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210331164744.1"></v>
+<v t="karstenw.20210331164848.1"></v>
+<v t="karstenw.20210331165305.1"></v>
+<v t="karstenw.20210331164758.1"></v>
+<v t="karstenw.20210331165103.1"></v>
+<v t="karstenw.20210331165110.1"></v>
+<v t="karstenw.20250409163352.1"><vh>&lt;&lt; tile blur &gt;&gt;</vh></v>
+</v>
+<v t="karstenw.20250409154501.1" a="E"><vh>finnish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
@@ -2271,6 +2293,8 @@ import random as rnd
 import libgradient
 import imagewells
 loadImageWell = imagewells.loadImageWell
+imagewells.kwdbg = kwdbg
+imagewells.kwlog = kwlog
 
 if kwdbg and 1:
     # make random choices repeatable for debugging
@@ -2281,7 +2305,8 @@ if kwdbg and 1:
 # W, H = 1024,  768
 # W, H = 1280,  800
 # W, H = 1440,  900
-W, H = 1920, 1080
+# W, H = 1920, 1080
+W, H = 2560, 1440
 
 # import photobot lib
 try:
@@ -5849,9 +5874,13 @@ if kwdbg:
 for item in sys.argv[1:]:
     # try path
     path = os.path.abspath( os.path.expanduser( item ) )
+    
     if os.path.exists( path ):
         additionals.append( path )
-    elif item not in ('',):
+        continue
+
+    
+    if item not in ('',):
         # if given multiple config names only the last survives
         pathsfilename = "imagewell-" + item + '.txt'
         storagefilename = "imagewell-" + item + '.tab'
@@ -5917,6 +5946,104 @@ pb.label(c, "Distorted Image 1", x, y)
 
 # draw the result
 c.draw(name="Layer_function_distort")
+
+</t>
+<t tx="karstenw.20250409154304.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20250409154448.1">
+# CONFIGURATION
+
+columns = 9
+rows = 4
+
+colwidth = int( round(WIDTH / columns) )
+rowheight = int( round(HEIGHT / rows) )
+maxsize = int( round(max(colwidth,rowheight)*1.2))
+maxsize = int( round(rowheight * 1.2) )
+
+xgutter = colwidth * 0.0667
+ygutter = rowheight * 0.0667
+
+realwidth = colwidth - 1*xgutter
+realheight = rowheight - 1*ygutter 
+
+positions = list(grid(columns, rows, colwidth, rowheight, shuffled=True))
+poscount = len(positions)
+
+#positions.extend( list(grid(columns, rows, colwidth, rowheight, shuffled=True)) )
+#positions.extend( list(grid(columns, rows, colwidth, rowheight, shuffled=True)) )
+
+randomblur = 0 # not kwdbg
+paintoverlay = 0 # not kwdbg
+gilb = 0
+
+if kwdbg:
+    pdb.set_trace()
+
+
+</t>
+<t tx="karstenw.20250409154454.1">
+counter = 1 #poscount 
+for position in positions:
+    x, y = position
+
+    &lt;&lt; image placement &gt;&gt;
+
+    &lt;&lt; tile height &gt;&gt;
+
+    &lt;&lt; tile contrast crank &gt;&gt;
+
+    &lt;&lt; create up down ramp mask &gt;&gt;
+    
+    if counter &gt;= poscount:
+        pass
+
+    &lt;&lt; tile translation &gt;&gt;
+
+    &lt;&lt; opacity &gt;&gt;
+
+    &lt;&lt; tile blur &gt;&gt;
+
+    counter += 1
+
+
+</t>
+<t tx="karstenw.20250409154501.1">&lt;&lt; orange gilb &gt;&gt;
+
+&lt;&lt; paint texture &gt;&gt;
+
+name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname
+c.draw(0,0, name=name)
+
+
+</t>
+<t tx="karstenw.20250409163352.1">doflip = randomblur
+if 0: #doflip:
+    # do not flip if using comic tiles
+    if "/comic/" not in nextpictpath:
+        if rnd.random() &gt; 0.75:
+            c.top.flip()
+
+if 0: #randomblur:
+    if rnd.random() &gt; 0.89:
+        c.top.blur()
+
+if 1: #rnd.random() &gt; 0.23:
+    if rnd.random() &gt; 0.5:
+        print("BLEND SCREEN")
+        c.top.screen()
+    else:
+        print("BLEND HUE")
+        c.top.hue()
+
+if 0: #rnd.random() &gt; 0.3:
+    if kwdbg:
+        print("BLEND COLOR")
+    c.top.color()
 
 </t>
 </tnodes>
