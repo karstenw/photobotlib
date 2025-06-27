@@ -17,6 +17,8 @@ import random as rnd
 import libgradient
 import imagewells
 loadImageWell = imagewells.loadImageWell
+imagewells.kwdbg = kwdbg
+imagewells.kwlog = kwlog
 
 if kwdbg and 1:
     # make random choices repeatable for debugging
@@ -27,7 +29,8 @@ if kwdbg and 1:
 # W, H = 1024,  768
 # W, H = 1280,  800
 # W, H = 1440,  900
-W, H = 1920, 1080
+# W, H = 1920, 1080
+W, H = 2560, 1440
 
 # import photobot lib
 try:
@@ -62,9 +65,13 @@ if kwdbg:
 for item in sys.argv[1:]:
     # try path
     path = os.path.abspath( os.path.expanduser( item ) )
+    
     if os.path.exists( path ):
         additionals.append( path )
-    elif item not in ('',):
+        continue
+
+    
+    if item not in ('',):
         # if given multiple config names only the last survives
         pathsfilename = "imagewell-" + item + '.txt'
         storagefilename = "imagewell-" + item + '.tab'
