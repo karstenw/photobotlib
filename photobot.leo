@@ -165,7 +165,7 @@
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
 <v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
@@ -271,7 +271,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20211005225841.1" a="E"><vh>@clean examples/Example collage 6.py</vh>
+<v t="karstenw.20211005225841.1"><vh>@clean examples/Example collage 6.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -293,7 +293,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20250409154304.1" a="E"><vh>@clean examples/Example collage 7.py</vh>
+<v t="karstenw.20250409154304.1"><vh>@clean examples/Example collage 7.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -316,7 +316,7 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
@@ -1604,7 +1604,7 @@ def canvas(w, h):
 
 </t>
 <t tx="karstenw.20170709210125.65">def aspectRatio(size, maxsize, height=False, width=False, assize=False):
-    """Resize size=(w,h) to maxsize.
+    """Resize image with size=(w,h) to maxsize in max(width, height).
     use height == maxsize if height==True
     use width == maxsize if width==True
     use max(width,height) == maxsize if width==height==False
@@ -1892,7 +1892,7 @@ def smooth_more(self):
     
     # search for a usable font
     systemarials = [
-        "C:\Windows\Fonts\arial.ttf",
+        "C:\\Windows\\Fonts\\arial.ttf",
         "/Library/Fonts/Arial.ttf"]
     
     systemarials.insert(0, fontpath)
@@ -2305,8 +2305,8 @@ if kwdbg and 1:
 # W, H = 1024,  768
 # W, H = 1280,  800
 # W, H = 1440,  900
-# W, H = 1920, 1080
-W, H = 2560, 1440
+W, H = 1920, 1080
+# W, H = 2560, 1440
 
 # import photobot lib
 try:
@@ -2328,6 +2328,8 @@ if pb.py3:
     print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
 else:
     print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
+
+
 </t>
 <t tx="karstenw.20201006211627.1"># used in some examples
 RATIO = WIDTH / HEIGHT
@@ -3575,7 +3577,7 @@ c.top.contrast(1.1)
 
 </t>
 <t tx="karstenw.20210612104640.1">def splitrect( left, top, right, bottom, hor=True, t=0.5 ):
-    """Split a PIL image horizontally or vertically.
+    """Split a rectangle horizontally or vertically.
     
     A split is horizontal if the splitline is horizontal.
     
@@ -5878,7 +5880,6 @@ for item in sys.argv[1:]:
     if os.path.exists( path ):
         additionals.append( path )
         continue
-
     
     if item not in ('',):
         # if given multiple config names only the last survives
@@ -5890,6 +5891,7 @@ if kwlog or 1:
     print("configname:", configname)
     print("pathsfilename:", pathsfilename)
     print("storagefilename:", storagefilename)
+
 
 </t>
 <t tx="karstenw.20230313131659.1">@language python
