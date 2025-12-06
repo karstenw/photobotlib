@@ -1913,7 +1913,7 @@ def cropimage( img, bounds):
 
 
 def splitrect( left, top, right, bottom, hor=True, t=0.5 ):
-    """Split a PIL image horizontally or vertically.
+    """Split a rectangle horizontally or vertically.
     
     A split is horizontal if the splitline is horizontal.
     
@@ -1957,7 +1957,7 @@ with Image.open("hopper.jpg") as im:
 
 
 def aspectRatio(size, maxsize, height=False, width=False, assize=False):
-    """Resize size=(w,h) to maxsize.
+    """Resize image with size=(w,h) to maxsize in max(width, height).
     use height == maxsize if height==True
     use width == maxsize if width==True
     use max(width,height) == maxsize if width==height==False
@@ -2114,7 +2114,7 @@ def label( canvas, string, x, y, fontsize=18, fontpath="" ):
     
     # search for a usable font
     systemarials = [
-        "C:\Windows\Fonts\arial.ttf",
+        "C:\\Windows\\Fonts\\arial.ttf",
         "/Library/Fonts/Arial.ttf"]
     
     systemarials.insert(0, fontpath)
