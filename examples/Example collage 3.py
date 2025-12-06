@@ -29,8 +29,8 @@ if kwdbg and 1:
 # W, H = 1024,  768
 # W, H = 1280,  800
 # W, H = 1440,  900
-# W, H = 1920, 1080
-W, H = 2560, 1440
+W, H = 1920, 1080
+# W, H = 2560, 1440
 
 # import photobot lib
 try:
@@ -52,6 +52,8 @@ if pb.py3:
     print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
 else:
     print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
+
+
 # I use several distinct image collections
 
 configname = ""
@@ -69,7 +71,6 @@ for item in sys.argv[1:]:
     if os.path.exists( path ):
         additionals.append( path )
         continue
-
     
     if item not in ('',):
         # if given multiple config names only the last survives
@@ -81,6 +82,7 @@ if kwlog or 1:
     print("configname:", configname)
     print("pathsfilename:", pathsfilename)
     print("storagefilename:", storagefilename)
+
 
 # used in some examples
 RATIO = WIDTH / HEIGHT
