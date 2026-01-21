@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
@@ -164,22 +164,24 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
+<v t="karstenw.20260121173217.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 <v t="karstenw.20210331155153.1"><vh>shuffle tiles</vh></v>
 <v t="karstenw.20220409174745.1"><vh>background image</vh></v>
 <v t="karstenw.20210316183613.1"><vh>config</vh></v>
 <v t="karstenw.20210316183643.1"><vh>loop</vh></v>
-<v t="karstenw.20210316183734.1" a="E"><vh>finish</vh>
+<v t="karstenw.20210316183734.1"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"><vh>&lt;&lt; orange gilb &gt;&gt;</vh></v>
 <v t="karstenw.20210316200115.1"><vh>&lt;&lt; paint texture &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a.py</vh>
+<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -191,8 +193,9 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210316195906.1" a="E"><vh>@clean examples/Example collage 1b.py</vh>
+<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -204,14 +207,15 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152421.1" a="E"><vh>@clean examples/Example collage 2.py</vh>
+<v t="karstenw.20210317152421.1"><vh>@clean examples/Example collage 2.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210317152601.1"><vh>config</vh></v>
-<v t="karstenw.20210317152606.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210317152606.1"><vh>loop</vh>
 <v t="karstenw.20210317154410.1"><vh>&lt;&lt; place image &gt;&gt;</vh></v>
 <v t="karstenw.20210317154416.1"><vh>&lt;&lt; create gradients &gt;&gt;</vh></v>
 <v t="karstenw.20210317154440.1"><vh>&lt;&lt; flip and blur &gt;&gt;</vh></v>
@@ -222,8 +226,9 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152433.1" a="E"><vh>@clean examples/Example collage 3.py</vh>
+<v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -233,15 +238,16 @@
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
-<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210319125114.1"><vh>config</vh></v>
-<v t="karstenw.20210319125121.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210319125121.1"><vh>loop</vh>
 <v t="karstenw.20210331165116.1"><vh>&lt;&lt; tile blur &gt;&gt;</vh></v>
 </v>
 <v t="karstenw.20210319141308.1"><vh>finish</vh>
@@ -249,15 +255,16 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210331161145.1" a="E"><vh>@clean examples/Example collage 5.py</vh>
+<v t="karstenw.20210331161145.1"><vh>@clean examples/Example collage 5.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210331161336.1"><vh>config</vh></v>
-<v t="karstenw.20210331161342.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210331161342.1"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"><vh>&lt;&lt; image placement &gt;&gt;</vh></v>
 <v t="karstenw.20210331164848.1"><vh>&lt;&lt; tile height &gt;&gt;</vh></v>
 <v t="karstenw.20210331165305.1"><vh>&lt;&lt; tile contrast crank &gt;&gt;</vh></v>
@@ -266,20 +273,21 @@
 <v t="karstenw.20210331165110.1"><vh>&lt;&lt; opacity &gt;&gt;</vh></v>
 <v t="karstenw.20210331165116.1"></v>
 </v>
-<v t="karstenw.20210331161246.1" a="E"><vh>finish</vh>
+<v t="karstenw.20210331161246.1"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20211005225841.1" a="E"><vh>@clean examples/Example collage 6.py</vh>
+<v t="karstenw.20211005225841.1"><vh>@clean examples/Example collage 6.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20211005225906.2"><vh>config</vh></v>
-<v t="karstenw.20211005233913.1" a="E"><vh>loop</vh>
+<v t="karstenw.20211005233913.1"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"></v>
 <v t="karstenw.20210331164848.1"></v>
 <v t="karstenw.20210331165305.1"></v>
@@ -288,20 +296,21 @@
 <v t="karstenw.20210331165110.1"></v>
 <v t="karstenw.20210331165116.1"></v>
 </v>
-<v t="karstenw.20211005230001.1" a="E"><vh>finnish</vh>
+<v t="karstenw.20211005230001.1"><vh>finnish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20250409154304.1" a="E"><vh>@clean examples/Example collage 7.py</vh>
+<v t="karstenw.20250409154304.1"><vh>@clean examples/Example collage 7.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20250409154448.1"><vh>config</vh></v>
-<v t="karstenw.20250409154454.1" a="E"><vh>loop</vh>
+<v t="karstenw.20250409154454.1"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"></v>
 <v t="karstenw.20210331164848.1"></v>
 <v t="karstenw.20210331165305.1"></v>
@@ -310,7 +319,7 @@
 <v t="karstenw.20210331165110.1"></v>
 <v t="karstenw.20250409163352.1"><vh>&lt;&lt; tile blur &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20250409154501.1" a="E"><vh>finnish</vh>
+<v t="karstenw.20250409154501.1"><vh>finnish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
@@ -322,6 +331,7 @@
 </v>
 <v t="karstenw.20211206134707.1" a="E"><vh>@clean examples/Layer_colorize.py</vh>
 <v t="karstenw.20211206131524.1"><vh>Declarations</vh></v>
+<v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20211206134707.2"><vh>Content</vh></v>
 </v>
 <v t="karstenw.20211206122120.1"><vh>@clean examples/Layer_filter_boxblur.py</vh>
@@ -2328,14 +2338,6 @@ if pb.py3:
     print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
 else:
     print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
-
-
-def p(s):
-    # print
-    if pb.py3:
-        print( s )
-    else:
-        print( s.encode("utf-8") )
 
 
 </t>
@@ -6059,6 +6061,15 @@ if 0: #rnd.random() &gt; 0.3:
     if kwdbg:
         print("BLEND COLOR")
     c.top.color()
+
+</t>
+<t tx="karstenw.20260121173217.1">def p(s):
+    # print
+    if pb.py3:
+        print( s )
+    else:
+        print( s.encode("utf-8") )
+
 
 </t>
 </tnodes>
