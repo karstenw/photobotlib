@@ -54,6 +54,14 @@ else:
     print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
 
 
+def p(s):
+    # print
+    if pb.py3:
+        print( s )
+    else:
+        print( s.encode("utf-8") )
+
+
 # I use several distinct image collections
 
 configname = ""
@@ -95,7 +103,7 @@ imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
                              imagewellfilename=pathsfilename,
                              tabfilename=storagefilename,
                              ignoreDotFolders=False,
-                             ignoreFolderNames=('+offline',))
+                             ignoreFolderNames=('+offline', '+OFFLINE'))
 
 # tiles are images >256x256 and <=WIDTH, HEIGHT
 tiles = imagewell['tiles']
@@ -126,7 +134,8 @@ if not kwdbg:
 if len(backgrounds) > 0:
     bgimage = backgrounds.pop()
     pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
-    print( "Background: %s" % bgimage.encode("utf-8") )
+    print( "Background:")
+    p(bgimage)
 
 
 # CONFIGURATION
@@ -150,11 +159,12 @@ for j in range(rows):
     colw = 0
     for i in range(columns):
         # new layer with a random image
-        p = tiles.pop()
+        path = tiles.pop()
         tilecounter += 1
         if kwdbg or 1:
-            print( "%i  -- %s" % (tilecounter, p.encode("utf-8")) )
-        c.layer( p )
+            print( "%i" % (tilecounter, ))
+            p(path)
+        c.layer( path )
 
         # get current image bounds
         w, h = c.top.bounds()
@@ -171,7 +181,7 @@ for j in range(rows):
 
         # get the new image bounds
         w, h = c.top.bounds()
-        halfwidth = int( w / 2.0 )
+        halfwidth = int( round(w / 2.0 ) )
 
         r = rnd.random()
         # r = 0.65

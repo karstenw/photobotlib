@@ -54,6 +54,14 @@ else:
     print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
 
 
+def p(s):
+    # print
+    if pb.py3:
+        print( s )
+    else:
+        print( s.encode("utf-8") )
+
+
 # I use several distinct image collections
 
 configname = ""
@@ -95,7 +103,7 @@ imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
                              imagewellfilename=pathsfilename,
                              tabfilename=storagefilename,
                              ignoreDotFolders=False,
-                             ignoreFolderNames=('+offline',))
+                             ignoreFolderNames=('+offline', '+OFFLINE'))
 
 # tiles are images >256x256 and <=WIDTH, HEIGHT
 tiles = imagewell['tiles']
@@ -126,7 +134,8 @@ if not kwdbg:
 if len(backgrounds) > 0:
     bgimage = backgrounds.pop()
     pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
-    print( "Background: %s" % bgimage.encode("utf-8") )
+    print( "Background:")
+    p(bgimage)
 
 
 # CONFIGURATION
@@ -163,14 +172,15 @@ for j in range(rows):
         c.layer( nextpictpath )
         tilecounter += 1
         if kwdbg or 1:
-            print( "%i  -- %s" % (tilecounter, nextpictpath.encode("utf-8")) )
+            print( "%i" % (tilecounter, ))
+            p(nextpictpath)
 
         # add contrast
         c.top.contrast(1.1)
 
         # get current image bounds
         w, h = c.top.bounds()
-        halfwidth = int( w / 2.0 )
+        halfwidth = int( round(w / 2.0 ))
 
 
         if kwdbg:

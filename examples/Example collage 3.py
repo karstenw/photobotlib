@@ -54,6 +54,14 @@ else:
     print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
 
 
+def p(s):
+    # print
+    if pb.py3:
+        print( s )
+    else:
+        print( s.encode("utf-8") )
+
+
 # I use several distinct image collections
 
 configname = ""
@@ -95,7 +103,7 @@ imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
                              imagewellfilename=pathsfilename,
                              tabfilename=storagefilename,
                              ignoreDotFolders=False,
-                             ignoreFolderNames=('+offline',))
+                             ignoreFolderNames=('+offline', '+OFFLINE'))
 
 # tiles are images >256x256 and <=WIDTH, HEIGHT
 tiles = imagewell['tiles']
@@ -141,7 +149,8 @@ def grid(cols, rows, colSize=1, rowSize=1, shuffled=False):
 if len(backgrounds) > 0:
     bgimage = backgrounds.pop()
     pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
-    print( "Background: %s" % bgimage.encode("utf-8") )
+    print( "Background:")
+    p(bgimage)
 
 
 # CONFIGURATION
@@ -182,10 +191,10 @@ for position in positions:
     x, y = position
 
     # create image in canvas at 0,0
-    p = tiles.pop()
-    nextpictpath = p
-    print(p.encode("utf-8"))
-    top, w, h = pb.placeImage(c, p, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
+    path = tiles.pop()
+    nextpictpath = path
+    p(path)
+    top, w, h = pb.placeImage(c, path, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
 
     # scale the layer to row height
     pb.scaleLayerToHeight( c.top, rowheight )
@@ -205,7 +214,7 @@ for position in positions:
         #print "20% LINEAR"
         # create gradient layer
         # top is now gradient index
-        c.gradient(pb.LINEAR, int(w/2), h)
+        c.gradient(pb.LINEAR, int(round(w/2.0)), h)
         c.top.flip( pb.HORIZONTAL )
 
         # translate half a pict right
@@ -213,7 +222,7 @@ for position in positions:
 
         # create gradient layer
         # top is now second gradient image
-        topidx = c.gradient(pb.LINEAR, int(w/2), h)
+        topidx = c.gradient(pb.LINEAR, int(round(w/2.0)), h)
 
         # merge both gradients; destroys top layer
         c.merge([ topidx-1 , topidx ])

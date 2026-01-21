@@ -54,6 +54,14 @@ else:
     print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
 
 
+def p(s):
+    # print
+    if pb.py3:
+        print( s )
+    else:
+        print( s.encode("utf-8") )
+
+
 # I use several distinct image collections
 
 configname = ""
@@ -95,7 +103,7 @@ imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
                              imagewellfilename=pathsfilename,
                              tabfilename=storagefilename,
                              ignoreDotFolders=False,
-                             ignoreFolderNames=('+offline',))
+                             ignoreFolderNames=('+offline', '+OFFLINE'))
 
 # tiles are images >256x256 and <=WIDTH, HEIGHT
 tiles = imagewell['tiles']
@@ -126,7 +134,8 @@ if not kwdbg:
 if len(backgrounds) > 0:
     bgimage = backgrounds.pop()
     pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
-    print( "Background: %s" % bgimage.encode("utf-8") )
+    print( "Background:")
+    p(bgimage)
 
 
 # CONFIGURATION
@@ -151,11 +160,12 @@ for j in range(rows):
     for i in range(columns):
 
         # new layer with a random image
-        p = tiles.pop()
+        path = tiles.pop()
         tilecounter += 1
         if kwdbg or 1:
-            print( "%i  -- %s" % (tilecounter, p.encode("utf-8")) )
-        top = c.layer( p )
+            print( "%i" % (tilecounter, ))
+            p(path)
+        top = c.layer( path )
 
         # get current image bounds
         w, h = c.top.bounds()
@@ -178,14 +188,14 @@ for j in range(rows):
         # 10%
         if r < 0.25:
             # create a dual ramp gradient
-            _ = c.gradient(pb.LINEAR, int(w/2), h)
+            _ = c.gradient(pb.LINEAR, int(round(w/2)), h)
             c.top.flip( pb.HORIZONTAL )
 
             # layer translate half a pict right
             c.top.translate(w/2, j*y_offset)
 
             # create another gradient layer and merge with first gradient
-            top = c.gradient(pb.LINEAR, int(w/2), h)
+            top = c.gradient(pb.LINEAR, int(round(w/2)), h)
             # merge both gradients; destroys top layer
             c.merge([ top-1 , top ])
         elif 0.25 <= r < 0.5:
