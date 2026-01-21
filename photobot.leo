@@ -173,12 +173,12 @@
 <v t="karstenw.20220409174745.1"><vh>background image</vh></v>
 <v t="karstenw.20210316183613.1"><vh>config</vh></v>
 <v t="karstenw.20210316183643.1"><vh>loop</vh></v>
-<v t="karstenw.20210316183734.1"><vh>finish</vh>
+<v t="karstenw.20210316183734.1" a="E"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"><vh>&lt;&lt; orange gilb &gt;&gt;</vh></v>
 <v t="karstenw.20210316200115.1"><vh>&lt;&lt; paint texture &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
+<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -191,7 +191,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
+<v t="karstenw.20210316195906.1" a="E"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -204,7 +204,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152421.1"><vh>@clean examples/Example collage 2.py</vh>
+<v t="karstenw.20210317152421.1" a="E"><vh>@clean examples/Example collage 2.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -222,7 +222,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
+<v t="karstenw.20210317152433.1" a="E"><vh>@clean examples/Example collage 3.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -233,7 +233,7 @@
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
-<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -249,7 +249,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210331161145.1"><vh>@clean examples/Example collage 5.py</vh>
+<v t="karstenw.20210331161145.1" a="E"><vh>@clean examples/Example collage 5.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -271,7 +271,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20211005225841.1"><vh>@clean examples/Example collage 6.py</vh>
+<v t="karstenw.20211005225841.1" a="E"><vh>@clean examples/Example collage 6.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -293,7 +293,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20250409154304.1"><vh>@clean examples/Example collage 7.py</vh>
+<v t="karstenw.20250409154304.1" a="E"><vh>@clean examples/Example collage 7.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -316,11 +316,11 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
-<v t="karstenw.20211206134707.1"><vh>@clean examples/Layer_colorize.py</vh>
+<v t="karstenw.20211206134707.1" a="E"><vh>@clean examples/Layer_colorize.py</vh>
 <v t="karstenw.20211206131524.1"><vh>Declarations</vh></v>
 <v t="karstenw.20211206134707.2"><vh>Content</vh></v>
 </v>
@@ -2330,6 +2330,14 @@ else:
     print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
 
 
+def p(s):
+    # print
+    if pb.py3:
+        print( s )
+    else:
+        print( s.encode("utf-8") )
+
+
 </t>
 <t tx="karstenw.20201006211627.1"># used in some examples
 RATIO = WIDTH / HEIGHT
@@ -2342,7 +2350,7 @@ imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
                              imagewellfilename=pathsfilename,
                              tabfilename=storagefilename,
                              ignoreDotFolders=False,
-                             ignoreFolderNames=('+offline',))
+                             ignoreFolderNames=('+offline', '+OFFLINE'))
 
 # tiles are images &gt;256x256 and &lt;=WIDTH, HEIGHT
 tiles = imagewell['tiles']
@@ -2630,11 +2638,12 @@ for j in range(rows):
     for i in range(columns):
 
         # new layer with a random image
-        p = tiles.pop()
+        path = tiles.pop()
         tilecounter += 1
         if kwdbg or 1:
-            print( "%i  -- %s" % (tilecounter, p.encode("utf-8")) )
-        top = c.layer( p )
+            print( "%i" % (tilecounter, ))
+            p(path)
+        top = c.layer( path )
 
         # get current image bounds
         w, h = c.top.bounds()
@@ -2657,14 +2666,14 @@ for j in range(rows):
         # 10%
         if r &lt; 0.25:
             # create a dual ramp gradient
-            _ = c.gradient(pb.LINEAR, int(w/2), h)
+            _ = c.gradient(pb.LINEAR, int(round(w/2)), h)
             c.top.flip( pb.HORIZONTAL )
 
             # layer translate half a pict right
             c.top.translate(w/2, j*y_offset)
 
             # create another gradient layer and merge with first gradient
-            top = c.gradient(pb.LINEAR, int(w/2), h)
+            top = c.gradient(pb.LINEAR, int(round(w/2)), h)
             # merge both gradients; destroys top layer
             c.merge([ top-1 , top ])
         elif 0.25 &lt;= r &lt; 0.5:
@@ -2740,7 +2749,8 @@ for j in range(rows):
         topidx = c.layer( nextpictpath )
         tilecounter += 1
         if kwlog or 1:
-            print( "%i  -- %s" % (tilecounter, nextpictpath.encode("utf-8")) )
+            print( "%i" % (tilecounter, ) )
+            p( nextpictpath)
 
         # get current image bounds
         w, h = c.top.bounds()
@@ -2869,11 +2879,12 @@ for j in range(rows):
     colw = 0
     for i in range(columns):
         # new layer with a random image
-        p = tiles.pop()
+        path = tiles.pop()
         tilecounter += 1
         if kwdbg or 1:
-            print( "%i  -- %s" % (tilecounter, p.encode("utf-8")) )
-        c.layer( p )
+            print( "%i" % (tilecounter, ))
+            p(path)
+        c.layer( path )
 
         # get current image bounds
         w, h = c.top.bounds()
@@ -2890,7 +2901,7 @@ for j in range(rows):
 
         # get the new image bounds
         w, h = c.top.bounds()
-        halfwidth = int( w / 2.0 )
+        halfwidth = int( round(w / 2.0 ) )
 
         r = rnd.random()
         # r = 0.65
@@ -3043,14 +3054,15 @@ nextpictpath = picts.pop()
 c.layer( nextpictpath )
 tilecounter += 1
 if kwdbg or 1:
-    print( "%i  -- %s" % (tilecounter, nextpictpath.encode("utf-8")) )
+    print( "%i" % (tilecounter, ))
+    p(nextpictpath)
 
 # add contrast
 c.top.contrast(1.1)
 
 # get current image bounds
 w, h = c.top.bounds()
-halfwidth = int( w / 2.0 )
+halfwidth = int( round(w / 2.0 ))
 
 </t>
 <t tx="karstenw.20210317154416.1">if kwdbg:
@@ -3165,10 +3177,10 @@ for position in positions:
     x, y = position
 
     # create image in canvas at 0,0
-    p = tiles.pop()
-    nextpictpath = p
-    print(p.encode("utf-8"))
-    top, w, h = pb.placeImage(c, p, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
+    path = tiles.pop()
+    nextpictpath = path
+    p(path)
+    top, w, h = pb.placeImage(c, path, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
 
     # scale the layer to row height
     pb.scaleLayerToHeight( c.top, rowheight )
@@ -3188,7 +3200,7 @@ for position in positions:
         #print "20% LINEAR"
         # create gradient layer
         # top is now gradient index
-        c.gradient(pb.LINEAR, int(w/2), h)
+        c.gradient(pb.LINEAR, int(round(w/2.0)), h)
         c.top.flip( pb.HORIZONTAL )
 
         # translate half a pict right
@@ -3196,7 +3208,7 @@ for position in positions:
 
         # create gradient layer
         # top is now second gradient image
-        topidx = c.gradient(pb.LINEAR, int(w/2), h)
+        topidx = c.gradient(pb.LINEAR, int(round(w/2.0)), h)
 
         # merge both gradients; destroys top layer
         c.merge([ topidx-1 , topidx ])
@@ -3298,10 +3310,10 @@ gilb = 0
     x, y = position
 
     # create image in canvas at 0,0
-    p = tiles.pop()
-    nextpictpath = p
-    print(p.encode("utf-8"))
-    top, w, h = pb.placeImage(c, p, 0, 0, maxsize=None, name="Image %i,%i" % (x,y)) #, width=False, height=True)
+    path = tiles.pop()
+    nextpictpath = path
+    p(path)
+    top, w, h = pb.placeImage(c, path, 0, 0, maxsize=None, name="Image %i,%i" % (x,y)) #, width=False, height=True)
 
     # scale the layer to row height
     if rnd.random() &gt; 0.5:
@@ -3317,7 +3329,7 @@ gilb = 0
 
     # get the new image bounds
     w, h = c.top.bounds()
-    halfwidth = int(w/2.0)
+    halfwidth = int(round(w/2.0))
 
     # add contrast
     c.top.contrast(1.1)
@@ -3485,10 +3497,10 @@ gilb = 0
     &lt;&lt; tile blur &gt;&gt;
 </t>
 <t tx="karstenw.20210331164744.1"># create image in canvas at 0,0
-p = tiles.pop()
-nextpictpath = p
-print(p.encode("utf-8"))
-top, w, h = pb.placeImage(c, p, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
+path = tiles.pop()
+nextpictpath = path
+p(path)
+top, w, h = pb.placeImage(c, path, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
 
 </t>
 <t tx="karstenw.20210331164758.1">if kwdbg:
@@ -3520,7 +3532,7 @@ pb.scaleLayerToHeight( c.top, tileheight )
 
 # get the new image bounds
 w, h = c.top.bounds()
-halfwidth = int( w / 2.0 )
+halfwidth = int(round(w/2.0))
 
 </t>
 <t tx="karstenw.20210331165103.1">destx = x - xgutter
@@ -5814,7 +5826,7 @@ c.fill( (192, 192, 192) )
 # Image 1
 #
 
-print( img1path.encode("utf-8") )
+p( img1path)
 #  create, scale and place the image
 x, y = 10, 10
 top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 1")
@@ -5841,7 +5853,8 @@ c.draw(name="Layer_function_colorize")
 if len(backgrounds) &gt; 0:
     bgimage = backgrounds.pop()
     pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
-    print( "Background: %s" % bgimage.encode("utf-8") )
+    print( "Background:")
+    p(bgimage)
 
 
 </t>
