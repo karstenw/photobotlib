@@ -34,6 +34,9 @@ import colorsys
 
 import io
 
+import collections
+namedtuple = collections.namedtuple
+
 import PIL
 import PIL.ImageFilter as ImageFilter
 import PIL.Image as Image
@@ -725,7 +728,7 @@ class Canvas:
         if unique or os.path.exists( path ):
             path = uniquepath(folder, name, ext, nfill=2, startindex=1, sep="_", always=unique)
 
-        if kwdbg and 0:
+        if kwdbg and 1:
             # if debugging is on export each layer separately
             basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
 
@@ -945,12 +948,16 @@ class Layer:
         
     def prnt(self):
         # for debugging
+        name = self.name.encode("utf-8")
+        if py3:
+            name = self.name
         print("-" * 20)
-        print( "name: '%s' " % self.name.encode("utf-8") )
+        print( "name: '%s' " % (name,) )
+        print( "index: '%i' " % (self.index(),) )
         print("xy: %i  %i" % (self.x, self.y) )
         print("wh: %i  %i" % (self.w, self.h) )
-        print("alpha: %.2f" % float(self.alpha) )
-        print("blend: %s" % str(self.blend) )
+        print("alpha: %.2f" % (float(self.alpha),) )
+        print("blend: %s" % (str(self.blend),) )
         print("-" * 20)
 
     def index(self):
@@ -1322,7 +1329,7 @@ class Layer:
         w0, h0 = self.img.size
         diag0 = sqrt(pow(w0,2) + pow(h0,2))
         d_angle = degrees(asin((w0*0.5) / (diag0*0.5)))
-
+        
         angle = angle % 360
         if (    angle >   90
             and angle <= 270):
@@ -1397,15 +1404,19 @@ class Layer:
     def crop( self, bounds):
 
         """Crop a pillow image at bounds(left, top, right, bottom)
-
+        
+        bounds must be in image coordinates (0,0,w,h).
         """
-        w0, h0 = self.img.size
-        x, y = self.x, self.y
+        w, h = self.img.size
+        
         left, top, right, bottom = bounds
-        left = max(x, left)
-        top = max(y, top)
-        right = min(right, w0)
-        bottom = min(bottom, h0)
+        
+        left = max(0, left)
+        top = max(0, top)
+        right = min(right, w)
+        bottom = min(bottom, h)
+        if kwlog:
+            print("Layer.crop():", (left, top, right, bottom) )
         self.img = self.img.crop( (left, top, right, bottom) )
         self.w, self.h = self.img.size
 
@@ -1934,6 +1945,7 @@ def splitrect( left, top, right, bottom, hor=True, t=0.5 ):
     return rects
 
 
+# TODO
 def splitimage( img ):
     pass
 
@@ -1954,6 +1966,71 @@ with Image.open("hopper.jpg") as im:
     im_crop = im.crop((left, upper, right, lower))
 """    
     
+
+
+def calculateRectangles(width, height):
+    """Calculate several rectangles for the given size."""
+    
+    # Rectangle result type
+    Rectangles = namedtuple('Rectangles', "innerSquare outerSquare upper lower left right quads niner" )
+    
+    innerrect = outerrect = quads = niner = upper = lower = None
+    
+    xoffset = yoffset = 0
+    
+    delta = abs( width - height )
+    halfdelta = int( round( (delta) / 2.0 ))
+    longside = max( (width, height) )
+    shortside = min( (width, height) )
+    
+    widthhalf = int( round( width / 2.0 ))
+    heighthalf = int( round( (height) / 2.0 ))
+    
+    widththird = int( round( width / 3.0 ))
+    heightthird = int( round( height / 3.0 ))
+
+    if height > width:
+        # portrait
+        innerrect = ( 0, halfdelta, shortside, shortside)
+        upper = (0,0, width, halfdelta)
+        lower = (0,halfdelta+width, width, halfdelta)
+    
+    elif height < width:
+        # landscape
+        innerrect = (halfdelta, 0, shortside, shortside)
+        left = (0,0, halfdelta, shortside)
+        right = (shortside+delta, 0, halfdelta, shortside)
+    
+    else:
+        # image is square
+        innerrect = outerrect = (0, 0,  width, height )
+    
+    # make the niner
+    niner = []
+    for y in range(3):
+        for x in range(3):
+            left = x * widththird
+            top = y * heightthird
+            right = left + widththird
+            bottom = top + heightthird
+            
+            niner.append( (left, top, right, bottom ) )
+    niner = tuple( niner )
+    
+    # make the quads
+    quads = []
+    for y in range(2):
+        for x in range(2):
+            left = x * widthhalf
+            top = y * heighthalf
+            right = left + widthhalf
+            bottom = top + heighthalf
+            
+            quads.append( (left, top, right, bottom ) )
+    quads = tuple( quads )
+    
+    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner )
+    return result
 
 
 def aspectRatio(size, maxsize, height=False, width=False, assize=False):
@@ -1990,10 +2067,13 @@ def aspectRatio(size, maxsize, height=False, width=False, assize=False):
     return scale
 
 
-def innerRect( w0, h0, w1, h1):
-    """Create an inner size crop rect (0,0,w1,h1) + translation
-    """
-    pass
+def innerSquare( x1, y1, x2, y2 ):
+    """Calculate an inner size crop square."""
+
+    width = x2-x1
+    height = y2-y1
+    rects = calculateRectangles(width, height)
+    return rects.innerSquare
 
 
 def insetRect( rectangle, horInset, vertInset):
