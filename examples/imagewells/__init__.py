@@ -7,6 +7,9 @@ import time
 import datetime
 import unicodedata
 
+import collections
+namedtuple = collections.namedtuple
+
 import fractions
 Fraction = fractions.Fraction
 
@@ -21,6 +24,7 @@ import PIL
 import PIL.Image as Image
 
 __all__ = ['imagewells', 'loadImageWell']
+
 
 # py3 stuff
 
@@ -43,6 +47,11 @@ def uniprint( s ):
         print( s )
     else:
         print( s.encode("utf-8") )
+
+
+FileMetadata = namedtuple(  "FileMetadata", 'filepath filesize lastmodified filemode islink')
+
+ImageMetadata = namedtuple(  "ImageMetadata", FileMetadata._fields + ('imagewidth', 'imageheight') )
 
 def makeunicode(s, srcencoding="utf-8", normalizer="NFC"):
     typ = type(s)
@@ -78,7 +87,7 @@ class Pathitems:
         folder = os.path.abspath( os.path.expanduser( folder ))
         path = os.path.join( folder, self.filename )
         self.setPath( path )
-    
+
     def setFilename( self, name, makepath=True ):
         self.basename, self.ext = os.path.splitext( name )
         self.filename = self.basename + self.ext 
@@ -105,9 +114,22 @@ class Pathitems:
         print( "folderexists:", self.folderexists )
         print( "fileexists:", self.fileexists )
 
+
+
+
+def getfilemetadata( filepath ):
+    
+    info = os.stat( filepath )
+    lastmodf = datetime.datetime.fromtimestamp( info.st_mtime )
+    islink = os.path.islink( filepath )
+    record = FileMetadata(filepath, info.st_size, lastmodf,
+                          oct(info.st_mode), islink )
+    return record
+
+
 def filelist( folderpathorlist, ignoreDotFolders=True ):
-    """Walk a folder or a list of folders and return
-    paths or ((filepath, size, lastmodified, mode) tuples..
+    """Walk a folder or a list of folders and yield
+    paths or FileMetadata(filepath, size, lastmodified, mode) named tuples..
     """
     
     # pdb.set_trace()
@@ -116,48 +138,43 @@ def filelist( folderpathorlist, ignoreDotFolders=True ):
     if type(folderpathorlist) in (pstr, punicode):
         folders = [folderpathorlist]
     result = []
+    
     for folder in folders:
-        for root, dirs, files in os.walk( folder ):
-            root = makeunicode( root )
-            if kwlog:
-                uniprint( root )
+        if os.path.isfile( folder ):
+            yield getfilemetadata( folder )
+        elif os.path.isdir( folder ):
+            for root, dirs, files in os.walk( folder ):
+                root = makeunicode( root )
+                if kwlog:
+                    uniprint( root )
             
-            # filter out parentfolders starting with '.'
-            if ignoreDotFolders:
-                _, foldername = os.path.split( root )
-                if foldername.startswith('.'):
-                    print("DOTFOLDER IGNORED:", root)
-                    continue
+                # filter out parentfolders starting with '.'
+                if ignoreDotFolders:
+                    _, foldername = os.path.split( root )
+                    if foldername.startswith('.'):
+                        print("DOTFOLDER IGNORED:", root)
+                        continue
 
-            for thefile in files:
-                thefile = makeunicode( thefile )
-                basename, ext = os.path.splitext(thefile)
+                for thefile in files:
+                    thefile = makeunicode( thefile )
+                    basename, ext = os.path.splitext(thefile)
 
-                doit = True
-                # exclude dotfiles
-                if thefile.startswith(u'.'):
-                    doit = False
-
-                # exclude the specials
-                for item in (u'\r', u'\n', u'\t'):
-                    if item in thefile:
+                    doit = True
+                    # exclude dotfiles
+                    if thefile.startswith(u'.'):
                         doit = False
 
-                # dont handle this file
-                if not doit:
-                    continue
+                    # exclude the specials
+                    for item in (u'\r', u'\n', u'\t'):
+                        if item in thefile:
+                            doit = False
 
-                filepath = makeunicode( os.path.join( root, thefile ) )
-
-                info = os.stat( filepath )
-                lastmodf = datetime.datetime.fromtimestamp( info.st_mtime )
-                islink = os.path.islink( filepath )
-                record = (filepath,
-                          info.st_size,
-                          lastmodf,
-                          oct(info.st_mode),
-                          islink )
-                yield record
+                    # dont handle this file
+                    if not doit:
+                        continue
+                
+                    filepath = makeunicode( os.path.join( root, thefile ) )
+                    yield getfilemetadata( filepath )
 
 
 def imagefiles( folderpathorlist, ignoreDotFolders=False ):
@@ -172,8 +189,10 @@ def imagefiles( folderpathorlist, ignoreDotFolders=False ):
     """
 
     filetuples = filelist( folderpathorlist, ignoreDotFolders=ignoreDotFolders )
+    
     exts = ".tif .tiff .gif .jpg .jpeg .png" # + " .eps"
     extensions = tuple( exts.split() )
+    
     for filetuple in filetuples:
         path, filesize, lastmodf, mode, islink = filetuple
         path = makeunicode( path )
@@ -190,8 +209,7 @@ def imagefiles( folderpathorlist, ignoreDotFolders=False ):
         except:
             pass #continue
 
-        record = (path, filesize, lastmodf, mode, islink, s[0], s[1])
-        yield record
+        yield ImageMetadata(path, filesize, lastmodf, mode, islink, s[0], s[1])
 
 
 def fileisnewerthan(path1, path2):
@@ -279,6 +297,7 @@ def writetabsfile( tabfilepath, filetuples ):
 
     return True    
 
+
 #
 # image well section
 #
@@ -309,7 +328,7 @@ def imagewells( imagewellsfile="imagewell.txt" ):
         "/Library/Desktop Pictures",
         
         # windows
-        "C:\Windows\Web",
+        "C:\\Windows\\Web",
         
         # linux wallpapers
         "/usr/share/backgrounds",
@@ -357,8 +376,8 @@ def imagewells( imagewellsfile="imagewell.txt" ):
 
 def loadImageWell(  bgsize=(1024,768),
                     minsize=(256,256),
-                    maxfilesize=100000000,
-                    maxpixellength=16000,
+                    maxfilesize=100*1024*1024,
+                    maxpixellength=8192,
                     pathonly=True,
                     additionals=None,
                     ignorelibs=False,
