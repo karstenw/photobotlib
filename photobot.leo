@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
@@ -37,7 +37,7 @@
 <v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
-<v t="karstenw.20170709210125.13" a="E"><vh>export</vh>
+<v t="karstenw.20170709210125.13"><vh>export</vh>
 <v t="karstenw.20200430120922.1"><vh>&lt;&lt;init&gt;&gt;</vh></v>
 <v t="karstenw.20200430120955.1"><vh>&lt;&lt;debug&gt;&gt;</vh></v>
 </v>
@@ -148,9 +148,10 @@
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
 <v t="karstenw.20211021151303.1"><vh>splitimage</vh></v>
+<v t="karstenw.20260122141054.1"><vh>calculateRectangles</vh></v>
 <v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
-<v t="karstenw.20201022144702.1"><vh>innerRect</vh></v>
+<v t="karstenw.20201022144702.1"><vh>innerSquare</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
 <v t="karstenw.20200419185034.1"><vh>cropImageToRatioHorizontal</vh></v>
 <v t="karstenw.20200419185042.1"><vh>scaleLayerToHeight</vh></v>
@@ -164,8 +165,8 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260121173217.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
@@ -238,7 +239,7 @@
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
-<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20230115124413.1"></v>
@@ -329,7 +330,7 @@
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
-<v t="karstenw.20211206134707.1" a="E"><vh>@clean examples/Layer_colorize.py</vh>
+<v t="karstenw.20211206134707.1"><vh>@clean examples/Layer_colorize.py</vh>
 <v t="karstenw.20211206131524.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20211206134707.2"><vh>Content</vh></v>
@@ -442,9 +443,14 @@
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206124353.2"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20211206124353.3"><vh>@clean examples/Layer_function_subtract.py</vh>
+<v t="karstenw.20211206124353.3" a="E"><vh>@clean examples/Layer_function_subtract.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206124353.4"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20260122212721.1" a="E"><vh>@clean examples/Layer_function_rectangles.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20260121173217.1"></v>
+<v t="karstenw.20260122212815.1"><vh>Content</vh></v>
 </v>
 </v>
 </v>
@@ -489,6 +495,9 @@ import unicodedata
 import colorsys
 
 import io
+
+import collections
+namedtuple = collections.namedtuple
 
 import PIL
 import PIL.ImageFilter as ImageFilter
@@ -741,7 +750,7 @@ def export(self, name, ext=".png", format="PNG", unique=False):
     start = time.time()
 
     &lt;&lt;init&gt;&gt;
-    if kwdbg and 0:
+    if kwdbg and 1:
         &lt;&lt;debug&gt;&gt;
 
     self.flatten()
@@ -877,12 +886,16 @@ def export(self, name, ext=".png", format="PNG", unique=False):
 </t>
 <t tx="karstenw.20170709210125.23">def prnt(self):
     # for debugging
+    name = self.name.encode("utf-8")
+    if py3:
+        name = self.name
     print("-" * 20)
-    print( "name: '%s' " % self.name.encode("utf-8") )
+    print( "name: '%s' " % (name,) )
+    print( "index: '%i' " % (self.index(),) )
     print("xy: %i  %i" % (self.x, self.y) )
     print("wh: %i  %i" % (self.w, self.h) )
-    print("alpha: %.2f" % float(self.alpha) )
-    print("blend: %s" % str(self.blend) )
+    print("alpha: %.2f" % (float(self.alpha),) )
+    print("blend: %s" % (str(self.blend),) )
     print("-" * 20)
 
 </t>
@@ -1240,7 +1253,7 @@ def export(self, name, ext=".png", format="PNG", unique=False):
     w0, h0 = self.img.size
     diag0 = sqrt(pow(w0,2) + pow(h0,2))
     d_angle = degrees(asin((w0*0.5) / (diag0*0.5)))
-
+    
     angle = angle % 360
     if (    angle &gt;   90
         and angle &lt;= 270):
@@ -1774,15 +1787,19 @@ def top(self):
 <t tx="karstenw.20170727233343.1">def crop( self, bounds):
 
     """Crop a pillow image at bounds(left, top, right, bottom)
-
+    
+    bounds must be in image coordinates (0,0,w,h).
     """
-    w0, h0 = self.img.size
-    x, y = self.x, self.y
+    w, h = self.img.size
+    
     left, top, right, bottom = bounds
-    left = max(x, left)
-    top = max(y, top)
-    right = min(right, w0)
-    bottom = min(bottom, h0)
+    
+    left = max(0, left)
+    top = max(0, top)
+    right = min(right, w)
+    bottom = min(bottom, h)
+    if 1:
+        print("Layer.crop():", (left, top, right, bottom) )
     self.img = self.img.crop( (left, top, right, bottom) )
     self.w, self.h = self.img.size
 
@@ -2376,10 +2393,13 @@ c.fill( (127,127,127) )
 #
 
 </t>
-<t tx="karstenw.20201022144702.1">def innerRect( w0, h0, w1, h1):
-    """Create an inner size crop rect (0,0,w1,h1) + translation
-    """
-    pass
+<t tx="karstenw.20201022144702.1">def innerSquare( x1, y1, x2, y2 ):
+    """Calculate an inner size crop square."""
+
+    width = x2-x1
+    height = y2-y1
+    rects = calculateRectangles(width, height)
+    return rects.innerSquare
 
 
 </t>
@@ -3815,7 +3835,8 @@ c.top.mask()
 
 
 </t>
-<t tx="karstenw.20211021151303.1">def splitimage( img ):
+<t tx="karstenw.20211021151303.1"># TODO
+def splitimage( img ):
     pass
 
 # gridsizeh = w // hor
@@ -5779,7 +5800,7 @@ import pprint
 pp = pprint.pprint
 
 import pdb
-kwdbg = 1
+kwdbg = 0
 
 W, H = 542, 1050
 fullwidth = int(W-20)
@@ -6071,6 +6092,154 @@ if 0: #rnd.random() &gt; 0.3:
         print( s.encode("utf-8") )
 
 
+</t>
+<t tx="karstenw.20260122141054.1">def calculateRectangles(width, height):
+    """Calculate several rectangles for the given size."""
+    
+    # Rectangle result type
+    Rectangles = namedtuple('Rectangles', "innerSquare outerSquare upper lower left right quads niner" )
+    
+    innerrect = outerrect = quads = niner = upper = lower = None
+    
+    xoffset = yoffset = 0
+    
+    delta = abs( width - height )
+    halfdelta = int( round( (delta) / 2.0 ))
+    longside = max( (width, height) )
+    shortside = min( (width, height) )
+    
+    widthhalf = int( round( width / 2.0 ))
+    heighthalf = int( round( (height) / 2.0 ))
+    
+    widththird = int( round( width / 3.0 ))
+    heightthird = int( round( height / 3.0 ))
+
+    if height &gt; width:
+        # portrait
+        innerrect = ( 0, halfdelta, shortside, shortside)
+        upper = (0,0, width, halfdelta)
+        lower = (0,halfdelta+width, width, halfdelta)
+    
+    elif height &lt; width:
+        # landscape
+        innerrect = (halfdelta, 0, shortside, shortside)
+        left = (0,0, halfdelta, shortside)
+        right = (shortside+delta, 0, halfdelta, shortside)
+    
+    else:
+        # image is square
+        innerrect = outerrect = (0, 0,  width, height )
+    
+    # make the niner
+    niner = []
+    for y in range(3):
+        for x in range(3):
+            left = x * widththird
+            top = y * heightthird
+            right = left + widththird
+            bottom = top + heightthird
+            
+            niner.append( (left, top, right, bottom ) )
+    niner = tuple( niner )
+    
+    # make the quads
+    quads = []
+    for y in range(2):
+        for x in range(2):
+            left = x * widthhalf
+            top = y * heighthalf
+            right = left + widthhalf
+            bottom = top + heighthalf
+            
+            quads.append( (left, top, right, bottom ) )
+    quads = tuple( quads )
+    
+    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner )
+    return result
+
+
+</t>
+<t tx="karstenw.20260122212721.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20260122212815.1"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+p( img1path)
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 1")
+pb.label(c, "Image 1", x, y, 30)
+
+#
+# image 2 - which is just image 1
+#
+x = 10
+y = h1 + 10 + 10
+_, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 2 inner square")
+
+img2layer = c.top
+
+rectangles = pb.calculateRectangles(w1, h1)
+rot = rnd.random() &gt; 0.5
+
+
+# innerrect
+if 1:
+    img2layer.duplicate()
+    squarerect = rectangles.innerSquare
+    x1,y1,w,h = squarerect
+    x2 = x1+w
+    y2 = y1+h
+    c.top.crop( ( x1, y1, x2, y2 ) )
+    if rot:
+        c.top.rotate( -18 + rnd.random() * 36 )
+    c.top.translate( x+x1, y+y1 )
+    c.top.opacity( 50 )
+    # pb.label(c, "Image 1 inner square", x, y, 30)
+
+if 1:
+    quads = rectangles.quads
+    
+    for quad in quads:
+        print(quad)
+        img2layer.duplicate()
+        c.top.scale( 0.5, 0.5 )
+        if rot:
+            c.top.rotate( -18 + rnd.random() * 36 )
+        c.top.translate( x+quad[0], y+quad[1] )
+        c.top.opacity( 25 + rnd.random() * 30 )
+    # pb.label(c, "Image 1 quads", x, y, 30)
+    
+if 1:
+    niner = rectangles.niner
+    
+    for nine in niner:
+        print(nine)
+        img2layer.duplicate()
+        c.top.scale( 1/3.0, 1/3.0 )
+        if rot:
+            c.top.rotate( -18 + rnd.random() * 36 )
+        c.top.translate( x+nine[0], y+nine[1] )
+        c.top.opacity( 10 + rnd.random() * 20 )
+    # pb.label(c, "Image 1 niner", x, y, 30)
+
+img2layer.opacity( 10 )
+# img2layer.delete()
+pb.label(c, "Image 1 innersquare &amp; quads &amp; niner", x, y, 30)
+
+# draw the result
+c.draw(name="Image_innerSquare")
 </t>
 </tnodes>
 </leo_file>
