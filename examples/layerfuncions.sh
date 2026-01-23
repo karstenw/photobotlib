@@ -29,6 +29,7 @@ python2 Layer_function_select.py
 python2 Layer_function_solarize.py
 python2 Layer_function_subtract_modulo.py
 python2 Layer_function_subtract.py
+python2 Layer_function_rectangles.py
 
 python3 Layer_colorize.py
 python3 "explore_gradients 1.py"
@@ -59,3 +60,5 @@ python3 Layer_function_select.py
 python3 Layer_function_solarize.py
 python3 Layer_function_subtract_modulo.py
 python3 Layer_function_subtract.py
+python3 Layer_function_rectangles.py
+
