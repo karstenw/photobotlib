@@ -7,7 +7,7 @@ import pprint
 pp = pprint.pprint
 
 import pdb
-kwdbg = 1
+kwdbg = 0
 
 W, H = 542, 1050
 fullwidth = int(W-20)
@@ -37,6 +37,14 @@ if kwdbg:
 imagewell = imagewells.loadImageWell(tabfilename=True)
 tiles = imagewell['landscape']
 rnd.shuffle(tiles)
+
+
+def p(s):
+    # print
+    if pb.py3:
+        print( s )
+    else:
+        print( s.encode("utf-8") )
 
 
 # pick 2 images

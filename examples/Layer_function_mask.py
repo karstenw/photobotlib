@@ -7,7 +7,7 @@ import pprint
 pp = pprint.pprint
 
 import pdb
-kwdbg = 1
+kwdbg = 0
 
 W, H = 542, 1050
 fullwidth = int(W-20)
