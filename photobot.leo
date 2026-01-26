@@ -9,11 +9,11 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
+<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
 <v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
@@ -56,7 +56,7 @@
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -101,8 +101,20 @@
 <v t="karstenw.20170709210125.48"><vh>flip</vh></v>
 <v t="karstenw.20170727233343.1"><vh>crop</vh></v>
 </v>
-<v t="karstenw.20200421172034.1"><vh>FILTERS</vh>
+<v t="karstenw.20200421172034.1" a="E"><vh>FILTERS</vh>
+<v t="karstenw.20260126095815.1" a="E"><vh>+ UNIMPLEMENTED</vh>
 <v t="karstenw.20170727232434.1"><vh>autocontrast</vh></v>
+<v t="karstenw.20260126095824.1"><vh>threedLUT</vh></v>
+<v t="karstenw.20260126095859.1"><vh>gaussianblur</vh></v>
+<v t="karstenw.20260126095947.1"><vh>unsharpmask</vh></v>
+<v t="karstenw.20260126100056.1"><vh>kernel</vh></v>
+<v t="karstenw.20260126100059.1"><vh>rank</vh></v>
+<v t="karstenw.20260126100105.1"><vh>median</vh></v>
+<v t="karstenw.20260126100110.1"><vh>min</vh></v>
+<v t="karstenw.20260126100115.1"><vh>max</vh></v>
+<v t="karstenw.20260126100137.1"><vh>mode</vh></v>
+<v t="karstenw.20260126100238.1"><vh>multiband</vh></v>
+</v>
 <v t="karstenw.20170709210125.49"><vh>blur</vh></v>
 <v t="karstenw.20200421172500.1"><vh>new boxblur</vh></v>
 <v t="karstenw.20200419183112.1"><vh>new contour</vh></v>
@@ -166,7 +178,7 @@
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
 <v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260121173217.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
@@ -239,7 +251,7 @@
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
-<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20230115124413.1"></v>
@@ -326,7 +338,7 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
@@ -1798,7 +1810,7 @@ def top(self):
     top = max(0, top)
     right = min(right, w)
     bottom = min(bottom, h)
-    if 1:
+    if kwlog:
         print("Layer.crop():", (left, top, right, bottom) )
     self.img = self.img.crop( (left, top, right, bottom) )
     self.w, self.h = self.img.size
@@ -6241,5 +6253,16 @@ pb.label(c, "Image 1 innersquare &amp; quads &amp; niner", x, y, 30)
 # draw the result
 c.draw(name="Image_innerSquare")
 </t>
+<t tx="karstenw.20260126095815.1"></t>
+<t tx="karstenw.20260126095824.1"></t>
+<t tx="karstenw.20260126095859.1"></t>
+<t tx="karstenw.20260126095947.1"></t>
+<t tx="karstenw.20260126100056.1"></t>
+<t tx="karstenw.20260126100059.1"></t>
+<t tx="karstenw.20260126100105.1"></t>
+<t tx="karstenw.20260126100110.1"></t>
+<t tx="karstenw.20260126100115.1"></t>
+<t tx="karstenw.20260126100137.1"></t>
+<t tx="karstenw.20260126100238.1"></t>
 </tnodes>
 </leo_file>
