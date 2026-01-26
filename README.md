@@ -41,7 +41,7 @@ Extension and format follow [Pillow Image.save](https://pillow.readthedocs.io/en
 
 - property `canvas.topindex` returns the index of the top layer
 
-- property `canvas.dup` duplicates the top layer
+- property `canvas.dup` duplicates top layer and returns the new top layer
 
 
 
