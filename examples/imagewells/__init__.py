@@ -118,10 +118,15 @@ class Pathitems:
 
 
 def getfilemetadata( filepath ):
+
+    islink = os.path.islink( filepath )
+    if islink:
+        info = os.lstat( filepath )
+    else:
+        info = os.stat( filepath )
     
     info = os.stat( filepath )
     lastmodf = datetime.datetime.fromtimestamp( info.st_mtime )
-    islink = os.path.islink( filepath )
     record = FileMetadata(filepath, info.st_size, lastmodf,
                           oct(info.st_mode), islink )
     return record

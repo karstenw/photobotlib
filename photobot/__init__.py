@@ -77,6 +77,14 @@ except NameError:
     xrange = range
 
 
+def p(s):
+    # print
+    if pb.py3:
+        print( s )
+    else:
+        print( s.encode("utf-8") )
+
+
 # PIL interpolation modes
 NEAREST = Image.NEAREST
 BILINEAR = Image.BILINEAR
@@ -699,6 +707,7 @@ class Canvas:
         if not name:
             name = "photobot_" + datestring()
 
+        # check if full path was passed in name
         if os.sep in name:
             name = os.path.abspath( os.path.expanduser( name ))
 
@@ -730,7 +739,9 @@ class Canvas:
 
         if kwdbg and 1:
             # if debugging is on export each layer separately
-            basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
+            # basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
+            basename = name + "_layer_%i_%s" + ext
+
 
             background = self.layers._get_bg()
             background.name = "Background"
@@ -762,8 +773,8 @@ class Canvas:
                 alpha = blend.getchannel("A")
                 buffer = Image.composite(blend, base, alpha)
 
-                n = basename % (i, layer.name)
-                path = os.path.join( folder, n )
+                layername = basename % (i, layer.name)
+                path = os.path.join( folder, layername )
                 buffer.save( path, format=format, optimize=False)
                 print( "export() DBG: '%s'" % path.encode("utf-8") )
 
@@ -773,7 +784,8 @@ class Canvas:
                 self.layers[1].img = self.layers[1].img.convert("RGB")
         self.layers[1].img.save(path, format=format, optimize=False)
         if kwlog:
-            print( "export() %s" % path.encode("utf-8") )
+            # print( "export() %s" % path.encode("utf-8") )
+            print( "Canvas.export( %s )" % (path,))
 
         if kwlog:
             stop = time.time()
@@ -1972,9 +1984,9 @@ def calculateRectangles(width, height):
     """Calculate several rectangles for the given size."""
     
     # Rectangle result type
-    Rectangles = namedtuple('Rectangles', "innerSquare outerSquare upper lower left right quads niner" )
+    Rectangles = namedtuple('Rectangles', "innerSquare outerSquare upper lower left right quads niner outerNiner" )
     
-    innerrect = outerrect = quads = niner = upper = lower = None
+    innerrect = outerrect = quads = niner = upper = lower = outerNiner = None
     
     xoffset = yoffset = 0
     
@@ -2029,7 +2041,24 @@ def calculateRectangles(width, height):
             quads.append( (left, top, right, bottom ) )
     quads = tuple( quads )
     
-    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner )
+    # make the outer nine same sized rectangles
+    # from top to bottom, from left to right
+    outerNiner = (
+        (-width, -height,       0,  0),
+        (     0, -height,   width,  0),
+        ( width, -height, 2*width,  0),
+
+        (-width,        0,       0,  height),
+        (     0,        0,   width,  height),
+        ( width,        0, 2*width,  height),
+
+        (-width,  height,       0,  0),
+        (     0,  height,   width,  0),
+        ( width,  height, 2*width,  0),
+
+    )
+    
+    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner, outerNiner )
     return result
 
 
