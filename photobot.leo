@@ -12,9 +12,10 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
+<v t="karstenw.20260208235112.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
+<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -34,10 +35,10 @@
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
+<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
-<v t="karstenw.20170709210125.13"><vh>export</vh>
+<v t="karstenw.20170709210125.13" a="E"><vh>export</vh>
 <v t="karstenw.20200430120922.1"><vh>&lt;&lt;init&gt;&gt;</vh></v>
 <v t="karstenw.20200430120955.1"><vh>&lt;&lt;debug&gt;&gt;</vh></v>
 </v>
@@ -51,12 +52,12 @@
 </v>
 <v t="karstenw.20210722112739.1"><vh>copy</vh></v>
 </v>
-<v t="karstenw.20170709210125.17"><vh>class Layers</vh>
+<v t="karstenw.20170709210125.17" a="E"><vh>class Layers</vh>
 <v t="karstenw.20170709210125.18"><vh>__getitem__</vh></v>
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -101,7 +102,7 @@
 <v t="karstenw.20170709210125.48"><vh>flip</vh></v>
 <v t="karstenw.20170727233343.1"><vh>crop</vh></v>
 </v>
-<v t="karstenw.20200421172034.1" a="E"><vh>FILTERS</vh>
+<v t="karstenw.20200421172034.1"><vh>FILTERS</vh>
 <v t="karstenw.20260126095815.1" a="E"><vh>+ UNIMPLEMENTED</vh>
 <v t="karstenw.20170727232434.1"><vh>autocontrast</vh></v>
 <v t="karstenw.20260126095824.1"><vh>threedLUT</vh></v>
@@ -178,7 +179,7 @@
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
 <v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260121173217.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
@@ -747,9 +748,9 @@ import traceback
         stop = time.time()
         print("Canvas.flatten( %s ) in %.3fsec." % (repr(layers), stop-start))
 
+
 </t>
-<t tx="karstenw.20170709210125.13">
-def export(self, name, ext=".png", format="PNG", unique=False):
+<t tx="karstenw.20170709210125.13">def export(self, name, ext=".png", format="PNG", unique=False):
 
     """Exports the flattened canvas.
 
@@ -771,7 +772,8 @@ def export(self, name, ext=".png", format="PNG", unique=False):
             self.layers[1].img = self.layers[1].img.convert("RGB")
     self.layers[1].img.save(path, format=format, optimize=False)
     if kwlog:
-        print( "export() %s" % path.encode("utf-8") )
+        # print( "export() %s" % path.encode("utf-8") )
+        print( "Canvas.export( %s )" % (path,))
 
     if kwlog:
         stop = time.time()
@@ -2225,6 +2227,7 @@ QUAD = "quad"
 <t tx="karstenw.20200430120922.1">if not name:
     name = "photobot_" + datestring()
 
+# check if full path was passed in name
 if os.sep in name:
     name = os.path.abspath( os.path.expanduser( name ))
 
@@ -2256,7 +2259,9 @@ if unique or os.path.exists( path ):
 
 </t>
 <t tx="karstenw.20200430120955.1"># if debugging is on export each layer separately
-basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
+# basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
+basename = name + "_layer_%i_%s" + ext
+
 
 background = self.layers._get_bg()
 background.name = "Background"
@@ -2288,8 +2293,8 @@ for i in layers:
     alpha = blend.getchannel("A")
     buffer = Image.composite(blend, base, alpha)
 
-    n = basename % (i, layer.name)
-    path = os.path.join( folder, n )
+    layername = basename % (i, layer.name)
+    path = os.path.join( folder, layername )
     buffer.save( path, format=format, optimize=False)
     print( "export() DBG: '%s'" % path.encode("utf-8") )
 </t>
@@ -2338,6 +2343,7 @@ imagewells.kwlog = kwlog
 if kwdbg and 1:
     # make random choices repeatable for debugging
     rnd.seed( 123456 )
+    
 
 # width and height of destination image
 # W, H =  800,  600
@@ -2372,6 +2378,7 @@ else:
 </t>
 <t tx="karstenw.20201006211627.1"># used in some examples
 RATIO = WIDTH / HEIGHT
+
 
 # get all images from user image wells
 imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
@@ -5918,9 +5925,6 @@ pathsfilename = "imagewell.txt"
 storagefilename = "imagewell.tab"
 additionals = []
 
-if kwdbg:
-    pdb.set_trace()
-
 for item in sys.argv[1:]:
     # try path
     path = os.path.abspath( os.path.expanduser( item ) )
@@ -6109,9 +6113,9 @@ if 0: #rnd.random() &gt; 0.3:
     """Calculate several rectangles for the given size."""
     
     # Rectangle result type
-    Rectangles = namedtuple('Rectangles', "innerSquare outerSquare upper lower left right quads niner" )
+    Rectangles = namedtuple('Rectangles', "innerSquare outerSquare upper lower left right quads niner outerNiner" )
     
-    innerrect = outerrect = quads = niner = upper = lower = None
+    innerrect = outerrect = quads = niner = upper = lower = outerNiner = None
     
     xoffset = yoffset = 0
     
@@ -6166,7 +6170,24 @@ if 0: #rnd.random() &gt; 0.3:
             quads.append( (left, top, right, bottom ) )
     quads = tuple( quads )
     
-    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner )
+    # make the outer nine same sized rectangles
+    # from top to bottom, from left to right
+    outerNiner = (
+        (-width, -height,       0,  0),
+        (     0, -height,   width,  0),
+        ( width, -height, 2*width,  0),
+
+        (-width,        0,       0,  height),
+        (     0,        0,   width,  height),
+        ( width,        0, 2*width,  height),
+
+        (-width,  height,       0,  0),
+        (     0,  height,   width,  0),
+        ( width,  height, 2*width,  0),
+
+    )
+    
+    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner, outerNiner )
     return result
 
 
@@ -6264,5 +6285,14 @@ c.draw(name="Image_innerSquare")
 <t tx="karstenw.20260126100115.1"></t>
 <t tx="karstenw.20260126100137.1"></t>
 <t tx="karstenw.20260126100238.1"></t>
+<t tx="karstenw.20260208235112.1">def p(s):
+    # print
+    if pb.py3:
+        print( s )
+    else:
+        print( s.encode("utf-8") )
+
+
+</t>
 </tnodes>
 </leo_file>

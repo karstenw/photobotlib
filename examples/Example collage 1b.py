@@ -23,6 +23,7 @@ imagewells.kwlog = kwlog
 if kwdbg and 1:
     # make random choices repeatable for debugging
     rnd.seed( 123456 )
+    
 
 # width and height of destination image
 # W, H =  800,  600
@@ -69,9 +70,6 @@ pathsfilename = "imagewell.txt"
 storagefilename = "imagewell.tab"
 additionals = []
 
-if kwdbg:
-    pdb.set_trace()
-
 for item in sys.argv[1:]:
     # try path
     path = os.path.abspath( os.path.expanduser( item ) )
@@ -94,6 +92,7 @@ if kwlog or 1:
 
 # used in some examples
 RATIO = WIDTH / HEIGHT
+
 
 # get all images from user image wells
 imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
