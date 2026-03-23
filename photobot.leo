@@ -14,8 +14,8 @@
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20260208235112.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
-<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
+<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
+<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -35,7 +35,7 @@
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
+<v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
 <v t="karstenw.20170709210125.13" a="E"><vh>export</vh>
@@ -52,7 +52,7 @@
 </v>
 <v t="karstenw.20210722112739.1"><vh>copy</vh></v>
 </v>
-<v t="karstenw.20170709210125.17" a="E"><vh>class Layers</vh>
+<v t="karstenw.20170709210125.17"><vh>class Layers</vh>
 <v t="karstenw.20170709210125.18"><vh>__getitem__</vh></v>
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
@@ -156,7 +156,7 @@
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 <v t="karstenw.20211021133612.1"><vh>grid</vh></v>
 </v>
-<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
@@ -179,7 +179,7 @@
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
 <v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260121173217.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
@@ -339,7 +339,7 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
@@ -456,7 +456,7 @@
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206124353.2"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20211206124353.3" a="E"><vh>@clean examples/Layer_function_subtract.py</vh>
+<v t="karstenw.20211206124353.3"><vh>@clean examples/Layer_function_subtract.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206124353.4"><vh>Content</vh></v>
 </v>
@@ -2354,6 +2354,7 @@ W, H = 1920, 1080
 # W, H = 2560, 1440
 
 # import photobot lib
+nodebox=True
 try:
     pb = ximport("photobot")
     size(W, H)
@@ -2368,11 +2369,14 @@ except NameError:
     pb.kwdbg = kwdbg
     pb.kwlog = kwlog
     WIDTH, HEIGHT = W, H
+    nodebox=False
 
-if pb.py3:
-    print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
-else:
-    print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
+if not nodebox:
+    if pb.py3:
+        print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
+    else:
+        print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
+
 
 
 </t>
@@ -6109,13 +6113,32 @@ if 0: #rnd.random() &gt; 0.3:
 
 
 </t>
-<t tx="karstenw.20260122141054.1">def calculateRectangles(width, height):
-    """Calculate several rectangles for the given size."""
+<t tx="karstenw.20260122141054.1"># may have rounding errors
+def calculateRectangles(width, height):
+    """Calculate several rectangles for the given size.
+    
+    Returns a namedtuple( innerSquare outerSquare upper lower left right quads niner outerNiner )
+        
+        A rectangle in this context means a tuple with ( x,y,w,h ) - the rectangle class is not yet integrated
+        
+        innerSquare - a square that fits inside w/h
+        upper       - upper remainder rectangle of innerSquare if w&lt;h
+        lower       - lower remainder rectangle of innerSquare if w&lt;h
+        left        - left remainder rectangle of innerSquare if w&gt;h
+        right       - right remainder rectangle of innerSquare if w&gt;h
+        
+        outerSquare - a square that fits outside w/h
+        quads       - list of the four quarter rectangles
+        niner       - list of 3x3 rectangles inside w/h
+        outerNiner  - 
+        threeRows   - 
+        threeColumns- 
+    """
     
     # Rectangle result type
-    Rectangles = namedtuple('Rectangles', "innerSquare outerSquare upper lower left right quads niner outerNiner" )
+    Rectangles = namedtuple('Rectangles', "innerSquare upper lower left right outerSquare quads niner outerNiner threeRows threeColumns" )
     
-    innerrect = outerrect = quads = niner = upper = lower = outerNiner = None
+    innerrect = outerrect = quads = niner = upper = lower = outerNiner = threeRows = threeColumns = None
     
     xoffset = yoffset = 0
     
@@ -6184,10 +6207,29 @@ if 0: #rnd.random() &gt; 0.3:
         (-width,  height,       0,  0),
         (     0,  height,   width,  0),
         ( width,  height, 2*width,  0),
-
     )
     
-    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner, outerNiner )
+    # threeRows
+    threeRows = []
+    for y in range(3):
+        left = 0
+        top = y * heightthird
+        right = width
+        bottom = top + heightthird
+        threeRows.append( (left, top, right, bottom ) )
+    threeRows = tuple(threeRows)
+    
+    # threeColumns
+    threeColumns = []
+    for x in range( 3 ):
+        top = 0
+        left = x * widththird
+        right = left + widththird
+        bottom = height
+        threeColumns.append( (left, top, right, bottom ) )
+    threeColumns = tuple( threeColumns )
+    
+    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner, outerNiner, threeRows, threeColumns )
     return result
 
 
@@ -6224,7 +6266,7 @@ _, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 2 inner square")
 img2layer = c.top
 
 rectangles = pb.calculateRectangles(w1, h1)
-rot = rnd.random() &gt; 0.5
+rot =rnd.random() &gt; 0.85
 
 
 # innerrect

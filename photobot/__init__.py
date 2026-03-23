@@ -1980,13 +1980,32 @@ with Image.open("hopper.jpg") as im:
     
 
 
+# may have rounding errors
 def calculateRectangles(width, height):
-    """Calculate several rectangles for the given size."""
+    """Calculate several rectangles for the given size.
+    
+    Returns a namedtuple( innerSquare outerSquare upper lower left right quads niner outerNiner )
+        
+        A rectangle in this context means a tuple with ( x,y,w,h ) - the rectangle class is not yet integrated
+        
+        innerSquare - a square that fits inside w/h
+        upper       - upper remainder rectangle of innerSquare if w<h
+        lower       - lower remainder rectangle of innerSquare if w<h
+        left        - left remainder rectangle of innerSquare if w>h
+        right       - right remainder rectangle of innerSquare if w>h
+        
+        outerSquare - a square that fits outside w/h
+        quads       - list of the four quarter rectangles
+        niner       - list of 3x3 rectangles inside w/h
+        outerNiner  - 
+        threeRows   - 
+        threeColumns- 
+    """
     
     # Rectangle result type
-    Rectangles = namedtuple('Rectangles', "innerSquare outerSquare upper lower left right quads niner outerNiner" )
+    Rectangles = namedtuple('Rectangles', "innerSquare upper lower left right outerSquare quads niner outerNiner threeRows threeColumns" )
     
-    innerrect = outerrect = quads = niner = upper = lower = outerNiner = None
+    innerrect = outerrect = quads = niner = upper = lower = outerNiner = threeRows = threeColumns = None
     
     xoffset = yoffset = 0
     
@@ -2055,10 +2074,29 @@ def calculateRectangles(width, height):
         (-width,  height,       0,  0),
         (     0,  height,   width,  0),
         ( width,  height, 2*width,  0),
-
     )
     
-    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner, outerNiner )
+    # threeRows
+    threeRows = []
+    for y in range(3):
+        left = 0
+        top = y * heightthird
+        right = width
+        bottom = top + heightthird
+        threeRows.append( (left, top, right, bottom ) )
+    threeRows = tuple(threeRows)
+    
+    # threeColumns
+    threeColumns = []
+    for x in range( 3 ):
+        top = 0
+        left = x * widththird
+        right = left + widththird
+        bottom = height
+        threeColumns.append( (left, top, right, bottom ) )
+    threeColumns = tuple( threeColumns )
+    
+    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner, outerNiner, threeRows, threeColumns )
     return result
 
 

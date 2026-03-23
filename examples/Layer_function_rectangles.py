@@ -75,7 +75,7 @@ _, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 2 inner square")
 img2layer = c.top
 
 rectangles = pb.calculateRectangles(w1, h1)
-rot = rnd.random() > 0.5
+rot =rnd.random() > 0.85
 
 
 # innerrect
