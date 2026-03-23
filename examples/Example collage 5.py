@@ -34,6 +34,7 @@ W, H = 1920, 1080
 # W, H = 2560, 1440
 
 # import photobot lib
+nodebox=True
 try:
     pb = ximport("photobot")
     size(W, H)
@@ -48,11 +49,14 @@ except NameError:
     pb.kwdbg = kwdbg
     pb.kwlog = kwlog
     WIDTH, HEIGHT = W, H
+    nodebox=False
 
-if pb.py3:
-    print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
-else:
-    print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
+if not nodebox:
+    if pb.py3:
+        print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
+    else:
+        print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
+
 
 
 def p(s):
