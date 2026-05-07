@@ -26,8 +26,16 @@ import PIL.Image as Image
 __all__ = ['imagewells', 'loadImageWell']
 
 
-# py3 stuff
+# all file extensions considered image files (and that pillow understands)
+imageextensions = (
+    ".tif .tiff .gif .jfif, .jpe, .jpeg, .jpg .png .apng "
+    ".j2c .j2k .jp2 .jpc .jpf .jpx .pcd .pcx "
+    ".pbm .pfm .pgm .pnm .ppm .psd .bw .rgb .rgba .sgi "
+    ".ras .icb .tga .vda .vst .xbm .xpm" )
+# + " .eps"
+imageextensions = tuple( imageextensions.split() )
 
+# py3 stuff - keep it - some stuff runs still with py2
 py3 = False
 try:
     unicode
@@ -42,16 +50,25 @@ except NameError:
     long = int
     xrange = range
 
+# we want to store data in the package dir, not in the importing skript dir if
+# this is the Nodebox-Library version
+PACKAGE_DIR = os.path.dirname(os.path.abspath(__file__))
+testfolder = os.path.join( PACKAGE_DIR, "..", "colors" )
+datainpackagedir=False
+if os.path.exists( testfolder ):
+    datainpackagedir = True
+
+
+FileMetadata = namedtuple(  "FileMetadata", 'filepath filesize lastmodified filemode islink')
+
+ImageMetadata = namedtuple(  "ImageMetadata", FileMetadata._fields + ('imagewidth', 'imageheight') )
+
 def uniprint( s ):
     if py3:
         print( s )
     else:
         print( s.encode("utf-8") )
 
-
-FileMetadata = namedtuple(  "FileMetadata", 'filepath filesize lastmodified filemode islink')
-
-ImageMetadata = namedtuple(  "ImageMetadata", FileMetadata._fields + ('imagewidth', 'imageheight') )
 
 def makeunicode(s, srcencoding="utf-8", normalizer="NFC"):
     typ = type(s)
@@ -118,23 +135,23 @@ class Pathitems:
 
 
 def getfilemetadata( filepath ):
-
+    
     islink = os.path.islink( filepath )
-    if islink:
-        info = os.lstat( filepath )
-    else:
-        info = os.stat( filepath )
+    if 0: # later perhaps
+        if islink:
+            info = os.lstat( filepath )
+        else:
+            info = os.stat( filepath )
     
     info = os.stat( filepath )
     lastmodf = datetime.datetime.fromtimestamp( info.st_mtime )
-    record = FileMetadata(filepath, info.st_size, lastmodf,
-                          oct(info.st_mode), islink )
+    record = FileMetadata(filepath, info.st_size, lastmodf, oct(info.st_mode), islink )
     return record
 
 
 def filelist( folderpathorlist, ignoreDotFolders=True ):
     """Walk a folder or a list of folders and yield
-    paths or FileMetadata(filepath, size, lastmodified, mode) named tuples..
+    FileMetadata(filepath, size, lastmodified, mode) named tuples…
     """
     
     # pdb.set_trace()
@@ -195,15 +212,12 @@ def imagefiles( folderpathorlist, ignoreDotFolders=False ):
 
     filetuples = filelist( folderpathorlist, ignoreDotFolders=ignoreDotFolders )
     
-    exts = ".tif .tiff .gif .jpg .jpeg .png" # + " .eps"
-    extensions = tuple( exts.split() )
-    
     for filetuple in filetuples:
         path, filesize, lastmodf, mode, islink = filetuple
         path = makeunicode( path )
 
         _, ext = os.path.splitext( path )
-        if ext.lower() not in extensions:
+        if ext.lower() not in imageextensions:
             continue
 
         s = (-1,-1)
@@ -239,10 +253,10 @@ def fileisnewerthan(path1, path2):
     return False
 
 def loadtabsfile( path ):
-    """Read the iamges cache file."""
+    """Read the images cache file."""
     
     if kwlog:
-        print( "Reading Tabsfile..." )
+        print( "Reading Tabsfile…" )
     
     start = time.time()
     f = io.open(path, "r", encoding="utf-8")
@@ -262,7 +276,7 @@ def loadtabsfile( path ):
     stop = time.time()
     if kwlog:
         print( "%i records loaded from Tabsfile." % len(filetuples) )
-        print( "Reading Tabsfile... Done." )
+        print( "Reading Tabsfile… Done." )
         print( "READ TIME: %.3f" % (stop-start,) )        
 
     return filetuples
@@ -272,7 +286,7 @@ def writetabsfile( tabfilepath, filetuples ):
     """Write out the image data as tab separated text."""
 
     if kwlog:
-        print( "Writing tabfilepath..." )
+        print( "Writing tabfilepath…" )
     start = time.time()
     
     tabitem = Pathitems( tabfilepath )
@@ -297,7 +311,7 @@ def writetabsfile( tabfilepath, filetuples ):
     stop = time.time()
     
     if kwlog:
-        print( "Writing tabfilepath...  %s records   Done." % len(filetuples) )
+        print( "Writing tabfilepath…  %s records   Done." % len(filetuples) )
         print( "WRITE TIME: %.4f" % (stop-start,) )
 
     return True    
@@ -307,11 +321,20 @@ def writetabsfile( tabfilepath, filetuples ):
 # image well section
 #
 
-def getImageWellsFile( imagewellsfile="imagewell.txt" ):
+def getImageWellsFile( imagewellsfile="imagewell.txt",  ):
+    """Get a path to the imagewell definition file.
+    
+    if it's not found it is searched for in the "imagewells-config" subdir.
+    """
+    
+    # where is the data folder?
     fullpath = os.path.abspath( imagewellsfile )
+    if datainpackagedir:
+        fullpath = os.path.join( PACKAGE_DIR, imagewellsfile )
+
     if os.path.exists( fullpath ):
         return fullpath
-    
+
     folder, filename = os.path.split( fullpath )
     basefolder = os.path.join( folder, "imagewells-config" )
     altfullpath = os.path.join( basefolder, filename )
@@ -328,6 +351,7 @@ def imagewells( imagewellsfile="imagewell.txt" ):
     Returns: a list of folder paths
     """
     
+    # homedirectory image folders are not included here. They are considered private.
     folders = [
         # macos system wallpapers
         "/Library/Desktop Pictures",
@@ -339,13 +363,16 @@ def imagewells( imagewellsfile="imagewell.txt" ):
         "/usr/share/backgrounds",
         "/usr/share/wallpapers" ]
     
-    
     fullpath = getImageWellsFile( imagewellsfile )
+    datafolder, _ = os.path.split( fullpath )
 
     # include adjacent "images" folders
-    for imgfolder in ("./images", "../images"):
+    for imgfolder in ("./images", "../images", "../coreimage/images", "../photobot/images"):
+        imgfolder = os.path.join( datafolder, imgfolder )
         images = os.path.abspath( os.path.expanduser(imgfolder) )
         if os.path.exists( images ):
+            if kwlog:
+                print("images found:", imgfolder)
             folders.append( images )
 
     # write new default imagewells.txt file and exit
@@ -357,7 +384,7 @@ def imagewells( imagewellsfile="imagewell.txt" ):
         except:
             pass
         return folders
-
+    
     # read imagewells file
     try:
         with io.open(fullpath, 'r', encoding="utf-8") as f:
@@ -379,7 +406,7 @@ def imagewells( imagewellsfile="imagewell.txt" ):
     return folders
 
 
-def loadImageWell(  bgsize=(1024,768),
+def loadImageWell(  bgsize=(1280,1024),
                     minsize=(256,256),
                     maxfilesize=100*1024*1024,
                     maxpixellength=8192,
@@ -387,7 +414,7 @@ def loadImageWell(  bgsize=(1024,768),
                     additionals=None,
                     ignorelibs=False,
                     imagewellfilename="imagewell.txt",
-                    tabfilename="",
+                    tabfilename=True,
                     ignoreDotFolders=True,
                     ignoreFolderNames=None):
 
@@ -438,8 +465,9 @@ def loadImageWell(  bgsize=(1024,768),
         list of file paths if pathonly is True
         list of filetuple records else.
     """
+
     
-    if kwdbg:
+    if 0: #kwdbg:
         pp(locals())
         pdb.set_trace()
     
@@ -451,11 +479,11 @@ def loadImageWell(  bgsize=(1024,768),
     
     result = {
         'allimages': [],
-        'tiles': [],
-        'backgrounds': [],
+        'tiles': tiles,
+        'backgrounds': backgrounds,
         'landscape': [],
         'portrait': [],
-        'fractions': {},
+        'fractions': fractions,
         'WxH largest': "",
         'WxH smallest': "",
         'WxH median': "",
@@ -475,11 +503,15 @@ def loadImageWell(  bgsize=(1024,768),
     # <init
     
     # pdb.set_trace()
+    
+    # search for the imagewell named imagewellfilename
+    # defaults to "imagewell.txt" in the current directory
     imageWellsFilePath = getImageWellsFile( imagewellfilename )
     imagewellitem = Pathitems( imageWellsFilePath )
     if kwlog:
         uniprint("imageWellsFilePath: %s" % imageWellsFilePath)
-    
+
+    # create, use or ignore the TAB file
     if tabfilename == True:
         tabitem = Pathitems( imageWellsFilePath )
         tabitem.setExt(".tab")
@@ -490,6 +522,8 @@ def loadImageWell(  bgsize=(1024,768),
     else:
         tabitem = False
 
+    # <tabitem
+    
     # read cached folders
     if not ignorelibs:
 
@@ -510,11 +544,15 @@ def loadImageWell(  bgsize=(1024,768),
     if additionals:
         folders.extend( additionals )
 
-    # read the folders if filetuples are empty
+    # <folders
+    
+    # read the folders if filetuples are empty (i.e. no or invalid TAB file)
     if len(filetuples) < 1:
-        
         # get filetuples for all image folders
+        
+        # to prevent multiple path inclusion
         filepathdict = dict()
+        
         start = time.time()
 
         imagefilerecords = imagefiles( folders, ignoreDotFolders=ignoreDotFolders )
@@ -529,8 +567,10 @@ def loadImageWell(  bgsize=(1024,768),
         stop = time.time()
         print( "FOLDER SCAN TIME: %.3f" % (stop-start,) )
 
+    # <filetuples
+    
     if kwlog:
-        print( "File loop..." )
+        print( "File loop…" )
     start = time.time()
 
     # >file loop
@@ -646,7 +686,7 @@ def loadImageWell(  bgsize=(1024,768),
 
     stop = time.time()
     if kwlog:
-        print( "File loop... Done." )
+        print( "File loop… Done." )
         print( "Fileloop: %.3f" % (stop-start,) )  
 
     # store largest smallest median
@@ -664,7 +704,7 @@ def loadImageWell(  bgsize=(1024,768),
     return result
 
 
-# TBD
+# UNUSED - TODO
 class Imagecollection(object):
     """
     ImageCollection should be the return value of loadImageWell() and
