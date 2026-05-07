@@ -77,14 +77,6 @@ except NameError:
     xrange = range
 
 
-def p(s):
-    # print
-    if pb.py3:
-        print( s )
-    else:
-        print( s.encode("utf-8") )
-
-
 # PIL interpolation modes
 NEAREST = Image.NEAREST
 BILINEAR = Image.BILINEAR
@@ -127,6 +119,14 @@ RADIALCOSINE = "radialcosine"
 QUAD = "quad"
 
 
+def py23print( s, *args ):
+    # print
+    if pb.py3:
+        print( s )
+    else:
+        print( s.encode("utf-8") )
+
+
 class Canvas:
     
     """Implements a canvas with layers.
@@ -167,7 +167,7 @@ class Canvas:
 
         if (x > self.w) or (y > self.h):
             print("\n\nERROR: Image placed outside of canvas. IGNORED.")
-            print(img)
+            py23print(img)
             print("Canvas:", self.w, self.h)
             print("Img:", x, y )
             return None
@@ -190,7 +190,7 @@ class Canvas:
                 del img
                 return len(self.layers) - 1
             except Exception as err:
-                print( "Canvas.layer( %s ) FAILED." %repr( img ) )
+                py23print( "Canvas.layer( %s ) FAILED." % ( img, ) )
                 print(err)
                 print()
                 exc_type, exc_value, exc_tb = sys.exc_info()
@@ -776,7 +776,7 @@ class Canvas:
                 layername = basename % (i, layer.name)
                 path = os.path.join( folder, layername )
                 buffer.save( path, format=format, optimize=False)
-                print( "export() DBG: '%s'" % path.encode("utf-8") )
+                print( "export() DBG: '%s'" % path )
 
         self.flatten()
         if format in ("JPEG",):
@@ -784,7 +784,6 @@ class Canvas:
                 self.layers[1].img = self.layers[1].img.convert("RGB")
         self.layers[1].img.save(path, format=format, optimize=False)
         if kwlog:
-            # print( "export() %s" % path.encode("utf-8") )
             print( "Canvas.export( %s )" % (path,))
 
         if kwlog:
@@ -959,12 +958,8 @@ class Layer:
         self.pixels = Pixels(self.img, self)
         
     def prnt(self):
-        # for debugging
-        name = self.name.encode("utf-8")
-        if py3:
-            name = self.name
         print("-" * 20)
-        print( "name: '%s' " % (name,) )
+        print( "name: '%s' " % (self.name,) )
         print( "index: '%i' " % (self.index(),) )
         print("xy: %i  %i" % (self.x, self.y) )
         print("wh: %i  %i" % (self.w, self.h) )
@@ -2294,7 +2289,7 @@ def resizeImage( filepath, maxsize, orientation=True, width=True, height=True):
     try:
         img = Image.open(filepath)
     except Exception as err:
-        print("\nresizeImage() Image.open() FAILED '%s'" % filepath.encode("utf-8"))
+        print("\nresizeImage() Image.open() FAILED '%s'" % filepath )
         print(err)
         return ""
 
