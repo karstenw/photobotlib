@@ -187,14 +187,14 @@ def filelist( folderpathorlist, ignoreDotFolders=True ):
                         doit = False
 
                     # exclude the specials
-                    for item in (u'\r', u'\n', u'\t'):
+                    for item in ( u'\r', u'\n', u'\t'):
                         if item in thefile:
                             doit = False
 
                     # dont handle this file
                     if not doit:
                         continue
-                
+                    
                     filepath = makeunicode( os.path.join( root, thefile ) )
                     yield getfilemetadata( filepath )
 

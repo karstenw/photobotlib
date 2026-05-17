@@ -12,8 +12,8 @@
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
-<v t="karstenw.20260208235112.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
+<v t="karstenw.20260510155949.1"><vh>py2/py3 print</vh></v>
 <v t="karstenw.20200419210659.1"><vh>Photobot</vh>
 <v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
@@ -180,7 +180,7 @@
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
 <v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260121173217.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
@@ -773,7 +773,6 @@ import traceback
             self.layers[1].img = self.layers[1].img.convert("RGB")
     self.layers[1].img.save(path, format=format, optimize=False)
     if kwlog:
-        # print( "export() %s" % path.encode("utf-8") )
         print( "Canvas.export( %s )" % (path,))
 
     if kwlog:
@@ -900,12 +899,8 @@ import traceback
     
 </t>
 <t tx="karstenw.20170709210125.23">def prnt(self):
-    # for debugging
-    name = self.name.encode("utf-8")
-    if py3:
-        name = self.name
     print("-" * 20)
-    print( "name: '%s' " % (name,) )
+    print( "name: '%s' " % (self.name,) )
     print( "index: '%i' " % (self.index(),) )
     print("xy: %i  %i" % (self.x, self.y) )
     print("wh: %i  %i" % (self.w, self.h) )
@@ -1713,7 +1708,7 @@ def canvas(w, h):
 
     if (x &gt; self.w) or (y &gt; self.h):
         print("\n\nERROR: Image placed outside of canvas. IGNORED.")
-        print(img)
+        py23print(img)
         print("Canvas:", self.w, self.h)
         print("Img:", x, y )
         return None
@@ -1736,7 +1731,7 @@ def canvas(w, h):
             del img
             return len(self.layers) - 1
         except Exception as err:
-            print( "Canvas.layer( %s ) FAILED." %repr( img ) )
+            py23print( "Canvas.layer( %s ) FAILED." % ( img, ) )
             print(err)
             print()
             exc_type, exc_value, exc_tb = sys.exc_info()
@@ -2059,7 +2054,7 @@ def smooth_more(self):
     try:
         img = Image.open(filepath)
     except Exception as err:
-        print("\nresizeImage() Image.open() FAILED '%s'" % filepath.encode("utf-8"))
+        print("\nresizeImage() Image.open() FAILED '%s'" % filepath )
         print(err)
         return ""
 
@@ -2297,7 +2292,7 @@ for i in layers:
     layername = basename % (i, layer.name)
     path = os.path.join( folder, layername )
     buffer.save( path, format=format, optimize=False)
-    print( "export() DBG: '%s'" % path.encode("utf-8") )
+    print( "export() DBG: '%s'" % path )
 </t>
 <t tx="karstenw.20200430124808.1">@property
 def dup(self):
@@ -6328,15 +6323,6 @@ c.draw(name="Image_innerSquare")
 <t tx="karstenw.20260126100115.1"></t>
 <t tx="karstenw.20260126100137.1"></t>
 <t tx="karstenw.20260126100238.1"></t>
-<t tx="karstenw.20260208235112.1">def p(s):
-    # print
-    if pb.py3:
-        print( s )
-    else:
-        print( s.encode("utf-8") )
-
-
-</t>
 <t tx="karstenw.20260323135043.1">def explodeRectangles( rectangles, deltax=10, deltay=10 ):
     
     # innerSquare outerSquare upper lower left right quads niner outerNiner threeRows threeColumns
@@ -6420,6 +6406,15 @@ c.draw(name="Image_innerSquare")
     
     result = Rectangles( rectangles.innerSquare, rectangles.outerSquare, upper, lower, left, right, quads, niner, outerNiner, threeRows, threeColumns )
     return result
+</t>
+<t tx="karstenw.20260510155949.1">def py23print( s, *args ):
+    # print
+    if pb.py3:
+        print( s )
+    else:
+        print( s.encode("utf-8") )
+
+
 </t>
 </tnodes>
 </leo_file>
