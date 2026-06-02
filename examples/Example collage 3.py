@@ -67,13 +67,19 @@ def p(s):
         print( s.encode("utf-8") )
 
 
+###
+### This section should move into imagewells
+###
+
 # I use several distinct image collections
 
+# the defaults
 configname = ""
 pathsfilename = "imagewell.txt"
 storagefilename = "imagewell.tab"
 additionals = []
 
+# add configs or folders
 for item in sys.argv[1:]:
     # try path
     path = os.path.abspath( os.path.expanduser( item ) )
