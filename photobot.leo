@@ -9,8 +9,10 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
+<v t="karstenw.20260526103818.1" a="E"><vh>Library</vh>
 <v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
+<v t="karstenw.20260525160223.1"><vh>Globals</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20260510155949.1"><vh>py2/py3 print</vh></v>
@@ -20,7 +22,6 @@
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
 <v t="karstenw.20170709210125.9"><vh>makegradientimage</vh>
-<v t="karstenw.20210301171902.1"><vh>&lt;&lt; init &gt;&gt;</vh></v>
 <v t="karstenw.20210301172848.1"><vh>&lt;&lt; solid &gt;&gt;</vh></v>
 <v t="karstenw.20210301172906.1"><vh>&lt;&lt; linear &gt;&gt;</vh></v>
 <v t="karstenw.20210301172912.1"><vh>&lt;&lt; radial &gt;&gt;</vh></v>
@@ -156,16 +157,22 @@
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 <v t="karstenw.20211021133612.1"><vh>grid</vh></v>
 </v>
-<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
 <v t="karstenw.20211021151303.1"><vh>splitimage</vh></v>
-<v t="karstenw.20260122141054.1"><vh>calculateRectangles</vh></v>
+<v t="karstenw.20260122141054.1"><vh>calculateRectangles</vh>
+<v t="karstenw.20260523093110.1"><vh>&lt;&lt; inner niner &gt;&gt;</vh></v>
+<v t="karstenw.20260523092749.1"><vh>&lt;&lt; quads &gt;&gt;</vh></v>
+<v t="karstenw.20260523092915.1"><vh>&lt;&lt; outer niner &gt;&gt;</vh></v>
+<v t="karstenw.20260523092931.1"><vh>&lt;&lt; three rows &gt;&gt;</vh></v>
+<v t="karstenw.20260523092951.1"><vh>&lt;&lt; three columns &gt;&gt;</vh></v>
+</v>
 <v t="karstenw.20260323135043.1"><vh>explodeRectangles</vh></v>
-<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerSquare</vh></v>
+<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
 <v t="karstenw.20200419185034.1"><vh>cropImageToRatioHorizontal</vh></v>
 <v t="karstenw.20200419185042.1"><vh>scaleLayerToHeight</vh></v>
@@ -340,7 +347,7 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
@@ -468,6 +475,7 @@
 </v>
 </v>
 </v>
+</v>
 </vnodes>
 <tnodes>
 <t tx="karstenw.20170709210040.1">@language python
@@ -493,13 +501,6 @@ import os
 
 import random
 import math
-sqrt = math.sqrt
-pow = math.pow
-sin = math.sin
-cos = math.cos
-degrees = math.degrees
-radians = math.radians
-asin = math.asin
 
 import datetime
 import time
@@ -511,7 +512,6 @@ import colorsys
 import io
 
 import collections
-namedtuple = collections.namedtuple
 
 import PIL
 import PIL.ImageFilter as ImageFilter
@@ -523,18 +523,10 @@ import PIL.ImageDraw as ImageDraw
 import PIL.ImageStat as ImageStat
 import PIL.ImageFont as ImageFont
 
-# disable large image warning
-old = Image.MAX_IMAGE_PIXELS
-Image.MAX_IMAGE_PIXELS = None # 200000000
-# print( "MAX_IMAGE_PIXELS: %i" % old)
-
-
 import pdb
 import pprint
-pp = pprint.pprint
-kwdbg = 0
-kwlog = 0
 import traceback
+
 
 </t>
 <t tx="karstenw.20170709210125.10">def gradient(self, style=LINEAR, w=1.0, h=1.0, name="",
@@ -764,7 +756,7 @@ import traceback
     start = time.time()
 
     &lt;&lt;init&gt;&gt;
-    if kwdbg and 1:
+    if kwdbg and 0:
         &lt;&lt;debug&gt;&gt;
 
     self.flatten()
@@ -1637,23 +1629,38 @@ def canvas(w, h):
 
 </t>
 <t tx="karstenw.20170709210125.65">def aspectRatio(size, maxsize, height=False, width=False, assize=False):
-    """Resize image with size=(w,h) to maxsize in max(width, height).
-    use height == maxsize if height==True
-    use width == maxsize if width==True
-    use max(width,height) == maxsize if width==height==False
+    """
+    Calculate a scaling factor for an image so that 
     
+    - maxsize is the maximum side lenght for the longer side if height==False &amp;&amp; width==False
+    
+    - if width==True &amp;&amp; height==False maxsize refers to width
+    
+    - if width==False &amp;&amp; height==True maxsize refers to height
+    
+    - if width==True &amp;&amp; height==True maxsize refers to the shorter side
+
+    size: (width,height)
+    
+    maxsize: destination size
+    
+    width, height: see above
+    
+    assize: if True return (newwidth,newheight) else scalingfactor
     """
     w, h = size
     scale = 1.0
     
-    if width !=False:
+    if width:
         currmax = w
-    elif height !=False:
+    elif height:
         currmax = h
     else:
         currmax = max( (w,h) )
+    
     if width and height:
         currmax = min( (w,h) )
+    
     if currmax == maxsize:
         # return 1.0
         pass
@@ -1704,6 +1711,8 @@ def canvas(w, h):
     
     If img is a Layer,
     uses that layer's x and y position and name.
+    
+    Return list index ( len()-1 ) of created layer (=top)
     """
 
     if (x &gt; self.w) or (y &gt; self.h):
@@ -1766,7 +1775,36 @@ def canvas(w, h):
     This has been factored out of gradient() so complex gradients like
     ROUNDRECT which consist of multiple images can be composed.
     """
-    &lt;&lt; init &gt;&gt;
+    
+    if type(w) == float:
+        w *= self.w
+    if type(h) == float:
+        h *= self.h
+    
+    # prevent some div by 0 errors
+    if w &lt; 0:
+        w = -w
+    if h &lt; 0:
+        h = -h
+    w = int( round( max(1,w) ))
+    h = int( round( max(1,h) ))
+    
+    w2 = int( round( w / 2 ))
+    h2 = int( round( h / 2 ))
+    
+    if kwlog:
+        print( (style, self.w,self.h,w,h) )
+    
+    if style in (RADIALCOSINE,): #, SCATTER):
+        img = Image.new("L", (w, h), 0)
+    elif style in (SCATTER, ):
+        img = Image.new("L", (w, h), 0)
+        # img = Image.new("RGBA", (w, h), (0,0,0,0))
+    else:
+        img = Image.new("L", (w, h), 255)
+    
+    draw = ImageDraw.Draw(img)
+
     &lt;&lt; solid &gt;&gt;
     &lt;&lt; linear &gt;&gt;
     &lt;&lt; radial &gt;&gt;
@@ -2032,8 +2070,14 @@ def smooth_more(self):
 
 </t>
 <t tx="karstenw.20200419185049.1">def placeImage(canv, path, x, y, maxsize=None, name="", width=True, height=False):
-    """Create an image layer.
+    """Create an image layer on canvas canv.
     
+    canv: the canvas to operate on
+    x,y:  place image at coordinates in layer
+    maxsize: max width or height
+    width, height: which dimension maxsize should apply to
+    
+    return
     """
     if maxsize:
         img1 = resizeImage(path, maxsize, width=width, height=height)
@@ -2061,7 +2105,7 @@ def smooth_more(self):
     # downsample the image
     if maxsize:
         w,h = aspectRatio( (img.size), maxsize,
-                            height=height, width=height, assize=True)
+                            height=height, width=width, assize=True)
         img = img.resize( (w,h), resample=Image.LANCZOS)
     # respect exif orientation
     if orientation:
@@ -2444,36 +2488,6 @@ c.fill( (127,127,127) )
 #
 
 </t>
-<t tx="karstenw.20210301171902.1">if type(w) == float:
-    w *= self.w
-if type(h) == float:
-    h *= self.h
-
-# prevent some div by 0 errors
-if w &lt; 0:
-    w = -w
-if h &lt; 0:
-    h = -h
-w = int( round( max(1,w) ))
-h = int( round( max(1,h) ))
-
-w2 = w // 2
-h2 = h // 2
-
-if kwlog:
-    print( (style, self.w,self.h,w,h) )
-
-if style in (RADIALCOSINE,): #, SCATTER):
-    img = Image.new("L", (w, h), 0)
-elif style in (SCATTER, ):
-    img = Image.new("L", (w, h), 0)
-    # img = Image.new("RGBA", (w, h), (0,0,0,0))
-else:
-    img = Image.new("L", (w, h), 255)
-
-draw = ImageDraw.Draw(img)
-
-</t>
 <t tx="karstenw.20210301172109.1">w0 = self.w
 h0 = self.h
 if type(w) == float:
@@ -2621,8 +2635,8 @@ if type(h) == float:
     r0 = int( round( r ))
     for i in xrange( r0 ):
         k = int( round( 255 - 255.0 * i/r ))
-        draw.ellipse((w/2-r+i, h/2-r+i,
-                      w/2+r-i, h/2+r-i), fill=k)
+        draw.ellipse((w2-r+i, h2-r+i,
+                      w2+r-i, h2+r-i), fill=k)
     
 </t>
 <t tx="karstenw.20210301172925.1">if style == RADIALCOSINE:
@@ -5918,13 +5932,19 @@ except NameError:
 
 
 </t>
-<t tx="karstenw.20230115124413.1"># I use several distinct image collections
+<t tx="karstenw.20230115124413.1">###
+### This section should move into imagewells
+###
 
+# I use several distinct image collections
+
+# the defaults
 configname = ""
 pathsfilename = "imagewell.txt"
 storagefilename = "imagewell.tab"
 additionals = []
 
+# add configs or folders
 for item in sys.argv[1:]:
     # try path
     path = os.path.abspath( os.path.expanduser( item ) )
@@ -6033,7 +6053,7 @@ randomblur = 0 # not kwdbg
 paintoverlay = 0 # not kwdbg
 gilb = 0
 
-if kwdbg:
+if kwdbg and 1:
     pdb.set_trace()
 
 
@@ -6131,10 +6151,7 @@ def calculateRectangles(width, height):
         threeColumns- 
     """
     
-    # Rectangle result type
-    Rectangles = namedtuple('Rectangles', "innerSquare upper lower left right outerSquare quads niner outerNiner threeRows threeColumns" )
-    
-    innerrect = outerrect = quads = niner = upper = lower = outerNiner = threeRows = threeColumns = None
+    innerrect = outerrect = quads = niner = upper = lower = left = right = outerNiner = threeRows = threeColumns = None
     
     xoffset = yoffset = 0
     
@@ -6143,8 +6160,8 @@ def calculateRectangles(width, height):
     longside = max( (width, height) )
     shortside = min( (width, height) )
     
-    widthhalf = int( round( width / 2.0 ))
-    heighthalf = int( round( (height) / 2.0 ))
+    widthhalf  = int( round( width / 2.0 ))
+    heighthalf = int( round( height / 2.0 ))
     
     widththird = int( round( width / 3.0 ))
     heightthird = int( round( height / 3.0 ))
@@ -6165,65 +6182,15 @@ def calculateRectangles(width, height):
         # image is square
         innerrect = outerrect = (0, 0,  width, height )
     
-    # make the niner
-    niner = []
-    for y in range(3):
-        for x in range(3):
-            left = x * widththird
-            top = y * heightthird
-            right = left + widththird
-            bottom = top + heightthird
-            
-            niner.append( (left, top, right, bottom ) )
-    niner = tuple( niner )
+    &lt;&lt; inner niner &gt;&gt;
     
-    # make the quads
-    quads = []
-    for y in range(2):
-        for x in range(2):
-            left = x * widthhalf
-            top = y * heighthalf
-            right = left + widthhalf
-            bottom = top + heighthalf
-            
-            quads.append( (left, top, right, bottom ) )
-    quads = tuple( quads )
+    &lt;&lt; quads &gt;&gt;
     
-    # make the outer nine same sized rectangles
-    # from top to bottom, from left to right
-    outerNiner = (
-        (-width, -height,       0,  0),
-        (     0, -height,   width,  0),
-        ( width, -height, 2*width,  0),
-
-        (-width,        0,       0,  height),
-        (     0,        0,   width,  height),
-        ( width,        0, 2*width,  height),
-
-        (-width,  height,       0,  0),
-        (     0,  height,   width,  0),
-        ( width,  height, 2*width,  0),
-    )
+    &lt;&lt; outer niner &gt;&gt;
     
-    # threeRows
-    threeRows = []
-    for y in range(3):
-        left = 0
-        top = y * heightthird
-        right = width
-        bottom = top + heightthird
-        threeRows.append( (left, top, right, bottom ) )
-    threeRows = tuple(threeRows)
+    &lt;&lt; three rows &gt;&gt;
     
-    # threeColumns
-    threeColumns = []
-    for x in range( 3 ):
-        top = 0
-        left = x * widththird
-        right = left + widththird
-        bottom = height
-        threeColumns.append( (left, top, right, bottom ) )
-    threeColumns = tuple( threeColumns )
+    &lt;&lt; three columns &gt;&gt;
     
     result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner, outerNiner, threeRows, threeColumns )
     return result
@@ -6324,6 +6291,10 @@ c.draw(name="Image_innerSquare")
 <t tx="karstenw.20260126100137.1"></t>
 <t tx="karstenw.20260126100238.1"></t>
 <t tx="karstenw.20260323135043.1">def explodeRectangles( rectangles, deltax=10, deltay=10 ):
+    """take the result of calculateRectangles() and linerarly explode them by deltax &amp; deltay.
+    
+    Return another Rectangles namedtuple.
+    """
     
     # innerSquare outerSquare upper lower left right quads niner outerNiner threeRows threeColumns
     upper = rectangles.upper 
@@ -6406,6 +6377,8 @@ c.draw(name="Image_innerSquare")
     
     result = Rectangles( rectangles.innerSquare, rectangles.outerSquare, upper, lower, left, right, quads, niner, outerNiner, threeRows, threeColumns )
     return result
+
+
 </t>
 <t tx="karstenw.20260510155949.1">def py23print( s, *args ):
     # print
@@ -6416,5 +6389,92 @@ c.draw(name="Image_innerSquare")
 
 
 </t>
+<t tx="karstenw.20260523092749.1"># make the quads
+quads = []
+for y in range(2):
+    for x in range(2):
+        l = x * widthhalf
+        t = y * heighthalf
+        r = l + widthhalf
+        b = t + heighthalf
+        
+        quads.append( (l, t, r, b) )
+quads = tuple( quads )
+</t>
+<t tx="karstenw.20260523092915.1"># make the outer nine same sized rectangles
+# from top to bottom, from left to right
+outerNiner = (
+    (-width, -height,       0,  0),
+    (     0, -height,   width,  0),
+    ( width, -height, 2*width,  0),
+
+    (-width,        0,       0,  height),
+    (     0,        0,   width,  height),
+    ( width,        0, 2*width,  height),
+
+    (-width,  height,       0,  0),
+    (     0,  height,   width,  0),
+    ( width,  height, 2*width,  0),
+)
+</t>
+<t tx="karstenw.20260523092931.1"># threeRows
+threeRows = []
+for y in range(3):
+    l = 0
+    t = y * heightthird
+    r = width
+    b = t + heightthird
+    threeRows.append( (l, t, r, b) )
+threeRows = tuple(threeRows)
+</t>
+<t tx="karstenw.20260523092951.1"># threeColumns
+threeColumns = []
+for x in range( 3 ):
+    t = 0
+    l = x * widththird
+    r = l + widththird
+    b = height
+    threeColumns.append( (l, t, r, b) )
+threeColumns = tuple( threeColumns )
+
+
+</t>
+<t tx="karstenw.20260523093110.1"># make the niner
+niner = []
+for y in range(3):
+    for x in range(3):
+        l = x * widththird
+        t = y * heightthird
+        r = l + widththird
+        b = t + heightthird
+        
+        niner.append( (l, t, r, b) )
+niner = tuple( niner )
+</t>
+<t tx="karstenw.20260525160223.1">sqrt = math.sqrt
+pow = math.pow
+sin = math.sin
+cos = math.cos
+degrees = math.degrees
+radians = math.radians
+asin = math.asin
+
+pp = pprint.pprint
+kwdbg = 0
+kwlog = 0
+
+# disable large image warning
+old = Image.MAX_IMAGE_PIXELS
+Image.MAX_IMAGE_PIXELS = None # 200000000
+# print( "MAX_IMAGE_PIXELS: %i" % old)
+
+# Rectangle result type
+Rectangles = collections.namedtuple('Rectangles', "innerSquare upper lower left right "
+                                                  "outerSquare quads niner outerNiner "
+                                                  "threeRows threeColumns" )
+
+
+</t>
+<t tx="karstenw.20260526103818.1"></t>
 </tnodes>
 </leo_file>
