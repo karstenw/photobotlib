@@ -17,13 +17,6 @@ import os
 
 import random
 import math
-sqrt = math.sqrt
-pow = math.pow
-sin = math.sin
-cos = math.cos
-degrees = math.degrees
-radians = math.radians
-asin = math.asin
 
 import datetime
 import time
@@ -35,7 +28,6 @@ import colorsys
 import io
 
 import collections
-namedtuple = collections.namedtuple
 
 import PIL
 import PIL.ImageFilter as ImageFilter
@@ -47,18 +39,33 @@ import PIL.ImageDraw as ImageDraw
 import PIL.ImageStat as ImageStat
 import PIL.ImageFont as ImageFont
 
+import pdb
+import pprint
+import traceback
+
+
+sqrt = math.sqrt
+pow = math.pow
+sin = math.sin
+cos = math.cos
+degrees = math.degrees
+radians = math.radians
+asin = math.asin
+
+pp = pprint.pprint
+kwdbg = 0
+kwlog = 0
+
 # disable large image warning
 old = Image.MAX_IMAGE_PIXELS
 Image.MAX_IMAGE_PIXELS = None # 200000000
 # print( "MAX_IMAGE_PIXELS: %i" % old)
 
+# Rectangle result type
+Rectangles = collections.namedtuple('Rectangles', "innerSquare upper lower left right "
+                                                  "outerSquare quads niner outerNiner "
+                                                  "threeRows threeColumns" )
 
-import pdb
-import pprint
-pp = pprint.pprint
-kwdbg = 0
-kwlog = 0
-import traceback
 
 # py3 stuff
 
@@ -163,6 +170,8 @@ class Canvas:
         
         If img is a Layer,
         uses that layer's x and y position and name.
+        
+        Return list index ( len()-1 ) of created layer (=top)
         """
 
         if (x > self.w) or (y > self.h):
@@ -223,11 +232,12 @@ class Canvas:
         This has been factored out of gradient() so complex gradients like
         ROUNDRECT which consist of multiple images can be composed.
         """
+        
         if type(w) == float:
             w *= self.w
         if type(h) == float:
             h *= self.h
-
+        
         # prevent some div by 0 errors
         if w < 0:
             w = -w
@@ -235,13 +245,13 @@ class Canvas:
             h = -h
         w = int( round( max(1,w) ))
         h = int( round( max(1,h) ))
-
-        w2 = w // 2
-        h2 = h // 2
-
+        
+        w2 = int( round( w / 2 ))
+        h2 = int( round( h / 2 ))
+        
         if kwlog:
             print( (style, self.w,self.h,w,h) )
-
+        
         if style in (RADIALCOSINE,): #, SCATTER):
             img = Image.new("L", (w, h), 0)
         elif style in (SCATTER, ):
@@ -249,7 +259,7 @@ class Canvas:
             # img = Image.new("RGBA", (w, h), (0,0,0,0))
         else:
             img = Image.new("L", (w, h), 255)
-
+        
         draw = ImageDraw.Draw(img)
 
         if style == SOLID:
@@ -265,8 +275,8 @@ class Canvas:
             r0 = int( round( r ))
             for i in xrange( r0 ):
                 k = int( round( 255 - 255.0 * i/r ))
-                draw.ellipse((w/2-r+i, h/2-r+i,
-                              w/2+r-i, h/2+r-i), fill=k)
+                draw.ellipse((w2-r+i, h2-r+i,
+                              w2+r-i, h2+r-i), fill=k)
             
         if style == RADIALCOSINE:
             r = max(w,h) / 2.0
@@ -737,7 +747,7 @@ class Canvas:
         if unique or os.path.exists( path ):
             path = uniquepath(folder, name, ext, nfill=2, startindex=1, sep="_", always=unique)
 
-        if kwdbg and 1:
+        if kwdbg and 0:
             # if debugging is on export each layer separately
             # basename = "photobot_" + datestring() + "_layer_%i_%s" + ext
             basename = name + "_layer_%i_%s" + ext
@@ -1997,10 +2007,7 @@ def calculateRectangles(width, height):
         threeColumns- 
     """
     
-    # Rectangle result type
-    Rectangles = namedtuple('Rectangles', "innerSquare upper lower left right outerSquare quads niner outerNiner threeRows threeColumns" )
-    
-    innerrect = outerrect = quads = niner = upper = lower = outerNiner = threeRows = threeColumns = None
+    innerrect = outerrect = quads = niner = upper = lower = left = right = outerNiner = threeRows = threeColumns = None
     
     xoffset = yoffset = 0
     
@@ -2009,8 +2016,8 @@ def calculateRectangles(width, height):
     longside = max( (width, height) )
     shortside = min( (width, height) )
     
-    widthhalf = int( round( width / 2.0 ))
-    heighthalf = int( round( (height) / 2.0 ))
+    widthhalf  = int( round( width / 2.0 ))
+    heighthalf = int( round( height / 2.0 ))
     
     widththird = int( round( width / 3.0 ))
     heightthird = int( round( height / 3.0 ))
@@ -2035,24 +2042,24 @@ def calculateRectangles(width, height):
     niner = []
     for y in range(3):
         for x in range(3):
-            left = x * widththird
-            top = y * heightthird
-            right = left + widththird
-            bottom = top + heightthird
+            l = x * widththird
+            t = y * heightthird
+            r = l + widththird
+            b = t + heightthird
             
-            niner.append( (left, top, right, bottom ) )
+            niner.append( (l, t, r, b) )
     niner = tuple( niner )
     
     # make the quads
     quads = []
     for y in range(2):
         for x in range(2):
-            left = x * widthhalf
-            top = y * heighthalf
-            right = left + widthhalf
-            bottom = top + heighthalf
+            l = x * widthhalf
+            t = y * heighthalf
+            r = l + widthhalf
+            b = t + heighthalf
             
-            quads.append( (left, top, right, bottom ) )
+            quads.append( (l, t, r, b) )
     quads = tuple( quads )
     
     # make the outer nine same sized rectangles
@@ -2074,28 +2081,34 @@ def calculateRectangles(width, height):
     # threeRows
     threeRows = []
     for y in range(3):
-        left = 0
-        top = y * heightthird
-        right = width
-        bottom = top + heightthird
-        threeRows.append( (left, top, right, bottom ) )
+        l = 0
+        t = y * heightthird
+        r = width
+        b = t + heightthird
+        threeRows.append( (l, t, r, b) )
     threeRows = tuple(threeRows)
     
     # threeColumns
     threeColumns = []
     for x in range( 3 ):
-        top = 0
-        left = x * widththird
-        right = left + widththird
-        bottom = height
-        threeColumns.append( (left, top, right, bottom ) )
+        t = 0
+        l = x * widththird
+        r = l + widththird
+        b = height
+        threeColumns.append( (l, t, r, b) )
     threeColumns = tuple( threeColumns )
+
+
     
     result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner, outerNiner, threeRows, threeColumns )
     return result
 
 
 def explodeRectangles( rectangles, deltax=10, deltay=10 ):
+    """take the result of calculateRectangles() and linerarly explode them by deltax & deltay.
+    
+    Return another Rectangles namedtuple.
+    """
     
     # innerSquare outerSquare upper lower left right quads niner outerNiner threeRows threeColumns
     upper = rectangles.upper 
@@ -2178,24 +2191,41 @@ def explodeRectangles( rectangles, deltax=10, deltay=10 ):
     
     result = Rectangles( rectangles.innerSquare, rectangles.outerSquare, upper, lower, left, right, quads, niner, outerNiner, threeRows, threeColumns )
     return result
+
+
 def aspectRatio(size, maxsize, height=False, width=False, assize=False):
-    """Resize image with size=(w,h) to maxsize in max(width, height).
-    use height == maxsize if height==True
-    use width == maxsize if width==True
-    use max(width,height) == maxsize if width==height==False
+    """
+    Calculate a scaling factor for an image so that 
     
+    - maxsize is the maximum side lenght for the longer side if height==False && width==False
+    
+    - if width==True && height==False maxsize refers to width
+    
+    - if width==False && height==True maxsize refers to height
+    
+    - if width==True && height==True maxsize refers to the shorter side
+
+    size: (width,height)
+    
+    maxsize: destination size
+    
+    width, height: see above
+    
+    assize: if True return (newwidth,newheight) else scalingfactor
     """
     w, h = size
     scale = 1.0
     
-    if width !=False:
+    if width:
         currmax = w
-    elif height !=False:
+    elif height:
         currmax = h
     else:
         currmax = max( (w,h) )
+    
     if width and height:
         currmax = min( (w,h) )
+    
     if currmax == maxsize:
         # return 1.0
         pass
@@ -2268,8 +2298,14 @@ def scaleLayerToHeight( layer, newheight ):
 
 
 def placeImage(canv, path, x, y, maxsize=None, name="", width=True, height=False):
-    """Create an image layer.
+    """Create an image layer on canvas canv.
     
+    canv: the canvas to operate on
+    x,y:  place image at coordinates in layer
+    maxsize: max width or height
+    width, height: which dimension maxsize should apply to
+    
+    return
     """
     if maxsize:
         img1 = resizeImage(path, maxsize, width=width, height=height)
@@ -2296,7 +2332,7 @@ def resizeImage( filepath, maxsize, orientation=True, width=True, height=True):
     # downsample the image
     if maxsize:
         w,h = aspectRatio( (img.size), maxsize,
-                            height=height, width=height, assize=True)
+                            height=height, width=width, assize=True)
         img = img.resize( (w,h), resample=Image.LANCZOS)
     # respect exif orientation
     if orientation:
