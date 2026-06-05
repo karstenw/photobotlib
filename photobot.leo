@@ -157,12 +157,13 @@
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 <v t="karstenw.20211021133612.1"><vh>grid</vh></v>
 </v>
-<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
 <v t="karstenw.20211021151303.1"><vh>splitimage</vh></v>
-<v t="karstenw.20260122141054.1"><vh>calculateRectangles</vh>
+<v t="karstenw.20260122141054.1" a="E"><vh>calculateRectangles</vh>
+<v t="karstenw.20260602132100.1"><vh>&lt;&lt; inner outer rect &gt;&gt;</vh></v>
 <v t="karstenw.20260523093110.1"><vh>&lt;&lt; inner niner &gt;&gt;</vh></v>
 <v t="karstenw.20260523092749.1"><vh>&lt;&lt; quads &gt;&gt;</vh></v>
 <v t="karstenw.20260523092915.1"><vh>&lt;&lt; outer niner &gt;&gt;</vh></v>
@@ -186,8 +187,8 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260121173217.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
@@ -468,7 +469,7 @@
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206124353.4"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20260122212721.1" a="E"><vh>@clean examples/Layer_function_rectangles.py</vh>
+<v t="karstenw.20260122212721.1"><vh>@clean examples/Layer_function_rectangles.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20260121173217.1"></v>
 <v t="karstenw.20260122212815.1"><vh>Content</vh></v>
@@ -6156,7 +6157,7 @@ def calculateRectangles(width, height):
     xoffset = yoffset = 0
     
     delta = abs( width - height )
-    halfdelta = int( round( (delta) / 2.0 ))
+    halfdelta = int( round( delta / 2.0 ))
     longside = max( (width, height) )
     shortside = min( (width, height) )
     
@@ -6166,21 +6167,7 @@ def calculateRectangles(width, height):
     widththird = int( round( width / 3.0 ))
     heightthird = int( round( height / 3.0 ))
 
-    if height &gt; width:
-        # portrait
-        innerrect = ( 0, halfdelta, shortside, shortside)
-        upper = (0,0, width, halfdelta)
-        lower = (0,halfdelta+width, width, halfdelta)
-    
-    elif height &lt; width:
-        # landscape
-        innerrect = (halfdelta, 0, shortside, shortside)
-        left = (0,0, halfdelta, shortside)
-        right = (shortside+delta, 0, halfdelta, shortside)
-    
-    else:
-        # image is square
-        innerrect = outerrect = (0, 0,  width, height )
+    &lt;&lt; inner outer rect &gt;&gt;
     
     &lt;&lt; inner niner &gt;&gt;
     
@@ -6476,5 +6463,24 @@ Rectangles = collections.namedtuple('Rectangles', "innerSquare upper lower left 
 
 </t>
 <t tx="karstenw.20260526103818.1"></t>
+<t tx="karstenw.20260602132100.1">if height &gt; width:
+    # portrait
+    innerrect = ( 0, halfdelta, shortside, shortside)
+    outerrect = (-halfdelta, 0, halfdelta, height )
+    upper = (0,0, width, halfdelta)
+    lower = (0,halfdelta+width, width, halfdelta)
+
+elif height &lt; width:
+    # landscape
+    innerrect = (halfdelta, 0, shortside, shortside)
+    outerrect = (0, -halfdelta, width, halfdelta )
+    left = (0,0, halfdelta, shortside)
+    right = (shortside+delta, 0, halfdelta, shortside)
+
+else:
+    # image is square
+    innerrect = outerrect = (0, 0,  width, height )
+
+</t>
 </tnodes>
 </leo_file>

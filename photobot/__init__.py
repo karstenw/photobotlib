@@ -2012,7 +2012,7 @@ def calculateRectangles(width, height):
     xoffset = yoffset = 0
     
     delta = abs( width - height )
-    halfdelta = int( round( (delta) / 2.0 ))
+    halfdelta = int( round( delta / 2.0 ))
     longside = max( (width, height) )
     shortside = min( (width, height) )
     
@@ -2025,18 +2025,21 @@ def calculateRectangles(width, height):
     if height > width:
         # portrait
         innerrect = ( 0, halfdelta, shortside, shortside)
+        outerrect = (-halfdelta, 0, halfdelta, height )
         upper = (0,0, width, halfdelta)
         lower = (0,halfdelta+width, width, halfdelta)
-    
+
     elif height < width:
         # landscape
         innerrect = (halfdelta, 0, shortside, shortside)
+        outerrect = (0, -halfdelta, width, halfdelta )
         left = (0,0, halfdelta, shortside)
         right = (shortside+delta, 0, halfdelta, shortside)
-    
+
     else:
         # image is square
         innerrect = outerrect = (0, 0,  width, height )
+
     
     # make the niner
     niner = []
