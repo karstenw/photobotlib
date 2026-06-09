@@ -75,7 +75,7 @@ _, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 2 inner square")
 img2layer = c.top
 
 rectangles = pb.calculateRectangles(w1, h1)
-rot =rnd.random() > 0.85
+rot = 0 #rnd.random() > 0.85
 
 
 # innerrect
@@ -89,7 +89,7 @@ if 1:
     if rot:
         c.top.rotate( -18 + rnd.random() * 36 )
     c.top.translate( x+x1, y+y1 )
-    c.top.opacity( 50 )
+    # c.top.opacity( 50 )
     # pb.label(c, "Image 1 inner square", x, y, 30)
 
 if 1:
@@ -105,7 +105,7 @@ if 1:
         c.top.opacity( 25 + rnd.random() * 30 )
     # pb.label(c, "Image 1 quads", x, y, 30)
     
-if 1:
+if 0:
     niner = rectangles.niner
     
     for nine in niner:
@@ -118,8 +118,9 @@ if 1:
         c.top.opacity( 10 + rnd.random() * 20 )
     # pb.label(c, "Image 1 niner", x, y, 30)
 
-img2layer.opacity( 10 )
-# img2layer.delete()
+# img2layer.opacity( 10 )
+img2layer.delete()
+
 pb.label(c, "Image 1 innersquare & quads & niner", x, y, 30)
 
 # draw the result

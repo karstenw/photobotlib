@@ -1437,13 +1437,43 @@ class Layer:
         self.img = self.img.crop( (left, top, right, bottom) )
         self.w, self.h = self.img.size
 
+    def gaussianblur(self, radius=2):
+        
+        """Blurs the layer.
+        
+        """
+
+        self.img = self.img.filter( ImageFilter.GaussianBlur( radius ) )
+
+    def unsharpmask(self, radius=2, percent=150, threshold=3):
+        
+        """Unsharp mask filter.
+        
+        """
+
+        self.img = self.img.filter( ImageFilter.UnsharpMask( radius, percent, threshold ) )
+
+    def rank(self, size, rank):
+        
+        """Create a rank filter. The rank filter sorts all pixels in a window of the given size, and returns the rank’th value
+        """
+
+        self.img = self.img.filter( ImageFilter.RankFilter( size, rank) )
+
+    def median(self, size=3):
+        
+        """Create a median filter. Picks the median pixel value in a window with the given size.
+        """
+
+        self.img = self.img.filter( ImageFilter.MedianFilter( size ) )
+
     def blur(self):
         
         """Blurs the layer.
         
         """
 
-        self.img = self.img.filter(ImageFilter.BLUR)
+        self.img = self.img.filter( ImageFilter.BLUR )
 
     def boxblur(self, radius=2):
         
@@ -1460,7 +1490,7 @@ class Layer:
         
         """
 
-        self.img = self.img.filter(ImageFilter.CONTOUR)
+        self.img = self.img.filter( ImageFilter.CONTOUR )
 
     # new
     def detail(self):
@@ -1469,7 +1499,7 @@ class Layer:
         
         """
 
-        self.img = self.img.filter(ImageFilter.DETAIL)
+        self.img = self.img.filter( ImageFilter.DETAIL )
 
     # new
     def edge_enhance(self):
@@ -1478,7 +1508,7 @@ class Layer:
         
         """
 
-        self.img = self.img.filter(ImageFilter.EDGE_ENHANCE)
+        self.img = self.img.filter( ImageFilter.EDGE_ENHANCE )
 
     # new
     def edge_enhance_more(self):
@@ -1487,7 +1517,7 @@ class Layer:
         
         """
 
-        self.img = self.img.filter(ImageFilter.EDGE_ENHANCE_MORE)
+        self.img = self.img.filter( ImageFilter.EDGE_ENHANCE_MORE )
 
     # new
     def emboss(self):
@@ -1496,7 +1526,7 @@ class Layer:
         
         """
 
-        self.img = self.img.filter(ImageFilter.EMBOSS)
+        self.img = self.img.filter( ImageFilter.EMBOSS )
 
     # new
     def find_edges(self):
@@ -1550,9 +1580,12 @@ class Layer:
         
         """
         
-        if len(kernel)   ==  9: size = (3,3)
-        elif len(kernel) == 25: size = (5,5)
-        else:                   return
+        if len(kernel) == 9:
+            size = (3,3)
+        elif len(kernel) == 25:
+            size = (5,5)
+        else:
+            return
         
         if scale == None:
             scale = 0

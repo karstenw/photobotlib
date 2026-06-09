@@ -16,7 +16,7 @@
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20260510155949.1"><vh>py2/py3 print</vh></v>
-<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
+<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
 <v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
@@ -39,7 +39,7 @@
 <v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
-<v t="karstenw.20170709210125.13" a="E"><vh>export</vh>
+<v t="karstenw.20170709210125.13"><vh>export</vh>
 <v t="karstenw.20200430120922.1"><vh>&lt;&lt;init&gt;&gt;</vh></v>
 <v t="karstenw.20200430120955.1"><vh>&lt;&lt;debug&gt;&gt;</vh></v>
 </v>
@@ -58,7 +58,7 @@
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -84,6 +84,10 @@
 <v t="karstenw.20170709210125.38"><vh>color</vh></v>
 </v>
 <v t="karstenw.20170727231827.1"><vh>INTENSITIES</vh>
+<v t="karstenw.20260609104122.1"><vh>+ TODO</vh>
+<v t="karstenw.20260609104122.2"><vh>Color</vh></v>
+<v t="karstenw.20260609104122.3"><vh>Sharpness</vh></v>
+</v>
 <v t="karstenw.20170709210125.39"><vh>brightness</vh></v>
 <v t="karstenw.20170709210125.40"><vh>contrast</vh></v>
 <v t="karstenw.20170709210125.41"><vh>desaturate</vh></v>
@@ -103,20 +107,17 @@
 <v t="karstenw.20170709210125.48"><vh>flip</vh></v>
 <v t="karstenw.20170727233343.1"><vh>crop</vh></v>
 </v>
-<v t="karstenw.20200421172034.1"><vh>FILTERS</vh>
-<v t="karstenw.20260126095815.1" a="E"><vh>+ UNIMPLEMENTED</vh>
-<v t="karstenw.20170727232434.1"><vh>autocontrast</vh></v>
+<v t="karstenw.20200421172034.1" a="E"><vh>FILTERS</vh>
+<v t="karstenw.20260126095815.1"><vh>+ UNIMPLEMENTED</vh>
 <v t="karstenw.20260126095824.1"><vh>threedLUT</vh></v>
-<v t="karstenw.20260126095859.1"><vh>gaussianblur</vh></v>
-<v t="karstenw.20260126095947.1"><vh>unsharpmask</vh></v>
-<v t="karstenw.20260126100056.1"><vh>kernel</vh></v>
-<v t="karstenw.20260126100059.1"><vh>rank</vh></v>
-<v t="karstenw.20260126100105.1"><vh>median</vh></v>
 <v t="karstenw.20260126100110.1"><vh>min</vh></v>
 <v t="karstenw.20260126100115.1"><vh>max</vh></v>
 <v t="karstenw.20260126100137.1"><vh>mode</vh></v>
-<v t="karstenw.20260126100238.1"><vh>multiband</vh></v>
 </v>
+<v t="karstenw.20260126095859.1"><vh>gaussianblur</vh></v>
+<v t="karstenw.20260126095947.1"><vh>unsharpmask</vh></v>
+<v t="karstenw.20260126100059.1"><vh>rank</vh></v>
+<v t="karstenw.20260126100105.1"><vh>median</vh></v>
 <v t="karstenw.20170709210125.49"><vh>blur</vh></v>
 <v t="karstenw.20200421172500.1"><vh>new boxblur</vh></v>
 <v t="karstenw.20200419183112.1"><vh>new contour</vh></v>
@@ -162,7 +163,7 @@
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
 <v t="karstenw.20211021151303.1"><vh>splitimage</vh></v>
-<v t="karstenw.20260122141054.1" a="E"><vh>calculateRectangles</vh>
+<v t="karstenw.20260122141054.1"><vh>calculateRectangles</vh>
 <v t="karstenw.20260602132100.1"><vh>&lt;&lt; inner outer rect &gt;&gt;</vh></v>
 <v t="karstenw.20260523093110.1"><vh>&lt;&lt; inner niner &gt;&gt;</vh></v>
 <v t="karstenw.20260523092749.1"><vh>&lt;&lt; quads &gt;&gt;</vh></v>
@@ -348,7 +349,7 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
@@ -376,6 +377,22 @@
 <v t="karstenw.20211206123755.1"><vh>@clean examples/Layer_filter_emboss.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206123755.2"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20260609105524.1"><vh>@clean examples/Layer_filter_gaussianblur.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20260609105524.3"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20260609105915.1"><vh>@clean examples/Layer_filter_median.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20260609105915.3"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20260609110518.1" a="E"><vh>@clean examples/Layer_filter_rank.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20260609110518.3"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20260609115054.1" a="E"><vh>@clean examples/Layer_filter_unsharpmask.py</vh>
+<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20260609115054.3"><vh>Content</vh></v>
 </v>
 <v t="karstenw.20211206123755.3"><vh>@clean examples/Layer_filter_find_edges.py</vh>
 <v t="karstenw.20211206131524.1"></v>
@@ -1320,7 +1337,7 @@ import traceback
     
     """
 
-    self.img = self.img.filter(ImageFilter.BLUR)
+    self.img = self.img.filter( ImageFilter.BLUR )
 
 </t>
 <t tx="karstenw.20170709210125.5">class Canvas:
@@ -1832,7 +1849,6 @@ def top(self):
 <t tx="karstenw.20170727231803.1"></t>
 <t tx="karstenw.20170727231827.1"></t>
 <t tx="karstenw.20170727232236.1"></t>
-<t tx="karstenw.20170727232434.1"></t>
 <t tx="karstenw.20170727233343.1">def crop( self, bounds):
 
     """Crop a pillow image at bounds(left, top, right, bottom)
@@ -1880,7 +1896,7 @@ def contour(self):
     
     """
 
-    self.img = self.img.filter(ImageFilter.CONTOUR)
+    self.img = self.img.filter( ImageFilter.CONTOUR )
 
 </t>
 <t tx="karstenw.20200419183129.1"># new
@@ -1890,7 +1906,7 @@ def detail(self):
     
     """
 
-    self.img = self.img.filter(ImageFilter.DETAIL)
+    self.img = self.img.filter( ImageFilter.DETAIL )
 
 </t>
 <t tx="karstenw.20200419183142.1"># new
@@ -1900,7 +1916,7 @@ def edge_enhance(self):
     
     """
 
-    self.img = self.img.filter(ImageFilter.EDGE_ENHANCE)
+    self.img = self.img.filter( ImageFilter.EDGE_ENHANCE )
 
 </t>
 <t tx="karstenw.20200419183156.1"># new
@@ -1910,7 +1926,7 @@ def edge_enhance_more(self):
     
     """
 
-    self.img = self.img.filter(ImageFilter.EDGE_ENHANCE_MORE)
+    self.img = self.img.filter( ImageFilter.EDGE_ENHANCE_MORE )
 
 </t>
 <t tx="karstenw.20200419183210.1"># new
@@ -1920,7 +1936,7 @@ def emboss(self):
     
     """
 
-    self.img = self.img.filter(ImageFilter.EMBOSS)
+    self.img = self.img.filter( ImageFilter.EMBOSS )
 
 </t>
 <t tx="karstenw.20200419183218.1"># new
@@ -2218,9 +2234,12 @@ QUAD = "quad"
     
     """
     
-    if len(kernel)   ==  9: size = (3,3)
-    elif len(kernel) == 25: size = (5,5)
-    else:                   return
+    if len(kernel) == 9:
+        size = (3,3)
+    elif len(kernel) == 25:
+        size = (5,5)
+    else:
+        return
     
     if scale == None:
         scale = 0
@@ -6216,7 +6235,7 @@ _, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 2 inner square")
 img2layer = c.top
 
 rectangles = pb.calculateRectangles(w1, h1)
-rot =rnd.random() &gt; 0.85
+rot = 0 #rnd.random() &gt; 0.85
 
 
 # innerrect
@@ -6230,7 +6249,7 @@ if 1:
     if rot:
         c.top.rotate( -18 + rnd.random() * 36 )
     c.top.translate( x+x1, y+y1 )
-    c.top.opacity( 50 )
+    # c.top.opacity( 50 )
     # pb.label(c, "Image 1 inner square", x, y, 30)
 
 if 1:
@@ -6246,7 +6265,7 @@ if 1:
         c.top.opacity( 25 + rnd.random() * 30 )
     # pb.label(c, "Image 1 quads", x, y, 30)
     
-if 1:
+if 0:
     niner = rectangles.niner
     
     for nine in niner:
@@ -6259,8 +6278,9 @@ if 1:
         c.top.opacity( 10 + rnd.random() * 20 )
     # pb.label(c, "Image 1 niner", x, y, 30)
 
-img2layer.opacity( 10 )
-# img2layer.delete()
+# img2layer.opacity( 10 )
+img2layer.delete()
+
 pb.label(c, "Image 1 innersquare &amp; quads &amp; niner", x, y, 30)
 
 # draw the result
@@ -6268,15 +6288,43 @@ c.draw(name="Image_innerSquare")
 </t>
 <t tx="karstenw.20260126095815.1"></t>
 <t tx="karstenw.20260126095824.1"></t>
-<t tx="karstenw.20260126095859.1"></t>
-<t tx="karstenw.20260126095947.1"></t>
-<t tx="karstenw.20260126100056.1"></t>
-<t tx="karstenw.20260126100059.1"></t>
-<t tx="karstenw.20260126100105.1"></t>
+<t tx="karstenw.20260126095859.1">def gaussianblur(self, radius=2):
+    
+    """Blurs the layer.
+    
+    """
+
+    self.img = self.img.filter( ImageFilter.GaussianBlur( radius ) )
+
+</t>
+<t tx="karstenw.20260126095947.1">def unsharpmask(self, radius=2, percent=150, threshold=3):
+    
+    """Unsharp mask filter.
+    
+    """
+
+    self.img = self.img.filter( ImageFilter.UnsharpMask( radius, percent, threshold ) )
+
+</t>
+<t tx="karstenw.20260126100059.1">def rank(self, size, rank):
+    
+    """Create a rank filter. The rank filter sorts all pixels in a window of the given size, and returns the rank’th value
+    """
+
+    self.img = self.img.filter( ImageFilter.RankFilter( size, rank) )
+
+</t>
+<t tx="karstenw.20260126100105.1">def median(self, size=3):
+    
+    """Create a median filter. Picks the median pixel value in a window with the given size.
+    """
+
+    self.img = self.img.filter( ImageFilter.MedianFilter( size ) )
+
+</t>
 <t tx="karstenw.20260126100110.1"></t>
 <t tx="karstenw.20260126100115.1"></t>
 <t tx="karstenw.20260126100137.1"></t>
-<t tx="karstenw.20260126100238.1"></t>
 <t tx="karstenw.20260323135043.1">def explodeRectangles( rectangles, deltax=10, deltay=10 ):
     """take the result of calculateRectangles() and linerarly explode them by deltax &amp; deltay.
     
@@ -6480,6 +6528,161 @@ elif height &lt; width:
 else:
     # image is square
     innerrect = outerrect = (0, 0,  width, height )
+
+</t>
+<t tx="karstenw.20260609104122.1"></t>
+<t tx="karstenw.20260609104122.2"></t>
+<t tx="karstenw.20260609104122.3"></t>
+<t tx="karstenw.20260609105524.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20260609105524.3"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, fname = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+pb.label(c, fname, x, y)
+
+#
+# Image 2
+#
+x, y = 10, 10 + h1 + 10
+top, w2, h2 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+c.layers[top].gaussianblur()
+
+
+pb.label(c, "%s gaussianblur()" % fname, x, y)
+
+
+# draw the result
+c.draw(name="Layer_function_gaussianblur")
+
+</t>
+<t tx="karstenw.20260609105915.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20260609105915.3"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, fname = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+pb.label(c, fname, x, y)
+
+#
+# Image 2
+#
+x, y = 10, 10 + h1 + 10
+top, w2, h2 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+c.layers[top].median( 5 )
+
+
+pb.label(c, "%s median()" % fname, x, y)
+
+
+# draw the result
+c.draw(name="Layer_function_median")
+
+</t>
+<t tx="karstenw.20260609110518.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20260609110518.3"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, fname = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+pb.label(c, fname, x, y)
+
+#
+# Image 2
+#
+x, y = 10, 10 + h1 + 10
+top, w2, h2 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+c.layers[top].rank( 5, 16 )
+# 0 for a min filter, size * size / 2 for a median filter, size * size - 1
+
+pb.label(c, "%s rank( 5, 16 )" % fname, x, y)
+
+
+# draw the result
+c.draw(name="Layer_function_rank")
+
+</t>
+<t tx="karstenw.20260609115054.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="karstenw.20260609115054.3"># pick 2 images
+img1path = tiles.pop()
+img2path = tiles.pop()
+
+# create a white canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+_, fname = os.path.split( img1path )
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+pb.label(c, fname, x, y)
+
+#
+# Image 2
+#
+x, y = 10, 10 + h1 + 10
+top, w2, h2 = pb.placeImage(c, img1path, x, y, fullwidth, fname)
+c.layers[top].unsharpmask()
+# 0 for a min filter, size * size / 2 for a median filter, size * size - 1
+
+pb.label(c, "%s unsharpmask(  )" % fname, x, y)
+
+
+# draw the result
+c.draw(name="Layer_function_unsharpmask")
 
 </t>
 </tnodes>
