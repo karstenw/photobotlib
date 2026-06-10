@@ -59,14 +59,6 @@ if not nodebox:
 
 
 
-def p(s):
-    # print
-    if pb.py3:
-        print( s )
-    else:
-        print( s.encode("utf-8") )
-
-
 ###
 ### This section should move into imagewells
 ###
@@ -159,7 +151,7 @@ if len(backgrounds) > 0:
     bgimage = backgrounds.pop()
     pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
     print( "Background:")
-    p(bgimage)
+    pb.py23print(bgimage)
 
 
 
@@ -182,20 +174,25 @@ ygutter = rowheight * 0.0667
 realwidth = colwidth - 1*xgutter
 realheight = rowheight - 1*ygutter 
 
-positions = list(grid(columns, rows, colwidth, rowheight, shuffled=True))
+positions = list(pb.grid(columns, rows, colwidth, rowheight, shuffled=True))
 
 randomblur = not kwdbg
 paintoverlay = 0 # not kwdbg
 gilb = 0
 
 
+tilecounter = 0
 for position in positions:
     x, y = position
 
     # create image in canvas at 0,0
     path = tiles.pop()
     nextpictpath = path
-    p(path)
+    tilecounter += 1
+
+    if kwlog or 1:
+        pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
+
     top, w, h = pb.placeImage(c, path, 0, 0, maxsize=None, name="Image %i,%i" % (x,y)) #, width=False, height=True)
 
     # scale the layer to row height

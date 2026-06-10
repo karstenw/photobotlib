@@ -128,7 +128,7 @@ QUAD = "quad"
 
 def py23print( s, *args ):
     # print
-    if pb.py3:
+    if py3:
         print( s )
     else:
         print( s.encode("utf-8") )
@@ -2312,12 +2312,12 @@ def cropImageToRatioHorizontal( layer, ratio ):
     # pdb.set_trace()
     if 1:
         if (x > x+width) or (y > y+height):
-            
-            print("\n\ncropImageToRatioHorizontal")
-            print("ratio:", ratio)
-            layer.prnt()
-            print( (x,y,width,height) )
-            print("oldwidth,newwidth:",oldwidth,newwidth)
+            if kwlog:
+                print("\n\ncropImageToRatioHorizontal")
+                print("ratio:", ratio)
+                layer.prnt()
+                print( (x,y,width,height) )
+                print("oldwidth,newwidth:",oldwidth,newwidth)
         width = abs(width)
         height = abs(height)
     layer.img = layer.img.crop(box=(x,y,x+width,y+height))

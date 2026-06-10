@@ -59,14 +59,6 @@ if not nodebox:
 
 
 
-def p(s):
-    # print
-    if pb.py3:
-        print( s )
-    else:
-        print( s.encode("utf-8") )
-
-
 ###
 ### This section should move into imagewells
 ###
@@ -144,7 +136,7 @@ if len(backgrounds) > 0:
     bgimage = backgrounds.pop()
     pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
     print( "Background:")
-    p(bgimage)
+    pb.py23print(bgimage)
 
 
 # CONFIGURATION
@@ -180,9 +172,8 @@ for j in range(rows):
         nextpictpath = picts.pop()
         c.layer( nextpictpath )
         tilecounter += 1
-        if kwdbg or 1:
-            print( "%i" % (tilecounter, ))
-            p(nextpictpath)
+        if kwlog or 1:
+            pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
 
         # add contrast
         c.top.contrast(1.1)

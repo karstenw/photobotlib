@@ -59,14 +59,6 @@ if not nodebox:
 
 
 
-def p(s):
-    # print
-    if pb.py3:
-        print( s )
-    else:
-        print( s.encode("utf-8") )
-
-
 ###
 ### This section should move into imagewells
 ###
@@ -144,7 +136,7 @@ if len(backgrounds) > 0:
     bgimage = backgrounds.pop()
     pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
     print( "Background:")
-    p(bgimage)
+    pb.py23print(bgimage)
 
 
 # CONFIGURATION
@@ -179,8 +171,7 @@ for j in range(rows):
         topidx = c.layer( nextpictpath )
         tilecounter += 1
         if kwlog or 1:
-            print( "%i" % (tilecounter, ) )
-            p( nextpictpath)
+            pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
 
         # get current image bounds
         w, h = c.top.bounds()
@@ -214,7 +205,7 @@ for j in range(rows):
         # P: 0.5 # add blur
         if randomblur:
             if rnd.random() > 0.5:
-                if kwlog or 0:
+                if kwlog or 1:
                     print( "Blur" )
                 c.top.blur()
 

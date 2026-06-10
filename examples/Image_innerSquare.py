@@ -70,7 +70,7 @@ c.fill( (192, 192, 192) )
 # Image 1
 #
 
-p( "img1path: %s" % img1path )
+pb.py23print( "img1path: %s" % img1path )
 #  create, scale and place the image
 x, y = inset, inset
 top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, filename)
