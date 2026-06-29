@@ -44,12 +44,10 @@ RATIO = WIDTH / HEIGHT
 # check for command line folders
 additionals = sys.argv[1:]
 
+import imagewells
+
 # get all images from user image wells
-imagewell = pb.loadImageWell(   bgsize=(1024,768),
-                                minsize=(256,256),
-                                pathonly=True,
-                                additionals=additionals,
-                                ignorelibs=True)
+imagewell = imagewells.loadImageWell(tabfilename=True)
 
 # tiles are images >256x256 and <=1024x768
 # pp(imagewell['fractions'])
