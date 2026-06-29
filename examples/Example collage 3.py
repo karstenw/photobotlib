@@ -131,21 +131,6 @@ if not kwdbg:
         rnd.shuffle(backgrounds)
 
 
-def grid(cols, rows, colSize=1, rowSize=1, shuffled=False):
-    """Returns an iterator that contains coordinate tuples.
-    Taken from nodebox.utils
-    """
-    rowRange = list(range(int(rows)))
-    colRange = list(range(int(cols)))
-    # Shuffled needs a real list, though.
-    if (shuffled):
-        rnd.shuffle(rowRange)
-        rnd.shuffle(colRange)
-    for y in rowRange:
-        for x in colRange:
-            yield (x*colSize,y*rowSize)
-
-
 # background image
 if len(backgrounds) > 0:
     bgimage = backgrounds.pop()
@@ -162,11 +147,8 @@ colwidth = int(WIDTH / columns)
 rowheight = int(HEIGHT / rows)
 maxsize = int(max(colwidth,rowheight)*1.2)
 
-# print "colwidth/rowheight:", colwidth, rowheight
-
 xgutter = colwidth * 0.0667
 ygutter = rowheight * 0.0667
-# print "xgutter/ygutter:", xgutter, ygutter
 
 realwidth = colwidth - 1*xgutter
 realheight = rowheight - 1*ygutter 
@@ -182,24 +164,19 @@ paintoverlay = not kwdbg
 #
 
 #  create, scale and place the image
-#x, y = 0, 0
-#bgimage = backgrounds.pop()
-#top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
-#print( "Background: %s" % bgimage.encode("utf-8") )
+x, y = 0, 0
 
 tilecounter = 0
 for position in positions:
     x, y = position
 
     # create image in canvas at 0,0
-    path = tiles.pop()
-    nextpictpath = path
+    nextpictpath = tiles.pop()
     tilecounter += 1
-
     if kwlog or 1:
         pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
-    
-    top, w, h = pb.placeImage(c, path, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
+
+    top, w, h = pb.placeImage(c, nextpictpath, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
 
     # scale the layer to row height
     pb.scaleLayerToHeight( c.top, rowheight )
@@ -270,6 +247,7 @@ for position in positions:
         if rnd.random() > 0.75:
             #print "BLUR"
             c.top.blur()
+
 if 0:
     # orange hue mask finish
     #print "Mr. Orange"

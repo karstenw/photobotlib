@@ -188,7 +188,7 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
+<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
 <v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
@@ -202,7 +202,7 @@
 <v t="karstenw.20210316200115.1"><vh>&lt;&lt; paint texture &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a.py</vh>
+<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -215,7 +215,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210316195906.1" a="E"><vh>@clean examples/Example collage 1b.py</vh>
+<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -228,14 +228,14 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152421.1" a="E"><vh>@clean examples/Example collage 2.py</vh>
+<v t="karstenw.20210317152421.1"><vh>@clean examples/Example collage 2.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210317152601.1"><vh>config</vh></v>
-<v t="karstenw.20210317152606.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210317152606.1"><vh>loop</vh>
 <v t="karstenw.20210317154410.1"><vh>&lt;&lt; place image &gt;&gt;</vh></v>
 <v t="karstenw.20210317154416.1"><vh>&lt;&lt; create gradients &gt;&gt;</vh></v>
 <v t="karstenw.20210317154440.1"><vh>&lt;&lt; flip and blur &gt;&gt;</vh></v>
@@ -246,26 +246,24 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152433.1" a="E"><vh>@clean examples/Example collage 3.py</vh>
+<v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
-<v t="karstenw.20210319130640.1"><vh>grid</vh></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210319124939.2"><vh>config</vh></v>
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
 </v>
-<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
-<v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210319125114.1"><vh>config</vh></v>
-<v t="karstenw.20210319125121.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210319125121.1"><vh>loop</vh>
 <v t="karstenw.20210331165116.1"><vh>&lt;&lt; tile blur &gt;&gt;</vh></v>
 </v>
 <v t="karstenw.20210319141308.1"><vh>finish</vh>
@@ -273,15 +271,14 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210331161145.1" a="E"><vh>@clean examples/Example collage 5.py</vh>
+<v t="karstenw.20210331161145.1"><vh>@clean examples/Example collage 5.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
-<v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210331161336.1"><vh>config</vh></v>
-<v t="karstenw.20210331161342.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210331161342.1"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"><vh>&lt;&lt; image placement &gt;&gt;</vh></v>
 <v t="karstenw.20210331164848.1"><vh>&lt;&lt; tile height &gt;&gt;</vh></v>
 <v t="karstenw.20210331165305.1"><vh>&lt;&lt; tile contrast crank &gt;&gt;</vh></v>
@@ -295,15 +292,14 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20211005225841.1" a="E"><vh>@clean examples/Example collage 6.py</vh>
+<v t="karstenw.20211005225841.1"><vh>@clean examples/Example collage 6.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
-<v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20211005225906.2"><vh>config</vh></v>
-<v t="karstenw.20211005233913.1" a="E"><vh>loop</vh>
+<v t="karstenw.20211005233913.1"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"></v>
 <v t="karstenw.20210331164848.1"></v>
 <v t="karstenw.20210331165305.1"></v>
@@ -317,12 +313,11 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20250409154304.1" a="E"><vh>@clean examples/Example collage 7.py</vh>
+<v t="karstenw.20250409154304.1"><vh>@clean examples/Example collage 7.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
-<v t="karstenw.20210319130640.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20250409154448.1"><vh>config</vh></v>
 <v t="karstenw.20250409154454.1"><vh>loop</vh>
@@ -340,56 +335,56 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
-<v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
+<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
+<v t="karstenw.20211206121916.1" a="E"><vh>@clean examples/explore_gradients 1.py</vh>
+<v t="karstenw.20211206131524.1"><vh>Declarations</vh></v>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
-<v t="karstenw.20211206134707.1"><vh>@clean examples/Layer_colorize.py</vh>
-<v t="karstenw.20211206131524.1"><vh>Declarations</vh></v>
-<v t="karstenw.20260121173217.1"><vh>py2/3 printer p()</vh></v>
+<v t="karstenw.20211206134707.1" a="E"><vh>@clean examples/Layer_colorize.py</vh>
+<v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206134707.2"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20211206122120.1"><vh>@clean examples/Layer_filter_boxblur.py</vh>
+<v t="karstenw.20211206122120.1" a="E"><vh>@clean examples/Layer_filter_boxblur.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206122136.1"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20211206123730.1"><vh>@clean examples/Layer_filter_contour.py</vh>
+<v t="karstenw.20211206123730.1" a="E"><vh>@clean examples/Layer_filter_contour.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206123730.2"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20211206123753.1"><vh>@clean examples/Layer_filter_edge_enhance_more.py</vh>
+<v t="karstenw.20211206123753.1" a="E"><vh>@clean examples/Layer_filter_edge_enhance_more.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206123753.2"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20211206123754.1"><vh>@clean examples/Layer_filter_edge_enhance.py</vh>
+<v t="karstenw.20211206123754.1" a="E"><vh>@clean examples/Layer_filter_edge_enhance.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206123754.2"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20211206123755.1"><vh>@clean examples/Layer_filter_emboss.py</vh>
+<v t="karstenw.20211206123755.1" a="E"><vh>@clean examples/Layer_filter_emboss.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206123755.2"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20260609105524.1"><vh>@clean examples/Layer_filter_gaussianblur.py</vh>
+<v t="karstenw.20260609105524.1" a="E"><vh>@clean examples/Layer_filter_gaussianblur.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20260609105524.3"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20260609105915.1"><vh>@clean examples/Layer_filter_median.py</vh>
+<v t="karstenw.20260609105915.1" a="E"><vh>@clean examples/Layer_filter_median.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20260609105915.3"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20260609110518.1"><vh>@clean examples/Layer_filter_rank.py</vh>
+<v t="karstenw.20260609110518.1" a="E"><vh>@clean examples/Layer_filter_rank.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20260609110518.3"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20260609115054.1"><vh>@clean examples/Layer_filter_unsharpmask.py</vh>
+<v t="karstenw.20260609115054.1" a="E"><vh>@clean examples/Layer_filter_unsharpmask.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20260609115054.3"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20211206123755.3"><vh>@clean examples/Layer_filter_find_edges.py</vh>
+<v t="karstenw.20211206123755.3" a="E"><vh>@clean examples/Layer_filter_find_edges.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206123755.4"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20211206123755.5"><vh>@clean examples/Layer_function_add_modulo.py</vh>
+<v t="karstenw.20211206123755.5" a="E"><vh>@clean examples/Layer_function_add_modulo.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206123755.6"><vh>Content</vh></v>
 </v>
@@ -479,7 +474,7 @@
 </v>
 <v t="karstenw.20260122212721.1"><vh>@clean examples/Layer_function_rectangles.py</vh>
 <v t="karstenw.20211206131524.1"></v>
-<v t="karstenw.20260121173217.1"></v>
+<v t="karstenw.20260121173217.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20260122212815.1"><vh>Content</vh></v>
 </v>
 </v>
@@ -2394,7 +2389,6 @@ imagewells.kwlog = kwlog
 if kwdbg and 1:
     # make random choices repeatable for debugging
     rnd.seed( 123456 )
-    
 
 # width and height of destination image
 # W, H =  800,  600
@@ -2405,7 +2399,6 @@ W, H = 1920, 1080
 # W, H = 2560, 1440
 
 # import photobot lib
-nodebox=True
 try:
     pb = ximport("photobot")
     size(W, H)
@@ -2420,20 +2413,15 @@ except NameError:
     pb.kwdbg = kwdbg
     pb.kwlog = kwlog
     WIDTH, HEIGHT = W, H
-    nodebox=False
 
-if not nodebox:
-    if pb.py3:
-        print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
-    else:
-        print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
-
-
-
+# Does not work on NB1
+#if pb.py3:
+#    print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
+#else:
+#    print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
 </t>
 <t tx="karstenw.20201006211627.1"># used in some examples
 RATIO = WIDTH / HEIGHT
-
 
 # get all images from user image wells
 imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
@@ -3208,11 +3196,8 @@ colwidth = int(WIDTH / columns)
 rowheight = int(HEIGHT / rows)
 maxsize = int(max(colwidth,rowheight)*1.2)
 
-# print "colwidth/rowheight:", colwidth, rowheight
-
 xgutter = colwidth * 0.0667
 ygutter = rowheight * 0.0667
-# print "xgutter/ygutter:", xgutter, ygutter
 
 realwidth = colwidth - 1*xgutter
 realheight = rowheight - 1*ygutter 
@@ -3228,10 +3213,7 @@ paintoverlay = not kwdbg
 #
 
 #  create, scale and place the image
-#x, y = 0, 0
-#bgimage = backgrounds.pop()
-#top, w, h = pb.placeImage(c, bgimage, x, y, W, "Image 1", width=True, height=True)
-#print( "Background: %s" % bgimage.encode("utf-8") )
+x, y = 0, 0
 
 </t>
 <t tx="karstenw.20210319124939.3">tilecounter = 0
@@ -3239,14 +3221,12 @@ for position in positions:
     x, y = position
 
     # create image in canvas at 0,0
-    path = tiles.pop()
-    nextpictpath = path
+    nextpictpath = tiles.pop()
     tilecounter += 1
-
     if kwlog or 1:
         pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
-    
-    top, w, h = pb.placeImage(c, path, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
+
+    top, w, h = pb.placeImage(c, nextpictpath, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
 
     # scale the layer to row height
     pb.scaleLayerToHeight( c.top, rowheight )
@@ -3317,6 +3297,7 @@ for position in positions:
         if rnd.random() &gt; 0.75:
             #print "BLUR"
             c.top.blur()
+
 </t>
 <t tx="karstenw.20210319124940.1">if 0:
     # orange hue mask finish
@@ -3370,6 +3351,12 @@ randomblur = not kwdbg
 paintoverlay = 0 # not kwdbg
 gilb = 0
 
+#
+# Base Image
+#
+
+#  create, scale and place the image
+x, y = 0, 0
 
 </t>
 <t tx="karstenw.20210319125121.1">tilecounter = 0
@@ -3377,14 +3364,12 @@ for position in positions:
     x, y = position
 
     # create image in canvas at 0,0
-    path = tiles.pop()
-    nextpictpath = path
+    nextpictpath = tiles.pop()
     tilecounter += 1
-
     if kwlog or 1:
         pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
 
-    top, w, h = pb.placeImage(c, path, 0, 0, maxsize=None, name="Image %i,%i" % (x,y)) #, width=False, height=True)
+    top, w, h = pb.placeImage(c, nextpictpath, 0, 0, maxsize=None, name="Image %i,%i" % (x,y)) #, width=False, height=True)
 
     # scale the layer to row height
     if rnd.random() &gt; 0.5:
@@ -3471,22 +3456,6 @@ for position in positions:
     
     &lt;&lt; tile blur &gt;&gt;
 </t>
-<t tx="karstenw.20210319130640.1">def grid(cols, rows, colSize=1, rowSize=1, shuffled=False):
-    """Returns an iterator that contains coordinate tuples.
-    Taken from nodebox.utils
-    """
-    rowRange = list(range(int(rows)))
-    colRange = list(range(int(cols)))
-    # Shuffled needs a real list, though.
-    if (shuffled):
-        rnd.shuffle(rowRange)
-        rnd.shuffle(colRange)
-    for y in rowRange:
-        for x in colRange:
-            yield (x*colSize,y*rowSize)
-
-
-</t>
 <t tx="karstenw.20210319141308.1">&lt;&lt; orange gilb &gt;&gt;
 
 &lt;&lt; paint texture &gt;&gt;
@@ -3541,13 +3510,20 @@ ygutter = rowheight * 0.0667
 realwidth = colwidth - 1*xgutter
 realheight = rowheight - 1*ygutter 
 
-positions = list(grid(columns, rows, colwidth, rowheight, shuffled=True))
-# positions.extend( list(grid(columns, rows, colwidth, rowheight, shuffled=True)) )
-# positions.extend( list(grid(columns, rows, colwidth, rowheight, shuffled=True)) )
+positions = list(pb.grid(columns, rows, colwidth, rowheight, shuffled=True))
+# positions.extend( list(pb.grid(columns, rows, colwidth, rowheight, shuffled=True)) )
+# positions.extend( list(pb.grid(columns, rows, colwidth, rowheight, shuffled=True)) )
 
 randomblur = 0 # not kwdbg
 paintoverlay = 0 # not kwdbg
 gilb = 0
+
+#
+# Base Image
+#
+
+#  create, scale and place the image
+x, y = 0, 0
 
 </t>
 <t tx="karstenw.20210331161342.1">tilecounter = 0
@@ -3816,9 +3792,9 @@ ygutter = rowheight * 0.0667
 realwidth = colwidth - 1*xgutter
 realheight = rowheight - 1*ygutter 
 
-positions = list(grid(columns, rows, colwidth, rowheight, shuffled=True))
-# positions.extend( list(grid(columns, rows, colwidth, rowheight, shuffled=True)) )
-# positions.extend( list(grid(columns, rows, colwidth, rowheight, shuffled=True)) )
+positions = list(pb.grid(columns, rows, colwidth, rowheight, shuffled=True))
+# positions.extend( list(pb.grid(columns, rows, colwidth, rowheight, shuffled=True)) )
+# positions.extend( list(pb.grid(columns, rows, colwidth, rowheight, shuffled=True)) )
 
 randomblur = 0 # not kwdbg
 paintoverlay = 0 # not kwdbg
@@ -5952,11 +5928,7 @@ except NameError:
 
 
 </t>
-<t tx="karstenw.20230115124413.1">###
-### This section should move into imagewells
-###
-
-# I use several distinct image collections
+<t tx="karstenw.20230115124413.1"># I use several distinct image collections
 
 # the defaults
 configname = ""
@@ -5983,7 +5955,6 @@ if kwlog or 1:
     print("configname:", configname)
     print("pathsfilename:", pathsfilename)
     print("storagefilename:", storagefilename)
-
 
 </t>
 <t tx="karstenw.20230313131659.1">@language python
@@ -6133,15 +6104,7 @@ if 0: #rnd.random() &gt; 0.3:
     c.top.color()
 
 </t>
-<t tx="karstenw.20260121173217.1">def p(s):
-    # print
-    if pb.py3:
-        print( s )
-    else:
-        print( s.encode("utf-8") )
-
-
-</t>
+<t tx="karstenw.20260121173217.1"></t>
 <t tx="karstenw.20260122141054.1"># may have rounding errors
 def calculateRectangles(width, height):
     """Calculate several rectangles for the given size.

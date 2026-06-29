@@ -39,14 +39,6 @@ tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
 
-def p(s):
-    # print
-    if pb.py3:
-        print( s )
-    else:
-        print( s.encode("utf-8") )
-
-
 # pick 2 images
 img1path = tiles.pop()
 img2path = tiles.pop()

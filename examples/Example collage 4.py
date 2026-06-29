@@ -131,21 +131,6 @@ if not kwdbg:
         rnd.shuffle(backgrounds)
 
 
-def grid(cols, rows, colSize=1, rowSize=1, shuffled=False):
-    """Returns an iterator that contains coordinate tuples.
-    Taken from nodebox.utils
-    """
-    rowRange = list(range(int(rows)))
-    colRange = list(range(int(cols)))
-    # Shuffled needs a real list, though.
-    if (shuffled):
-        rnd.shuffle(rowRange)
-        rnd.shuffle(colRange)
-    for y in rowRange:
-        for x in colRange:
-            yield (x*colSize,y*rowSize)
-
-
 # background image
 if len(backgrounds) > 0:
     bgimage = backgrounds.pop()
@@ -180,20 +165,24 @@ randomblur = not kwdbg
 paintoverlay = 0 # not kwdbg
 gilb = 0
 
+#
+# Base Image
+#
+
+#  create, scale and place the image
+x, y = 0, 0
 
 tilecounter = 0
 for position in positions:
     x, y = position
 
     # create image in canvas at 0,0
-    path = tiles.pop()
-    nextpictpath = path
+    nextpictpath = tiles.pop()
     tilecounter += 1
-
     if kwlog or 1:
         pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
 
-    top, w, h = pb.placeImage(c, path, 0, 0, maxsize=None, name="Image %i,%i" % (x,y)) #, width=False, height=True)
+    top, w, h = pb.placeImage(c, nextpictpath, 0, 0, maxsize=None, name="Image %i,%i" % (x,y)) #, width=False, height=True)
 
     # scale the layer to row height
     if rnd.random() > 0.5:
