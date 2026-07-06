@@ -39,17 +39,14 @@ tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
 
-import PIL
-
 # pick 2 images
 img1path = tiles.pop()
 img2path = tiles.pop()
 
-# create a white canvas
+# create a gray canvas
 c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (192, 192, 192) )
 
-        
 #
 # Image 1
 #
@@ -79,6 +76,7 @@ top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 2", 1)
 
 class Example:
     def getdata(self):
+        import PIL
         method = PIL.Image.Transform.EXTENT
         data = (-50, -50, 550, 550)
         return method, data
@@ -88,5 +86,5 @@ c.top.distort( method=Example() )
 pb.label(c, "Distorted Image 1", x, y)
 
 # draw the result
-c.draw(name="Layer_function_distort")
+c.draw(name="Layer_function_distort_extended")
 

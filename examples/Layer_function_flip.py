@@ -39,14 +39,13 @@ tiles = imagewell['landscape']
 rnd.shuffle(tiles)
 
 
+# pick 2 images
 img1path = tiles.pop()
 img2path = tiles.pop()
 
-
-# create the canvas
-c = pb.canvas(int(WIDTH), int(HEIGHT))
-c.fill( (255,255,255) )
-
+# create a gray canvas
+c = pb.canvas( WIDTH, HEIGHT)
+c.fill( (192, 192, 192) )
 
 imsize = int((WIDTH-30)/2)
 x, y = 10, 10

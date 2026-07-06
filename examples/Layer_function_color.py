@@ -43,7 +43,7 @@ rnd.shuffle(tiles)
 img1path = tiles.pop()
 img2path = tiles.pop()
 
-# create a white canvas
+# create a gray canvas
 c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (192, 192, 192) )
 
