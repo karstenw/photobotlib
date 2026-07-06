@@ -61,15 +61,15 @@ if os.path.exists( testfolder ):
     datainpackagedir = True
 
 
-FileMetadata = namedtuple(  "FileMetadata", 'filepath filesize lastmodified filemode islink')
-
-ImageMetadata = namedtuple(  "ImageMetadata", FileMetadata._fields + ('imagewidth', 'imageheight') )
-
 def uniprint( s ):
     if py3:
         print( s )
     else:
         print( s.encode("utf-8") )
+
+FileMetadata = namedtuple(  "FileMetadata", 'filepath filesize lastmodified filemode islink')
+
+ImageMetadata = namedtuple(  "ImageMetadata", FileMetadata._fields + ('imagewidth', 'imageheight') )
 
 
 def makeunicode(s, srcencoding="utf-8", normalizer="NFC"):
@@ -137,6 +137,7 @@ class Pathitems:
 
 
 def getfilemetadata( filepath ):
+    """Get "FileMetadata" named tuple for filepath."""
     
     islink = os.path.islink( filepath )
     if 0: # later perhaps
@@ -601,7 +602,7 @@ def loadImageWell(  bgsize=(1280,1024),
             
         # filter minimal pixel lengths
         if ext.lower() != ".eps":
-            if (imagewidth < minw) and (imageheight < minh):
+            if (imagewidth < minw) or (imageheight < minh):
                 continue
             if (imagewidth > maxpixellength) or (imageheight > maxpixellength):
                 continue
