@@ -188,8 +188,8 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
@@ -2397,13 +2397,14 @@ W, H = 1920, 1080
 # W, H = 2560, 1440
 
 # import photobot lib
+nodebox = True
 try:
     pb = ximport("photobot")
     size(W, H)
     background( 0.333 )
 except ImportError:
     pb = ximport("__init__")
-    reload(pb)
+    # reload(pb)
     size(W, H)
     background( 0.333 )
 except NameError:
@@ -2411,12 +2412,16 @@ except NameError:
     pb.kwdbg = kwdbg
     pb.kwlog = kwlog
     WIDTH, HEIGHT = W, H
+    nodebox = False
 
-# Does not work on NB1
-#if pb.py3:
-#    print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
-#else:
-#    print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
+# identify script
+fn = os.path.split( __file__ )[1]
+args = str(sys.argv[1:])
+if pb.py3:
+    print("\n\npython3 %s  %s" %(fn, args) )
+else:
+    print("\n\npython2 %s  %s" %(fn, args) )
+
 </t>
 <t tx="karstenw.20201006211627.1"># used in some examples
 RATIO = WIDTH / HEIGHT
@@ -2428,7 +2433,7 @@ imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
                              additionals=additionals,
                              imagewellfilename=pathsfilename,
                              tabfilename=storagefilename,
-                             ignoreDotFolders=False,
+                             ignoreDotFolders=True,
                              ignoreFolderNames=('+offline', '+OFFLINE'))
 
 # tiles are images &gt;256x256 and &lt;=WIDTH, HEIGHT
@@ -2805,7 +2810,7 @@ for j in range(rows):
         # get current image bounds
         w, h = c.top.bounds()
 
-        # calculate scale &amp; apply
+        # calculate scale for rowheight &amp; apply
         s = pb.aspectRatio( (w,h), y_offset, height=True)
         c.top.scale(s, s)
         if kwlog:
@@ -3890,8 +3895,7 @@ with Image.open("hopper.jpg") as im:
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206121944.1"># heavily inspired by https://www.nodebox.net/code/index.php/Landslide
-import sys, os
+<t tx="karstenw.20211206121944.1">import sys, os
 
 # need a different name
 import random as rnd
@@ -4699,8 +4703,6 @@ c.draw(name="Layer_function_contrast")
 @others
 </t>
 <t tx="karstenw.20211206123757.2">
-
-
 
 '''
 class QuadTransform(Transform):

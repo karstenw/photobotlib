@@ -23,7 +23,6 @@ imagewells.kwlog = kwlog
 if kwdbg and 1:
     # make random choices repeatable for debugging
     rnd.seed( 123456 )
-    
 
 # width and height of destination image
 # W, H =  800,  600
@@ -34,14 +33,14 @@ W, H = 1920, 1080
 # W, H = 2560, 1440
 
 # import photobot lib
-nodebox=True
+nodebox = True
 try:
     pb = ximport("photobot")
     size(W, H)
     background( 0.333 )
 except ImportError:
     pb = ximport("__init__")
-    reload(pb)
+    # reload(pb)
     size(W, H)
     background( 0.333 )
 except NameError:
@@ -49,19 +48,15 @@ except NameError:
     pb.kwdbg = kwdbg
     pb.kwlog = kwlog
     WIDTH, HEIGHT = W, H
-    nodebox=False
+    nodebox = False
 
-if not nodebox:
-    if pb.py3:
-        print("\n\npython3 %s  %s" %(__file__, sys.argv[1:]) )
-    else:
-        print("\n\npython2 %s  %s" %(__file__, sys.argv[1:]) )
-
-
-
-###
-### This section should move into imagewells
-###
+# identify script
+fn = os.path.split( __file__ )[1]
+args = str(sys.argv[1:])
+if pb.py3:
+    print("\n\npython3 %s  %s" %(fn, args) )
+else:
+    print("\n\npython2 %s  %s" %(fn, args) )
 
 # I use several distinct image collections
 
@@ -91,10 +86,8 @@ if kwlog or 1:
     print("pathsfilename:", pathsfilename)
     print("storagefilename:", storagefilename)
 
-
 # used in some examples
 RATIO = WIDTH / HEIGHT
-
 
 # get all images from user image wells
 imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
@@ -103,7 +96,7 @@ imagewell = loadImageWell(   bgsize=(WIDTH, HEIGHT),
                              additionals=additionals,
                              imagewellfilename=pathsfilename,
                              tabfilename=storagefilename,
-                             ignoreDotFolders=False,
+                             ignoreDotFolders=True,
                              ignoreFolderNames=('+offline', '+OFFLINE'))
 
 # tiles are images >256x256 and <=WIDTH, HEIGHT
@@ -176,7 +169,7 @@ for j in range(rows):
         # get current image bounds
         w, h = c.top.bounds()
 
-        # calculate scale & apply
+        # calculate scale for rowheight & apply
         s = pb.aspectRatio( (w,h), y_offset, height=True)
         c.top.scale(s, s)
         if kwlog:

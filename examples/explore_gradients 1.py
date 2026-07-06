@@ -1,4 +1,3 @@
-# heavily inspired by https://www.nodebox.net/code/index.php/Landslide
 import sys, os
 
 # need a different name

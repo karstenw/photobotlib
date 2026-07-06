@@ -48,9 +48,6 @@ c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (192, 192, 192) )
 
 
-
-
-
 '''
 class QuadTransform(Transform):
     """
