@@ -188,7 +188,7 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
+<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
 <v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
@@ -335,13 +335,12 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
-<v t="karstenw.20211206131524.1"><vh>Declarations</vh></v>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
 <v t="karstenw.20211206134707.1"><vh>@clean examples/Layer_colorize.py</vh>
-<v t="karstenw.20211206131524.1"></v>
+<v t="karstenw.20211206131524.1"><vh>Declarations</vh></v>
 <v t="karstenw.20211206134707.2"><vh>Content</vh></v>
 </v>
 <v t="karstenw.20211206122120.1"><vh>@clean examples/Layer_filter_boxblur.py</vh>
@@ -412,7 +411,7 @@
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206123757.2"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20230313131659.1"><vh>@clean examples/Layer_function_distort_extend.py</vh>
+<v t="karstenw.20230313131659.1" a="E"><vh>@clean examples/Layer_function_distort_extend.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20230313131723.1"><vh>Content</vh></v>
 </v>
@@ -474,7 +473,6 @@
 </v>
 <v t="karstenw.20260122212721.1"><vh>@clean examples/Layer_function_rectangles.py</vh>
 <v t="karstenw.20211206131524.1"></v>
-<v t="karstenw.20260121173217.1"><vh>py2/3 printer p()</vh></v>
 <v t="karstenw.20260122212815.1"><vh>Content</vh></v>
 </v>
 </v>
@@ -4084,56 +4082,7 @@ c.draw()
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206122136.1">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206122136.1">#
 # Image 1
 #
 
@@ -4163,56 +4112,7 @@ c.draw(name="Layer_function_boxblur")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206123730.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206123730.2">#
 # Image 1
 #
 
@@ -4241,56 +4141,7 @@ c.draw(name="Layer_function_contour")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206123753.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206123753.2">#
 # Image 1
 #
 
@@ -4320,56 +4171,7 @@ c.draw(name="Layer_function_enhance_more")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206123754.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206123754.2">#
 # Image 1
 #
 
@@ -4399,56 +4201,7 @@ c.draw(name="Layer_function_enhance")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206123755.10">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206123755.10">#
 # Image 1
 #
 
@@ -4540,56 +4293,7 @@ c.draw(name="Layer_function_autocontrast")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206123755.12">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206123755.12">#
 # Image 1
 #
 
@@ -4681,56 +4385,7 @@ pb.label(c, "Image 8 Brightness: 200", x, y)
 c.draw(name="Layer_function_brightness")
 
 </t>
-<t tx="karstenw.20211206123755.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206123755.2">#
 # Image 1
 #
 
@@ -4760,56 +4415,7 @@ c.draw(name="Layer_function_emboss")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206123755.4">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206123755.4">#
 # Image 1
 #
 
@@ -4839,56 +4445,7 @@ c.draw(name="Layer_function_find_edges")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206123755.6">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206123755.6">#
 #
 # Image 1
 
@@ -4939,56 +4496,7 @@ c.draw(name="Layer_function_add_modulo")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206123755.8">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206123755.8">#
 #
 # Image 1
 
@@ -5043,56 +4551,7 @@ c.draw(name="Layer_function_add")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206123756.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206123756.2">#
 # Image 1
 #
 
@@ -5145,56 +4604,7 @@ c.draw(name="Layer_function_color")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206123756.4">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206123756.4">#
 # Image 1
 #
 
@@ -5288,56 +4698,7 @@ c.draw(name="Layer_function_contrast")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206123757.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-
+<t tx="karstenw.20211206123757.2">
 
 
 
@@ -5424,56 +4785,7 @@ c.draw(name="Layer_function_deform")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124323.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206124323.2">#
 # Image 1
 #
 
@@ -5523,56 +4835,7 @@ c.draw(name="Layer_function_difference")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124348.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206124348.2">#
 # Image 1
 #
 
@@ -5610,57 +4873,7 @@ c.draw(name="Layer_function_equalize")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124349.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-
-# create the canvas
-c = pb.canvas(int(WIDTH), int(HEIGHT))
-c.fill( (255,255,255) )
-
-
-imsize = int((WIDTH-30)/2)
+<t tx="karstenw.20211206124349.2">imsize = int((WIDTH-30)/2)
 x, y = 10, 10
 img1, w1, h1 = pb.placeImage(c, img1path, x, y, imsize, "image1")
 pb.label(c, "Original Image", x, y)
@@ -5711,56 +4924,7 @@ c.draw(name="Layer_function_flip")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124349.4">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206124349.4">#
 # Image 1
 #
 
@@ -5814,57 +4978,7 @@ c.draw(name="Layer_function_hue")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124350.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-
-#
+<t tx="karstenw.20211206124350.2">#
 # Image 1
 #
 
@@ -5917,56 +5031,7 @@ c.draw(name="Layer_function_mask")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124350.4">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206124350.4">#
 # Image 1
 #
 
@@ -6020,56 +5085,7 @@ c.draw(name="Layer_function_multiply")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124350.6">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206124350.6">#
 # Image 1
 #
 
@@ -6164,56 +5180,7 @@ c.draw(name="Layer_function_opacity")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124351.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a gray canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206124351.2">#
 # Image 1
 #
 
@@ -6267,56 +5234,7 @@ c.draw(name="Layer_function_overlay")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124351.4">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a gray canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206124351.4">#
 # Image 1
 #
 
@@ -6408,56 +5326,7 @@ c.draw(name="Layer_function_posterize")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124352.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a gray canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206124352.2">#
 # Image 1
 #
 
@@ -6509,56 +5378,7 @@ c.draw(name="Layer_function_screen")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124352.4">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a gray canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206124352.4">#
 # Image 1
 #
 
@@ -6591,56 +5411,7 @@ c.draw(name="Layer_function_select")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124352.6">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a gray canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206124352.6">#
 # Image 1
 #
 
@@ -6732,56 +5503,7 @@ c.draw(name="Layer_function_solarize")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124353.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a gray canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206124353.2">#
 # Image 1
 #
 
@@ -6831,7 +5553,54 @@ c.draw(name="Layer_function_subtract_modulo")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206124353.4">import sys, os
+<t tx="karstenw.20211206124353.4">#
+# Image 1
+#
+
+#  create, scale and place the image
+x, y = 10, 10
+top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
+pb.label(c, "Image 1", x, y)
+
+#
+# Image 2
+#
+x, y = w1+20, 10
+top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2")
+pb.label(c, "Image 2", x, y)
+
+
+#
+# Subtract Images 1 &amp; 2
+#
+
+h = max(h1, h2)
+x, y = 10 , h + 20
+
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 3")
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 4")
+# c.layers[top].subtract()
+c.top.subtract()
+
+pb.label(c, "Subtract Image 1 over Image 2", x, y)
+
+
+#
+# Subtract Images 2 &amp; 1
+#
+
+h = max(h3, h4)
+x, y = 10 , h + 20 + y
+
+top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 5")
+top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 6")
+c.top.subtract()
+pb.label(c, "Subtract Image 2 over Image 1", x, y)
+
+# draw the result
+c.draw(name="Layer_function_subtract")
+</t>
+<t tx="karstenw.20211206131524.1">import sys, os
 
 # need a different name
 import random as rnd
@@ -6880,108 +5649,12 @@ img2path = tiles.pop()
 c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (192, 192, 192) )
 
-#
-# Image 1
-#
-
-#  create, scale and place the image
-x, y = 10, 10
-top, w1, h1 = pb.placeImage(c, img1path, x, y, tilewidth, "Image 1")
-pb.label(c, "Image 1", x, y)
-
-#
-# Image 2
-#
-x, y = w1+20, 10
-top, w2, h2 = pb.placeImage(c, img2path, x, y, tilewidth, "Image 2")
-pb.label(c, "Image 2", x, y)
-
-
-#
-# Subtract Images 1 &amp; 2
-#
-
-h = max(h1, h2)
-x, y = 10 , h + 20
-
-top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 3")
-top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 4")
-# c.layers[top].subtract()
-c.top.subtract()
-
-pb.label(c, "Subtract Image 1 over Image 2", x, y)
-
-
-#
-# Subtract Images 2 &amp; 1
-#
-
-h = max(h3, h4)
-x, y = 10 , h + 20 + y
-
-top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 5")
-top, w3, h3 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 6")
-c.top.subtract()
-pb.label(c, "Subtract Image 2 over Image 1", x, y)
-
-# draw the result
-c.draw(name="Layer_function_subtract")
 </t>
-<t tx="karstenw.20211206131524.1"></t>
 <t tx="karstenw.20211206134707.1">@language python
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20211206134707.2">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20211206134707.2">#
 # Image 1
 #
 
@@ -7068,59 +5741,7 @@ if kwlog or 1:
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20230313131723.1">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-import PIL
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-        
-#
+<t tx="karstenw.20230313131723.1">#
 # Image 1
 #
 
@@ -7149,6 +5770,7 @@ top, w4, h4 = pb.placeImage(c, img2path, x, y, fullwidth, "Image 2", 1)
 
 class Example:
     def getdata(self):
+        import PIL
         method = PIL.Image.Transform.EXTENT
         data = (-50, -50, 550, 550)
         return method, data
@@ -7158,7 +5780,7 @@ c.top.distort( method=Example() )
 pb.label(c, "Distorted Image 1", x, y)
 
 # draw the result
-c.draw(name="Layer_function_distort")
+c.draw(name="Layer_function_distort_extended")
 
 </t>
 <t tx="karstenw.20250409154304.1">@language python
@@ -7252,7 +5874,6 @@ if 0: #rnd.random() &gt; 0.3:
     c.top.color()
 
 </t>
-<t tx="karstenw.20260121173217.1"></t>
 <t tx="karstenw.20260122141054.1"># may have rounding errors
 def calculateRectangles(width, height):
     """Calculate several rectangles for the given size.
@@ -7311,56 +5932,7 @@ def calculateRectangles(width, height):
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20260122212815.1">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20260122212815.1">#
 # Image 1
 #
 
@@ -7682,56 +6254,7 @@ else:
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20260609105524.3">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20260609105524.3">#
 # Image 1
 #
 
@@ -7761,56 +6284,7 @@ c.draw(name="Layer_function_gaussianblur")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20260609105915.3">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20260609105915.3">#
 # Image 1
 #
 
@@ -7840,56 +6314,7 @@ c.draw(name="Layer_function_median")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20260609110518.3">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20260609110518.3">#
 # Image 1
 #
 
@@ -7919,56 +6344,7 @@ c.draw(name="Layer_function_rank")
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20260609115054.3">import sys, os
-
-# need a different name
-import random as rnd
-
-import pprint
-pp = pprint.pprint
-
-import pdb
-kwdbg = 0
-
-W, H = 542, 1050
-fullwidth = int(W-20)
-tilewidth = int((fullwidth-10) / 2.0)
-
-
-# check for Nodebox
-NB = True
-try:
-    _ctx
-except(NameError):
-    NB = False
-
-if NB:
-    size(W, H)
-    pb = ximport("photobot")
-else:
-    WIDTH, HEIGHT = W, H
-    import photobot as pb
-
-import imagewells
-
-if kwdbg:
-    # make random choices repeatable for debugging
-    rnd.seed(8)
-
-imagewell = imagewells.loadImageWell(tabfilename=True)
-tiles = imagewell['landscape']
-rnd.shuffle(tiles)
-
-
-# pick 2 images
-img1path = tiles.pop()
-img2path = tiles.pop()
-
-# create a white canvas
-c = pb.canvas( WIDTH, HEIGHT)
-c.fill( (192, 192, 192) )
-
-#
+<t tx="karstenw.20260609115054.3">#
 # Image 1
 #
 
