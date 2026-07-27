@@ -490,6 +490,7 @@ def loadImageWell(  bgsize=(1280,1024),
         'WxH largest': "",
         'WxH smallest': "",
         'WxH median': "",
+        'allsizes': {}
     }
     
     minw, minh = minsize
@@ -545,7 +546,10 @@ def loadImageWell(  bgsize=(1280,1024),
                     fileLoaded = True
 
     if additionals:
-        folders.extend( additionals )
+        if type(additionals) in (tuple, list):
+            folders.extend( additionals )
+        else:
+            folders.append( additionals )
 
     # <folders
     
@@ -666,8 +670,13 @@ def loadImageWell(  bgsize=(1280,1024),
         
         result['allimages'].append( record )
         
+        size = (imagewidth, imageheight)
+        if size not in result['allsizes']:
+            result['allsizes'][size] = []
+        result['allsizes'][size].append( record )
+        
         # sort record into remaining categories
-
+        
         # candidate has at least canvas size and can be used as background
         # otherwise it is a tile
         if (imagewidth >= bgw) and (imageheight >= bgh):
