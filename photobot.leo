@@ -10,7 +10,7 @@
 <find_panel_settings/>
 <vnodes>
 <v t="karstenw.20260526103818.1" a="E"><vh>Library</vh>
-<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260525160223.1"><vh>Globals</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
@@ -158,12 +158,12 @@
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 <v t="karstenw.20211021133612.1"><vh>grid</vh></v>
 </v>
-<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
-<v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
-<v t="karstenw.20211021151303.1"><vh>splitimage</vh></v>
-<v t="karstenw.20260122141054.1"><vh>calculateRectangles</vh>
+<v t="karstenw.20210612104640.1"><vh>splitrect - RECT</vh></v>
+<v t="karstenw.20211021151303.1"><vh>splitimage - TODO</vh></v>
+<v t="karstenw.20260122141054.1" a="E"><vh>calculateRectangles</vh>
 <v t="karstenw.20260602132100.1"><vh>&lt;&lt; inner outer rect &gt;&gt;</vh></v>
 <v t="karstenw.20260523093110.1"><vh>&lt;&lt; inner niner &gt;&gt;</vh></v>
 <v t="karstenw.20260523092749.1"><vh>&lt;&lt; quads &gt;&gt;</vh></v>
@@ -174,7 +174,7 @@
 <v t="karstenw.20260323135043.1"><vh>explodeRectangles</vh></v>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerSquare</vh></v>
-<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
+<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
 <v t="karstenw.20200419185034.1"><vh>cropImageToRatioHorizontal</vh></v>
 <v t="karstenw.20200419185042.1"><vh>scaleLayerToHeight</vh></v>
@@ -188,8 +188,8 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
@@ -471,7 +471,7 @@
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206124353.4"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20260122212721.1"><vh>@clean examples/Layer_function_rectangles.py</vh>
+<v t="karstenw.20260122212721.1" a="E"><vh>@clean examples/Layer_function_rectangles.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20260122212815.1"><vh>Content</vh></v>
 </v>
@@ -6044,7 +6044,8 @@ c.draw(name="Image_innerSquare")
 <t tx="karstenw.20260126100110.1"></t>
 <t tx="karstenw.20260126100115.1"></t>
 <t tx="karstenw.20260126100137.1"></t>
-<t tx="karstenw.20260323135043.1">def explodeRectangles( rectangles, deltax=10, deltay=10 ):
+<t tx="karstenw.20260323135043.1"># UNUSED
+def explodeRectangles( rectangles, deltax=10, deltay=10 ):
     """take the result of calculateRectangles() and linerarly explode them by deltax &amp; deltay.
     
     Return another Rectangles namedtuple.
@@ -6222,11 +6223,12 @@ old = Image.MAX_IMAGE_PIXELS
 Image.MAX_IMAGE_PIXELS = None # 200000000
 # print( "MAX_IMAGE_PIXELS: %i" % old)
 
-# Rectangle result type
+# Rectangle result types
 Rectangles = collections.namedtuple('Rectangles', "innerSquare upper lower left right "
                                                   "outerSquare quads niner outerNiner "
                                                   "threeRows threeColumns" )
 
+Rectangle = collections.namedtuple('Rectangle', "left upper width height" )
 
 </t>
 <t tx="karstenw.20260526103818.1"></t>

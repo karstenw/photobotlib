@@ -61,11 +61,12 @@ old = Image.MAX_IMAGE_PIXELS
 Image.MAX_IMAGE_PIXELS = None # 200000000
 # print( "MAX_IMAGE_PIXELS: %i" % old)
 
-# Rectangle result type
+# Rectangle result types
 Rectangles = collections.namedtuple('Rectangles', "innerSquare upper lower left right "
                                                   "outerSquare quads niner outerNiner "
                                                   "threeRows threeColumns" )
 
+Rectangle = collections.namedtuple('Rectangle', "left upper width height" )
 
 # py3 stuff
 
@@ -2140,6 +2141,7 @@ def calculateRectangles(width, height):
     return result
 
 
+# UNUSED
 def explodeRectangles( rectangles, deltax=10, deltay=10 ):
     """take the result of calculateRectangles() and linerarly explode them by deltax & deltay.
     

@@ -47,7 +47,11 @@ additionals = sys.argv[1:]
 import imagewells
 
 # get all images from user image wells
-imagewell = imagewells.loadImageWell(tabfilename=True)
+imagewell = imagewells.loadImageWell(
+    additionals=additionals,
+    ignorelibs=True,
+    tabfilename=False)
+
 
 # tiles are images >256x256 and <=1024x768
 # pp(imagewell['fractions'])
