@@ -22,7 +22,7 @@ imagewells.kwlog = kwlog
 
 if kwdbg and 1:
     # make random choices repeatable for debugging
-    rnd.seed( 123456 )
+    rnd.seed( 12345 )
 
 # width and height of destination image
 # W, H =  800,  600
@@ -115,6 +115,32 @@ c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (127,127,127) )
 
 
+# CONFIGURATION
+
+columns = 5
+rows = 4
+
+enoughTiles = len(tiles) > (columns * 2 * rows)
+
+randomblur = 0
+randomflip = 0
+paintoverlay = 0
+gilb =0
+
+# 
+y_offset = int(round( HEIGHT / float(rows)))
+x_offset = int(round( WIDTH / float(rows)))
+
+# remove background if needed
+# c.layers.pop()
+
+
+tiles = []
+for tile in imagewell['tiles']:
+    if tile in imagewell['landscape']:
+        tiles.append( tile )
+
+
 if not kwdbg:
     turns = int( round(20 + (rnd.random() * 10)) )
     if kwlog:
@@ -126,92 +152,87 @@ if not kwdbg:
 
 # background image
 if len(backgrounds) > 0:
-    bgimage = backgrounds.pop()
+    bgimage = rnd.choice(backgrounds)
     pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
     print( "Background:")
     pb.py23print(bgimage)
 
 
-# CONFIGURATION
-
-columns = 5
-rows = 3
-
-enoughTiles = len(tiles) > (columns * 2 * rows)
-
-randomblur = 0
-randomflip = 0
-paintoverlay = 0
-gilb =0
-
-# 
-y_offset = HEIGHT / float(rows)
-y_offset = int(round(y_offset))
-
 tilecounter = 0
 for j in range(rows):
-    colw = 0
+    colw = 0 # rnd.randint( 0, 15 )
     for i in range(columns):
 
+        if colw > WIDTH:
+            break
+        
         # new layer with a random image
         nextpictpath = tiles.pop()
         tilecounter += 1
         if kwlog or 1:
             pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
         top = c.layer( nextpictpath )
-
+        
+        # uniform
+        layer = pb.cropImageToRatioHorizontal( c.top, RATIO )
+        
         # get current image bounds
         w, h = c.top.bounds()
-
+        
         # calculate scale & apply
         s = pb.aspectRatio( (w,h), y_offset, height=True)
         c.top.scale(s, s)
-
-        # uniform
-        layer = pb.cropImageToRatioHorizontal( c.top, RATIO )
-
+        
         # add contrast
         c.top.contrast(1.1)
-
+        
         # get the new image bounds
         w, h = c.top.bounds()
-
-        r = 0.4 
-        r = rnd.random()
-        # 10%
-        if r < 0.25:
-            # create a dual ramp gradient
-            _ = c.gradient(pb.LINEAR, int(round(w/2)), h)
-            c.top.flip( pb.HORIZONTAL )
-
-            # layer translate half a pict right
-            c.top.translate(w/2, j*y_offset)
-
-            # create another gradient layer and merge with first gradient
-            top = c.gradient(pb.LINEAR, int(round(w/2)), h)
-            # merge both gradients; destroys top layer
-            c.merge([ top-1 , top ])
-        elif 0.25 <= r < 0.5:
-            # SINE
-            top = c.gradient(pb.SINE, w, h)
-            
-        elif 0.6 <= r < 0.75:
-            # RADIALCOSINE
-            top = c.gradient(pb.RADIALCOSINE, w, h)
-            c.top.invert()
-        else:
-            # ROUNDRECT
-            # 25%
-            top = c.gradient(pb.ROUNDRECT, w, h, radius=int(w/5.0))
-
-        c.top.brightness(1.4)
-
-        # mask destroys top layer
-        c.top.mask()
         
-        c.top.translate(colw+i*w, j*y_offset)
-        c.top.opacity( 66 + rnd.random() * 29 )
+        if 1:
 
+            r = 0.4 
+            r = rnd.random()
+
+            # 40%
+            if r < 0.15:
+                # create a dual ramp gradient
+                _ = c.gradient(pb.LINEAR, int(round(w/2)), h)
+                c.top.flip( pb.HORIZONTAL )
+                
+                # layer translate half a pict right
+                c.top.translate(w/2, 0) #j*y_offset)
+                
+                # create another gradient layer and merge with first gradient
+                top = c.gradient(pb.LINEAR, int(round(w/2)), h)
+                # merge both gradients; destroys top layer
+                c.merge([ top-1 , top ])
+
+            # 25 %
+            elif 0.15 < r <= 0.4:
+                # SINE
+                top = c.gradient(pb.SINE, w, h)
+            # 20 %
+            elif 0.4 < r <= 0.85:
+                # RADIALCOSINE
+                top = c.gradient(pb.RADIALCOSINE, w, h)
+                # c.top.invert()
+            # 15 %
+            else:
+                # ROUNDRECT
+                # 25%
+                top = c.gradient(pb.ROUNDRECT, w, h, radius=int(w/5.0))
+
+            #c.top.brightness(1.4)
+
+            # mask destroys top layer
+            c.top.mask()
+
+        
+        # c.top.translate(colw+i*w, j*y_offset)
+        c.top.translate(colw, j*y_offset)
+        c.top.opacity( 44 + rnd.random() * 29 )
+        
         if randomblur:
             if rnd.random() > 0.5:
                 c.top.flip()
@@ -219,6 +240,14 @@ for j in range(rows):
             if rnd.random() > 0.5:
                 c.top.blur()
 
+        w, h = c.top.bounds()
+        # print("tile:", tilecounter, w, h)
+        if (i+j) % 2 == 0:
+            print("Layer POPPED", i,j)
+            c.layers.pop()
+        colw += w
+        
+        
 if gilb:
     # orange hue overlay finish
     # create new color layer
