@@ -2289,37 +2289,87 @@ def innerSquare( x1, y1, x2, y2 ):
     return rects.innerSquare
 
 
-def insetRect( rectangle, horInset, vertInset):
-
-    """
-    """
-    x, y, w, h = rectangle
-    dh = horInset / 2.0
-    dv = vertInset / 2.0
-    return x+dh, y+dv, w-horInset, h-vertInset
-
-
-def cropImageToRatioHorizontal( layer, ratio ):
+# UNUSED
+def insetRect( rectangle, hinset, vinset):
+    """Inset a Rectangle.
     
+    inset( Rectangle( 10,10, 100,100), 10, 20 )
+    -> Rectangle( 20, 30, 80, 60 )
+    """
+    x, y, w, h = rectangle[:]
+    dw = hinset * 2
+    dh = vinset * 2
+    return Rectangle( x+hinset, y+vinset, w-dw, h-dh )
+
+
+# UNFINISHED
+def cropImageToRatioHorizontalOLD( layer, ratio ):
     """Defekt
+    
+    This is the primary cause for collage 1a weirdness
     """
     
     width, height = layer.bounds()
-    newwidth = int( round( height * ratio ))
     oldwidth = width
     oldheight = height
-    d = int( newwidth / 2.0 )
+
+    newwidth = int( round( height * ratio ))
+    d = int( newwidth / 4.0 )
     x,y,width,height = insetRect( (0,0,width,height), d, 0 )
     
     # pdb.set_trace()
     if 1:
-        if (x > x+width) or (y > y+height):
-            if kwlog:
+        if 1: #(x > x+width) or (y > y+height):
+            if 1: #kwlog:
                 print("\n\ncropImageToRatioHorizontal")
                 print("ratio:", ratio)
                 layer.prnt()
-                print( (x,y,width,height) )
-                print("oldwidth,newwidth:",oldwidth,newwidth)
+                print( "x,y,width,height", (x,y,width,height) )
+                print("oldwidth,newwidth,width:",oldwidth,newwidth, width)
+                print("oldheight,newheight:",oldwidth,height)
+        width = abs(width)
+        height = abs(height)
+    layer.img = layer.img.crop(box=(x,y,x+width,y+height))
+    return layer
+
+
+# UNFINISHED
+def cropImageToRatioHorizontal( layer, ratio ):
+    """Crop an image horizontally in such a way, that the new width/height ratio matches ratio
+    
+    This is the primary cause for collage 1a weirdness
+    """
+    
+    width, height = layer.bounds()
+    curratio = width / height
+    
+    oldwidth = width
+    oldheight = height
+    
+    # early exit - we dont append black to negative inset
+    if curratio <= ratio:
+        # WRONG protrait / landscape - clip the other dimension
+        newheight = int( round( width / ratio ))
+        diff = oldheight - newheight
+        d = int( diff / 2.0 )
+        x,y,width,height = insetRect( (0,0,width,height), 0, d )
+    else:
+        newwidth = int( round( height / ratio ))
+        diff = oldwidth - newwidth
+        d = int( diff / 2.0 )
+        x,y,width,height = insetRect( (0,0,width,height), d, 0 )
+    
+    if 1:
+        if (x > x+width) or (y > y+height):
+            if kwlog:
+                print("\n\ncropImageToRatioHorizontal")
+                print("ratio:", ratio, width/height)
+                print( "x,y,width,height", (x,y,width,height) )
+                print("oldwidth,width:",oldwidth,width)
+                print("oldheight,height:",oldwidth,height)
+                print()
+                layer.prnt()
+                print("\n\n\n")
         width = abs(width)
         height = abs(height)
     layer.img = layer.img.crop(box=(x,y,x+width,y+height))

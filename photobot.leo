@@ -163,7 +163,7 @@
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitrect - RECT</vh></v>
 <v t="karstenw.20211021151303.1"><vh>splitimage - TODO</vh></v>
-<v t="karstenw.20260122141054.1" a="E"><vh>calculateRectangles</vh>
+<v t="karstenw.20260122141054.1"><vh>calculateRectangles</vh>
 <v t="karstenw.20260602132100.1"><vh>&lt;&lt; inner outer rect &gt;&gt;</vh></v>
 <v t="karstenw.20260523093110.1"><vh>&lt;&lt; inner niner &gt;&gt;</vh></v>
 <v t="karstenw.20260523092749.1"><vh>&lt;&lt; quads &gt;&gt;</vh></v>
@@ -176,7 +176,8 @@
 <v t="karstenw.20201022144702.1"><vh>innerSquare</vh></v>
 <v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
-<v t="karstenw.20200419185034.1"><vh>cropImageToRatioHorizontal</vh></v>
+<v t="karstenw.20200419185034.1"><vh>cropImageToRatioHorizontal - OLD</vh></v>
+<v t="karstenw.20260729162143.1"><vh>cropImageToRatioHorizontal</vh></v>
 <v t="karstenw.20200419185042.1"><vh>scaleLayerToHeight</vh></v>
 <v t="karstenw.20200419185049.1"><vh>placeImage</vh></v>
 <v t="karstenw.20200419185056.1"><vh>resizeImage</vh></v>
@@ -188,7 +189,7 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
+<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
 <v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
@@ -202,15 +203,17 @@
 <v t="karstenw.20210316200115.1"><vh>&lt;&lt; paint texture &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
+<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
+<v t="karstenw.20210316200956.1"><vh>config</vh></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
-<v t="karstenw.20210316200956.1"><vh>config</vh></v>
-<v t="karstenw.20210314151702.1"><vh>loop</vh></v>
-<v t="karstenw.20210314151706.1"><vh>finish</vh>
+<v t="karstenw.20210314151702.1" a="E"><vh>loop</vh>
+<v t="karstenw.20260729182036.1"><vh>&lt;&lt; apply mask &gt;&gt;</vh></v>
+</v>
+<v t="karstenw.20210314151706.1" a="E"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
@@ -2021,38 +2024,45 @@ def smooth_more(self):
 
 
 </t>
-<t tx="karstenw.20200419185026.1">def insetRect( rectangle, horInset, vertInset):
-
+<t tx="karstenw.20200419185026.1"># UNUSED
+def insetRect( rectangle, hinset, vinset):
+    """Inset a Rectangle.
+    
+    inset( Rectangle( 10,10, 100,100), 10, 20 )
+    -&gt; Rectangle( 20, 30, 80, 60 )
     """
-    """
-    x, y, w, h = rectangle
-    dh = horInset / 2.0
-    dv = vertInset / 2.0
-    return x+dh, y+dv, w-horInset, h-vertInset
+    x, y, w, h = rectangle[:]
+    dw = hinset * 2
+    dh = vinset * 2
+    return Rectangle( x+hinset, y+vinset, w-dw, h-dh )
 
 
 </t>
-<t tx="karstenw.20200419185034.1">def cropImageToRatioHorizontal( layer, ratio ):
-    
+<t tx="karstenw.20200419185034.1"># UNFINISHED
+def cropImageToRatioHorizontalOLD( layer, ratio ):
     """Defekt
+    
+    This is the primary cause for collage 1a weirdness
     """
     
     width, height = layer.bounds()
-    newwidth = int( round( height * ratio ))
     oldwidth = width
     oldheight = height
-    d = int( newwidth / 2.0 )
+
+    newwidth = int( round( height * ratio ))
+    d = int( newwidth / 4.0 )
     x,y,width,height = insetRect( (0,0,width,height), d, 0 )
     
     # pdb.set_trace()
     if 1:
-        if (x &gt; x+width) or (y &gt; y+height):
-            if kwlog:
+        if 1: #(x &gt; x+width) or (y &gt; y+height):
+            if 1: #kwlog:
                 print("\n\ncropImageToRatioHorizontal")
                 print("ratio:", ratio)
                 layer.prnt()
-                print( (x,y,width,height) )
-                print("oldwidth,newwidth:",oldwidth,newwidth)
+                print( "x,y,width,height", (x,y,width,height) )
+                print("oldwidth,newwidth,width:",oldwidth,newwidth, width)
+                print("oldheight,newheight:",oldwidth,height)
         width = abs(width)
         height = abs(height)
     layer.img = layer.img.crop(box=(x,y,x+width,y+height))
@@ -2386,7 +2396,7 @@ imagewells.kwlog = kwlog
 
 if kwdbg and 1:
     # make random choices repeatable for debugging
-    rnd.seed( 123456 )
+    rnd.seed( 12345 )
 
 # width and height of destination image
 # W, H =  800,  600
@@ -2691,68 +2701,42 @@ if type(h) == float:
 </t>
 <t tx="karstenw.20210314151702.1">tilecounter = 0
 for j in range(rows):
-    colw = 0
+    colw = 0 # rnd.randint( 0, 15 )
     for i in range(columns):
 
+        if colw &gt; WIDTH:
+            break
+        
         # new layer with a random image
         nextpictpath = tiles.pop()
         tilecounter += 1
         if kwlog or 1:
             pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
         top = c.layer( nextpictpath )
-
+        
+        # uniform
+        layer = pb.cropImageToRatioHorizontal( c.top, RATIO )
+        
         # get current image bounds
         w, h = c.top.bounds()
-
+        
         # calculate scale &amp; apply
         s = pb.aspectRatio( (w,h), y_offset, height=True)
         c.top.scale(s, s)
-
-        # uniform
-        layer = pb.cropImageToRatioHorizontal( c.top, RATIO )
-
+        
         # add contrast
         c.top.contrast(1.1)
-
+        
         # get the new image bounds
         w, h = c.top.bounds()
-
-        r = 0.4 
-        r = rnd.random()
-        # 10%
-        if r &lt; 0.25:
-            # create a dual ramp gradient
-            _ = c.gradient(pb.LINEAR, int(round(w/2)), h)
-            c.top.flip( pb.HORIZONTAL )
-
-            # layer translate half a pict right
-            c.top.translate(w/2, j*y_offset)
-
-            # create another gradient layer and merge with first gradient
-            top = c.gradient(pb.LINEAR, int(round(w/2)), h)
-            # merge both gradients; destroys top layer
-            c.merge([ top-1 , top ])
-        elif 0.25 &lt;= r &lt; 0.5:
-            # SINE
-            top = c.gradient(pb.SINE, w, h)
-            
-        elif 0.6 &lt;= r &lt; 0.75:
-            # RADIALCOSINE
-            top = c.gradient(pb.RADIALCOSINE, w, h)
-            c.top.invert()
-        else:
-            # ROUNDRECT
-            # 25%
-            top = c.gradient(pb.ROUNDRECT, w, h, radius=int(w/5.0))
-
-        c.top.brightness(1.4)
-
-        # mask destroys top layer
-        c.top.mask()
         
-        c.top.translate(colw+i*w, j*y_offset)
-        c.top.opacity( 66 + rnd.random() * 29 )
-
+        if 1:
+            &lt;&lt; apply mask &gt;&gt;
+        
+        # c.top.translate(colw+i*w, j*y_offset)
+        c.top.translate(colw, j*y_offset)
+        c.top.opacity( 44 + rnd.random() * 29 )
+        
         if randomblur:
             if rnd.random() &gt; 0.5:
                 c.top.flip()
@@ -2760,6 +2744,14 @@ for j in range(rows):
             if rnd.random() &gt; 0.5:
                 c.top.blur()
 
+        w, h = c.top.bounds()
+        # print("tile:", tilecounter, w, h)
+        if (i+j) % 2 == 0:
+            print("Layer POPPED", i,j)
+            c.layers.pop()
+        colw += w
+        
+        
 </t>
 <t tx="karstenw.20210314151706.1">&lt;&lt; orange gilb &gt;&gt;
 
@@ -2898,7 +2890,7 @@ if paintoverlay:
 <t tx="karstenw.20210316200956.1"># CONFIGURATION
 
 columns = 5
-rows = 3
+rows = 4
 
 enoughTiles = len(tiles) &gt; (columns * 2 * rows)
 
@@ -2908,8 +2900,18 @@ paintoverlay = 0
 gilb =0
 
 # 
-y_offset = HEIGHT / float(rows)
-y_offset = int(round(y_offset))
+y_offset = int(round( HEIGHT / float(rows)))
+x_offset = int(round( WIDTH / float(rows)))
+
+# remove background if needed
+# c.layers.pop()
+
+
+tiles = []
+for tile in imagewell['tiles']:
+    if tile in imagewell['landscape']:
+        tiles.append( tile )
+
 
 </t>
 <t tx="karstenw.20210316201117.1"># CONFIGURATION
@@ -5685,7 +5687,7 @@ c.draw(name="Layer_function_colorize")
 </t>
 <t tx="karstenw.20220409174745.1"># background image
 if len(backgrounds) &gt; 0:
-    bgimage = backgrounds.pop()
+    bgimage = rnd.choice(backgrounds)
     pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
     print( "Background:")
     pb.py23print(bgimage)
@@ -6372,6 +6374,89 @@ pb.label(c, "%s unsharpmask(  )" % fname, x, y)
 
 # draw the result
 c.draw(name="Layer_function_unsharpmask")
+
+</t>
+<t tx="karstenw.20260729162143.1"># UNFINISHED
+def cropImageToRatioHorizontal( layer, ratio ):
+    """Crop an image horizontally in such a way, that the new width/height ratio matches ratio
+    
+    This is the primary cause for collage 1a weirdness
+    """
+    
+    width, height = layer.bounds()
+    curratio = width / height
+    
+    oldwidth = width
+    oldheight = height
+    
+    # early exit - we dont append black to negative inset
+    if curratio &lt;= ratio:
+        # WRONG protrait / landscape - clip the other dimension
+        newheight = int( round( width / ratio ))
+        diff = oldheight - newheight
+        d = int( diff / 2.0 )
+        x,y,width,height = insetRect( (0,0,width,height), 0, d )
+    else:
+        newwidth = int( round( height / ratio ))
+        diff = oldwidth - newwidth
+        d = int( diff / 2.0 )
+        x,y,width,height = insetRect( (0,0,width,height), d, 0 )
+    
+    if 1:
+        if (x &gt; x+width) or (y &gt; y+height):
+            if kwlog:
+                print("\n\ncropImageToRatioHorizontal")
+                print("ratio:", ratio, width/height)
+                print( "x,y,width,height", (x,y,width,height) )
+                print("oldwidth,width:",oldwidth,width)
+                print("oldheight,height:",oldwidth,height)
+                print()
+                layer.prnt()
+                print("\n\n\n")
+        width = abs(width)
+        height = abs(height)
+    layer.img = layer.img.crop(box=(x,y,x+width,y+height))
+    return layer
+
+
+</t>
+<t tx="karstenw.20260729182036.1">
+r = 0.4 
+r = rnd.random()
+
+# 40%
+if r &lt; 0.15:
+    # create a dual ramp gradient
+    _ = c.gradient(pb.LINEAR, int(round(w/2)), h)
+    c.top.flip( pb.HORIZONTAL )
+    
+    # layer translate half a pict right
+    c.top.translate(w/2, 0) #j*y_offset)
+    
+    # create another gradient layer and merge with first gradient
+    top = c.gradient(pb.LINEAR, int(round(w/2)), h)
+    # merge both gradients; destroys top layer
+    c.merge([ top-1 , top ])
+
+# 25 %
+elif 0.15 &lt; r &lt;= 0.4:
+    # SINE
+    top = c.gradient(pb.SINE, w, h)
+# 20 %
+elif 0.4 &lt; r &lt;= 0.85:
+    # RADIALCOSINE
+    top = c.gradient(pb.RADIALCOSINE, w, h)
+    # c.top.invert()
+# 15 %
+else:
+    # ROUNDRECT
+    # 25%
+    top = c.gradient(pb.ROUNDRECT, w, h, radius=int(w/5.0))
+
+#c.top.brightness(1.4)
+
+# mask destroys top layer
+c.top.mask()
 
 </t>
 </tnodes>
