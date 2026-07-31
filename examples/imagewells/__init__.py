@@ -490,7 +490,8 @@ def loadImageWell(  bgsize=(1280,1024),
         'WxH largest': "",
         'WxH smallest': "",
         'WxH median': "",
-        'allsizes': {}
+        'allsizes': {},
+        'report':[],
     }
     
     minw, minh = minsize
@@ -712,7 +713,20 @@ def loadImageWell(  bgsize=(1280,1024),
     # setup optional result file
     if tabitem and (not fileLoaded):
         writetabsfile( tabitem.path, filetuples )
-    
+
+    # create report section    
+    result['report'] = [
+            '#allimages: %i' % (len(result['allimages']), ),
+            '#tiles: %i' % (len(result['tiles']), ),
+            '#backgrounds: %i' % (len(result['backgrounds']), ),
+            '#landscape: %i' % (len(result['landscape']), ),
+            '#portrait: %i' % (len(result['portrait']), ),
+            '#fractions: %i' % (len(result['fractions']), ),
+            '#allsizes: %i' % (len(result['allsizes']), ),
+            'WxH largest:', result['WxH largest'],
+            'WxH smallest:', result['WxH smallest'],
+            'WxH median:', result['WxH median']
+        ]
     return result
 
 
