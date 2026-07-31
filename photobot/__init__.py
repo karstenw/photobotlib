@@ -2301,12 +2301,11 @@ def innerSquare( x1, y1, x2, y2 ):
     return rects.innerSquare
 
 
-# UNUSED
 def insetRect( rectangle, hinset, vinset):
     """Inset a Rectangle.
     
-    inset( Rectangle( 10,10, 100,100), 10, 20 )
-    -> Rectangle( 20, 30, 80, 60 )
+    insetRect( Rectangle( 10,10, 100,100), 10, 20 )
+    -> Rectangle(left=20, upper=30, width=80, height=60)
     """
     x, y, w, h = rectangle[:]
     dw = hinset * 2
@@ -2314,14 +2313,16 @@ def insetRect( rectangle, hinset, vinset):
     return Rectangle( x+hinset, y+vinset, w-dw, h-dh )
 
 
-# UNFINISHED
-def cropImageToRatioHorizontal( layer, ratio ):
-    """Crop an image horizontally in such a way, that the new width/height ratio matches ratio
+def cropImageToRatioHorizontal( layerOrImage, ratio ):
+    """Crop a Layer or an image horizontally in such a way, that the new width/height ratio matches ratio
     
     This is the primary cause for collage 1a weirdness
     """
-    
-    width, height = layer.bounds()
+    t = type( layerOrImage )
+    if t in (Layer,):
+        width, height = layerOrImage.bounds()
+    else:
+        width, height = layerOrImage.size()
     curratio = width / height
     
     oldwidth = width
@@ -2349,12 +2350,16 @@ def cropImageToRatioHorizontal( layer, ratio ):
                 print("oldwidth,width:",oldwidth,width)
                 print("oldheight,height:",oldwidth,height)
                 print()
-                layer.prnt()
+                if t in (Layer,):
+                    layerOrImage.prnt()
                 print("\n\n\n")
         width = abs(width)
         height = abs(height)
-    layer.img = layer.img.crop(box=(x,y,x+width,y+height))
-    return layer
+    if t in (Layer,):
+        layerOrImage.img = layerOrImage.img.crop(box=(x,y, x+width,y+height))
+    else:
+        layerOrImage = layerOrImage.crop(box=(x,y, x+width,y+height))
+    return layerOrImage
 
 
 def scaleLayerToHeight( layer, newheight ):
