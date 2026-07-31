@@ -10,7 +10,7 @@
 <find_panel_settings/>
 <vnodes>
 <v t="karstenw.20260526103818.1" a="E"><vh>Library</vh>
-<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260525160223.1"><vh>Globals</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
@@ -176,7 +176,6 @@
 <v t="karstenw.20201022144702.1"><vh>innerSquare</vh></v>
 <v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
-<v t="karstenw.20200419185034.1"><vh>cropImageToRatioHorizontal - OLD</vh></v>
 <v t="karstenw.20260729162143.1"><vh>cropImageToRatioHorizontal</vh></v>
 <v t="karstenw.20200419185042.1"><vh>scaleLayerToHeight</vh></v>
 <v t="karstenw.20200419185049.1"><vh>placeImage</vh></v>
@@ -189,7 +188,7 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
+<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
 <v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
@@ -218,7 +217,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210316195906.1" a="E"><vh>@clean examples/Example collage 1b.py</vh>
+<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -2035,38 +2034,6 @@ def insetRect( rectangle, hinset, vinset):
     dw = hinset * 2
     dh = vinset * 2
     return Rectangle( x+hinset, y+vinset, w-dw, h-dh )
-
-
-</t>
-<t tx="karstenw.20200419185034.1"># UNFINISHED
-def cropImageToRatioHorizontalOLD( layer, ratio ):
-    """Defekt
-    
-    This is the primary cause for collage 1a weirdness
-    """
-    
-    width, height = layer.bounds()
-    oldwidth = width
-    oldheight = height
-
-    newwidth = int( round( height * ratio ))
-    d = int( newwidth / 4.0 )
-    x,y,width,height = insetRect( (0,0,width,height), d, 0 )
-    
-    # pdb.set_trace()
-    if 1:
-        if 1: #(x &gt; x+width) or (y &gt; y+height):
-            if 1: #kwlog:
-                print("\n\ncropImageToRatioHorizontal")
-                print("ratio:", ratio)
-                layer.prnt()
-                print( "x,y,width,height", (x,y,width,height) )
-                print("oldwidth,newwidth,width:",oldwidth,newwidth, width)
-                print("oldheight,newheight:",oldwidth,height)
-        width = abs(width)
-        height = abs(height)
-    layer.img = layer.img.crop(box=(x,y,x+width,y+height))
-    return layer
 
 
 </t>
