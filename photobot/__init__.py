@@ -1952,6 +1952,18 @@ def grid(cols, rows, colSize=1, rowSize=1, shuffled=False):
             yield (x*colSize, y*rowSize)
 
 
+def imagesize( imagepath ):
+    """Get size of image at path."""
+    try:
+        img = Image.open( imagepath )
+        s = img.size
+    except:
+        s = (-1,-1)
+    img.close()
+    del img
+    return s
+
+
 #
 # image tools section
 #
