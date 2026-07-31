@@ -1,4 +1,4 @@
-import sys, os, pdb
+import sys, os
 
 # need a different name
 import random as rnd
@@ -7,7 +7,7 @@ import pprint
 pp = pprint.pprint
 
 import pdb
-kwdbg = 1
+kwdbg = 0
 
 
 W, H = 900, 1250
@@ -30,30 +30,24 @@ else:
 
 import imagewells
 
-if 0: #kwdbg:
+if kwdbg:
     # make random choices repeatable for debugging
     rnd.seed(8)
 
-imagewell = imagewells.loadImageWell()
-tiles1 = imagewell['landscape']
-rnd.shuffle(tiles1)
+imagewell = imagewells.loadImageWell(tabfilename=True)
+tiles = imagewell['landscape']
+rnd.shuffle(tiles)
 
-def p(s):
-    # print
-    if pb.py3:
-        print( s )
-    else:
-        print( s.encode("utf-8") )
-
+pp( imagewell['report'] )
 
 # pick 2 images
-img1path = tiles1.pop()
-img1path = "/Library/Desktop Pictures/Yosemite 5.jpg"
+img1path = tiles.pop()
+# img1path = "/Library/Desktop Pictures/Yosemite 5.jpg"
 _, filename = os.path.split( img1path )
 
 
 #pdb.set_trace()
-w0,h0 = imagesize( img1path, pixelsize=True )
+w0,h0 = pb.imagesize( img1path )
 w1,h1 = pb.aspectRatio( (w0,h0), fullwidth, height=False, width=True, assize=True)
 print("\n\nsizewidth, imagewidth:", WIDTH, w1)
 fullheight = 2 * h1 + 3 * inset
@@ -62,7 +56,7 @@ if NB:
     print("H - newH:", H, fullheight )
     size( W, fullheight )
 
-# create a white canvas
+# create a gray canvas
 c = pb.canvas( W, fullheight)
 c.fill( (192, 192, 192) )
 
@@ -90,10 +84,8 @@ rectangles = pb.calculateRectangles(w1, h1)
 rectangles = pb.explodeRectangles( rectangles )
 
 display = []
-
-
 # innersquare
-if 0:
+if 1:
     display.append( "innersquare" )
     img2layer.duplicate()
     squarerect = rectangles.innerSquare
@@ -107,7 +99,7 @@ if 0:
     # pb.label(c, "Image 1 inner square", x, y, 30)
 
 # quads
-if 0:
+if 1:
     display.append( "quads" )
     quads = rectangles.quads
     
@@ -119,7 +111,7 @@ if 0:
         c.top.opacity( 25 + rnd.random() * 30 )
 
 # niner
-if 1:
+if 0:
     display.append( "niner" )
     niner = rectangles.niner
     
