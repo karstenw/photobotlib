@@ -99,7 +99,7 @@
 <v t="karstenw.20210727161432.5"><vh>equalize</vh></v>
 <v t="karstenw.20170709210125.43"><vh>invert</vh></v>
 </v>
-<v t="karstenw.20170727232236.1"><vh>GEOMETRY</vh>
+<v t="karstenw.20170727232236.1" a="E"><vh>GEOMETRY</vh>
 <v t="karstenw.20170709210125.44"><vh>translate</vh></v>
 <v t="karstenw.20170709210125.45"><vh>scale</vh></v>
 <v t="karstenw.20170709210125.47"><vh>rotate</vh></v>
@@ -107,7 +107,7 @@
 <v t="karstenw.20170709210125.48"><vh>flip</vh></v>
 <v t="karstenw.20170727233343.1"><vh>crop</vh></v>
 </v>
-<v t="karstenw.20200421172034.1"><vh>FILTERS</vh>
+<v t="karstenw.20200421172034.1" a="E"><vh>FILTERS</vh>
 <v t="karstenw.20260126095815.1"><vh>+ UNIMPLEMENTED</vh>
 <v t="karstenw.20260126095824.1"><vh>threedLUT</vh></v>
 <v t="karstenw.20260126100110.1"><vh>min</vh></v>
@@ -157,13 +157,14 @@
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
 <v t="karstenw.20200419185624.1"><vh>datestring</vh></v>
 <v t="karstenw.20211021133612.1"><vh>grid</vh></v>
+<v t="karstenw.20260731112805.1"><vh>imagesize</vh></v>
 </v>
 <v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitrect - RECT</vh></v>
 <v t="karstenw.20211021151303.1"><vh>splitimage - TODO</vh></v>
-<v t="karstenw.20260122141054.1"><vh>calculateRectangles</vh>
+<v t="karstenw.20260122141054.1"><vh>calculateRectangles - RECT</vh>
 <v t="karstenw.20260602132100.1"><vh>&lt;&lt; inner outer rect &gt;&gt;</vh></v>
 <v t="karstenw.20260523093110.1"><vh>&lt;&lt; inner niner &gt;&gt;</vh></v>
 <v t="karstenw.20260523092749.1"><vh>&lt;&lt; quads &gt;&gt;</vh></v>
@@ -171,12 +172,12 @@
 <v t="karstenw.20260523092931.1"><vh>&lt;&lt; three rows &gt;&gt;</vh></v>
 <v t="karstenw.20260523092951.1"><vh>&lt;&lt; three columns &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20260323135043.1"><vh>explodeRectangles</vh></v>
+<v t="karstenw.20260323135043.1"><vh>explodeRectangles - RECT</vh></v>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerSquare</vh></v>
-<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
 <v t="karstenw.20260729162143.1"><vh>cropImageToRatioHorizontal</vh></v>
+<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20200419185042.1"><vh>scaleLayerToHeight</vh></v>
 <v t="karstenw.20200419185049.1"><vh>placeImage</vh></v>
 <v t="karstenw.20200419185056.1"><vh>resizeImage</vh></v>
@@ -188,7 +189,7 @@
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
+<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
 <v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
@@ -337,7 +338,7 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
@@ -413,7 +414,7 @@
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206123757.2"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20230313131659.1" a="E"><vh>@clean examples/Layer_function_distort_extend.py</vh>
+<v t="karstenw.20230313131659.1"><vh>@clean examples/Layer_function_distort_extend.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20230313131723.1"><vh>Content</vh></v>
 </v>
@@ -476,6 +477,10 @@
 <v t="karstenw.20260122212721.1" a="E"><vh>@clean examples/Layer_function_rectangles.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20260122212815.1"><vh>Content</vh></v>
+</v>
+<v t="karstenw.20260731102556.1"><vh>@clean examples/Image_innerSquare.py</vh>
+<v t="karstenw.20260731102616.1"><vh>Declarations</vh></v>
+<v t="karstenw.20260731102616.2"><vh>p</vh></v>
 </v>
 </v>
 </v>
@@ -2023,12 +2028,11 @@ def smooth_more(self):
 
 
 </t>
-<t tx="karstenw.20200419185026.1"># UNUSED
-def insetRect( rectangle, hinset, vinset):
+<t tx="karstenw.20200419185026.1">def insetRect( rectangle, hinset, vinset):
     """Inset a Rectangle.
     
-    inset( Rectangle( 10,10, 100,100), 10, 20 )
-    -&gt; Rectangle( 20, 30, 80, 60 )
+    insetRect( Rectangle( 10,10, 100,100), 10, 20 )
+    -&gt; Rectangle(left=20, upper=30, width=80, height=60)
     """
     x, y, w, h = rectangle[:]
     dw = hinset * 2
@@ -6343,14 +6347,16 @@ pb.label(c, "%s unsharpmask(  )" % fname, x, y)
 c.draw(name="Layer_function_unsharpmask")
 
 </t>
-<t tx="karstenw.20260729162143.1"># UNFINISHED
-def cropImageToRatioHorizontal( layer, ratio ):
-    """Crop an image horizontally in such a way, that the new width/height ratio matches ratio
+<t tx="karstenw.20260729162143.1">def cropImageToRatioHorizontal( layerOrImage, ratio ):
+    """Crop a Layer or an image horizontally in such a way, that the new width/height ratio matches ratio
     
     This is the primary cause for collage 1a weirdness
     """
-    
-    width, height = layer.bounds()
+    t = type( layerOrImage )
+    if t in (Layer,):
+        width, height = layerOrImage.bounds()
+    else:
+        width, height = layerOrImage.size()
     curratio = width / height
     
     oldwidth = width
@@ -6378,12 +6384,16 @@ def cropImageToRatioHorizontal( layer, ratio ):
                 print("oldwidth,width:",oldwidth,width)
                 print("oldheight,height:",oldwidth,height)
                 print()
-                layer.prnt()
+                if t in (Layer,):
+                    layerOrImage.prnt()
                 print("\n\n\n")
         width = abs(width)
         height = abs(height)
-    layer.img = layer.img.crop(box=(x,y,x+width,y+height))
-    return layer
+    if t in (Layer,):
+        layerOrImage.img = layerOrImage.img.crop(box=(x,y, x+width,y+height))
+    else:
+        layerOrImage = layerOrImage.crop(box=(x,y, x+width,y+height))
+    return layerOrImage
 
 
 </t>
@@ -6424,6 +6434,160 @@ else:
 
 # mask destroys top layer
 c.top.mask()
+
+</t>
+<t tx="karstenw.20260731102556.1">@others
+if NB:
+    print("H - newH:", H, fullheight )
+    size( W, fullheight )
+
+# create a gray canvas
+c = pb.canvas( W, fullheight)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+pb.py23print( "img1path: %s" % img1path )
+#  create, scale and place the image
+x, y = inset, inset
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, filename)
+print("x,y,w1,h1", x,y,w1,h1 )
+pb.label(c, filename, x, y, 30)
+
+
+# the copy layer
+x = inset
+y = h1 + inset + inset
+_, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "%s inner square" % filename)
+
+img2layer = c.top
+
+# pdb.set_trace()
+rectangles = pb.calculateRectangles(w1, h1)
+rectangles = pb.explodeRectangles( rectangles )
+
+display = []
+# innersquare
+if 1:
+    display.append( "innersquare" )
+    img2layer.duplicate()
+    squarerect = rectangles.innerSquare
+    #print("InnerSquare", squarerect )
+    x1,y1,w,h = squarerect
+    x2 = x1+w
+    y2 = y1+h
+    c.top.crop( ( x1, y1, x2, y2 ) )
+    c.top.translate( x+x1, y+y1 )
+    c.top.opacity( 65 )
+    # pb.label(c, "Image 1 inner square", x, y, 30)
+
+# quads
+if 1:
+    display.append( "quads" )
+    quads = rectangles.quads
+    
+    for quad in quads:
+        #print( "quad:", quad )
+        img2layer.duplicate()
+        c.top.scale( 0.5, 0.5 )
+        c.top.translate( x+quad[0], y+quad[1] )
+        c.top.opacity( 25 + rnd.random() * 30 )
+
+# niner
+if 0:
+    display.append( "niner" )
+    niner = rectangles.niner
+    
+    for nine in niner:
+        #print( "niner:", nine )
+        img2layer.duplicate()
+        c.top.scale( 1/3.0, 1/3.0 )
+        c.top.translate( x+nine[0], y+nine[1] )
+        c.top.opacity( 10 + rnd.random() * 20 )
+    # pb.label(c, "Image 1 niner", x, y, 30)
+
+display = ' &amp; '.join( display )
+display = "%s - %s" % ( filename, display )
+
+# img2layer.opacity( 10 )
+img2layer.delete()
+
+pb.label(c, display, x, y, 30)
+    
+# draw the result
+c.draw(name="Image_innerSquare")
+@language python
+@tabwidth -4
+</t>
+<t tx="karstenw.20260731102616.1">import sys, os
+
+# need a different name
+import random as rnd
+
+import pprint
+pp = pprint.pprint
+
+import pdb
+kwdbg = 0
+
+
+W, H = 900, 1250
+inset = 30
+fullwidth = int( W - 2*inset )
+
+# check for Nodebox
+NB = True
+try:
+    _ctx
+except(NameError):
+    NB = False
+
+if NB:
+    size(W, H)
+    pb = ximport("photobot")
+else:
+    WIDTH, HEIGHT = W, H
+    import photobot as pb
+
+import imagewells
+
+if kwdbg:
+    # make random choices repeatable for debugging
+    rnd.seed(8)
+
+imagewell = imagewells.loadImageWell(tabfilename=True)
+tiles = imagewell['landscape']
+rnd.shuffle(tiles)
+</t>
+<t tx="karstenw.20260731102616.2">
+pp( imagewell['report'] )
+
+# pick 2 images
+img1path = tiles.pop()
+# img1path = "/Library/Desktop Pictures/Yosemite 5.jpg"
+_, filename = os.path.split( img1path )
+
+
+#pdb.set_trace()
+w0,h0 = pb.imagesize( img1path )
+w1,h1 = pb.aspectRatio( (w0,h0), fullwidth, height=False, width=True, assize=True)
+print("\n\nsizewidth, imagewidth:", WIDTH, w1)
+fullheight = 2 * h1 + 3 * inset
+
+</t>
+<t tx="karstenw.20260731112805.1">def imagesize( imagepath ):
+    """Get size of image at path."""
+    try:
+        img = Image.open( imagepath )
+        s = img.size
+    except:
+        s = (-1,-1)
+    img.close()
+    del img
+    return s
+
 
 </t>
 </tnodes>
