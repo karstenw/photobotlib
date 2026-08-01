@@ -37,7 +37,7 @@ Extension and format follow [Pillow Image.save](https://pillow.readthedocs.io/en
 
 #### New functions & properties ####
 
-- property `canvas.top` adresses the top layer
+- property `canvas.top` references the top layer
 
 - property `canvas.topindex` returns the index of the top layer
 
