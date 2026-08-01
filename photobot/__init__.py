@@ -64,9 +64,14 @@ Image.MAX_IMAGE_PIXELS = None # 200000000
 # Rectangle result types
 Rectangles = collections.namedtuple('Rectangles', "innerSquare upper lower left right "
                                                   "outerSquare quads niner outerNiner "
-                                                  "threeRows threeColumns" )
+                                                  "threeRows threeColumns fourByFour" )
 
 Rectangle = collections.namedtuple('Rectangle', "left upper width height" )
+
+def sqrect( x1,y1, x2, y2 ):
+    w = x2-x1
+    h = y2-y1
+    return Rectangle( x1, y1, w, h )
 
 # py3 stuff
 
@@ -2002,9 +2007,13 @@ def splitrect( left, top, right, bottom, hor=True, t=0.5 ):
     h2 = int( round( h * t ))
 
     if hor:
-        rects = [ (left, top, right, top+h2), (left, top+h2+1, right, bottom) ]
+        rects = [
+            sqrect(left, top, right, top+h2),
+            sqrect(left, top+h2+1, right, bottom) ]
     else:
-        rects = [ (left, top, l+w2, bottom), (left+w2+1, top, right, bottom) ]
+        rects = [
+            sqrect(left, top, l+w2, bottom),
+            sqrect(left+w2+1, top, right, bottom) ]
     return rects
 
 
@@ -2035,7 +2044,7 @@ with Image.open("hopper.jpg") as im:
 def calculateRectangles(width, height):
     """Calculate several rectangles for the given size.
     
-    Returns a namedtuple( innerSquare outerSquare upper lower left right quads niner outerNiner threeRows threeColumns )
+    Returns a namedtuple( innerSquare outerSquare upper lower left right quads niner outerNiner threeRows threeColumns fourByFour )
         
         A rectangle in this context means a tuple with ( x,y,w,h ) - the rectangle class is not yet integrated
         
@@ -2053,7 +2062,7 @@ def calculateRectangles(width, height):
         threeColumns- 
     """
     
-    innerrect = outerrect = quads = niner = upper = lower = left = right = outerNiner = threeRows = threeColumns = None
+    innerrect = outerrect = quads = niner = upper = lower = left = right = outerNiner = threeRows = threeColumns = fourByFour = None
     
     xoffset = yoffset = 0
     
@@ -2067,24 +2076,30 @@ def calculateRectangles(width, height):
     
     widththird = int( round( width / 3.0 ))
     heightthird = int( round( height / 3.0 ))
-
+    
+    quarterwidth = int( round( width / 4.0 ))
+    quarterheight = int( round( height / 3.0 ))
+    
+    # pdb.set_trace()
+    
+    # W/H or bottomright?
     if height > width:
         # portrait
-        innerrect = ( 0, halfdelta, shortside, shortside)
-        outerrect = (-halfdelta, 0, halfdelta, height )
-        upper = (0,0, width, halfdelta)
-        lower = (0,halfdelta+width, width, halfdelta)
+        innerrect = Rectangle( 0, halfdelta, shortside, shortside)
+        outerrect = Rectangle(-halfdelta, 0, halfdelta, height )
+        upper = Rectangle(0,0, width, halfdelta)
+        lower = Rectangle(0,halfdelta+width, width, halfdelta)
 
     elif height < width:
         # landscape
-        innerrect = (halfdelta, 0, shortside, shortside)
-        outerrect = (0, -halfdelta, width, halfdelta )
-        left = (0,0, halfdelta, shortside)
-        right = (shortside+delta, 0, halfdelta, shortside)
+        innerrect = Rectangle(halfdelta, 0, shortside, shortside)
+        outerrect = Rectangle(0, -halfdelta, width, width )
+        left = Rectangle(0,0, halfdelta, shortside)
+        right = Rectangle(halfdelta+shortside, 0, halfdelta, shortside)
 
     else:
         # image is square
-        innerrect = outerrect = (0, 0,  width, height )
+        innerrect = outerrect = Rectangle(0, 0,  width, height )
 
     
     # make the niner
@@ -2096,7 +2111,8 @@ def calculateRectangles(width, height):
             r = l + widththird
             b = t + heightthird
             
-            niner.append( (l, t, r, b) )
+            # niner.append( (l, t, r, b) )
+            niner.append( Rectangle(l, t, widththird, heightthird) )
     niner = tuple( niner )
     
     # make the quads
@@ -2108,23 +2124,26 @@ def calculateRectangles(width, height):
             r = l + widthhalf
             b = t + heighthalf
             
-            quads.append( (l, t, r, b) )
+            # quads.append( (l, t, r, b) )
+            quads.append( Rectangle(l, t, widthhalf, heighthalf) )
     quads = tuple( quads )
     
     # make the outer nine same sized rectangles
     # from top to bottom, from left to right
     outerNiner = (
-        (-width, -height,       0,  0),
-        (     0, -height,   width,  0),
-        ( width, -height, 2*width,  0),
+        # tl, tm, tr
+        sqrect(-width, -height,       0,  0),
+        sqrect(     0, -height,   width,  0),
+        sqrect( width, -height, 2*width,  0),
 
-        (-width,        0,       0,  height),
-        (     0,        0,   width,  height),
-        ( width,        0, 2*width,  height),
+        # ml, mm, mr
+        sqrect(-width,        0,       0,  height),
+        sqrect(     0,        0,   width,  height),
+        sqrect( width,        0, 2*width,  height),
 
-        (-width,  height,       0,  0),
-        (     0,  height,   width,  0),
-        ( width,  height, 2*width,  0),
+        sqrect(-width,  height,       0,  2*height),
+        sqrect(     0,  height,   width,  2*height),
+        sqrect( width,  height, 2*width,  2*height),
     )
     
     # threeRows
@@ -2134,7 +2153,7 @@ def calculateRectangles(width, height):
         t = y * heightthird
         r = width
         b = t + heightthird
-        threeRows.append( (l, t, r, b) )
+        threeRows.append( sqrect(l, t, r, b) )
     threeRows = tuple(threeRows)
     
     # threeColumns
@@ -2144,102 +2163,208 @@ def calculateRectangles(width, height):
         l = x * widththird
         r = l + widththird
         b = height
-        threeColumns.append( (l, t, r, b) )
+        threeColumns.append( sqrect(l, t, r, b) )
     threeColumns = tuple( threeColumns )
 
 
     
-    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner, outerNiner, threeRows, threeColumns )
+    # make the 4by4
+    fourByFour = []
+    for y in range(4):
+        for x in range(4):
+            l = x * quarterwidth
+            t = y * quarterheight
+            fourByFour.append( Rectangle(l, t, quarterwidth, quarterheight) )
+    fourByFour = tuple( fourByFour )
+
+
+    
+    result = Rectangles( innerrect, upper, lower, left, right, outerrect, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
     return result
 
 
-# UNUSED
+def testRectangles():
+    
+    # pdb.set_trace()
+    
+    sizes = ( (200,100,"landscape"), (100,200,"portrait") )
+    
+    def markers( w, h, draw ):
+        points = ( (w,h), (2*w,h), (w,2*h), (2*w, 2*h) )
+        for point in points:
+            x,y = point
+            draw.line( (x-5, y  , x+5, y  ), fill=(0,0,255,255) )
+            draw.line( (x  , y-5, x  , y+5), fill=(0,0,255,255) )
+    
+    for exploded in ("standard", "exploded"):
+        for size in sizes:
+            width, height, name = size
+            
+            rects = calculateRectangles( width, height )
+            
+            if exploded in ("exploded",):
+                rects = explodeRectangles( rects )
+            
+            rects = rects._asdict()
+            keys = list(rects.keys())
+            
+            cw = width * 3
+            ch = height * 3
+            x = width
+            y = height
+            
+            bg = Image.new( "RGBA", (cw,ch), (127,127,127,127))
+            
+            for key in keys:
+                rect = rects[key]
+                if rect is None:
+                    continue
+                
+                c = canvas( cw, ch )
+                l = c.layer( bg )
+                
+                draw = ImageDraw.Draw( c.top.img )
+                markers( width, height, draw )
+    
+                if type(rect) in (Rectangle,):
+                    rect = [rect]
+                
+                for idx, r in enumerate(rect):
+                    # pp(dir(rect))
+                    
+                    x1,y1,w,h = r
+                    # translate to inner rect
+                    x1 = x1 + width
+                    y1 = y1 + height
+                    x2 = x1 + w
+                    y2 = y1 + h
+                    print(key, idx, name, (x1,y1), (x2,y2) )
+                    draw.rectangle( (x1,y1,x2,y2), fill=(31,225,31,240), outline=(0,0,0,255))
+                
+                rectname = "testRectangles(%i,%i,%s,%s,%s).jpg" % (width, height,name,key,exploded)
+                print(rectname)
+                c.draw( name=rectname, ext=".jpg", format='JPEG' )
+            
+
 def explodeRectangles( rectangles, deltax=10, deltay=10 ):
     """take the result of calculateRectangles() and linerarly explode them by deltax & deltay.
     
     Return another Rectangles namedtuple.
     """
     
-    # innerSquare outerSquare upper lower left right quads niner outerNiner threeRows threeColumns
+    # innerSquare upper lower left right outerSquare quads niner outerNiner threeRows threeColumns fourByFour"
     upper = rectangles.upper 
     if upper is not None:
-        upper = ( upper[0], upper[1] - deltay, upper[2], upper[3] )
+        upper = Rectangle( upper[0], upper[1] - deltay, upper[2], upper[3] )
     
     lower = rectangles.lower
     if lower is not None:
-        lower = ( lower[0], lower[1] + deltay, lower[2], lower[3] )
+        lower = Rectangle( lower[0], lower[1] + deltay, lower[2], lower[3] )
     
     left = rectangles.left
     if left is not None:
-        left = ( left[0] - deltax, left[1], left[2], left[3] )
+        left = Rectangle( left[0] - deltax, left[1], left[2], left[3] )
     
     right = rectangles.right
     if right is not None:
-        right = ( right[0] + deltax, right[1], right[2], right[3] )
+        right = Rectangle( right[0] + deltax, right[1], right[2], right[3] )
     
     # QUADS
     dx2 = deltax / 2
     dy2 = deltay / 2
     q1, q2, q3, q4 = rectangles.quads
     quads = (
-        ( q1[0] - dx2, q1[1] - dy2, q1[2], q1[3] ),
-        ( q2[0] + dx2, q2[1] - dy2, q2[2], q2[3] ),
+        Rectangle( q1[0] - dx2, q1[1] - dy2, q1[2], q1[3] ),
+        Rectangle( q2[0] + dx2, q2[1] - dy2, q2[2], q2[3] ),
         
-        ( q3[0] - dx2, q3[1] + dy2, q3[2], q3[3] ),
-        ( q4[0] + dx2, q4[1] + dy2, q4[2], q4[3] )
+        Rectangle( q3[0] - dx2, q3[1] + dy2, q3[2], q3[3] ),
+        Rectangle( q4[0] + dx2, q4[1] + dy2, q4[2], q4[3] )
     )
     
     # NINER
-    dx3 = deltax / 2
-    dy3 = deltay / 2
+    dx3 = deltax # / 2
+    dy3 = deltay # / 2
     q1, q2, q3, q4, q5, q6, q7, q8, q9 = rectangles.niner
     niner = (
-        ( q1[0] - dx3, q1[1] - dy3, q1[2], q1[3] ),
-        ( q2[0]      , q2[1] - dy3, q2[2], q2[3] ),
-        ( q3[0] + dx3, q3[1] - dy3, q3[2], q3[3] ),
+        Rectangle( q1[0] - dx3, q1[1] - dy3, q1[2], q1[3] ),
+        Rectangle( q2[0]      , q2[1] - dy3, q2[2], q2[3] ),
+        Rectangle( q3[0] + dx3, q3[1] - dy3, q3[2], q3[3] ),
         
-        ( q4[0] - dx3, q4[1]      , q4[2], q4[3] ),
-        ( q5[0]      , q5[1]      , q5[2], q5[3] ),
-        ( q6[0] + dx3, q6[1]      , q6[2], q6[3] ),
+        Rectangle( q4[0] - dx3, q4[1]      , q4[2], q4[3] ),
+        Rectangle( q5[0]      , q5[1]      , q5[2], q5[3] ),
+        Rectangle( q6[0] + dx3, q6[1]      , q6[2], q6[3] ),
         
-        ( q7[0] - dx3, q7[1] + dy3, q7[2], q9[3] ),
-        ( q8[0]      , q8[1] + dy3, q8[2], q8[3] ),
-        ( q9[0] + dx3, q9[1] + dy3, q9[2], q7[3] )
+        Rectangle( q7[0] - dx3, q7[1] + dy3, q7[2], q9[3] ),
+        Rectangle( q8[0]      , q8[1] + dy3, q8[2], q8[3] ),
+        Rectangle( q9[0] + dx3, q9[1] + dy3, q9[2], q7[3] )
     )
     
     # OUTERNINER
     q1, q2, q3, q4, q5, q6, q7, q8, q9 = rectangles.outerNiner
     outerNiner = (
-        ( q1[0] - dx3, q1[1] - dy3, q1[2], q1[3] ),
-        ( q2[0]      , q2[1] - dy3, q2[2], q2[3] ),
-        ( q3[0] + dx3, q3[1] - dy3, q3[2], q3[3] ),
+        Rectangle( q1[0] - dx3, q1[1] - dy3, q1[2], q1[3] ),
+        Rectangle( q2[0]      , q2[1] - dy3, q2[2], q2[3] ),
+        Rectangle( q3[0] + dx3, q3[1] - dy3, q3[2], q3[3] ),
         
-        ( q4[0] - dx3, q4[1]      , q4[2], q4[3] ),
-        ( q5[0]      , q5[1]      , q5[2], q5[3] ),
-        ( q6[0] + dx3, q6[1]      , q6[2], q6[3] ),
+        Rectangle( q4[0] - dx3, q4[1]      , q4[2], q4[3] ),
+        Rectangle( q5[0]      , q5[1]      , q5[2], q5[3] ),
+        Rectangle( q6[0] + dx3, q6[1]      , q6[2], q6[3] ),
         
-        ( q7[0] - dx3, q7[1] + dy3, q7[2], q9[3] ),
-        ( q8[0]      , q8[1] + dy3, q8[2], q8[3] ),
-        ( q9[0] + dx3, q9[1] + dy3, q9[2], q7[3] )
+        Rectangle( q7[0] - dx3, q7[1] + dy3, q7[2], q9[3] ),
+        Rectangle( q8[0]      , q8[1] + dy3, q8[2], q8[3] ),
+        Rectangle( q9[0] + dx3, q9[1] + dy3, q9[2], q7[3] )
     )
     
     # THREEROWS
     q1, q2, q3 = rectangles.threeRows
     threeRows = (
-        ( q1[0]      , q1[1] - dy3, q1[2], q1[3] ),
-        ( q2[0]      , q2[1]      , q2[2], q2[3] ),
-        ( q3[0]      , q3[1] + dy3, q3[2], q3[3] )
+        Rectangle( q1[0]      , q1[1] - dy3, q1[2], q1[3] ),
+        Rectangle( q2[0]      , q2[1]      , q2[2], q2[3] ),
+        Rectangle( q3[0]      , q3[1] + dy3, q3[2], q3[3] )
     )
     
     # THREECOLUMNS
     q1, q2, q3 = rectangles.threeColumns
     threeColumns = (
-        ( q1[0] - dx3, q1[1]      , q1[2], q1[3] ),
-        ( q2[0]      , q2[1]      , q2[2], q2[3] ),
-        ( q3[0] + dx3, q3[1]      , q3[2], q3[3] )
+        Rectangle( q1[0] - dx3, q1[1]      , q1[2], q1[3] ),
+        Rectangle( q2[0]      , q2[1]      , q2[2], q2[3] ),
+        Rectangle( q3[0] + dx3, q3[1]      , q3[2], q3[3] )
     )
     
-    result = Rectangles( rectangles.innerSquare, rectangles.outerSquare, upper, lower, left, right, quads, niner, outerNiner, threeRows, threeColumns )
+    # FOURBYFOUR
+    # naming is q ROW COL
+    q01, q02, q03, q04, q11, q12, q13, q14, q21, q22, q23, q24, q31, q32, q33, q34 = rectangles.fourByFour
+    dx1 = int(round( deltax * 0.5))
+    dx2 = int(round( deltax * 1.5))
+    dy1 = int(round( deltay * 0.5))
+    dy2 = int(round( deltay * 1.5))
+    fourByFour = (
+        # top row
+        Rectangle( q01[0] - dx2, q01[1] - dy2, q01[2], q01[3] ),
+        Rectangle( q02[0] - dx1, q02[1] - dy2, q02[2], q02[3] ),
+        Rectangle( q03[0] + dx1, q03[1] - dy2, q03[2], q03[3] ),
+        Rectangle( q04[0] + dx2, q04[1] - dy2, q04[2], q04[3] ),
+
+        # second row
+        Rectangle( q11[0] - dx2, q11[1] - dy1, q11[2], q11[3] ),
+        Rectangle( q12[0] - dx1, q12[1] - dy1, q12[2], q12[3] ),
+        Rectangle( q13[0] + dx1, q13[1] - dy1, q13[2], q13[3] ),
+        Rectangle( q14[0] + dx2, q14[1] - dy1, q14[2], q14[3] ),
+
+        # third row
+        Rectangle( q21[0] - dx2, q21[1] + dy1, q21[2], q21[3] ),
+        Rectangle( q22[0] - dx1, q22[1] + dy1, q22[2], q22[3] ),
+        Rectangle( q23[0] + dx1, q23[1] + dy1, q23[2], q23[3] ),
+        Rectangle( q24[0] + dx2, q24[1] + dy1, q24[2], q24[3] ),
+
+        # last row
+        Rectangle( q31[0] - dx2, q31[1] + dy2, q31[2], q31[3] ),
+        Rectangle( q32[0] - dx1, q32[1] + dy2, q32[2], q32[3] ),
+        Rectangle( q33[0] + dx1, q33[1] + dy2, q33[2], q33[3] ),
+        Rectangle( q34[0] + dx2, q34[1] + dy2, q34[2], q34[3] ),
+
+    )
+    result = Rectangles( rectangles.innerSquare, upper, lower, left, right, rectangles.outerSquare, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
     return result
 
 

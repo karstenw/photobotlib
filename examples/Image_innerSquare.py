@@ -85,7 +85,7 @@ rectangles = pb.explodeRectangles( rectangles )
 
 display = []
 # innersquare
-if 1:
+if 0:
     display.append( "innersquare" )
     img2layer.duplicate()
     squarerect = rectangles.innerSquare
@@ -99,7 +99,7 @@ if 1:
     # pb.label(c, "Image 1 inner square", x, y, 30)
 
 # quads
-if 1:
+if 0:
     display.append( "quads" )
     quads = rectangles.quads
     
@@ -111,7 +111,7 @@ if 1:
         c.top.opacity( 25 + rnd.random() * 30 )
 
 # niner
-if 0:
+if 1:
     display.append( "niner" )
     niner = rectangles.niner
     

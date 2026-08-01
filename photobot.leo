@@ -36,7 +36,7 @@
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
+<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
 <v t="karstenw.20170709210125.13"><vh>export</vh>
@@ -46,7 +46,7 @@
 <v t="karstenw.20170709210125.14"><vh>draw</vh></v>
 </v>
 <v t="karstenw.20170709210125.15"><vh>preferences</vh></v>
-<v t="karstenw.20200430120743.1"><vh>STACK OPS</vh>
+<v t="karstenw.20200430120743.1" a="E"><vh>STACK OPS</vh>
 <v t="karstenw.20170710142919.1"><vh>top</vh></v>
 <v t="karstenw.20210722112454.1"><vh>topindex</vh></v>
 <v t="karstenw.20200430124808.1"><vh>dup</vh></v>
@@ -162,17 +162,20 @@
 <v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
-<v t="karstenw.20210612104640.1"><vh>splitrect - RECT</vh></v>
+<v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
+<v t="karstenw.20260801142845.1"><vh>splitrectTest</vh></v>
 <v t="karstenw.20211021151303.1"><vh>splitimage - TODO</vh></v>
-<v t="karstenw.20260122141054.1"><vh>calculateRectangles - RECT</vh>
+<v t="karstenw.20260122141054.1"><vh>calculateRectangles</vh>
 <v t="karstenw.20260602132100.1"><vh>&lt;&lt; inner outer rect &gt;&gt;</vh></v>
 <v t="karstenw.20260523093110.1"><vh>&lt;&lt; inner niner &gt;&gt;</vh></v>
 <v t="karstenw.20260523092749.1"><vh>&lt;&lt; quads &gt;&gt;</vh></v>
 <v t="karstenw.20260523092915.1"><vh>&lt;&lt; outer niner &gt;&gt;</vh></v>
 <v t="karstenw.20260523092931.1"><vh>&lt;&lt; three rows &gt;&gt;</vh></v>
 <v t="karstenw.20260523092951.1"><vh>&lt;&lt; three columns &gt;&gt;</vh></v>
+<v t="karstenw.20260801144724.1"><vh>&lt;&lt; four by four &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20260323135043.1"><vh>explodeRectangles - RECT</vh></v>
+<v t="karstenw.20260801130050.1"><vh>testRectangles</vh></v>
+<v t="karstenw.20260323135043.1"><vh>explodeRectangles</vh></v>
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20201022144702.1"><vh>innerSquare</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
@@ -231,7 +234,7 @@
 <v t="karstenw.20210316200115.1"></v>
 </v>
 </v>
-<v t="karstenw.20210317152421.1" a="E"><vh>@clean examples/Example collage 2.py</vh>
+<v t="karstenw.20210317152421.1"><vh>@clean examples/Example collage 2.py</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
@@ -281,7 +284,7 @@
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20210331161336.1"><vh>config</vh></v>
-<v t="karstenw.20210331161342.1"><vh>loop</vh>
+<v t="karstenw.20210331161342.1" a="E"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"><vh>&lt;&lt; image placement &gt;&gt;</vh></v>
 <v t="karstenw.20210331164848.1"><vh>&lt;&lt; tile height &gt;&gt;</vh></v>
 <v t="karstenw.20210331165305.1"><vh>&lt;&lt; tile contrast crank &gt;&gt;</vh></v>
@@ -302,7 +305,7 @@
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20211005225906.2"><vh>config</vh></v>
-<v t="karstenw.20211005233913.1"><vh>loop</vh>
+<v t="karstenw.20211005233913.1" a="E"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"></v>
 <v t="karstenw.20210331164848.1"></v>
 <v t="karstenw.20210331165305.1"></v>
@@ -323,7 +326,7 @@
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
 <v t="karstenw.20250409154448.1"><vh>config</vh></v>
-<v t="karstenw.20250409154454.1"><vh>loop</vh>
+<v t="karstenw.20250409154454.1" a="E"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"></v>
 <v t="karstenw.20210331164848.1"></v>
 <v t="karstenw.20210331165305.1"></v>
@@ -338,7 +341,7 @@
 </v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
@@ -474,13 +477,14 @@
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20211206124353.4"><vh>Content</vh></v>
 </v>
-<v t="karstenw.20260122212721.1" a="E"><vh>@clean examples/Layer_function_rectangles.py</vh>
+<v t="karstenw.20260122212721.1"><vh>@clean examples/Layer_function_rectangles.py</vh>
 <v t="karstenw.20211206131524.1"></v>
 <v t="karstenw.20260122212815.1"><vh>Content</vh></v>
 </v>
 <v t="karstenw.20260731102556.1"><vh>@clean examples/Image_innerSquare.py</vh>
 <v t="karstenw.20260731102616.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260731102616.2"><vh>p</vh></v>
+<v t="karstenw.20260731152001.1"><vh>newHeadline</vh></v>
 </v>
 </v>
 </v>
@@ -3630,9 +3634,13 @@ c.top.contrast(1.1)
     h2 = int( round( h * t ))
 
     if hor:
-        rects = [ (left, top, right, top+h2), (left, top+h2+1, right, bottom) ]
+        rects = [
+            sqrect(left, top, right, top+h2),
+            sqrect(left, top+h2+1, right, bottom) ]
     else:
-        rects = [ (left, top, l+w2, bottom), (left+w2+1, top, right, bottom) ]
+        rects = [
+            sqrect(left, top, l+w2, bottom),
+            sqrect(left+w2+1, top, right, bottom) ]
     return rects
 
 
@@ -5853,7 +5861,7 @@ if 0: #rnd.random() &gt; 0.3:
 def calculateRectangles(width, height):
     """Calculate several rectangles for the given size.
     
-    Returns a namedtuple( innerSquare outerSquare upper lower left right quads niner outerNiner threeRows threeColumns )
+    Returns a namedtuple( innerSquare outerSquare upper lower left right quads niner outerNiner threeRows threeColumns fourByFour )
         
         A rectangle in this context means a tuple with ( x,y,w,h ) - the rectangle class is not yet integrated
         
@@ -5871,7 +5879,7 @@ def calculateRectangles(width, height):
         threeColumns- 
     """
     
-    innerrect = outerrect = quads = niner = upper = lower = left = right = outerNiner = threeRows = threeColumns = None
+    innerrect = outerrect = quads = niner = upper = lower = left = right = outerNiner = threeRows = threeColumns = fourByFour = None
     
     xoffset = yoffset = 0
     
@@ -5885,7 +5893,12 @@ def calculateRectangles(width, height):
     
     widththird = int( round( width / 3.0 ))
     heightthird = int( round( height / 3.0 ))
-
+    
+    quarterwidth = int( round( width / 4.0 ))
+    quarterheight = int( round( height / 3.0 ))
+    
+    # pdb.set_trace()
+    
     &lt;&lt; inner outer rect &gt;&gt;
     
     &lt;&lt; inner niner &gt;&gt;
@@ -5898,7 +5911,9 @@ def calculateRectangles(width, height):
     
     &lt;&lt; three columns &gt;&gt;
     
-    result = Rectangles( innerrect, outerrect, upper, lower, left, right, quads, niner, outerNiner, threeRows, threeColumns )
+    &lt;&lt; four by four &gt;&gt;
+    
+    result = Rectangles( innerrect, upper, lower, left, right, outerrect, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
     return result
 
 
@@ -5907,21 +5922,28 @@ def calculateRectangles(width, height):
 @tabwidth -4
 @others
 </t>
-<t tx="karstenw.20260122212815.1">#
+<t tx="karstenw.20260122212815.1"># create a gray canvas
+c = pb.canvas( WIDTH+200, HEIGHT)
+c.fill( (192, 192, 192) )
+
+#
 # Image 1
 #
 
 pb.py23print( img1path)
 #  create, scale and place the image
-x, y = 10, 10
+gap = 10
+x, y = 100 + gap, gap
 top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 1")
 pb.label(c, "Image 1", x, y, 30)
+
+print(img1path)
 
 #
 # image 2 - which is just image 1
 #
-x = 10
-y = h1 + 10 + 10
+x = 100 + gap
+y = h1 + gap + gap
 _, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 2 inner square")
 
 img2layer = c.top
@@ -5929,22 +5951,47 @@ img2layer = c.top
 rectangles = pb.calculateRectangles(w1, h1)
 rot = 0 #rnd.random() &gt; 0.85
 
+pp(rectangles)
 
 # innerrect
 if 1:
+    # do inner square
     img2layer.duplicate()
     squarerect = rectangles.innerSquare
     x1,y1,w,h = squarerect
     x2 = x1+w
     y2 = y1+h
     c.top.crop( ( x1, y1, x2, y2 ) )
+    
     if rot:
         c.top.rotate( -18 + rnd.random() * 36 )
     c.top.translate( x+x1, y+y1 )
     # c.top.opacity( 50 )
     # pb.label(c, "Image 1 inner square", x, y, 30)
+    
+    # do left rect
+    img2layer.duplicate()
+    leftrect = rectangles.left
+    x1,y1,w,h = leftrect
+    x2 = x1+w
+    y2 = y1+h
+    c.top.crop( ( x1, y1, x2, y2 ) )
+    c.top.translate( x-gap, y )
+    c.top.opacity( 50 )
 
-if 1:
+    # do right rect
+    img2layer.duplicate()
+    rightrect = rectangles.right
+    x1,y1,w,h = rightrect
+    x2 = x1+w
+    y2 = y1+h
+    c.top.crop( ( x1, y1, x2, y2 ) )
+    c.top.translate( x+x1+gap, y+y1 )
+    c.top.opacity( 50 )
+    
+
+
+if 0:
     quads = rectangles.quads
     
     for quad in quads:
@@ -6017,93 +6064,125 @@ c.draw(name="Image_innerSquare")
 <t tx="karstenw.20260126100110.1"></t>
 <t tx="karstenw.20260126100115.1"></t>
 <t tx="karstenw.20260126100137.1"></t>
-<t tx="karstenw.20260323135043.1"># UNUSED
-def explodeRectangles( rectangles, deltax=10, deltay=10 ):
+<t tx="karstenw.20260323135043.1">def explodeRectangles( rectangles, deltax=10, deltay=10 ):
     """take the result of calculateRectangles() and linerarly explode them by deltax &amp; deltay.
     
     Return another Rectangles namedtuple.
     """
     
-    # innerSquare outerSquare upper lower left right quads niner outerNiner threeRows threeColumns
+    # innerSquare upper lower left right outerSquare quads niner outerNiner threeRows threeColumns fourByFour"
     upper = rectangles.upper 
     if upper is not None:
-        upper = ( upper[0], upper[1] - deltay, upper[2], upper[3] )
+        upper = Rectangle( upper[0], upper[1] - deltay, upper[2], upper[3] )
     
     lower = rectangles.lower
     if lower is not None:
-        lower = ( lower[0], lower[1] + deltay, lower[2], lower[3] )
+        lower = Rectangle( lower[0], lower[1] + deltay, lower[2], lower[3] )
     
     left = rectangles.left
     if left is not None:
-        left = ( left[0] - deltax, left[1], left[2], left[3] )
+        left = Rectangle( left[0] - deltax, left[1], left[2], left[3] )
     
     right = rectangles.right
     if right is not None:
-        right = ( right[0] + deltax, right[1], right[2], right[3] )
+        right = Rectangle( right[0] + deltax, right[1], right[2], right[3] )
     
     # QUADS
     dx2 = deltax / 2
     dy2 = deltay / 2
     q1, q2, q3, q4 = rectangles.quads
     quads = (
-        ( q1[0] - dx2, q1[1] - dy2, q1[2], q1[3] ),
-        ( q2[0] + dx2, q2[1] - dy2, q2[2], q2[3] ),
+        Rectangle( q1[0] - dx2, q1[1] - dy2, q1[2], q1[3] ),
+        Rectangle( q2[0] + dx2, q2[1] - dy2, q2[2], q2[3] ),
         
-        ( q3[0] - dx2, q3[1] + dy2, q3[2], q3[3] ),
-        ( q4[0] + dx2, q4[1] + dy2, q4[2], q4[3] )
+        Rectangle( q3[0] - dx2, q3[1] + dy2, q3[2], q3[3] ),
+        Rectangle( q4[0] + dx2, q4[1] + dy2, q4[2], q4[3] )
     )
     
     # NINER
-    dx3 = deltax / 2
-    dy3 = deltay / 2
+    dx3 = deltax # / 2
+    dy3 = deltay # / 2
     q1, q2, q3, q4, q5, q6, q7, q8, q9 = rectangles.niner
     niner = (
-        ( q1[0] - dx3, q1[1] - dy3, q1[2], q1[3] ),
-        ( q2[0]      , q2[1] - dy3, q2[2], q2[3] ),
-        ( q3[0] + dx3, q3[1] - dy3, q3[2], q3[3] ),
+        Rectangle( q1[0] - dx3, q1[1] - dy3, q1[2], q1[3] ),
+        Rectangle( q2[0]      , q2[1] - dy3, q2[2], q2[3] ),
+        Rectangle( q3[0] + dx3, q3[1] - dy3, q3[2], q3[3] ),
         
-        ( q4[0] - dx3, q4[1]      , q4[2], q4[3] ),
-        ( q5[0]      , q5[1]      , q5[2], q5[3] ),
-        ( q6[0] + dx3, q6[1]      , q6[2], q6[3] ),
+        Rectangle( q4[0] - dx3, q4[1]      , q4[2], q4[3] ),
+        Rectangle( q5[0]      , q5[1]      , q5[2], q5[3] ),
+        Rectangle( q6[0] + dx3, q6[1]      , q6[2], q6[3] ),
         
-        ( q7[0] - dx3, q7[1] + dy3, q7[2], q9[3] ),
-        ( q8[0]      , q8[1] + dy3, q8[2], q8[3] ),
-        ( q9[0] + dx3, q9[1] + dy3, q9[2], q7[3] )
+        Rectangle( q7[0] - dx3, q7[1] + dy3, q7[2], q9[3] ),
+        Rectangle( q8[0]      , q8[1] + dy3, q8[2], q8[3] ),
+        Rectangle( q9[0] + dx3, q9[1] + dy3, q9[2], q7[3] )
     )
     
     # OUTERNINER
     q1, q2, q3, q4, q5, q6, q7, q8, q9 = rectangles.outerNiner
     outerNiner = (
-        ( q1[0] - dx3, q1[1] - dy3, q1[2], q1[3] ),
-        ( q2[0]      , q2[1] - dy3, q2[2], q2[3] ),
-        ( q3[0] + dx3, q3[1] - dy3, q3[2], q3[3] ),
+        Rectangle( q1[0] - dx3, q1[1] - dy3, q1[2], q1[3] ),
+        Rectangle( q2[0]      , q2[1] - dy3, q2[2], q2[3] ),
+        Rectangle( q3[0] + dx3, q3[1] - dy3, q3[2], q3[3] ),
         
-        ( q4[0] - dx3, q4[1]      , q4[2], q4[3] ),
-        ( q5[0]      , q5[1]      , q5[2], q5[3] ),
-        ( q6[0] + dx3, q6[1]      , q6[2], q6[3] ),
+        Rectangle( q4[0] - dx3, q4[1]      , q4[2], q4[3] ),
+        Rectangle( q5[0]      , q5[1]      , q5[2], q5[3] ),
+        Rectangle( q6[0] + dx3, q6[1]      , q6[2], q6[3] ),
         
-        ( q7[0] - dx3, q7[1] + dy3, q7[2], q9[3] ),
-        ( q8[0]      , q8[1] + dy3, q8[2], q8[3] ),
-        ( q9[0] + dx3, q9[1] + dy3, q9[2], q7[3] )
+        Rectangle( q7[0] - dx3, q7[1] + dy3, q7[2], q9[3] ),
+        Rectangle( q8[0]      , q8[1] + dy3, q8[2], q8[3] ),
+        Rectangle( q9[0] + dx3, q9[1] + dy3, q9[2], q7[3] )
     )
     
     # THREEROWS
     q1, q2, q3 = rectangles.threeRows
     threeRows = (
-        ( q1[0]      , q1[1] - dy3, q1[2], q1[3] ),
-        ( q2[0]      , q2[1]      , q2[2], q2[3] ),
-        ( q3[0]      , q3[1] + dy3, q3[2], q3[3] )
+        Rectangle( q1[0]      , q1[1] - dy3, q1[2], q1[3] ),
+        Rectangle( q2[0]      , q2[1]      , q2[2], q2[3] ),
+        Rectangle( q3[0]      , q3[1] + dy3, q3[2], q3[3] )
     )
     
     # THREECOLUMNS
     q1, q2, q3 = rectangles.threeColumns
     threeColumns = (
-        ( q1[0] - dx3, q1[1]      , q1[2], q1[3] ),
-        ( q2[0]      , q2[1]      , q2[2], q2[3] ),
-        ( q3[0] + dx3, q3[1]      , q3[2], q3[3] )
+        Rectangle( q1[0] - dx3, q1[1]      , q1[2], q1[3] ),
+        Rectangle( q2[0]      , q2[1]      , q2[2], q2[3] ),
+        Rectangle( q3[0] + dx3, q3[1]      , q3[2], q3[3] )
     )
     
-    result = Rectangles( rectangles.innerSquare, rectangles.outerSquare, upper, lower, left, right, quads, niner, outerNiner, threeRows, threeColumns )
+    # FOURBYFOUR
+    # naming is q ROW COL
+    q01, q02, q03, q04, q11, q12, q13, q14, q21, q22, q23, q24, q31, q32, q33, q34 = rectangles.fourByFour
+    dx1 = int(round( deltax * 0.5))
+    dx2 = int(round( deltax * 1.5))
+    dy1 = int(round( deltay * 0.5))
+    dy2 = int(round( deltay * 1.5))
+    fourByFour = (
+        # top row
+        Rectangle( q01[0] - dx2, q01[1] - dy2, q01[2], q01[3] ),
+        Rectangle( q02[0] - dx1, q02[1] - dy2, q02[2], q02[3] ),
+        Rectangle( q03[0] + dx1, q03[1] - dy2, q03[2], q03[3] ),
+        Rectangle( q04[0] + dx2, q04[1] - dy2, q04[2], q04[3] ),
+
+        # second row
+        Rectangle( q11[0] - dx2, q11[1] - dy1, q11[2], q11[3] ),
+        Rectangle( q12[0] - dx1, q12[1] - dy1, q12[2], q12[3] ),
+        Rectangle( q13[0] + dx1, q13[1] - dy1, q13[2], q13[3] ),
+        Rectangle( q14[0] + dx2, q14[1] - dy1, q14[2], q14[3] ),
+
+        # third row
+        Rectangle( q21[0] - dx2, q21[1] + dy1, q21[2], q21[3] ),
+        Rectangle( q22[0] - dx1, q22[1] + dy1, q22[2], q22[3] ),
+        Rectangle( q23[0] + dx1, q23[1] + dy1, q23[2], q23[3] ),
+        Rectangle( q24[0] + dx2, q24[1] + dy1, q24[2], q24[3] ),
+
+        # last row
+        Rectangle( q31[0] - dx2, q31[1] + dy2, q31[2], q31[3] ),
+        Rectangle( q32[0] - dx1, q32[1] + dy2, q32[2], q32[3] ),
+        Rectangle( q33[0] + dx1, q33[1] + dy2, q33[2], q33[3] ),
+        Rectangle( q34[0] + dx2, q34[1] + dy2, q34[2], q34[3] ),
+
+    )
+    result = Rectangles( rectangles.innerSquare, upper, lower, left, right, rectangles.outerSquare, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
     return result
 
 
@@ -6126,23 +6205,26 @@ for y in range(2):
         r = l + widthhalf
         b = t + heighthalf
         
-        quads.append( (l, t, r, b) )
+        # quads.append( (l, t, r, b) )
+        quads.append( Rectangle(l, t, widthhalf, heighthalf) )
 quads = tuple( quads )
 </t>
 <t tx="karstenw.20260523092915.1"># make the outer nine same sized rectangles
 # from top to bottom, from left to right
 outerNiner = (
-    (-width, -height,       0,  0),
-    (     0, -height,   width,  0),
-    ( width, -height, 2*width,  0),
+    # tl, tm, tr
+    sqrect(-width, -height,       0,  0),
+    sqrect(     0, -height,   width,  0),
+    sqrect( width, -height, 2*width,  0),
 
-    (-width,        0,       0,  height),
-    (     0,        0,   width,  height),
-    ( width,        0, 2*width,  height),
+    # ml, mm, mr
+    sqrect(-width,        0,       0,  height),
+    sqrect(     0,        0,   width,  height),
+    sqrect( width,        0, 2*width,  height),
 
-    (-width,  height,       0,  0),
-    (     0,  height,   width,  0),
-    ( width,  height, 2*width,  0),
+    sqrect(-width,  height,       0,  2*height),
+    sqrect(     0,  height,   width,  2*height),
+    sqrect( width,  height, 2*width,  2*height),
 )
 </t>
 <t tx="karstenw.20260523092931.1"># threeRows
@@ -6152,7 +6234,7 @@ for y in range(3):
     t = y * heightthird
     r = width
     b = t + heightthird
-    threeRows.append( (l, t, r, b) )
+    threeRows.append( sqrect(l, t, r, b) )
 threeRows = tuple(threeRows)
 </t>
 <t tx="karstenw.20260523092951.1"># threeColumns
@@ -6162,7 +6244,7 @@ for x in range( 3 ):
     l = x * widththird
     r = l + widththird
     b = height
-    threeColumns.append( (l, t, r, b) )
+    threeColumns.append( sqrect(l, t, r, b) )
 threeColumns = tuple( threeColumns )
 
 
@@ -6176,7 +6258,8 @@ for y in range(3):
         r = l + widththird
         b = t + heightthird
         
-        niner.append( (l, t, r, b) )
+        # niner.append( (l, t, r, b) )
+        niner.append( Rectangle(l, t, widththird, heightthird) )
 niner = tuple( niner )
 </t>
 <t tx="karstenw.20260525160223.1">sqrt = math.sqrt
@@ -6199,29 +6282,35 @@ Image.MAX_IMAGE_PIXELS = None # 200000000
 # Rectangle result types
 Rectangles = collections.namedtuple('Rectangles', "innerSquare upper lower left right "
                                                   "outerSquare quads niner outerNiner "
-                                                  "threeRows threeColumns" )
+                                                  "threeRows threeColumns fourByFour" )
 
 Rectangle = collections.namedtuple('Rectangle', "left upper width height" )
 
+def sqrect( x1,y1, x2, y2 ):
+    w = x2-x1
+    h = y2-y1
+    return Rectangle( x1, y1, w, h )
+
 </t>
 <t tx="karstenw.20260526103818.1"></t>
-<t tx="karstenw.20260602132100.1">if height &gt; width:
+<t tx="karstenw.20260602132100.1"># W/H or bottomright?
+if height &gt; width:
     # portrait
-    innerrect = ( 0, halfdelta, shortside, shortside)
-    outerrect = (-halfdelta, 0, halfdelta, height )
-    upper = (0,0, width, halfdelta)
-    lower = (0,halfdelta+width, width, halfdelta)
+    innerrect = Rectangle( 0, halfdelta, shortside, shortside)
+    outerrect = Rectangle(-halfdelta, 0, halfdelta, height )
+    upper = Rectangle(0,0, width, halfdelta)
+    lower = Rectangle(0,halfdelta+width, width, halfdelta)
 
 elif height &lt; width:
     # landscape
-    innerrect = (halfdelta, 0, shortside, shortside)
-    outerrect = (0, -halfdelta, width, halfdelta )
-    left = (0,0, halfdelta, shortside)
-    right = (shortside+delta, 0, halfdelta, shortside)
+    innerrect = Rectangle(halfdelta, 0, shortside, shortside)
+    outerrect = Rectangle(0, -halfdelta, width, width )
+    left = Rectangle(0,0, halfdelta, shortside)
+    right = Rectangle(halfdelta+shortside, 0, halfdelta, shortside)
 
 else:
     # image is square
-    innerrect = outerrect = (0, 0,  width, height )
+    innerrect = outerrect = Rectangle(0, 0,  width, height )
 
 </t>
 <t tx="karstenw.20260609104122.1"></t>
@@ -6436,90 +6525,9 @@ else:
 c.top.mask()
 
 </t>
-<t tx="karstenw.20260731102556.1">@others
-if NB:
-    print("H - newH:", H, fullheight )
-    size( W, fullheight )
-
-# create a gray canvas
-c = pb.canvas( W, fullheight)
-c.fill( (192, 192, 192) )
-
-#
-# Image 1
-#
-
-pb.py23print( "img1path: %s" % img1path )
-#  create, scale and place the image
-x, y = inset, inset
-top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, filename)
-print("x,y,w1,h1", x,y,w1,h1 )
-pb.label(c, filename, x, y, 30)
-
-
-# the copy layer
-x = inset
-y = h1 + inset + inset
-_, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "%s inner square" % filename)
-
-img2layer = c.top
-
-# pdb.set_trace()
-rectangles = pb.calculateRectangles(w1, h1)
-rectangles = pb.explodeRectangles( rectangles )
-
-display = []
-# innersquare
-if 1:
-    display.append( "innersquare" )
-    img2layer.duplicate()
-    squarerect = rectangles.innerSquare
-    #print("InnerSquare", squarerect )
-    x1,y1,w,h = squarerect
-    x2 = x1+w
-    y2 = y1+h
-    c.top.crop( ( x1, y1, x2, y2 ) )
-    c.top.translate( x+x1, y+y1 )
-    c.top.opacity( 65 )
-    # pb.label(c, "Image 1 inner square", x, y, 30)
-
-# quads
-if 1:
-    display.append( "quads" )
-    quads = rectangles.quads
-    
-    for quad in quads:
-        #print( "quad:", quad )
-        img2layer.duplicate()
-        c.top.scale( 0.5, 0.5 )
-        c.top.translate( x+quad[0], y+quad[1] )
-        c.top.opacity( 25 + rnd.random() * 30 )
-
-# niner
-if 0:
-    display.append( "niner" )
-    niner = rectangles.niner
-    
-    for nine in niner:
-        #print( "niner:", nine )
-        img2layer.duplicate()
-        c.top.scale( 1/3.0, 1/3.0 )
-        c.top.translate( x+nine[0], y+nine[1] )
-        c.top.opacity( 10 + rnd.random() * 20 )
-    # pb.label(c, "Image 1 niner", x, y, 30)
-
-display = ' &amp; '.join( display )
-display = "%s - %s" % ( filename, display )
-
-# img2layer.opacity( 10 )
-img2layer.delete()
-
-pb.label(c, display, x, y, 30)
-    
-# draw the result
-c.draw(name="Image_innerSquare")
-@language python
+<t tx="karstenw.20260731102556.1">@language python
 @tabwidth -4
+@others
 </t>
 <t tx="karstenw.20260731102616.1">import sys, os
 
@@ -6587,6 +6595,164 @@ fullheight = 2 * h1 + 3 * inset
     img.close()
     del img
     return s
+
+
+</t>
+<t tx="karstenw.20260731152001.1">if NB:
+    print("H - newH:", H, fullheight )
+    size( W, fullheight )
+
+# create a gray canvas
+c = pb.canvas( W, fullheight)
+c.fill( (192, 192, 192) )
+
+#
+# Image 1
+#
+
+pb.py23print( "img1path: %s" % img1path )
+#  create, scale and place the image
+x, y = inset, inset
+top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, filename)
+print("x,y,w1,h1", x,y,w1,h1 )
+pb.label(c, filename, x, y, 30)
+
+
+# the copy layer
+x = inset
+y = h1 + inset + inset
+_, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "%s inner square" % filename)
+
+img2layer = c.top
+
+# pdb.set_trace()
+rectangles = pb.calculateRectangles(w1, h1)
+rectangles = pb.explodeRectangles( rectangles )
+
+display = []
+# innersquare
+if 0:
+    display.append( "innersquare" )
+    img2layer.duplicate()
+    squarerect = rectangles.innerSquare
+    #print("InnerSquare", squarerect )
+    x1,y1,w,h = squarerect
+    x2 = x1+w
+    y2 = y1+h
+    c.top.crop( ( x1, y1, x2, y2 ) )
+    c.top.translate( x+x1, y+y1 )
+    c.top.opacity( 65 )
+    # pb.label(c, "Image 1 inner square", x, y, 30)
+
+# quads
+if 0:
+    display.append( "quads" )
+    quads = rectangles.quads
+    
+    for quad in quads:
+        #print( "quad:", quad )
+        img2layer.duplicate()
+        c.top.scale( 0.5, 0.5 )
+        c.top.translate( x+quad[0], y+quad[1] )
+        c.top.opacity( 25 + rnd.random() * 30 )
+
+# niner
+if 1:
+    display.append( "niner" )
+    niner = rectangles.niner
+    
+    for nine in niner:
+        #print( "niner:", nine )
+        img2layer.duplicate()
+        c.top.scale( 1/3.0, 1/3.0 )
+        c.top.translate( x+nine[0], y+nine[1] )
+        c.top.opacity( 10 + rnd.random() * 20 )
+    # pb.label(c, "Image 1 niner", x, y, 30)
+
+display = ' &amp; '.join( display )
+display = "%s - %s" % ( filename, display )
+
+# img2layer.opacity( 10 )
+img2layer.delete()
+
+pb.label(c, display, x, y, 30)
+    
+# draw the result
+c.draw(name="Image_innerSquare")
+</t>
+<t tx="karstenw.20260801130050.1">def testRectangles():
+    
+    # pdb.set_trace()
+    
+    sizes = ( (200,100,"landscape"), (100,200,"portrait") )
+    
+    def markers( w, h, draw ):
+        points = ( (w,h), (2*w,h), (w,2*h), (2*w, 2*h) )
+        for point in points:
+            x,y = point
+            draw.line( (x-5, y  , x+5, y  ), fill=(0,0,255,255) )
+            draw.line( (x  , y-5, x  , y+5), fill=(0,0,255,255) )
+    
+    for exploded in ("standard", "exploded"):
+        for size in sizes:
+            width, height, name = size
+            
+            rects = calculateRectangles( width, height )
+            
+            if exploded in ("exploded",):
+                rects = explodeRectangles( rects )
+            
+            rects = rects._asdict()
+            keys = list(rects.keys())
+            
+            cw = width * 3
+            ch = height * 3
+            x = width
+            y = height
+            
+            bg = Image.new( "RGBA", (cw,ch), (127,127,127,127))
+            
+            for key in keys:
+                rect = rects[key]
+                if rect is None:
+                    continue
+                
+                c = canvas( cw, ch )
+                l = c.layer( bg )
+                
+                draw = ImageDraw.Draw( c.top.img )
+                markers( width, height, draw )
+    
+                if type(rect) in (Rectangle,):
+                    rect = [rect]
+                
+                for idx, r in enumerate(rect):
+                    # pp(dir(rect))
+                    
+                    x1,y1,w,h = r
+                    # translate to inner rect
+                    x1 = x1 + width
+                    y1 = y1 + height
+                    x2 = x1 + w
+                    y2 = y1 + h
+                    print(key, idx, name, (x1,y1), (x2,y2) )
+                    draw.rectangle( (x1,y1,x2,y2), fill=(31,225,31,240), outline=(0,0,0,255))
+                
+                rectname = "testRectangles(%i,%i,%s,%s,%s).jpg" % (width, height,name,key,exploded)
+                print(rectname)
+                c.draw( name=rectname, ext=".jpg", format='JPEG' )
+            
+
+</t>
+<t tx="karstenw.20260801142845.1"></t>
+<t tx="karstenw.20260801144724.1"># make the 4by4
+fourByFour = []
+for y in range(4):
+    for x in range(4):
+        l = x * quarterwidth
+        t = y * quarterheight
+        fourByFour.append( Rectangle(l, t, quarterwidth, quarterheight) )
+fourByFour = tuple( fourByFour )
 
 
 </t>

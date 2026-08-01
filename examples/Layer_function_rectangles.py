@@ -47,21 +47,28 @@ img2path = tiles.pop()
 c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (192, 192, 192) )
 
+# create a gray canvas
+c = pb.canvas( WIDTH+200, HEIGHT)
+c.fill( (192, 192, 192) )
+
 #
 # Image 1
 #
 
 pb.py23print( img1path)
 #  create, scale and place the image
-x, y = 10, 10
+gap = 10
+x, y = 100 + gap, gap
 top, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 1")
 pb.label(c, "Image 1", x, y, 30)
+
+print(img1path)
 
 #
 # image 2 - which is just image 1
 #
-x = 10
-y = h1 + 10 + 10
+x = 100 + gap
+y = h1 + gap + gap
 _, w1, h1 = pb.placeImage(c, img1path, x, y, fullwidth, "Image 2 inner square")
 
 img2layer = c.top
@@ -69,22 +76,47 @@ img2layer = c.top
 rectangles = pb.calculateRectangles(w1, h1)
 rot = 0 #rnd.random() > 0.85
 
+pp(rectangles)
 
 # innerrect
 if 1:
+    # do inner square
     img2layer.duplicate()
     squarerect = rectangles.innerSquare
     x1,y1,w,h = squarerect
     x2 = x1+w
     y2 = y1+h
     c.top.crop( ( x1, y1, x2, y2 ) )
+    
     if rot:
         c.top.rotate( -18 + rnd.random() * 36 )
     c.top.translate( x+x1, y+y1 )
     # c.top.opacity( 50 )
     # pb.label(c, "Image 1 inner square", x, y, 30)
+    
+    # do left rect
+    img2layer.duplicate()
+    leftrect = rectangles.left
+    x1,y1,w,h = leftrect
+    x2 = x1+w
+    y2 = y1+h
+    c.top.crop( ( x1, y1, x2, y2 ) )
+    c.top.translate( x-gap, y )
+    c.top.opacity( 50 )
 
-if 1:
+    # do right rect
+    img2layer.duplicate()
+    rightrect = rectangles.right
+    x1,y1,w,h = rightrect
+    x2 = x1+w
+    y2 = y1+h
+    c.top.crop( ( x1, y1, x2, y2 ) )
+    c.top.translate( x+x1+gap, y+y1 )
+    c.top.opacity( 50 )
+    
+
+
+if 0:
     quads = rectangles.quads
     
     for quad in quads:
