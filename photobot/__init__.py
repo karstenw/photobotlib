@@ -62,8 +62,9 @@ Image.MAX_IMAGE_PIXELS = None # 200000000
 # print( "MAX_IMAGE_PIXELS: %i" % old)
 
 # Rectangle result types
-Rectangles = collections.namedtuple('Rectangles', "innerSquare upper lower left right "
-                                                  "outerSquare quads niner outerNiner "
+Rectangles = collections.namedtuple('Rectangles', #"innerSquare upper lower left right outerSquare "
+                                                  "squares "
+                                                  "quads niner outerNiner "
                                                   "threeRows threeColumns fourByFour" )
 
 Rectangle = collections.namedtuple('Rectangle', "left upper width height" )
@@ -2044,25 +2045,28 @@ with Image.open("hopper.jpg") as im:
 def calculateRectangles(width, height):
     """Calculate several rectangles for the given size.
     
-    Returns a namedtuple( innerSquare outerSquare upper lower left right quads niner outerNiner threeRows threeColumns fourByFour )
+    Returns a namedtuple( squares quads niner outerNiner threeRows threeColumns fourByFour )
         
         A rectangle in this context means a tuple with ( x,y,w,h ) - the rectangle class is not yet integrated
         
-        innerSquare - a square that fits inside w/h
-        upper       - upper remainder rectangle of innerSquare if w<h
-        lower       - lower remainder rectangle of innerSquare if w<h
-        left        - left remainder rectangle of innerSquare if w>h
-        right       - right remainder rectangle of innerSquare if w>h
+        squares     - a list of the following
+        innerrect, upper, lower, left, right, outerrect
+            inner square - a square that fits inside w/h
+            upper - upper remainder rectangle of innerSquare
+            lower - lower remainder rectangle of innerSquare
+            left - left remainder rectangle of innerSquare
+            right  - right remainder rectangle of innerSquare
+            outer square - a square that fits outside w/h
         
-        outerSquare - a square that fits outside w/h
         quads       - list of the four quarter rectangles
         niner       - list of 3x3 rectangles inside w/h
         outerNiner  - 
         threeRows   - 
         threeColumns- 
+        fourByFour  - 
     """
     
-    innerrect = outerrect = quads = niner = upper = lower = left = right = outerNiner = threeRows = threeColumns = fourByFour = None
+    squares = innerrect = outerrect = upper = lower = left = right = quads = niner = outerNiner = threeRows = threeColumns = fourByFour = None
     
     xoffset = yoffset = 0
     
@@ -2099,7 +2103,9 @@ def calculateRectangles(width, height):
 
     else:
         # image is square
-        innerrect = outerrect = Rectangle(0, 0,  width, height )
+        innerrect = outerrect = upper = left = lower = right = Rectangle(0, 0,  width, height )
+
+    squares = (innerrect, upper, lower, left, right, outerrect)
 
     
     # make the niner
@@ -2179,15 +2185,26 @@ def calculateRectangles(width, height):
 
 
     
-    result = Rectangles( innerrect, upper, lower, left, right, outerrect, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
+    # result = Rectangles( innerrect, upper, lower, left, right, outerrect, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
+    result = Rectangles( squares, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
     return result
 
 
-def testRectangles():
+def testRectangles( path=None ):
     
     # pdb.set_trace()
     
     sizes = ( (200,100,"landscape"), (100,200,"portrait") )
+    types = ("standard", "exploded")
+    gap = 20
+    
+    if path is not None:
+        w,h = imagesize( path )
+        name = "landscape"
+        if h > w:
+            name = "portrait"
+        sizes = ( (w,h,name), )
+        types = ( "exploded", )
     
     def markers( w, h, draw ):
         points = ( (w,h), (2*w,h), (w,2*h), (2*w, 2*h) )
@@ -2196,20 +2213,20 @@ def testRectangles():
             draw.line( (x-5, y  , x+5, y  ), fill=(0,0,255,255) )
             draw.line( (x  , y-5, x  , y+5), fill=(0,0,255,255) )
     
-    for exploded in ("standard", "exploded"):
+    for exploded in types:
         for size in sizes:
             width, height, name = size
             
             rects = calculateRectangles( width, height )
             
             if exploded in ("exploded",):
-                rects = explodeRectangles( rects )
+                rects = explodeRectangles( rects, gap, gap )
             
             rects = rects._asdict()
             keys = list(rects.keys())
             
-            cw = width * 3
-            ch = height * 3
+            cw = width * 3 + 2 * gap
+            ch = height * 3 + 2 * gap
             x = width
             y = height
             
@@ -2222,8 +2239,11 @@ def testRectangles():
                 
                 c = canvas( cw, ch )
                 l = c.layer( bg )
+                if path is not None:
+                    placeImage(c, path, width, height )
                 
                 draw = ImageDraw.Draw( c.top.img )
+                    
                 markers( width, height, draw )
     
                 if type(rect) in (Rectangle,):
@@ -2253,21 +2273,20 @@ def explodeRectangles( rectangles, deltax=10, deltay=10 ):
     """
     
     # innerSquare upper lower left right outerSquare quads niner outerNiner threeRows threeColumns fourByFour"
-    upper = rectangles.upper 
+    squares = squares.squares
+    innerrect, upper, lower, left, right, outerrect = squares
     if upper is not None:
         upper = Rectangle( upper[0], upper[1] - deltay, upper[2], upper[3] )
-    
-    lower = rectangles.lower
+
     if lower is not None:
         lower = Rectangle( lower[0], lower[1] + deltay, lower[2], lower[3] )
-    
-    left = rectangles.left
+
     if left is not None:
         left = Rectangle( left[0] - deltax, left[1], left[2], left[3] )
-    
-    right = rectangles.right
+
     if right is not None:
         right = Rectangle( right[0] + deltax, right[1], right[2], right[3] )
+
     
     # QUADS
     dx2 = deltax / 2
@@ -2280,6 +2299,7 @@ def explodeRectangles( rectangles, deltax=10, deltay=10 ):
         Rectangle( q3[0] - dx2, q3[1] + dy2, q3[2], q3[3] ),
         Rectangle( q4[0] + dx2, q4[1] + dy2, q4[2], q4[3] )
     )
+
     
     # NINER
     dx3 = deltax # / 2
@@ -2298,6 +2318,7 @@ def explodeRectangles( rectangles, deltax=10, deltay=10 ):
         Rectangle( q8[0]      , q8[1] + dy3, q8[2], q8[3] ),
         Rectangle( q9[0] + dx3, q9[1] + dy3, q9[2], q7[3] )
     )
+
     
     # OUTERNINER
     q1, q2, q3, q4, q5, q6, q7, q8, q9 = rectangles.outerNiner
@@ -2314,6 +2335,7 @@ def explodeRectangles( rectangles, deltax=10, deltay=10 ):
         Rectangle( q8[0]      , q8[1] + dy3, q8[2], q8[3] ),
         Rectangle( q9[0] + dx3, q9[1] + dy3, q9[2], q7[3] )
     )
+
     
     # THREEROWS
     q1, q2, q3 = rectangles.threeRows
@@ -2322,6 +2344,7 @@ def explodeRectangles( rectangles, deltax=10, deltay=10 ):
         Rectangle( q2[0]      , q2[1]      , q2[2], q2[3] ),
         Rectangle( q3[0]      , q3[1] + dy3, q3[2], q3[3] )
     )
+
     
     # THREECOLUMNS
     q1, q2, q3 = rectangles.threeColumns
@@ -2330,6 +2353,7 @@ def explodeRectangles( rectangles, deltax=10, deltay=10 ):
         Rectangle( q2[0]      , q2[1]      , q2[2], q2[3] ),
         Rectangle( q3[0] + dx3, q3[1]      , q3[2], q3[3] )
     )
+
     
     # FOURBYFOUR
     # naming is q ROW COL
@@ -2364,6 +2388,8 @@ def explodeRectangles( rectangles, deltax=10, deltay=10 ):
         Rectangle( q34[0] + dx2, q34[1] + dy2, q34[2], q34[3] ),
 
     )
+
+    
     result = Rectangles( rectangles.innerSquare, upper, lower, left, right, rectangles.outerSquare, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
     return result
 
@@ -2415,15 +2441,6 @@ def aspectRatio(size, maxsize, height=False, width=False, assize=False):
     if assize:
         return size
     return scale
-
-
-def innerSquare( x1, y1, x2, y2 ):
-    """Calculate an inner size crop square."""
-
-    width = x2-x1
-    height = y2-y1
-    rects = calculateRectangles(width, height)
-    return rects.innerSquare
 
 
 def insetRect( rectangle, hinset, vinset):
@@ -2485,6 +2502,16 @@ def cropImageToRatioHorizontal( layerOrImage, ratio ):
     else:
         layerOrImage = layerOrImage.crop(box=(x,y, x+width,y+height))
     return layerOrImage
+
+
+# UNUSED
+def innerSquare( x1, y1, x2, y2 ):
+    """Calculate an inner size crop square."""
+
+    width = x2-x1
+    height = y2-y1
+    rects = calculateRectangles(width, height)
+    return rects.innerSquare
 
 
 def scaleLayerToHeight( layer, newheight ):
