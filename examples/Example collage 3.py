@@ -186,7 +186,7 @@ for position in positions:
     r = rnd.random()
     # 10%
     if 0 < r < 0.2:
-        #print "20% LINEAR"
+        print( "20% LINEAR" )
         # create gradient layer
         # top is now gradient index
         c.gradient(pb.LINEAR, int(round(w/2.0)), h)
@@ -203,19 +203,19 @@ for position in positions:
         c.merge([ topidx-1 , topidx ])
 
     elif 0.2 <= r < 0.4:
-        #print "20% SINE"
+        print( "20% SINE" )
         top = c.gradient(pb.SINE, w, h)
         
     elif 0.4 <= r < 0.6:
-        #print "20% RADIALCOSINE"
+        print( "20% RADIALCOSINE" )
         top = c.gradient(pb.RADIALCOSINE, w, h)
         # c.top.invert()
     elif 0.6 <= r < 0.8:
-        #print "20% ROUNDRECT"
+        print( "20% ROUNDRECT" )
         # 25%
         top = c.gradient(pb.ROUNDRECT, w, h, "", radius=w/5.0, radius2=w/5.0)
     elif r >= 0.8:
-        #print "20% QUAD"
+        print( "20% QUAD" )
         top = c.gradient(pb.QUAD, w, h, "", 0, 0)
             
     # enhance mask
@@ -226,7 +226,7 @@ for position in positions:
 
     destx = x - xgutter
     desty = y - ygutter
-    # print "Image@", x, y
+    # print( "Image@", x, y )
     # c.top.translate(destx, desty)
     c.top.translate(x, y)
 
@@ -234,11 +234,11 @@ for position in positions:
     if doflip:
         if "/comic/" not in nextpictpath:
             if rnd.random() > 0.75:
-                #print "FLIP"
+                #print( "FLIP" )
                 c.top.flip()
     if randomblur:
         if rnd.random() > 0.75:
-            #print "BLUR"
+            #print( "BLUR" )
             c.top.blur()
 
 if 0:
