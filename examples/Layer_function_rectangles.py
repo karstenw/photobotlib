@@ -82,8 +82,9 @@ pp(rectangles)
 if 1:
     # do inner square
     img2layer.duplicate()
-    squarerect = rectangles.innerSquare
-    x1,y1,w,h = squarerect
+    squares = rectangles.squares
+    
+    x1,y1,w,h = squares[0]
     x2 = x1+w
     y2 = y1+h
     c.top.crop( ( x1, y1, x2, y2 ) )
@@ -96,7 +97,7 @@ if 1:
     
     # do left rect
     img2layer.duplicate()
-    leftrect = rectangles.left
+    leftrect = squares[3]
     x1,y1,w,h = leftrect
     x2 = x1+w
     y2 = y1+h
@@ -106,7 +107,8 @@ if 1:
 
     # do right rect
     img2layer.duplicate()
-    rightrect = rectangles.right
+    rightrect = squares[4]
+
     x1,y1,w,h = rightrect
     x2 = x1+w
     y2 = y1+h
