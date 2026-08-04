@@ -16,8 +16,8 @@
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20260510155949.1"><vh>py2/py3 print</vh></v>
-<v t="karstenw.20200419210659.1" a="E"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
+<v t="karstenw.20200419210659.1"><vh>Photobot</vh>
+<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
@@ -39,7 +39,7 @@
 <v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
-<v t="karstenw.20170709210125.13"><vh>export</vh>
+<v t="karstenw.20170709210125.13" a="E"><vh>export</vh>
 <v t="karstenw.20200430120922.1"><vh>&lt;&lt;init&gt;&gt;</vh></v>
 <v t="karstenw.20200430120955.1"><vh>&lt;&lt;debug&gt;&gt;</vh></v>
 </v>
@@ -53,12 +53,12 @@
 </v>
 <v t="karstenw.20210722112739.1"><vh>copy</vh></v>
 </v>
-<v t="karstenw.20170709210125.17" a="E"><vh>class Layers</vh>
+<v t="karstenw.20170709210125.17"><vh>class Layers</vh>
 <v t="karstenw.20170709210125.18"><vh>__getitem__</vh></v>
 <v t="karstenw.20170709210125.19"><vh>_get_bg</vh></v>
 <v t="karstenw.20170709210125.20"><vh>_set_bg</vh></v>
 </v>
-<v t="karstenw.20170709210125.21" a="E"><vh>class Layer</vh>
+<v t="karstenw.20170709210125.21"><vh>class Layer</vh>
 <v t="karstenw.20170709210125.22"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.23"><vh>prnt</vh></v>
 <v t="karstenw.20170709210125.24"><vh>index</vh></v>
@@ -151,7 +151,7 @@
 <v t="karstenw.20170709210125.64"><vh>convolute</vh></v>
 </v>
 </v>
-<v t="karstenw.20200419183424.1" a="E"><vh>Nodebox &amp; standalone pillow tools</vh>
+<v t="karstenw.20200419183424.1"><vh>Nodebox &amp; standalone pillow tools</vh>
 <v t="karstenw.20200419185608.1"><vh>makeunicode</vh></v>
 <v t="karstenw.20210603134137.1"><vh>uniquepath</vh></v>
 <v t="karstenw.20200419185543.1"><vh>hashFromString</vh></v>
@@ -777,7 +777,7 @@ import traceback
     start = time.time()
 
     &lt;&lt;init&gt;&gt;
-    if kwdbg and 0:
+    if kwdbg and 1:
         &lt;&lt;debug&gt;&gt;
 
     self.flatten()
@@ -5897,6 +5897,7 @@ def calculateRectangles(width, height):
     
     delta = abs( width - height )
     halfdelta = int( round( delta / 2.0 ))
+    
     longside = max( (width, height) )
     shortside = min( (width, height) )
     
@@ -5907,7 +5908,7 @@ def calculateRectangles(width, height):
     heightthird = int( round( height / 3.0 ))
     
     quarterwidth = int( round( width / 4.0 ))
-    quarterheight = int( round( height / 3.0 ))
+    quarterheight = int( round( height / 4.0 ))
     
     # pdb.set_trace()
     
@@ -6099,7 +6100,8 @@ c.draw(name="Image_innerSquare")
     
     &lt;&lt; four by four &gt;&gt;
     
-    result = Rectangles( rectangles.innerSquare, upper, lower, left, right, rectangles.outerSquare, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
+    # result = Rectangles( rectangles.innerSquare, upper, lower, left, right, rectangles.outerSquare, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
+    result = Rectangles( squares, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
     return result
 
 
@@ -6189,7 +6191,7 @@ asin = math.asin
 
 pp = pprint.pprint
 kwdbg = 0
-kwlog = 0
+kwlog = 1
 
 # disable large image warning
 old = Image.MAX_IMAGE_PIXELS
@@ -6600,13 +6602,12 @@ pb.label(c, display, x, y, 30)
 # draw the result
 c.draw(name="Image_innerSquare")
 </t>
-<t tx="karstenw.20260801130050.1">def testRectangles( path=None ):
-    
-    # pdb.set_trace()
+<t tx="karstenw.20260801130050.1">def testRectangles( path=None, gap=20 ):
     
     sizes = ( (200,100,"landscape"), (100,200,"portrait") )
     types = ("standard", "exploded")
-    gap = 20
+    
+    dt = datestring()
     
     if path is not None:
         w,h = imagesize( path )
@@ -6616,23 +6617,28 @@ c.draw(name="Image_innerSquare")
         sizes = ( (w,h,name), )
         types = ( "exploded", )
     
+    
     def markers( w, h, draw ):
-        points = ( (w,h), (2*w,h), (w,2*h), (2*w, 2*h) )
+        points = ( (w+gap,h+gap), (2*w+gap,h+gap), (w+gap,2*h+gap), (2*w+gap, 2*h+gap) )
         for point in points:
             x,y = point
             draw.line( (x-5, y  , x+5, y  ), fill=(0,0,255,255) )
             draw.line( (x  , y-5, x  , y+5), fill=(0,0,255,255) )
     
+    
     for exploded in types:
         for size in sizes:
             width, height, name = size
             
-            rects = calculateRectangles( width, height )
-            
+            plainrects = calculateRectangles( width, height )
+            rects = plainrects
             if exploded in ("exploded",):
-                rects = explodeRectangles( rects, gap, gap )
+                rects = explodeRectangles( plainrects, gap, gap )
+            else:
+                gap = 0
             
             rects = rects._asdict()
+            plainrects = plainrects._asdict()
             keys = list(rects.keys())
             
             cw = width * 3 + 2 * gap
@@ -6640,40 +6646,82 @@ c.draw(name="Image_innerSquare")
             x = width
             y = height
             
-            bg = Image.new( "RGBA", (cw,ch), (127,127,127,127))
-            
             for key in keys:
-                rect = rects[key]
-                if rect is None:
+                
+                #if key not in ('outerNiner',):
+                #    pdb.set_trace()
+                #    continue
+                
+                rectlist = rects[key]
+                if rectlist is None:
                     continue
+                plainrectlist = plainrects[key]
                 
                 c = canvas( cw, ch )
-                l = c.layer( bg )
-                if path is not None:
-                    placeImage(c, path, width, height )
-                
+                bg = Image.new( "RGBA", (cw,ch), (240,240,240,127))
                 draw = ImageDraw.Draw( c.top.img )
-                    
                 markers( width, height, draw )
-    
-                if type(rect) in (Rectangle,):
-                    rect = [rect]
+                l = c.layer( bg )
                 
-                for idx, r in enumerate(rect):
+                # get cropped image part
+                if path is not None:
+                    img = Image.open( path )
+                    # placeImage(c, path, width, height )
+                
+                # 
+                if type(rectlist) in (Rectangle,):
+                    rectlist = [rect]
+                
+                for idx, r in enumerate(rectlist):
                     # pp(dir(rect))
                     
+                    if r is None:
+                        continue
+                    
                     x1,y1,w,h = r
+                    
+                    if key in ('squares',):
+                        pdb.set_trace()
+                        print()
+                        print("r:", r)
+
                     # translate to inner rect
-                    x1 = x1 + width
-                    y1 = y1 + height
+                    x1 = x1 + width + gap
+                    y1 = y1 + height + gap
                     x2 = x1 + w
                     y2 = y1 + h
-                    print(key, idx, name, (x1,y1), (x2,y2) )
-                    draw.rectangle( (x1,y1,x2,y2), fill=(31,225,31,240), outline=(0,0,0,255))
+                    print("key, idx, name, topleft, bottomright:", key, idx, name, (x1,y1), (x2,y2) )
+
+                    if path is not None:
+                        if key in ('outerNiner',):
+                            img2 = img.copy()
+                            c.layer( img2, x1, y1 )
+                            print(idx, 'Layer outerNiner@', x1,y1)
+                        else:
+                            # extract part from image
+                            ir = plainrectlist[idx]
+                            imgrect = (ir[0], ir[1], ir[0]+ir[2], ir[1]+ir[3])
+                            print(idx, imgrect )
+                            img2 = img.copy().crop( imgrect )
+                            # and move it where it belongs
+                            c.layer( img2, x1, y1 )
+                    
+                    if 1:
+                        fg = Image.new( "RGBA", (cw,ch), (255, 255, 255, 0))
+                        draw = ImageDraw.Draw( fg )
+                        draw.rectangle( (x1,y1,x2,y2), fill=(31,225,31,31), outline=(0,0,0,127), width=5 )
+                        l = c.layer( fg )
                 
-                rectname = "testRectangles(%i,%i,%s,%s,%s).jpg" % (width, height,name,key,exploded)
+                if 1:
+                    ext = ".jpg"
+                    format = "JPEG"
+                else:
+                    ext = ".jpg"
+                    format = "JPEG"
+                rectname = "Rectangles-%s-%i-%i-%s-%s-%s%s" % (dt,width, height,name,key,exploded,ext)
                 print(rectname)
-                c.draw( name=rectname, ext=".jpg", format='JPEG' )
+                print()
+                c.draw( name=rectname, ext=ext, format=format )
             
 
 </t>
@@ -6690,7 +6738,7 @@ fourByFour = tuple( fourByFour )
 
 </t>
 <t tx="karstenw.20260802143156.1"># innerSquare upper lower left right outerSquare quads niner outerNiner threeRows threeColumns fourByFour"
-squares = squares.squares
+squares = rectangles.squares
 innerrect, upper, lower, left, right, outerrect = squares
 if upper is not None:
     upper = Rectangle( upper[0], upper[1] - deltay, upper[2], upper[3] )
@@ -6703,6 +6751,8 @@ if left is not None:
 
 if right is not None:
     right = Rectangle( right[0] + deltax, right[1], right[2], right[3] )
+
+squares = (innerrect, upper, lower, left, right, outerrect )
 
 </t>
 <t tx="karstenw.20260802143342.1"># QUADS
@@ -6738,6 +6788,8 @@ niner = (
 
 </t>
 <t tx="karstenw.20260802143458.1"># OUTERNINER
+dx3 = deltax # / 2
+dy3 = deltay # / 2
 q1, q2, q3, q4, q5, q6, q7, q8, q9 = rectangles.outerNiner
 outerNiner = (
     Rectangle( q1[0] - dx3, q1[1] - dy3, q1[2], q1[3] ),
