@@ -174,7 +174,11 @@
 <v t="karstenw.20260523092951.1"><vh>&lt;&lt; three columns &gt;&gt;</vh></v>
 <v t="karstenw.20260801144724.1"><vh>&lt;&lt; four by four &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20260801130050.1"><vh>testRectangles</vh></v>
+<v t="karstenw.20260801130050.1" a="E"><vh>testRectangles</vh>
+<v t="karstenw.20260805121229.1"><vh>&lt;&lt; config &gt;&gt;</vh></v>
+<v t="karstenw.20260805114710.1"><vh>&lt;&lt; markers &gt;&gt;</vh></v>
+<v t="karstenw.20260805115357.1"><vh>&lt;&lt;get rectangles&gt;&gt;</vh></v>
+</v>
 <v t="karstenw.20260323135043.1"><vh>explodeRectangles</vh>
 <v t="karstenw.20260802143156.1"><vh>&lt;&lt; inner outer rect &gt;&gt;</vh></v>
 <v t="karstenw.20260802143342.1"><vh>&lt;&lt; quads &gt;&gt;</vh></v>
@@ -6604,42 +6608,18 @@ c.draw(name="Image_innerSquare")
 </t>
 <t tx="karstenw.20260801130050.1">def testRectangles( path=None, gap=20 ):
     
-    sizes = ( (200,100,"landscape"), (100,200,"portrait") )
-    types = ("standard", "exploded")
-    
     dt = datestring()
+
+    &lt;&lt; config &gt;&gt;
     
-    if path is not None:
-        w,h = imagesize( path )
-        name = "landscape"
-        if h &gt; w:
-            name = "portrait"
-        sizes = ( (w,h,name), )
-        types = ( "exploded", )
-    
-    
-    def markers( w, h, draw ):
-        points = ( (w+gap,h+gap), (2*w+gap,h+gap), (w+gap,2*h+gap), (2*w+gap, 2*h+gap) )
-        for point in points:
-            x,y = point
-            draw.line( (x-5, y  , x+5, y  ), fill=(0,0,255,255) )
-            draw.line( (x  , y-5, x  , y+5), fill=(0,0,255,255) )
-    
+    &lt;&lt;markers &gt;&gt;
     
     for exploded in types:
         for size in sizes:
             width, height, name = size
             
-            plainrects = calculateRectangles( width, height )
-            rects = plainrects
-            if exploded in ("exploded",):
-                rects = explodeRectangles( plainrects, gap, gap )
-            else:
-                gap = 0
-            
-            rects = rects._asdict()
-            plainrects = plainrects._asdict()
-            keys = list(rects.keys())
+            # rects, plainrectangles, keys
+            &lt;&lt;get rectangles&gt;&gt;
             
             cw = width * 3 + 2 * gap
             ch = height * 3 + 2 * gap
@@ -6680,11 +6660,6 @@ c.draw(name="Image_innerSquare")
                     
                     x1,y1,w,h = r
                     
-                    if key in ('squares',):
-                        pdb.set_trace()
-                        print()
-                        print("r:", r)
-
                     # translate to inner rect
                     x1 = x1 + width + gap
                     y1 = y1 + height + gap
@@ -6857,6 +6832,53 @@ fourByFour = (
     Rectangle( q34[0] + dx2, q34[1] + dy2, q34[2], q34[3] ),
 
 )
+
+</t>
+<t tx="karstenw.20260805114710.1">def markers( w, h, draw ):
+    points = ( (w+gap,h+gap), (2*w+gap,h+gap), (w+gap,2*h+gap), (2*w+gap, 2*h+gap) )
+    for point in points:
+        x,y = point
+        draw.line( (x-5, y  , x+5, y  ), fill=(0,0,255,255) )
+        draw.line( (x  , y-5, x  , y+5), fill=(0,0,255,255) )
+
+
+def handlerectdicts( rects ):
+    squares = rects['squares']
+    sq1 = squares[:5]
+    sq2 = [ squares[5] ]
+    rects['squares'] = sq1
+    rects['outerSquare'] = sq2
+
+</t>
+<t tx="karstenw.20260805115357.1">
+pdb.set_trace()
+
+plainrects = calculateRectangles( width, height )
+rects = plainrects
+if exploded in ("exploded",):
+    rects = explodeRectangles( plainrects, gap, gap )
+else:
+    gap = 0
+
+rects = rects._asdict()
+handlerectdicts( rects )
+pp(rects)
+
+plainrects = plainrects._asdict()
+handlerectdicts( plainrects )
+
+keys = list(rects.keys())
+
+</t>
+<t tx="karstenw.20260805121229.1">sizes = ( (200,100,"landscape"), (100,200,"portrait") )
+types = ("exploded", "standard" )
+if path is not None:
+    w,h = imagesize( path )
+    name = "landscape"
+    if h &gt; w:
+        name = "portrait"
+    sizes = ( (w,h,name), )
+    # types = ( "exploded", )
 
 </t>
 </tnodes>

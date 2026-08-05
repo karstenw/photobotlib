@@ -2193,19 +2193,18 @@ def calculateRectangles(width, height):
 
 def testRectangles( path=None, gap=20 ):
     
-    sizes = ( (200,100,"landscape"), (100,200,"portrait") )
-    types = ("standard", "exploded")
-    
     dt = datestring()
-    
+
+    sizes = ( (200,100,"landscape"), (100,200,"portrait") )
+    types = ("exploded", "standard" )
     if path is not None:
         w,h = imagesize( path )
         name = "landscape"
         if h > w:
             name = "portrait"
         sizes = ( (w,h,name), )
-        types = ( "exploded", )
-    
+        # types = ( "exploded", )
+
     
     def markers( w, h, draw ):
         points = ( (w+gap,h+gap), (2*w+gap,h+gap), (w+gap,2*h+gap), (2*w+gap, 2*h+gap) )
@@ -2213,22 +2212,40 @@ def testRectangles( path=None, gap=20 ):
             x,y = point
             draw.line( (x-5, y  , x+5, y  ), fill=(0,0,255,255) )
             draw.line( (x  , y-5, x  , y+5), fill=(0,0,255,255) )
-    
+
+
+    def handlerectdicts( rects ):
+        squares = rects['squares']
+        sq1 = squares[:5]
+        sq2 = [ squares[5] ]
+        rects['squares'] = sq1
+        rects['outerSquare'] = sq2
+
     
     for exploded in types:
         for size in sizes:
             width, height, name = size
             
+            # rects, plainrectangles, keys
+
+            pdb.set_trace()
+
             plainrects = calculateRectangles( width, height )
             rects = plainrects
             if exploded in ("exploded",):
                 rects = explodeRectangles( plainrects, gap, gap )
             else:
                 gap = 0
-            
+
             rects = rects._asdict()
+            handlerectdicts( rects )
+            pp(rects)
+
             plainrects = plainrects._asdict()
+            handlerectdicts( plainrects )
+
             keys = list(rects.keys())
+
             
             cw = width * 3 + 2 * gap
             ch = height * 3 + 2 * gap
@@ -2269,11 +2286,6 @@ def testRectangles( path=None, gap=20 ):
                     
                     x1,y1,w,h = r
                     
-                    if key in ('squares',):
-                        pdb.set_trace()
-                        print()
-                        print("r:", r)
-
                     # translate to inner rect
                     x1 = x1 + width + gap
                     y1 = y1 + height + gap
