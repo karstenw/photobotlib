@@ -54,7 +54,7 @@ asin = math.asin
 
 pp = pprint.pprint
 kwdbg = 0
-kwlog = 1
+kwlog = 0
 
 # disable large image warning
 old = Image.MAX_IMAGE_PIXELS
@@ -2228,7 +2228,7 @@ def testRectangles( path=None, gap=20 ):
             
             # rects, plainrectangles, keys
 
-            pdb.set_trace()
+            # pdb.set_trace()
 
             plainrects = calculateRectangles( width, height )
             rects = plainrects
@@ -2239,7 +2239,7 @@ def testRectangles( path=None, gap=20 ):
 
             rects = rects._asdict()
             handlerectdicts( rects )
-            pp(rects)
+            # pp(rects)
 
             plainrects = plainrects._asdict()
             handlerectdicts( plainrects )
@@ -2291,18 +2291,21 @@ def testRectangles( path=None, gap=20 ):
                     y1 = y1 + height + gap
                     x2 = x1 + w
                     y2 = y1 + h
-                    print("key, idx, name, topleft, bottomright:", key, idx, name, (x1,y1), (x2,y2) )
+                    if kwlog:
+                        print("key, idx, name, topleft, bottomright:", key, idx, name, (x1,y1), (x2,y2) )
 
                     if path is not None:
                         if key in ('outerNiner',):
                             img2 = img.copy()
                             c.layer( img2, x1, y1 )
-                            print(idx, 'Layer outerNiner@', x1,y1)
+                            if kwlog:
+                                print(idx, 'Layer outerNiner@', x1,y1)
                         else:
                             # extract part from image
                             ir = plainrectlist[idx]
                             imgrect = (ir[0], ir[1], ir[0]+ir[2], ir[1]+ir[3])
-                            print(idx, imgrect )
+                            if kwlog:
+                                print(idx, imgrect )
                             img2 = img.copy().crop( imgrect )
                             # and move it where it belongs
                             c.layer( img2, x1, y1 )
