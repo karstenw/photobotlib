@@ -10,17 +10,18 @@
 <find_panel_settings/>
 <vnodes>
 <v t="karstenw.20260526103818.1" a="E"><vh>Library</vh>
-<v t="karstenw.20170709210040.1" a="E"><vh>@clean photobot/__init__.py</vh>
+<v t="karstenw.20170709210040.1"><vh>@clean photobot/__init__.py</vh>
 <v t="karstenw.20170709210125.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260525160223.1"><vh>Globals</vh></v>
 <v t="karstenw.20230114013608.1"><vh>Py2/3 stuff</vh></v>
 <v t="karstenw.20200421130950.1"><vh>Globals</vh></v>
 <v t="karstenw.20260510155949.1"><vh>py2/py3 print</vh></v>
 <v t="karstenw.20200419210659.1"><vh>Photobot</vh>
-<v t="karstenw.20170709210125.5" a="E"><vh>class Canvas</vh>
+<v t="karstenw.20170709210125.5"><vh>class Canvas</vh>
 <v t="karstenw.20170709210125.6"><vh>__init__</vh></v>
 <v t="karstenw.20170709210125.7"><vh>layer</vh></v>
 <v t="karstenw.20170709210125.8"><vh>fill</vh></v>
+<v t="karstenw.20260805202039.1"><vh>+ GRADIENTS +</vh>
 <v t="karstenw.20170709210125.9"><vh>makegradientimage</vh>
 <v t="karstenw.20210301172848.1"><vh>&lt;&lt; solid &gt;&gt;</vh></v>
 <v t="karstenw.20210301172906.1"><vh>&lt;&lt; linear &gt;&gt;</vh></v>
@@ -36,7 +37,8 @@
 <v t="karstenw.20210301172433.1"><vh>&lt;&lt; quad gradient &gt;&gt;</vh></v>
 <v t="karstenw.20210301172509.1"><vh>&lt;&lt; roundrect gradient &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210722112540.1" a="E"><vh>EXPORT</vh>
+</v>
+<v t="karstenw.20210722112540.1"><vh>EXPORT</vh>
 <v t="karstenw.20170709210125.11"><vh>merge</vh></v>
 <v t="karstenw.20170709210125.12"><vh>flatten</vh></v>
 <v t="karstenw.20170709210125.13" a="E"><vh>export</vh>
@@ -46,7 +48,7 @@
 <v t="karstenw.20170709210125.14"><vh>draw</vh></v>
 </v>
 <v t="karstenw.20170709210125.15"><vh>preferences</vh></v>
-<v t="karstenw.20200430120743.1" a="E"><vh>STACK OPS</vh>
+<v t="karstenw.20200430120743.1"><vh>STACK OPS</vh>
 <v t="karstenw.20170710142919.1"><vh>top</vh></v>
 <v t="karstenw.20210722112454.1"><vh>topindex</vh></v>
 <v t="karstenw.20200430124808.1"><vh>dup</vh></v>
@@ -159,7 +161,7 @@
 <v t="karstenw.20211021133612.1"><vh>grid</vh></v>
 <v t="karstenw.20260731112805.1"><vh>imagesize</vh></v>
 </v>
-<v t="karstenw.20201022144341.1" a="E"><vh>Imagetools</vh>
+<v t="karstenw.20201022144341.1"><vh>Imagetools</vh>
 <v t="karstenw.20200419184424.1"><vh>invertimage</vh></v>
 <v t="karstenw.20200419184433.1"><vh>cropimage</vh></v>
 <v t="karstenw.20210612104640.1"><vh>splitrect</vh></v>
@@ -174,7 +176,7 @@
 <v t="karstenw.20260523092951.1"><vh>&lt;&lt; three columns &gt;&gt;</vh></v>
 <v t="karstenw.20260801144724.1"><vh>&lt;&lt; four by four &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20260801130050.1" a="E"><vh>testRectangles</vh>
+<v t="karstenw.20260801130050.1"><vh>testRectangles</vh>
 <v t="karstenw.20260805121229.1"><vh>&lt;&lt; config &gt;&gt;</vh></v>
 <v t="karstenw.20260805114710.1"><vh>&lt;&lt; markers &gt;&gt;</vh></v>
 <v t="karstenw.20260805115357.1"><vh>&lt;&lt;get rectangles&gt;&gt;</vh></v>
@@ -191,22 +193,24 @@
 <v t="karstenw.20170709210125.65"><vh>aspectRatio</vh></v>
 <v t="karstenw.20200419185026.1"><vh>insetRect</vh></v>
 <v t="karstenw.20260729162143.1"><vh>cropImageToRatioHorizontal</vh></v>
-<v t="karstenw.20210301171313.1" a="E"><vh>++ REFACTOR ++</vh>
+<v t="karstenw.20170709210125.66"><vh>normalizeOrientationImage</vh></v>
+<v t="karstenw.20260805210909.1"><vh>makerandomgradient</vh></v>
+<v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20201022144702.1"><vh>innerSquare</vh></v>
 <v t="karstenw.20200419185042.1"><vh>scaleLayerToHeight</vh></v>
 <v t="karstenw.20200419185049.1"><vh>placeImage</vh></v>
 <v t="karstenw.20200419185056.1"><vh>resizeImage</vh></v>
 </v>
-<v t="karstenw.20170709210125.66"><vh>normalizeOrientationImage</vh></v>
 </v>
 <v t="karstenw.20210301171559.1"><vh>Text</vh>
 <v t="karstenw.20200419184336.1"><vh>label</vh></v>
 </v>
 </v>
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
-<v t="karstenw.20210319153803.1"><vh>Collagen</vh>
-<v t="karstenw.20201006211521.1"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
+<v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
+<v t="karstenw.20260805212111.1"><vh>collageID</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 <v t="karstenw.20210331155153.1"><vh>shuffle tiles</vh></v>
@@ -217,24 +221,28 @@
 <v t="karstenw.20210316200041.1"><vh>&lt;&lt; orange gilb &gt;&gt;</vh></v>
 <v t="karstenw.20210316200115.1"><vh>&lt;&lt; paint texture &gt;&gt;</vh></v>
 </v>
+<v t="karstenw.20260805212749.1"><vh>save</vh></v>
 </v>
 <v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210316200956.1"><vh>config</vh></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
-<v t="karstenw.20210314151702.1" a="E"><vh>loop</vh>
+<v t="karstenw.20210314151702.1"><vh>loop</vh>
 <v t="karstenw.20260729182036.1"><vh>&lt;&lt; apply mask &gt;&gt;</vh></v>
 </v>
-<v t="karstenw.20210314151706.1" a="E"><vh>finish</vh>
+<v t="karstenw.20210314151706.1"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
+<v t="karstenw.20260805212950.1"><vh>save</vh></v>
 </v>
 <v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -245,9 +253,11 @@
 <v t="karstenw.20210317123345.1"><vh>&lt;&lt; orange gilb &gt;&gt;</vh></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
+<v t="karstenw.20260805212940.1"><vh>save</vh></v>
 </v>
 <v t="karstenw.20210317152421.1"><vh>@clean examples/Example collage 2.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -263,9 +273,11 @@
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
+<v t="karstenw.20260805212930.1"><vh>save</vh></v>
 </v>
 <v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -273,9 +285,11 @@
 <v t="karstenw.20210319124939.2"><vh>config</vh></v>
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
+<v t="karstenw.20260805212921.1"><vh>save</vh></v>
 </v>
 <v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -288,9 +302,11 @@
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
+<v t="karstenw.20260805212912.1"><vh>save</vh></v>
 </v>
 <v t="karstenw.20210331161145.1"><vh>@clean examples/Example collage 5.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -309,9 +325,11 @@
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
+<v t="karstenw.20260805212903.1"><vh>save</vh></v>
 </v>
 <v t="karstenw.20211005225841.1"><vh>@clean examples/Example collage 6.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -330,9 +348,11 @@
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
+<v t="karstenw.20260805212847.1"><vh>save</vh></v>
 </v>
 <v t="karstenw.20250409154304.1"><vh>@clean examples/Example collage 7.py</vh>
 <v t="karstenw.20201006211613.1"></v>
+<v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
@@ -351,9 +371,10 @@
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
+<v t="karstenw.20260805212831.1"><vh>save</vh></v>
 </v>
 </v>
-<v t="karstenw.20210319153818.1" a="E"><vh>Filters and Functions</vh>
+<v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
 <v t="karstenw.20211206121916.1"><vh>@clean examples/explore_gradients 1.py</vh>
 <v t="karstenw.20211206121944.1"><vh>Declarations</vh></v>
 </v>
@@ -2375,7 +2396,6 @@ if kwdbg:
 # need a different name for nodebox
 import random as rnd
 
-import libgradient
 import imagewells
 loadImageWell = imagewells.loadImageWell
 imagewells.kwdbg = kwdbg
@@ -2418,6 +2438,7 @@ if pb.py3:
     print("\n\npython3 %s  %s" %(fn, args) )
 else:
     print("\n\npython2 %s  %s" %(fn, args) )
+
 
 </t>
 <t tx="karstenw.20201006211627.1"># used in some examples
@@ -2745,11 +2766,6 @@ for j in range(rows):
 
 &lt;&lt; paint texture &gt;&gt;
 
-name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname
-c.draw(0,0, name=name)
-
 
 </t>
 <t tx="karstenw.20210316183613.1"># CONFIGURATION
@@ -2802,7 +2818,7 @@ for j in range(rows):
         # create a random mask gradient for this tile
         if kwlog:
             print( "Gradient" )
-        libgradient.makerandomgradient( c, w, h, j*y_offset )
+        pb.makerandomgradient( c, w, h )
         if kwlog:
             print( "Mask" )
         c.top.mask()
@@ -2833,11 +2849,6 @@ for j in range(rows):
 <t tx="karstenw.20210316183734.1">&lt;&lt; orange gilb &gt;&gt;
 
 &lt;&lt; paint texture &gt;&gt;
-
-name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname
-c.draw(0,0, name=name)
 
 </t>
 <t tx="karstenw.20210316195906.1">@language python
@@ -3016,11 +3027,6 @@ if paintoverlay:
     # c.top.opacity(60)
     c.top.overlay()
 
-name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname
-c.draw(0,0, name=name)
-
 
 </t>
 <t tx="karstenw.20210317123345.1">if gilb:
@@ -3085,11 +3091,6 @@ for j in range(rows):
 <t tx="karstenw.20210317152611.1">&lt;&lt; orange gilb &gt;&gt;
 
 &lt;&lt; paint texture &gt;&gt;
-
-name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname
-c.draw(0,0, name=name)
 
 
 </t>
@@ -3311,11 +3312,6 @@ if paintoverlay:
     c.top.opacity(50)
     c.top.overlay()
 
-name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname
-c.draw(0,0, name=name)
-
 
 </t>
 <t tx="karstenw.20210319125114.1">
@@ -3453,11 +3449,6 @@ for position in positions:
 
 &lt;&lt; paint texture &gt;&gt;
 
-name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname
-c.draw(0,0, name=name)
-
 
 </t>
 <t tx="karstenw.20210319153803.1"></t>
@@ -3480,10 +3471,6 @@ c.draw(0,0, name=name)
 
 &lt;&lt; paint texture &gt;&gt;
 
-name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname
-c.draw(0,0, name=name)
 
 </t>
 <t tx="karstenw.20210331161336.1">
@@ -3801,11 +3788,6 @@ gilb = 0
 <t tx="karstenw.20211005230001.1">&lt;&lt; orange gilb &gt;&gt;
 
 &lt;&lt; paint texture &gt;&gt;
-
-name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname
-c.draw(0,0, name=name)
 
 
 </t>
@@ -5838,12 +5820,6 @@ for position in positions:
 
 &lt;&lt; paint texture &gt;&gt;
 
-name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname
-c.draw(0,0, name=name)
-
-
 </t>
 <t tx="karstenw.20250409163352.1">doflip = randomblur
 if 0: #doflip:
@@ -5874,7 +5850,7 @@ if 0: #rnd.random() &gt; 0.3:
 def calculateRectangles(width, height):
     """Calculate several rectangles for the given size.
     
-    Returns a namedtuple( squares quads niner outerNiner threeRows threeColumns fourByFour )
+    Returns a namedtuple( squares outerSquare quads niner outerNiner threeRows threeColumns fourByFour )
         
         A rectangle in this context means a tuple with ( x,y,w,h ) - the rectangle class is not yet integrated
         
@@ -5931,7 +5907,7 @@ def calculateRectangles(width, height):
     &lt;&lt; four by four &gt;&gt;
     
     # result = Rectangles( innerrect, upper, lower, left, right, outerrect, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
-    result = Rectangles( squares, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
+    result = Rectangles( squares, outerrect, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
     return result
 
 
@@ -6105,7 +6081,7 @@ c.draw(name="Image_innerSquare")
     &lt;&lt; four by four &gt;&gt;
     
     # result = Rectangles( rectangles.innerSquare, upper, lower, left, right, rectangles.outerSquare, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
-    result = Rectangles( squares, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
+    result = Rectangles( squares, rectangles.outerSquare, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
     return result
 
 
@@ -6195,7 +6171,7 @@ asin = math.asin
 
 pp = pprint.pprint
 kwdbg = 0
-kwlog = 0
+kwlog = 1
 
 # disable large image warning
 old = Image.MAX_IMAGE_PIXELS
@@ -6204,7 +6180,7 @@ Image.MAX_IMAGE_PIXELS = None # 200000000
 
 # Rectangle result types
 Rectangles = collections.namedtuple('Rectangles', #"innerSquare upper lower left right outerSquare "
-                                                  "squares "
+                                                  "squares outerSquare "
                                                   "quads niner outerNiner "
                                                   "threeRows threeColumns fourByFour" )
 
@@ -6236,7 +6212,9 @@ else:
     # image is square
     innerrect = outerrect = upper = left = lower = right = Rectangle(0, 0,  width, height )
 
-squares = (innerrect, upper, lower, left, right, outerrect)
+squares = (innerrect, upper, lower, left, right)
+
+outerrect = (outerrect,)
 
 </t>
 <t tx="karstenw.20260609104122.1"></t>
@@ -6717,7 +6695,8 @@ fourByFour = tuple( fourByFour )
 </t>
 <t tx="karstenw.20260802143156.1"># innerSquare upper lower left right outerSquare quads niner outerNiner threeRows threeColumns fourByFour"
 squares = rectangles.squares
-innerrect, upper, lower, left, right, outerrect = squares
+outerrect = rectangles.outerSquare
+innerrect, upper, lower, left, right = squares
 if upper is not None:
     upper = Rectangle( upper[0], upper[1] - deltay, upper[2], upper[3] )
 
@@ -6730,7 +6709,8 @@ if left is not None:
 if right is not None:
     right = Rectangle( right[0] + deltax, right[1], right[2], right[3] )
 
-squares = (innerrect, upper, lower, left, right, outerrect )
+squares = (innerrect, upper, lower, left, right)
+outerrect = (outerrect,)
 
 </t>
 <t tx="karstenw.20260802143342.1"># QUADS
@@ -6846,6 +6826,7 @@ fourByFour = (
 
 
 def handlerectdicts( rects ):
+    return
     squares = rects['squares']
     sq1 = squares[:5]
     sq2 = [ squares[5] ]
@@ -6864,11 +6845,11 @@ else:
     gap = 0
 
 rects = rects._asdict()
-handlerectdicts( rects )
+#handlerectdicts( rects )
 # pp(rects)
 
 plainrects = plainrects._asdict()
-handlerectdicts( plainrects )
+#handlerectdicts( plainrects )
 
 keys = list(rects.keys())
 
@@ -6882,6 +6863,123 @@ if path is not None:
         name = "portrait"
     sizes = ( (w,h,name), )
     # types = ( "exploded", )
+
+</t>
+<t tx="karstenw.20260805202039.1"></t>
+<t tx="karstenw.20260805210909.1">def makerandomgradient( c, w, h, p1=0.3, p2=0.5, p3=0.75, brighter=0.0 ):
+    r = random.random()
+    # r = 0.01
+    if kwdbg:
+        print( "mask random: %.2f" % r )
+    # create gradient layer
+    grad = "BILINEAR"
+    
+    halfwidth = int( round(w / 2.0) )
+    
+    # P:0.3 - create a dual ramp gradient
+    if r &lt; p1:
+        # c.makemask(   SOLID | LINEAR | RADIAL | DIAMOND
+        #             | DUALRAMP | SINE | COSINE | RADIALCOSINE
+        #             | ROUNDRECT, w, h)
+        _ = c.gradient(LINEAR, halfwidth, h)
+        c.top.flip( HORIZONTAL )
+
+        # layer translate half a pict right
+        c.top.translate( halfwidth, 0)
+
+        # create another gradient layer and merge with first gradient
+        topidx = c.gradient(LINEAR, halfwidth, h)
+        # merge both gradients; destroys top layer
+        c.merge([ topidx-1 , topidx ])
+        # c.top.brightness(1.8)
+
+    # P:0.2 - sine 0..π
+    elif p1 &lt;= r &lt; p2:
+        grad = "SINE"
+        c.gradient(SINE, w, h)
+        
+    # P:0.25 - radial cosine
+    elif p2 &lt;= r &lt; p3:
+        grad = "RADIALCOSINE"
+        c.gradient(RADIALCOSINE, w, h)
+        # c.top.invert()
+
+    # P:0.25 - round rect
+    else:
+        grad = "ROUNDRECT"
+        c.gradient(ROUNDRECT, w, h, radius=int(w/5.0))
+
+    if brighter:
+        c.top.brightness(brighter)
+    if kwdbg:
+        print( "Gradient:  %s" % grad )
+
+
+</t>
+<t tx="karstenw.20260805212111.1"># get collage script number "collageid" for export name
+collageid = "??"
+# pdb.set_trace()
+try:
+    basename, ext = os.path.splitext( fn )
+    fnwords = basename.split()
+    collageid = fnwords[-1]
+except Exception as err:
+    print("Get collageid FAILED: '%s'" % (basename,) )
+    print( err )
+    
+</t>
+<t tx="karstenw.20260805212749.1">name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
+c.draw(0,0, name=name)
+
+</t>
+<t tx="karstenw.20260805212831.1">name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
+c.draw(0,0, name=name)
+
+</t>
+<t tx="karstenw.20260805212847.1">name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
+c.draw(0,0, name=name)
+
+</t>
+<t tx="karstenw.20260805212903.1">name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
+c.draw(0,0, name=name)
+
+</t>
+<t tx="karstenw.20260805212912.1">name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
+c.draw(0,0, name=name)
+
+</t>
+<t tx="karstenw.20260805212921.1">name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
+c.draw(0,0, name=name)
+
+</t>
+<t tx="karstenw.20260805212930.1">name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
+c.draw(0,0, name=name)
+
+</t>
+<t tx="karstenw.20260805212940.1">name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
+c.draw(0,0, name=name)
+
+</t>
+<t tx="karstenw.20260805212950.1">name = ""
+if configname:
+    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
+c.draw(0,0, name=name)
 
 </t>
 </tnodes>

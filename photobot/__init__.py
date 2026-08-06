@@ -54,7 +54,7 @@ asin = math.asin
 
 pp = pprint.pprint
 kwdbg = 0
-kwlog = 0
+kwlog = 1
 
 # disable large image warning
 old = Image.MAX_IMAGE_PIXELS
@@ -63,7 +63,7 @@ Image.MAX_IMAGE_PIXELS = None # 200000000
 
 # Rectangle result types
 Rectangles = collections.namedtuple('Rectangles', #"innerSquare upper lower left right outerSquare "
-                                                  "squares "
+                                                  "squares outerSquare "
                                                   "quads niner outerNiner "
                                                   "threeRows threeColumns fourByFour" )
 
@@ -2045,7 +2045,7 @@ with Image.open("hopper.jpg") as im:
 def calculateRectangles(width, height):
     """Calculate several rectangles for the given size.
     
-    Returns a namedtuple( squares quads niner outerNiner threeRows threeColumns fourByFour )
+    Returns a namedtuple( squares outerSquare quads niner outerNiner threeRows threeColumns fourByFour )
         
         A rectangle in this context means a tuple with ( x,y,w,h ) - the rectangle class is not yet integrated
         
@@ -2106,7 +2106,9 @@ def calculateRectangles(width, height):
         # image is square
         innerrect = outerrect = upper = left = lower = right = Rectangle(0, 0,  width, height )
 
-    squares = (innerrect, upper, lower, left, right, outerrect)
+    squares = (innerrect, upper, lower, left, right)
+
+    outerrect = (outerrect,)
 
     
     # make the niner
@@ -2187,7 +2189,7 @@ def calculateRectangles(width, height):
 
     
     # result = Rectangles( innerrect, upper, lower, left, right, outerrect, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
-    result = Rectangles( squares, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
+    result = Rectangles( squares, outerrect, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
     return result
 
 
@@ -2215,6 +2217,7 @@ def testRectangles( path=None, gap=20 ):
 
 
     def handlerectdicts( rects ):
+        return
         squares = rects['squares']
         sq1 = squares[:5]
         sq2 = [ squares[5] ]
@@ -2238,11 +2241,11 @@ def testRectangles( path=None, gap=20 ):
                 gap = 0
 
             rects = rects._asdict()
-            handlerectdicts( rects )
+            #handlerectdicts( rects )
             # pp(rects)
 
             plainrects = plainrects._asdict()
-            handlerectdicts( plainrects )
+            #handlerectdicts( plainrects )
 
             keys = list(rects.keys())
 
@@ -2336,7 +2339,8 @@ def explodeRectangles( rectangles, deltax=10, deltay=10 ):
     
     # innerSquare upper lower left right outerSquare quads niner outerNiner threeRows threeColumns fourByFour"
     squares = rectangles.squares
-    innerrect, upper, lower, left, right, outerrect = squares
+    outerrect = rectangles.outerSquare
+    innerrect, upper, lower, left, right = squares
     if upper is not None:
         upper = Rectangle( upper[0], upper[1] - deltay, upper[2], upper[3] )
 
@@ -2349,7 +2353,8 @@ def explodeRectangles( rectangles, deltax=10, deltay=10 ):
     if right is not None:
         right = Rectangle( right[0] + deltax, right[1], right[2], right[3] )
 
-    squares = (innerrect, upper, lower, left, right, outerrect )
+    squares = (innerrect, upper, lower, left, right)
+    outerrect = (outerrect,)
 
     
     # QUADS
@@ -2457,7 +2462,7 @@ def explodeRectangles( rectangles, deltax=10, deltay=10 ):
 
     
     # result = Rectangles( rectangles.innerSquare, upper, lower, left, right, rectangles.outerSquare, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
-    result = Rectangles( squares, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
+    result = Rectangles( squares, rectangles.outerSquare, quads, niner, outerNiner, threeRows, threeColumns, fourByFour )
     return result
 
 
@@ -2571,6 +2576,77 @@ def cropImageToRatioHorizontal( layerOrImage, ratio ):
     return layerOrImage
 
 
+def normalizeOrientationImage( img ):
+    """Rotate an image according to exif info.
+    
+    """
+    rotation = 0
+    try:
+        info = img._getexif()
+        if 274 in info:
+            r = info[274]
+            if r == 3:
+                rotation = 180
+            elif r == 6:
+                rotation = -90
+            elif r == 8:    
+                rotation = 90
+    except (Exception, IndexError) as err:
+        pass
+    if rotation != 0:
+        return img.rotate( rotation )
+    return img
+
+
+def makerandomgradient( c, w, h, p1=0.3, p2=0.5, p3=0.75, brighter=0.0 ):
+    r = random.random()
+    # r = 0.01
+    if kwdbg:
+        print( "mask random: %.2f" % r )
+    # create gradient layer
+    grad = "BILINEAR"
+    
+    halfwidth = int( round(w / 2.0) )
+    
+    # P:0.3 - create a dual ramp gradient
+    if r < p1:
+        # c.makemask(   SOLID | LINEAR | RADIAL | DIAMOND
+        #             | DUALRAMP | SINE | COSINE | RADIALCOSINE
+        #             | ROUNDRECT, w, h)
+        _ = c.gradient(LINEAR, halfwidth, h)
+        c.top.flip( HORIZONTAL )
+
+        # layer translate half a pict right
+        c.top.translate( halfwidth, 0)
+
+        # create another gradient layer and merge with first gradient
+        topidx = c.gradient(LINEAR, halfwidth, h)
+        # merge both gradients; destroys top layer
+        c.merge([ topidx-1 , topidx ])
+        # c.top.brightness(1.8)
+
+    # P:0.2 - sine 0..π
+    elif p1 <= r < p2:
+        grad = "SINE"
+        c.gradient(SINE, w, h)
+        
+    # P:0.25 - radial cosine
+    elif p2 <= r < p3:
+        grad = "RADIALCOSINE"
+        c.gradient(RADIALCOSINE, w, h)
+        # c.top.invert()
+
+    # P:0.25 - round rect
+    else:
+        grad = "ROUNDRECT"
+        c.gradient(ROUNDRECT, w, h, radius=int(w/5.0))
+
+    if brighter:
+        c.top.brightness(brighter)
+    if kwdbg:
+        print( "Gradient:  %s" % grad )
+
+
 # UNUSED
 def innerSquare( x1, y1, x2, y2 ):
     """Calculate an inner size crop square."""
@@ -2633,28 +2709,6 @@ def resizeImage( filepath, maxsize, orientation=True, width=True, height=True):
     if f:
         f.close()
     return img.convert("RGBA")
-
-
-def normalizeOrientationImage( img ):
-    """Rotate an image according to exif info.
-    
-    """
-    rotation = 0
-    try:
-        info = img._getexif()
-        if 274 in info:
-            r = info[274]
-            if r == 3:
-                rotation = 180
-            elif r == 6:
-                rotation = -90
-            elif r == 8:    
-                rotation = 90
-    except (Exception, IndexError) as err:
-        pass
-    if rotation != 0:
-        return img.rotate( rotation )
-    return img
 
 
 #

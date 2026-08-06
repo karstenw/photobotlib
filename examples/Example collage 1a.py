@@ -14,7 +14,6 @@ if kwdbg:
 # need a different name for nodebox
 import random as rnd
 
-import libgradient
 import imagewells
 loadImageWell = imagewells.loadImageWell
 imagewells.kwdbg = kwdbg
@@ -58,6 +57,18 @@ if pb.py3:
 else:
     print("\n\npython2 %s  %s" %(fn, args) )
 
+
+# get collage script number "collageid" for export name
+collageid = "??"
+# pdb.set_trace()
+try:
+    basename, ext = os.path.splitext( fn )
+    fnwords = basename.split()
+    collageid = fnwords[-1]
+except Exception as err:
+    print("Get collageid FAILED: '%s'" % (basename,) )
+    print( err )
+    
 # I use several distinct image collections
 
 # the defaults
@@ -279,9 +290,9 @@ if paintoverlay:
         if kwdbg or 1:
             print( "paint overlay end")
 
+
 name = ""
 if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname
+    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
 c.draw(0,0, name=name)
-
 

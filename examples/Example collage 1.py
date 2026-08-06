@@ -14,7 +14,6 @@ if kwdbg:
 # need a different name for nodebox
 import random as rnd
 
-import libgradient
 import imagewells
 loadImageWell = imagewells.loadImageWell
 imagewells.kwdbg = kwdbg
@@ -58,6 +57,18 @@ if pb.py3:
 else:
     print("\n\npython2 %s  %s" %(fn, args) )
 
+
+# get collage script number "collageid" for export name
+collageid = "??"
+# pdb.set_trace()
+try:
+    basename, ext = os.path.splitext( fn )
+    fnwords = basename.split()
+    collageid = fnwords[-1]
+except Exception as err:
+    print("Get collageid FAILED: '%s'" % (basename,) )
+    print( err )
+    
 # I use several distinct image collections
 
 # the defaults
@@ -181,7 +192,7 @@ for j in range(rows):
         # create a random mask gradient for this tile
         if kwlog:
             print( "Gradient" )
-        libgradient.makerandomgradient( c, w, h, j*y_offset )
+        pb.makerandomgradient( c, w, h )
         if kwlog:
             print( "Mask" )
         c.top.mask()
@@ -241,6 +252,6 @@ if paintoverlay:
 
 name = ""
 if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname
+    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
 c.draw(0,0, name=name)
 
