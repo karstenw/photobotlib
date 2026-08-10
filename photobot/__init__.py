@@ -54,7 +54,7 @@ asin = math.asin
 
 pp = pprint.pprint
 kwdbg = 0
-kwlog = 1
+kwlog = 0
 
 # disable large image warning
 old = Image.MAX_IMAGE_PIXELS
@@ -2104,7 +2104,8 @@ def calculateRectangles(width, height):
 
     else:
         # image is square
-        innerrect = outerrect = upper = left = lower = right = Rectangle(0, 0,  width, height )
+        innerrect = outerrect = Rectangle(0, 0,  width, height )
+        upper = left = lower = right = None
 
     squares = (innerrect, upper, lower, left, right)
 
@@ -2532,8 +2533,11 @@ def cropImageToRatioHorizontal( layerOrImage, ratio ):
     
     This is the primary cause for collage 1a weirdness
     """
-    t = type( layerOrImage )
-    if t in (Layer,):
+    
+    # pdb.set_trace()
+    
+    layertype = isinstance(layerOrImage, Layer)
+    if layertype:
         width, height = layerOrImage.bounds()
     else:
         width, height = layerOrImage.size()
@@ -2564,12 +2568,12 @@ def cropImageToRatioHorizontal( layerOrImage, ratio ):
                 print("oldwidth,width:",oldwidth,width)
                 print("oldheight,height:",oldwidth,height)
                 print()
-                if t in (Layer,):
+                if layertype:
                     layerOrImage.prnt()
                 print("\n\n\n")
         width = abs(width)
         height = abs(height)
-    if t in (Layer,):
+    if layertype:
         layerOrImage.img = layerOrImage.img.crop(box=(x,y, x+width,y+height))
     else:
         layerOrImage = layerOrImage.crop(box=(x,y, x+width,y+height))
@@ -2598,33 +2602,34 @@ def normalizeOrientationImage( img ):
     return img
 
 
-def makerandomgradient( c, w, h, p1=0.3, p2=0.5, p3=0.75, brighter=0.0 ):
+def makerandomgradient( c, w, h, p1=0.2, p2=0.4, p3=0.6, p4=0.8, p5=0.90, brighter=0.0 ):
+    
     r = random.random()
-    # r = 0.01
-    if kwdbg:
+    if kwlog:
         print( "mask random: %.2f" % r )
+
     # create gradient layer
-    grad = "BILINEAR"
-    
     halfwidth = int( round(w / 2.0) )
-    
-    # P:0.3 - create a dual ramp gradient
+    grad = "XXX"
+
+    # P:0.2 - create a dual ramp gradient
     if r < p1:
+        grad = "LINEAR"
         # c.makemask(   SOLID | LINEAR | RADIAL | DIAMOND
         #             | DUALRAMP | SINE | COSINE | RADIALCOSINE
         #             | ROUNDRECT, w, h)
         _ = c.gradient(LINEAR, halfwidth, h)
         c.top.flip( HORIZONTAL )
-
+        
         # layer translate half a pict right
         c.top.translate( halfwidth, 0)
-
+        
         # create another gradient layer and merge with first gradient
         topidx = c.gradient(LINEAR, halfwidth, h)
+        
         # merge both gradients; destroys top layer
         c.merge([ topidx-1 , topidx ])
-        # c.top.brightness(1.8)
-
+    
     # P:0.2 - sine 0..π
     elif p1 <= r < p2:
         grad = "SINE"
@@ -2634,17 +2639,78 @@ def makerandomgradient( c, w, h, p1=0.3, p2=0.5, p3=0.75, brighter=0.0 ):
     elif p2 <= r < p3:
         grad = "RADIALCOSINE"
         c.gradient(RADIALCOSINE, w, h)
-        # c.top.invert()
-
+    
     # P:0.25 - round rect
-    else:
+    elif p3 <= r < p4:
         grad = "ROUNDRECT"
-        c.gradient(ROUNDRECT, w, h, radius=int(w/5.0))
-
+        radius = int( round( w / 5.0 ))
+        c.gradient(ROUNDRECT, w, h, radius=radius)
+    
+    elif p4 <= r < p5:
+        grad = "QUAD"
+        top = c.gradient(QUAD, w, h, "", 0, 0)
+    
+    elif r >= p5:
+        grad = "COSINE"
+        _ = c.gradient(COSINE, halfwidth, h)
+        
+        # layer translate half a pict right
+        c.top.translate( halfwidth, 0)
+        
+        # create another gradient layer and merge with first gradient
+        topidx = c.gradient(COSINE, halfwidth, h)
+        c.top.flip( HORIZONTAL )
+        
+        # merge both gradients; destroys top layer
+        c.merge([ topidx-1 , topidx ])
+        
+    
     if brighter:
         c.top.brightness(brighter)
-    if kwdbg:
+    if kwlog:
         print( "Gradient:  %s" % grad )
+
+
+    return grad
+
+def image2rectangles( imagepath, rectanglename ):
+    """
+    """
+    
+    result = []
+    
+    # get cropped image part
+    if os.path.exists( imagepath ):
+        img = Image.open( imagepath )
+    else:
+        return result
+    
+    w,h = img.size
+    
+    rectangles = calculateRectangles( w, h)
+    rectangles = rectangles._asdict()
+    
+    rectlist = rectangles[rectanglename]
+    
+    for idx, r in enumerate(rectlist):
+        # pp(dir(rect))
+        
+        if r is None:
+            continue
+        #print("CROPRECT x,y,w,h:", r )
+        x1,y1,w,h = r
+        x2 = x1 + w
+        y2 = y1 + h
+        # extract part from image
+        imgrect = ( x1, y1, x2, y2 )
+        if 0:#kwlog:
+            print("FINAL CROPRECT:", idx, r )
+        img2 = img.copy().crop( imgrect )
+        # and move it where it belongs
+        result.append( img2 )
+        del img2 
+    
+    return result
 
 
 # UNUSED
