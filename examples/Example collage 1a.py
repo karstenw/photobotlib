@@ -126,6 +126,23 @@ c = pb.canvas( WIDTH, HEIGHT)
 c.fill( (127,127,127) )
 
 
+if not kwdbg:
+    turns = int( round(20 + (rnd.random() * 10)) )
+    if kwlog:
+        print( "shuffle turns: %i" % turns )
+    for turn in range( turns ):
+        rnd.shuffle(tiles)
+        rnd.shuffle(backgrounds)
+
+
+# background image
+if len(backgrounds) > 0:
+    bgimage = backgrounds.pop()
+    pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
+    print( "Background:")
+    pb.py23print(bgimage)
+
+
 # CONFIGURATION
 
 columns = 5
@@ -152,23 +169,6 @@ for tile in imagewell['tiles']:
         tiles.append( tile )
 
 
-if not kwdbg:
-    turns = int( round(20 + (rnd.random() * 10)) )
-    if kwlog:
-        print( "shuffle turns: %i" % turns )
-    for turn in range( turns ):
-        rnd.shuffle(tiles)
-        rnd.shuffle(backgrounds)
-
-
-# background image
-if len(backgrounds) > 0:
-    bgimage = backgrounds.pop()
-    pb.placeImage(c, bgimage, 0, 0, WIDTH, "Image 1", width=True, height=True)
-    print( "Background:")
-    pb.py23print(bgimage)
-
-
 tilecounter = 0
 for j in range(rows):
     colw = 0 # rnd.randint( 0, 15 )
@@ -181,14 +181,36 @@ for j in range(rows):
         nextpictpath = tiles.pop()
         tilecounter += 1
         if kwlog or 1:
-            pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
-        top = c.layer( nextpictpath )
+            pb.py23print( u"nextpictpath: %i\n%s" % (tilecounter, nextpictpath)  )
         
-        # uniform
-        layer = pb.cropImageToRatioHorizontal( c.top, RATIO )
-        
+        if rnd.random() > 0.51:
+            # square image
+            if kwlog:
+                print("SQUARE")
+            images = pb.image2rectangles( nextpictpath, "squares" )
+            img = images[0]
+            top = c.layer( img )
+            # print("tile:", tilecounter, w, h)
+        else:
+            # uniform aspect ratio 
+            if kwlog:
+                print("ASPECT RATIO")
+            top = c.layer( nextpictpath )
+            pb.cropImageToRatioHorizontal( c.top, RATIO )
+                
         # get current image bounds
         w, h = c.top.bounds()
+        
+        # skip a tile with p < 0.2
+        # rnd.random() < 0.2:
+        # 0:
+        # (i+j) % 2 == 0:
+        if rnd.random() < 0.2:
+            if kwlog:
+                print("Layer POPPED", i,j)
+            c.layers.pop()
+            colw += w
+            continue
         
         # calculate scale & apply
         s = pb.aspectRatio( (w,h), y_offset, height=True)
@@ -201,42 +223,7 @@ for j in range(rows):
         w, h = c.top.bounds()
         
         if 1:
-
-            r = 0.4 
-            r = rnd.random()
-
-            # 40%
-            if r < 0.15:
-                # create a dual ramp gradient
-                _ = c.gradient(pb.LINEAR, int(round(w/2)), h)
-                c.top.flip( pb.HORIZONTAL )
-                
-                # layer translate half a pict right
-                c.top.translate(w/2, 0) #j*y_offset)
-                
-                # create another gradient layer and merge with first gradient
-                top = c.gradient(pb.LINEAR, int(round(w/2)), h)
-                # merge both gradients; destroys top layer
-                c.merge([ top-1 , top ])
-
-            # 25 %
-            elif 0.15 < r <= 0.4:
-                # SINE
-                top = c.gradient(pb.SINE, w, h)
-            # 20 %
-            elif 0.4 < r <= 0.85:
-                # RADIALCOSINE
-                top = c.gradient(pb.RADIALCOSINE, w, h)
-                # c.top.invert()
-            # 15 %
-            else:
-                # ROUNDRECT
-                # 25%
-                top = c.gradient(pb.ROUNDRECT, w, h, radius=int(w/5.0))
-
-            #c.top.brightness(1.4)
-
-            # mask destroys top layer
+            pb.makerandomgradient( c, w, h, brighter=1.4 )
             c.top.mask()
 
         
@@ -252,10 +239,6 @@ for j in range(rows):
                 c.top.blur()
 
         w, h = c.top.bounds()
-        # print("tile:", tilecounter, w, h)
-        if (i+j) % 2 == 0:
-            print("Layer POPPED", i,j)
-            c.layers.pop()
         colw += w
         
         
