@@ -208,7 +208,7 @@ for position in positions:
 
 
     if kwdbg:
-        print("LINEAR")
+        print("MASK BILINEAR 1.4")
 
     # create up and downramp mask
     top = c.gradient(pb.LINEAR, halfwidth, h)
@@ -233,7 +233,7 @@ for position in positions:
 
 
     doflip = randomblur
-    if doflip:
+    if 0: #doflip:
         # do not flip if using comic tiles
         if "/comic/" not in nextpictpath:
             if rnd.random() > 0.75:
@@ -244,9 +244,12 @@ for position in positions:
             c.top.blur()
 
     if rnd.random() > 0.9:
-        if kwdbg:
-            print("BLEND SCREEN")
+        print("BLEND SCREEN")
         c.top.screen()
+        
+    if rnd.random() > 0.7:
+        print("BLEND HUE")
+        c.top.hue()
 
     if rnd.random() > 0.9:
         if kwdbg:
