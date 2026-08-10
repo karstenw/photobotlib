@@ -195,6 +195,7 @@
 <v t="karstenw.20260729162143.1"><vh>cropImageToRatioHorizontal</vh></v>
 <v t="karstenw.20170709210125.66"><vh>normalizeOrientationImage</vh></v>
 <v t="karstenw.20260805210909.1"><vh>makerandomgradient</vh></v>
+<v t="karstenw.20260808111720.1"><vh>image2rectangles</vh></v>
 <v t="karstenw.20210301171313.1"><vh>++ REFACTOR ++</vh>
 <v t="karstenw.20201022144702.1"><vh>innerSquare</vh></v>
 <v t="karstenw.20200419185042.1"><vh>scaleLayerToHeight</vh></v>
@@ -209,12 +210,14 @@
 <v t="karstenw.20201006211515.1" a="E"><vh>examples</vh>
 <v t="karstenw.20210319153803.1" a="E"><vh>Collagen</vh>
 <v t="karstenw.20201006211521.1" a="E"><vh>@clean examples/Example collage 1.py</vh>
+<v t="karstenw.20260810113721.1"><vh>+ DEFAULTS +</vh>
 <v t="karstenw.20201006211613.1"><vh>Declarations</vh></v>
 <v t="karstenw.20260805212111.1"><vh>collageID</vh></v>
 <v t="karstenw.20230115124413.1"><vh>Image folders</vh></v>
 <v t="karstenw.20201006211627.1"><vh>init</vh></v>
 <v t="karstenw.20210331155153.1"><vh>shuffle tiles</vh></v>
 <v t="karstenw.20220409174745.1"><vh>background image</vh></v>
+</v>
 <v t="karstenw.20210316183613.1"><vh>config</vh></v>
 <v t="karstenw.20210316183643.1"><vh>loop</vh></v>
 <v t="karstenw.20210316183734.1"><vh>finish</vh>
@@ -223,30 +226,32 @@
 </v>
 <v t="karstenw.20260805212749.1"><vh>save</vh></v>
 </v>
-<v t="karstenw.20201006211549.1"><vh>@clean examples/Example collage 1a.py</vh>
+<v t="karstenw.20201006211549.1" a="E"><vh>@clean examples/Example collage 1a.py</vh>
+<v t="karstenw.20260810113635.1"><vh>+ DEFAULTS +</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
-<v t="karstenw.20210316200956.1"><vh>config</vh></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
-<v t="karstenw.20210314151702.1"><vh>loop</vh>
-<v t="karstenw.20260729182036.1"><vh>&lt;&lt; apply mask &gt;&gt;</vh></v>
 </v>
+<v t="karstenw.20210316200956.1"><vh>config</vh></v>
+<v t="karstenw.20210314151702.1"><vh>loop</vh></v>
 <v t="karstenw.20210314151706.1"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
-<v t="karstenw.20260805212950.1"><vh>save</vh></v>
+<v t="karstenw.20260805212749.1"></v>
 </v>
-<v t="karstenw.20210316195906.1"><vh>@clean examples/Example collage 1b.py</vh>
+<v t="karstenw.20210316195906.1" a="E"><vh>@clean examples/Example collage 1b.py</vh>
+<v t="karstenw.20260810113823.1"><vh>+ DEFAULTS +</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
+</v>
 <v t="karstenw.20210316201117.1"><vh>config</vh></v>
 <v t="karstenw.20210316201120.1"><vh>loop</vh></v>
 <v t="karstenw.20210316201125.1"><vh>finish</vh>
@@ -255,13 +260,15 @@
 </v>
 <v t="karstenw.20260805212940.1"><vh>save</vh></v>
 </v>
-<v t="karstenw.20210317152421.1"><vh>@clean examples/Example collage 2.py</vh>
+<v t="karstenw.20210317152421.1" a="E"><vh>@clean examples/Example collage 2.py</vh>
+<v t="karstenw.20260810113837.1"><vh>+ DEFAULTS +</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
+</v>
 <v t="karstenw.20210317152601.1"><vh>config</vh></v>
 <v t="karstenw.20210317152606.1"><vh>loop</vh>
 <v t="karstenw.20210317154410.1"><vh>&lt;&lt; place image &gt;&gt;</vh></v>
@@ -275,25 +282,29 @@
 </v>
 <v t="karstenw.20260805212930.1"><vh>save</vh></v>
 </v>
-<v t="karstenw.20210317152433.1"><vh>@clean examples/Example collage 3.py</vh>
+<v t="karstenw.20210317152433.1" a="E"><vh>@clean examples/Example collage 3.py</vh>
+<v t="karstenw.20260810113650.1"><vh>+ DEFAULTS +</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
+</v>
 <v t="karstenw.20210319124939.2"><vh>config</vh></v>
 <v t="karstenw.20210319124939.3"><vh>loop</vh></v>
 <v t="karstenw.20210319124940.1"><vh>finish</vh></v>
-<v t="karstenw.20260805212921.1"><vh>save</vh></v>
+<v t="karstenw.20260805212749.1"></v>
 </v>
-<v t="karstenw.20210317152441.1"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20210317152441.1" a="E"><vh>@clean examples/Example collage 4.py</vh>
+<v t="karstenw.20260810113659.1"><vh>+ DEFAULTS +</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
+</v>
 <v t="karstenw.20210319125114.1"><vh>config</vh></v>
 <v t="karstenw.20210319125121.1"><vh>loop</vh>
 <v t="karstenw.20210331165116.1"><vh>&lt;&lt; tile blur &gt;&gt;</vh></v>
@@ -304,13 +315,15 @@
 </v>
 <v t="karstenw.20260805212912.1"><vh>save</vh></v>
 </v>
-<v t="karstenw.20210331161145.1"><vh>@clean examples/Example collage 5.py</vh>
+<v t="karstenw.20210331161145.1" a="E"><vh>@clean examples/Example collage 5.py</vh>
+<v t="karstenw.20260810113657.1"><vh>+ DEFAULTS +</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
+</v>
 <v t="karstenw.20210331161336.1"><vh>config</vh></v>
 <v t="karstenw.20210331161342.1"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"><vh>&lt;&lt; image placement &gt;&gt;</vh></v>
@@ -319,21 +332,23 @@
 <v t="karstenw.20210331164758.1"><vh>&lt;&lt; create up down ramp mask &gt;&gt;</vh></v>
 <v t="karstenw.20210331165103.1"><vh>&lt;&lt; tile translation &gt;&gt;</vh></v>
 <v t="karstenw.20210331165110.1"><vh>&lt;&lt; opacity &gt;&gt;</vh></v>
-<v t="karstenw.20210331165116.1"></v>
+<v t="karstenw.20260810102928.1"><vh>&lt;&lt; tile blur &gt;&gt;</vh></v>
 </v>
 <v t="karstenw.20210331161246.1"><vh>finish</vh>
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
-<v t="karstenw.20260805212903.1"><vh>save</vh></v>
+<v t="karstenw.20260805212749.1"></v>
 </v>
-<v t="karstenw.20211005225841.1"><vh>@clean examples/Example collage 6.py</vh>
+<v t="karstenw.20211005225841.1" a="E"><vh>@clean examples/Example collage 6.py</vh>
+<v t="karstenw.20260810113653.1"><vh>+ DEFAULTS +</vh>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
 <v t="karstenw.20201006211627.1"></v>
 <v t="karstenw.20210331155153.1"></v>
 <v t="karstenw.20220409174745.1"></v>
+</v>
 <v t="karstenw.20211005225906.2"><vh>config</vh></v>
 <v t="karstenw.20211005233913.1"><vh>loop</vh>
 <v t="karstenw.20210331164744.1"></v>
@@ -350,7 +365,8 @@
 </v>
 <v t="karstenw.20260805212847.1"><vh>save</vh></v>
 </v>
-<v t="karstenw.20250409154304.1"><vh>@clean examples/Example collage 7.py</vh>
+<v t="karstenw.20250409154304.1" a="E"><vh>@clean examples/Example collage 7.py</vh>
+<v t="karstenw.20260810113711.1"><vh>+ DEFAULTS +</vh></v>
 <v t="karstenw.20201006211613.1"></v>
 <v t="karstenw.20260805212111.1"></v>
 <v t="karstenw.20230115124413.1"></v>
@@ -371,7 +387,7 @@
 <v t="karstenw.20210316200041.1"></v>
 <v t="karstenw.20210316200115.1"></v>
 </v>
-<v t="karstenw.20260805212831.1"><vh>save</vh></v>
+<v t="karstenw.20260805212749.1"></v>
 </v>
 </v>
 <v t="karstenw.20210319153818.1"><vh>Filters and Functions</vh>
@@ -2720,14 +2736,36 @@ for j in range(rows):
         nextpictpath = tiles.pop()
         tilecounter += 1
         if kwlog or 1:
-            pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
-        top = c.layer( nextpictpath )
+            pb.py23print( u"nextpictpath: %i\n%s" % (tilecounter, nextpictpath)  )
         
-        # uniform
-        layer = pb.cropImageToRatioHorizontal( c.top, RATIO )
-        
+        if rnd.random() &gt; 0.51:
+            # square image
+            if kwlog:
+                print("SQUARE")
+            images = pb.image2rectangles( nextpictpath, "squares" )
+            img = images[0]
+            top = c.layer( img )
+            # print("tile:", tilecounter, w, h)
+        else:
+            # uniform aspect ratio 
+            if kwlog:
+                print("ASPECT RATIO")
+            top = c.layer( nextpictpath )
+            pb.cropImageToRatioHorizontal( c.top, RATIO )
+                
         # get current image bounds
         w, h = c.top.bounds()
+        
+        # skip a tile with p &lt; 0.2
+        # rnd.random() &lt; 0.2:
+        # 0:
+        # (i+j) % 2 == 0:
+        if rnd.random() &lt; 0.2:
+            if kwlog:
+                print("Layer POPPED", i,j)
+            c.layers.pop()
+            colw += w
+            continue
         
         # calculate scale &amp; apply
         s = pb.aspectRatio( (w,h), y_offset, height=True)
@@ -2740,7 +2778,9 @@ for j in range(rows):
         w, h = c.top.bounds()
         
         if 1:
-            &lt;&lt; apply mask &gt;&gt;
+            pb.makerandomgradient( c, w, h, brighter=1.4 )
+            c.top.mask()
+
         
         # c.top.translate(colw+i*w, j*y_offset)
         c.top.translate(colw, j*y_offset)
@@ -2754,10 +2794,6 @@ for j in range(rows):
                 c.top.blur()
 
         w, h = c.top.bounds()
-        # print("tile:", tilecounter, w, h)
-        if (i+j) % 2 == 0:
-            print("Layer POPPED", i,j)
-            c.layers.pop()
         colw += w
         
         
@@ -3217,7 +3253,7 @@ for position in positions:
     # create image in canvas at 0,0
     nextpictpath = tiles.pop()
     tilecounter += 1
-    if kwlog or 1:
+    if kwlog and 1:
         pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
 
     top, w, h = pb.placeImage(c, nextpictpath, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
@@ -3237,36 +3273,37 @@ for position in positions:
     r = rnd.random()
     # 10%
     if 0 &lt; r &lt; 0.2:
-        print( "20% LINEAR" )
-        # create gradient layer
-        # top is now gradient index
+        if kwlog:
+            print( "20% LINEAR" )
         c.gradient(pb.LINEAR, int(round(w/2.0)), h)
         c.top.flip( pb.HORIZONTAL )
 
         # translate half a pict right
         c.top.translate(w/2, 0)
 
-        # create gradient layer
-        # top is now second gradient image
         topidx = c.gradient(pb.LINEAR, int(round(w/2.0)), h)
 
         # merge both gradients; destroys top layer
         c.merge([ topidx-1 , topidx ])
 
     elif 0.2 &lt;= r &lt; 0.4:
-        print( "20% SINE" )
+        if kwlog:
+            print( "20% SINE" )
         top = c.gradient(pb.SINE, w, h)
         
     elif 0.4 &lt;= r &lt; 0.6:
-        print( "20% RADIALCOSINE" )
+        if kwlog:
+            print( "20% RADIALCOSINE" )
         top = c.gradient(pb.RADIALCOSINE, w, h)
         # c.top.invert()
     elif 0.6 &lt;= r &lt; 0.8:
-        print( "20% ROUNDRECT" )
+        if kwlog:
+            print( "20% ROUNDRECT" )
         # 25%
         top = c.gradient(pb.ROUNDRECT, w, h, "", radius=w/5.0, radius2=w/5.0)
     elif r &gt;= 0.8:
-        print( "20% QUAD" )
+        if kwlog:
+            print( "20% QUAD" )
         top = c.gradient(pb.QUAD, w, h, "", 0, 0)
             
     # enhance mask
@@ -3534,7 +3571,7 @@ top, w, h = pb.placeImage(c, path, 0, 0, maxsize=None, name="Image %i,%i" % (x,y
 
 </t>
 <t tx="karstenw.20210331164758.1">if kwdbg:
-    print("LINEAR")
+    print("MASK BILINEAR 1.4")
 
 # create up and downramp mask
 top = c.gradient(pb.LINEAR, halfwidth, h)
@@ -5828,19 +5865,20 @@ if 0: #doflip:
         if rnd.random() &gt; 0.75:
             c.top.flip()
 
-if 0: #randomblur:
+if 1: #randomblur:
     if rnd.random() &gt; 0.89:
         c.top.blur()
 
 if 1: #rnd.random() &gt; 0.23:
-    if rnd.random() &gt; 0.5:
+    if rnd.random() &gt; 0.7:
         print("BLEND SCREEN")
         c.top.screen()
-    else:
+    #else:
+    if rnd.random() &gt; 0.7:
         print("BLEND HUE")
         c.top.hue()
 
-if 0: #rnd.random() &gt; 0.3:
+if rnd.random() &gt; 0.5:
     if kwdbg:
         print("BLEND COLOR")
     c.top.color()
@@ -6171,7 +6209,7 @@ asin = math.asin
 
 pp = pprint.pprint
 kwdbg = 0
-kwlog = 1
+kwlog = 0
 
 # disable large image warning
 old = Image.MAX_IMAGE_PIXELS
@@ -6210,7 +6248,8 @@ elif height &lt; width:
 
 else:
     # image is square
-    innerrect = outerrect = upper = left = lower = right = Rectangle(0, 0,  width, height )
+    innerrect = outerrect = Rectangle(0, 0,  width, height )
+    upper = left = lower = right = None
 
 squares = (innerrect, upper, lower, left, right)
 
@@ -6345,8 +6384,11 @@ c.draw(name="Layer_function_unsharpmask")
     
     This is the primary cause for collage 1a weirdness
     """
-    t = type( layerOrImage )
-    if t in (Layer,):
+    
+    # pdb.set_trace()
+    
+    layertype = isinstance(layerOrImage, Layer)
+    if layertype:
         width, height = layerOrImage.bounds()
     else:
         width, height = layerOrImage.size()
@@ -6377,56 +6419,17 @@ c.draw(name="Layer_function_unsharpmask")
                 print("oldwidth,width:",oldwidth,width)
                 print("oldheight,height:",oldwidth,height)
                 print()
-                if t in (Layer,):
+                if layertype:
                     layerOrImage.prnt()
                 print("\n\n\n")
         width = abs(width)
         height = abs(height)
-    if t in (Layer,):
+    if layertype:
         layerOrImage.img = layerOrImage.img.crop(box=(x,y, x+width,y+height))
     else:
         layerOrImage = layerOrImage.crop(box=(x,y, x+width,y+height))
     return layerOrImage
 
-
-</t>
-<t tx="karstenw.20260729182036.1">
-r = 0.4 
-r = rnd.random()
-
-# 40%
-if r &lt; 0.15:
-    # create a dual ramp gradient
-    _ = c.gradient(pb.LINEAR, int(round(w/2)), h)
-    c.top.flip( pb.HORIZONTAL )
-    
-    # layer translate half a pict right
-    c.top.translate(w/2, 0) #j*y_offset)
-    
-    # create another gradient layer and merge with first gradient
-    top = c.gradient(pb.LINEAR, int(round(w/2)), h)
-    # merge both gradients; destroys top layer
-    c.merge([ top-1 , top ])
-
-# 25 %
-elif 0.15 &lt; r &lt;= 0.4:
-    # SINE
-    top = c.gradient(pb.SINE, w, h)
-# 20 %
-elif 0.4 &lt; r &lt;= 0.85:
-    # RADIALCOSINE
-    top = c.gradient(pb.RADIALCOSINE, w, h)
-    # c.top.invert()
-# 15 %
-else:
-    # ROUNDRECT
-    # 25%
-    top = c.gradient(pb.ROUNDRECT, w, h, radius=int(w/5.0))
-
-#c.top.brightness(1.4)
-
-# mask destroys top layer
-c.top.mask()
 
 </t>
 <t tx="karstenw.20260731102556.1">@language python
@@ -6866,33 +6869,34 @@ if path is not None:
 
 </t>
 <t tx="karstenw.20260805202039.1"></t>
-<t tx="karstenw.20260805210909.1">def makerandomgradient( c, w, h, p1=0.3, p2=0.5, p3=0.75, brighter=0.0 ):
+<t tx="karstenw.20260805210909.1">def makerandomgradient( c, w, h, p1=0.2, p2=0.4, p3=0.6, p4=0.8, p5=0.90, brighter=0.0 ):
+    
     r = random.random()
-    # r = 0.01
-    if kwdbg:
+    if kwlog:
         print( "mask random: %.2f" % r )
+
     # create gradient layer
-    grad = "BILINEAR"
-    
     halfwidth = int( round(w / 2.0) )
-    
-    # P:0.3 - create a dual ramp gradient
+    grad = "XXX"
+
+    # P:0.2 - create a dual ramp gradient
     if r &lt; p1:
+        grad = "LINEAR"
         # c.makemask(   SOLID | LINEAR | RADIAL | DIAMOND
         #             | DUALRAMP | SINE | COSINE | RADIALCOSINE
         #             | ROUNDRECT, w, h)
         _ = c.gradient(LINEAR, halfwidth, h)
         c.top.flip( HORIZONTAL )
-
+        
         # layer translate half a pict right
         c.top.translate( halfwidth, 0)
-
+        
         # create another gradient layer and merge with first gradient
         topidx = c.gradient(LINEAR, halfwidth, h)
+        
         # merge both gradients; destroys top layer
         c.merge([ topidx-1 , topidx ])
-        # c.top.brightness(1.8)
-
+    
     # P:0.2 - sine 0..π
     elif p1 &lt;= r &lt; p2:
         grad = "SINE"
@@ -6902,18 +6906,39 @@ if path is not None:
     elif p2 &lt;= r &lt; p3:
         grad = "RADIALCOSINE"
         c.gradient(RADIALCOSINE, w, h)
-        # c.top.invert()
-
+    
     # P:0.25 - round rect
-    else:
+    elif p3 &lt;= r &lt; p4:
         grad = "ROUNDRECT"
-        c.gradient(ROUNDRECT, w, h, radius=int(w/5.0))
-
+        radius = int( round( w / 5.0 ))
+        c.gradient(ROUNDRECT, w, h, radius=radius)
+    
+    elif p4 &lt;= r &lt; p5:
+        grad = "QUAD"
+        top = c.gradient(QUAD, w, h, "", 0, 0)
+    
+    elif r &gt;= p5:
+        grad = "COSINE"
+        _ = c.gradient(COSINE, halfwidth, h)
+        
+        # layer translate half a pict right
+        c.top.translate( halfwidth, 0)
+        
+        # create another gradient layer and merge with first gradient
+        topidx = c.gradient(COSINE, halfwidth, h)
+        c.top.flip( HORIZONTAL )
+        
+        # merge both gradients; destroys top layer
+        c.merge([ topidx-1 , topidx ])
+        
+    
     if brighter:
         c.top.brightness(brighter)
-    if kwdbg:
+    if kwlog:
         print( "Gradient:  %s" % grad )
 
+
+    return grad
 
 </t>
 <t tx="karstenw.20260805212111.1"># get collage script number "collageid" for export name
@@ -6934,31 +6959,13 @@ if configname:
 c.draw(0,0, name=name)
 
 </t>
-<t tx="karstenw.20260805212831.1">name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
-c.draw(0,0, name=name)
-
-</t>
 <t tx="karstenw.20260805212847.1">name = ""
 if configname:
     name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
 c.draw(0,0, name=name)
 
 </t>
-<t tx="karstenw.20260805212903.1">name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
-c.draw(0,0, name=name)
-
-</t>
 <t tx="karstenw.20260805212912.1">name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
-c.draw(0,0, name=name)
-
-</t>
-<t tx="karstenw.20260805212921.1">name = ""
 if configname:
     name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
 c.draw(0,0, name=name)
@@ -6976,11 +6983,80 @@ if configname:
 c.draw(0,0, name=name)
 
 </t>
-<t tx="karstenw.20260805212950.1">name = ""
-if configname:
-    name = "photobot_" + pb.datestring() + "-" + configname + "-" + collageid
-c.draw(0,0, name=name)
+<t tx="karstenw.20260808111720.1">def image2rectangles( imagepath, rectanglename ):
+    """
+    """
+    
+    result = []
+    
+    # get cropped image part
+    if os.path.exists( imagepath ):
+        img = Image.open( imagepath )
+    else:
+        return result
+    
+    w,h = img.size
+    
+    rectangles = calculateRectangles( w, h)
+    rectangles = rectangles._asdict()
+    
+    rectlist = rectangles[rectanglename]
+    
+    for idx, r in enumerate(rectlist):
+        # pp(dir(rect))
+        
+        if r is None:
+            continue
+        #print("CROPRECT x,y,w,h:", r )
+        x1,y1,w,h = r
+        x2 = x1 + w
+        y2 = y1 + h
+        # extract part from image
+        imgrect = ( x1, y1, x2, y2 )
+        if 0:#kwlog:
+            print("FINAL CROPRECT:", idx, r )
+        img2 = img.copy().crop( imgrect )
+        # and move it where it belongs
+        result.append( img2 )
+        del img2 
+    
+    return result
+
 
 </t>
+<t tx="karstenw.20260810102928.1">doflip = randomblur
+if 0: #doflip:
+    # do not flip if using comic tiles
+    if "/comic/" not in nextpictpath:
+        if rnd.random() &gt; 0.75:
+            c.top.flip()
+
+if randomblur:
+    if rnd.random() &gt; 0.75:
+        c.top.blur()
+
+if rnd.random() &gt; 0.9:
+    print("BLEND SCREEN")
+    c.top.screen()
+    
+if rnd.random() &gt; 0.7:
+    print("BLEND HUE")
+    c.top.hue()
+
+if rnd.random() &gt; 0.9:
+    if kwdbg:
+        print("BLEND COLOR")
+    c.top.color()
+
+</t>
+<t tx="karstenw.20260810113635.1"></t>
+<t tx="karstenw.20260810113650.1"></t>
+<t tx="karstenw.20260810113653.1"></t>
+<t tx="karstenw.20260810113657.1"></t>
+<t tx="karstenw.20260810113659.1"></t>
+<t tx="karstenw.20260810113711.1"></t>
+<t tx="karstenw.20260810113721.1"></t>
+<t tx="karstenw.20260810113823.1"></t>
+<t tx="karstenw.20260810113837.1"></t>
 </tnodes>
 </leo_file>
