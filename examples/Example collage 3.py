@@ -177,7 +177,7 @@ for position in positions:
     # create image in canvas at 0,0
     nextpictpath = tiles.pop()
     tilecounter += 1
-    if kwlog or 1:
+    if kwlog and 1:
         pb.py23print( u"%i - %s" % (tilecounter, nextpictpath)  )
 
     top, w, h = pb.placeImage(c, nextpictpath, 0, 0, maxsize=None, name="Image %i,%i" % (x,y))
@@ -197,36 +197,37 @@ for position in positions:
     r = rnd.random()
     # 10%
     if 0 < r < 0.2:
-        print( "20% LINEAR" )
-        # create gradient layer
-        # top is now gradient index
+        if kwlog:
+            print( "20% LINEAR" )
         c.gradient(pb.LINEAR, int(round(w/2.0)), h)
         c.top.flip( pb.HORIZONTAL )
 
         # translate half a pict right
         c.top.translate(w/2, 0)
 
-        # create gradient layer
-        # top is now second gradient image
         topidx = c.gradient(pb.LINEAR, int(round(w/2.0)), h)
 
         # merge both gradients; destroys top layer
         c.merge([ topidx-1 , topidx ])
 
     elif 0.2 <= r < 0.4:
-        print( "20% SINE" )
+        if kwlog:
+            print( "20% SINE" )
         top = c.gradient(pb.SINE, w, h)
         
     elif 0.4 <= r < 0.6:
-        print( "20% RADIALCOSINE" )
+        if kwlog:
+            print( "20% RADIALCOSINE" )
         top = c.gradient(pb.RADIALCOSINE, w, h)
         # c.top.invert()
     elif 0.6 <= r < 0.8:
-        print( "20% ROUNDRECT" )
+        if kwlog:
+            print( "20% ROUNDRECT" )
         # 25%
         top = c.gradient(pb.ROUNDRECT, w, h, "", radius=w/5.0, radius2=w/5.0)
     elif r >= 0.8:
-        print( "20% QUAD" )
+        if kwlog:
+            print( "20% QUAD" )
         top = c.gradient(pb.QUAD, w, h, "", 0, 0)
             
     # enhance mask
